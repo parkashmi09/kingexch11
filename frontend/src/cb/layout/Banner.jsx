@@ -2,27 +2,32 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Slider from '../Slider';
-import { login } from '../assets';
+import { banner } from '../assets';
 import { getSlides, warmBanners, bannerSrc, failed, announceReady } from '../../utils/bannerCache';
 import useViewportWidth, { MOBILE_MAX } from '../useViewport';
 
-// The theme's own hero set — five slides, shipped with the skin rather than
-// fetched. This is what the reference shows to a LOGGED-OUT visitor: its banner
-// component only asks the admin feed for images once you are signed in, and
-// falls back to these files otherwise.
+// The hero set mirrored from the reference, in its order.
 //
-// Desktop and phone get DIFFERENT artwork, not the same file rescaled: the
-// reference keeps two lists side by side and picks by viewport. The crops are
-// cut to suit each shape — 1502x486 (3.09:1) for desktop, 768x403 (1.91:1) for
-// phones — and since the image is `width: 100%` with its own aspect ratio, that
-// choice is what sets the hero's height. Serving the desktop crop to a phone
-// rendered a hero barely half as tall as the original's.
-const EXT = ['jpg', 'webp', 'webp', 'webp', 'webp'];
+// Desktop and phone get DIFFERENT crops, not one file rescaled — the reference
+// keeps two lists and picks by viewport. That choice is what sets the hero's
+// HEIGHT: `.banner img` is `width: 100%; height: auto`, with no CSS height
+// anywhere, so the image's own aspect ratio is the only thing deciding it.
+// Desktop crops are ~6.4:1 (199px at a 1279px column), phone crops 2.56:1
+// (168px at 430px).
+//
+// These are the reference's marketing images and it changes them from its
+// admin: an earlier snapshot here was 3.09:1, which rendered the hero at 413px
+// — more than twice the height the real site was showing by then. If the two
+// drift apart again, re-pull this list rather than adjusting any CSS.
+const SLIDES = [
+  '3.jpeg', '4.jpeg', '5.jpeg', '6.jpeg', '7.jpeg', '8.jpeg', '11.jpeg',
+  '16.jpg', '17.jpg', '18.jpg', '19.jpg',
+];
 
 const themeSlides = (mobile) =>
-  EXT.map((ext, i) => ({
-    bimg: login(`main-banner${mobile ? '-mobile' : ''}${i}.${ext}`),
-    ky: `theme_bnnr_${mobile ? 'mb' : 'dsktp'}_${i}`,
+  SLIDES.map((file) => ({
+    bimg: banner(`${mobile ? 'mobile' : 'desktop'}_banner_${file}`),
+    ky: `bhm_bnnr_${mobile ? 'mb' : 'dsktp'}_${file.split('.')[0]}`,
     lnkurl: null,
     caption: null,
   }));
