@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
 import { useSelector } from 'react-redux';
 import useMatchData from '../../hooks/useMatchData';
-import HomeBetSlipModal from '../../components/betting/HomeBetSlipModal';
+
 import { isCricketLimitedOvers } from '../../components/betting/placeBet/placeBetRules';
 import { formatOpenDate } from '../../utils/betTableData';
 import { cbToastError } from '../toast';
@@ -119,6 +119,10 @@ function EventPage({ gmid, sid, title, variant = 'tournament', showTitleStrip = 
               market={market}
               sid={sid}
               onOddsClick={onOddsClick}
+              // The slip opens at the foot of the market it was struck on, so
+              // only that one renders it.
+              slipBet={slipBet && String(slipBet.market_id) === String(market.mid) ? slipBet : null}
+              onSlipClose={() => setSlipBet(null)}
             />
           ))}
         </div>
@@ -133,7 +137,6 @@ function EventPage({ gmid, sid, title, variant = 'tournament', showTitleStrip = 
         </div>
       </div>
 
-      {slipBet && <HomeBetSlipModal bet={slipBet} onClose={() => setSlipBet(null)} />}
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ODDS_COLUMNS, priceOf, formatSize } from './odds';
+import BetSlip from './BetSlip';
 
 const OPEN_STATES = ['', 'OPEN', 'ACTIVE'];
 const isBallRunning = (s) => ['BALL RUNNING', 'BALL_RUNNING'].includes(s);
@@ -39,7 +40,7 @@ function runnerSuspendedLabel(section) {
 const TITLES = { TOURNAMENT_WINNER: 'Winner' };
 const marketTitle = (m) => TITLES[m.mname] || m.mname || 'Market';
 
-function EventMarket({ market, sid, onOddsClick }) {
+function EventMarket({ market, sid, onOddsClick, slipBet = null, onSlipClose }) {
   const [open, setOpen] = useState(true);
   const runners = market.section || [];
   const suspended = suspendedLabel(market.status, runners);
@@ -146,6 +147,8 @@ function EventMarket({ market, sid, onOddsClick }) {
               );
             })}
           </div>
+
+          {slipBet && <BetSlip bet={slipBet} onClose={onSlipClose} />}
         </div>
       )}
     </>

@@ -2,7 +2,7 @@ import { useCallback, useState } from 'react';
 import { useSelector } from 'react-redux';
 import useSportData from '../../hooks/useSportData';
 import MarketRow from './MarketRow';
-import HomeBetSlipModal from '../../components/betting/HomeBetSlipModal';
+import BetSlip from '../event/BetSlip';
 import { cbToastError } from '../toast';
 import { isCricketLimitedOvers } from '../../components/betting/placeBet/placeBetRules';
 import { mapGame, buildCricketRows, buildFootballRows, buildTennisRows } from '../../utils/betTableData';
@@ -103,8 +103,8 @@ function SportList({ sportId, title, showTitle = false, reloadKey = 0, pollOnce 
           </div>
         </div>
         <div className="marketOdd">{body()}</div>
+        {slipBet && <BetSlip bet={slipBet} onClose={() => setSlipBet(null)} />}
       </div>
-      {slipBet && <HomeBetSlipModal bet={slipBet} onClose={() => setSlipBet(null)} />}
     </>
   );
 }
