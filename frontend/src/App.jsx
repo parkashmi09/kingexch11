@@ -19,6 +19,7 @@ import CbCpl from './cb/pages/Cpl';
 import CbEventDetails from './cb/pages/EventDetails';
 import CbRules from './cb/pages/Rules';
 import CbSportPage from './cb/pages/SportPage';
+import CbRaceDetails from './cb/pages/RaceDetails';
 import LegacyStyles from './legacyStyles';
 import VirtualCricket from './pages/VirtualCricket';
 import VirtualCricketDetails from './pages/VirtualCricketDetails';
@@ -68,27 +69,24 @@ function CasinoGameEntranceGlide() {
 // feed ships no silk/jockey/trainer data and the reference gives it a plain
 // back/lay grid (market-13, rendered by Market13Block off the market's dtype),
 // so it needs none of RacingDetails' silk rows or COMBINED slip.
-const RACING_SIDS = ['10'];
+const RACING_SIDS = ['10', '65'];
 
 function DetailPage() {
   const { sid } = useParams();
   return RACING_SIDS.includes(String(sid)) ? <RacingDetails /> : <GameDetails />;
 }
 
-// Match details. Non-racing sports go to the clickbet event view — the same one
-// the CPL board uses, which is how the reference serves both. Ladder markets
-// render as cards, the fancy family as its own grouped list.
+// Match details, split by what the sport's card actually looks like.
 //
-// Horse racing stays on the old page: its view is nothing like an event's —
-// silk colours, jockey and trainer rows, a combined dutching slip — and none of
-// that has been rebuilt. Rendering MainLayout hands the route back to the old
-// chrome, whose own router still resolves it to RacingDetails.
+// Racing gets its own view — cloth numbers, silks and the form panel, over one
+// win market — because a race card shares nothing with a match beyond the
+// price ladder. Everything else goes to the event view the CPL board uses:
+// ladder markets as cards, the fancy family as its own grouped list.
 function DetailRoute() {
   const { sid } = useParams();
-  if (RACING_SIDS.includes(String(sid))) return <MainLayout />;
   return (
     <CbLayout>
-      <CbEventDetails />
+      {RACING_SIDS.includes(String(sid)) ? <CbRaceDetails /> : <CbEventDetails />}
     </CbLayout>
   );
 }
