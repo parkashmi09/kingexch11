@@ -32,6 +32,7 @@ import './styles/clickbet.css';
 // from those sheets it needs, carved out so it renders correctly here. See the
 // header of the file.
 import './cb/betslip-legacy.css';
+import './cb/casino-tiles.css';
 import './config';
 
 ReactDOM.createRoot(document.getElementById('app')).render(

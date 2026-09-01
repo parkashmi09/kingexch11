@@ -27,6 +27,7 @@ import CbUnsettledBet from './cb/report/UnsettledBet';
 import CbSetStake from './cb/report/SetStake';
 import CbChangePassword from './cb/report/ChangePassword';
 import CbResults from './cb/report/Results';
+import CbCasinoLobby from './cb/pages/CasinoLobby';
 import LegacyStyles from './legacyStyles';
 import VirtualCricket from './pages/VirtualCricket';
 import VirtualCricketDetails from './pages/VirtualCricketDetails';
@@ -501,6 +502,10 @@ function App() {
       <Route path="/setstake" element={<CbLayout><CbSetStake /></CbLayout>} />
       <Route path="/changepassword" element={<CbLayout><CbChangePassword /></CbLayout>} />
       <Route path="/results" element={<CbLayout><CbResults /></CbLayout>} />
+
+      {/* The casino lobbies, at the reference's /casino/:id. Only the ids in
+          cb/casino/lobbies.js are pages; anything else falls back to home. */}
+      <Route path="/casino/LIVECASINO" element={<CbLayout><CbCasinoLobby lobbyId="LIVECASINO" /></CbLayout>} />
       <Route path="/gamedetails/:sid/:gmid" element={<DetailRoute />} />
 
       {/* Everything else still renders in the old chrome. */}

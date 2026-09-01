@@ -243,3 +243,88 @@ balance payload and the row fills itself in.
 | Rules | Works |
 | Change Password | Works |
 | Results | **Blocked** — no endpoint (gap 3) |
+
+---
+
+# Backend gaps — the casino lobbies
+
+The Live Casino lobby (`/casino/LIVECASINO`) is rebuilt to the reference's
+design. It runs on the jsGames catalog that is already there — again, nothing on
+the backend was changed — but the catalog has some holes the page has to paper
+over.
+
+## 8. Most live-casino games have no artwork
+
+The lobby is a wall of tiles, so this is the most visible one.
+
+`GET /jsGames/games?vendor=<v>` returns a `game_icon` per game. Today:
+
+| Vendor | Games | Artwork state |
+|---|---|---|
+| evolution | 128 | 78 of the first 100 point at a **boxbet.io image proxy** that refuses to serve anyone but its own site. Worked around (see below). |
+| ezugi | 133 | 54 fine (S3), 25 fine (CloudFront), **6 dead** (`bc.imgix.net` answers `402 Payment Required`), **14 empty** |
+| creedroomz | 135 | **99 of 100 are an empty string** — nearly the whole vendor shows the placeholder |
+
+**The boxbet.io workaround.** Those rows store a URL of the form
+`https://boxbet.io/_next/image?url=<real CDN url>&w=640&q=100`. The proxy 404s
+for us, but the address in its own `url=` parameter (`cdn.softswiss.net/...`)
+serves fine, so the front end unwraps it. That should not be permanent: the
+catalog should store the real CDN address, not somebody else's proxy wrapper.
+
+**What to do:** fill `game_icon` with a directly reachable image URL for every
+active game — the unwrapped `cdn.softswiss.net` address for Evolution, and real
+art for Creedroomz and the empty Ezugi rows. Until then those tiles show
+`/assets/casino/games/default-2.jpeg`.
+
+## 9. Five of the live-casino vendors are empty
+
+The old lobby offered twelve provider tabs. Of the eight vendor ones, only three
+return anything:
+
+- has games: `evolution`, `ezugi`, `creedroomz`
+- returns 0: `vivo`, `cockfight`, `winfinity`, `jacktop`, `holi`
+
+The new lobby lists the three that work. If the other five are meant to be live,
+their games need loading into the catalog; if they are dead, they should come
+out of the old lobby's tab list too.
+
+## 10. There is no "live casino" category, and `game_type` barely classifies
+
+Two related things.
+
+**a) No category.** `GET /jsGames/games/category/:c/...` answers:
+`Invalid category. Allowed categories: crash, lottery, slot, fantasy`. There is
+no live-casino category, so the front end has to hard-code *which vendors make
+up a live-casino lobby* (`src/cb/casino/lobbies.js`). Every time a live-casino
+vendor is added or removed, that list has to be edited and redeployed.
+
+**Recommended:** add a `live_casino` (or `casino`) category so a lobby can be
+one API call instead of a hard-coded vendor list.
+
+**b) `game_type` is not a real classification.** The reference sorts a lobby on
+three axes — provider, game type and category — and gives each its own control.
+The catalog has two, and one of them barely varies:
+
+| Vendor | `game_type` values |
+|---|---|
+| evolution | `CasinoLive` (all 100) |
+| ezugi | `CasinoLive` (99), `Lobby` (1) |
+| creedroomz | `roulette` (27), `other` (61), `blackjack` (11), `Lobby` (1) |
+
+So the game-type strip is useful for Creedroomz and does nothing for Evolution
+or Ezugi. Creedroomz shows the shape it should be: roulette, blackjack,
+baccarat, poker, and so on per game.
+
+**Recommended:** classify every game the way Creedroomz already is. Then the
+strip works, and the Category dialog can be given the third axis it wants —
+today the dialog and the strip are two entry points into the same game-type
+filter, because there is no second thing to filter on.
+
+## 11. Tile artwork is not one shape
+
+Not a bug, just something to know. The reference's own art is uniformly
+480×640, so its grid lines up on markup alone. The catalog's art comes from each
+provider's CDN in portrait, square and landscape, so the tile is pinned to the
+reference's 3:4 box and the art is cropped to fill
+(`src/cb/casino-tiles.css`). Standardising the artwork would let that file go
+away.
