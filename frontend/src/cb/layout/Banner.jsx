@@ -1,34 +1,41 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import Slider from '../Slider';
-import { banner } from '../assets';
+import { banner, login } from '../assets';
 import { announceReady } from '../../utils/bannerCache';
 import useViewportWidth, { MOBILE_MAX } from '../useViewport';
 
-// The hero set mirrored from the reference, in its order.
+// TWO hero sets, and which one you see depends on whether you are signed in.
 //
-// Desktop and phone get DIFFERENT crops, not one file rescaled — the reference
-// keeps two lists and picks by viewport. That choice is what sets the hero's
-// HEIGHT: `.banner img` is `width: 100%; height: auto`, with no CSS height
-// anywhere, so the image's own aspect ratio is the only thing deciding it.
-// Desktop crops are ~6.4:1 (199px at a 1279px column), phone crops 2.56:1
-// (168px at 430px).
+// Signed OUT the reference shows its five `main-banner*` slides; signed IN it
+// shows the eleven under /banners. They are cut to different shapes — 3.09:1
+// against 6.4:1 on desktop — and since `.banner img` is `width: 100%;
+// height: auto` with no CSS height anywhere, that is the whole reason the hero
+// is 440px tall before you log in and 226px after. It is deliberate, not drift.
 //
-// These are the reference's marketing images and it changes them from its
-// admin: an earlier snapshot here was 3.09:1, which rendered the hero at 413px
-// — more than twice the height the real site was showing by then. If the two
-// drift apart again, re-pull this list rather than adjusting any CSS.
-const SLIDES = [
+// Each set also has its own phone crop, picked by viewport: 1.91:1 signed out,
+// 2.56:1 signed in.
+//
+// Worth knowing if you go checking against the live site: it auto-signs-in a
+// demo account, so it looks signed OUT while serving the signed-IN banners.
+// Reading the short hero there and matching it is exactly how these got
+// flattened to one set. Clear its storage before trusting what you see.
+const LOGGED_OUT_EXT = ['jpg', 'webp', 'webp', 'webp', 'webp'];
+const LOGGED_IN_SLIDES = [
   '3.jpeg', '4.jpeg', '5.jpeg', '6.jpeg', '7.jpeg', '8.jpeg', '11.jpeg',
   '16.jpg', '17.jpg', '18.jpg', '19.jpg',
 ];
 
-const themeSlides = (mobile) =>
-  SLIDES.map((file) => ({
+const loggedOutSlides = (mobile) =>
+  LOGGED_OUT_EXT.map((ext, i) => ({
+    bimg: login(`main-banner${mobile ? '-mobile' : ''}${i}.${ext}`),
+    ky: `adminwolgn_bnnr_${mobile ? 'mb' : 'dsktp'}_${i}`,
+  }));
+
+const loggedInSlides = (mobile) =>
+  LOGGED_IN_SLIDES.map((file) => ({
     bimg: banner(`${mobile ? 'mobile' : 'desktop'}_banner_${file}`),
     ky: `bhm_bnnr_${mobile ? 'mb' : 'dsktp'}_${file.split('.')[0]}`,
-    lnkurl: null,
-    caption: null,
   }));
 
 function Banner() {
@@ -37,20 +44,11 @@ function Banner() {
   const isMobile = width < MOBILE_MAX;
   const [loaded, setLoaded] = useState(false);
 
-  // The SAME set signed in or out.
-  //
-  // This used to swap to tenexch's /user/carousel art once you logged in, and
-  // the hero visibly changed size at that moment: those images are 1900x446
-  // (4.26:1) against the mirrored set's ~6.4:1, and there is no mobile crop
-  // among them at all. Desktop jumped 199px -> 300px and a phone dropped
-  // 168px -> ~101px, purely because the artwork was a different shape. With no
-  // CSS height anywhere on the hero, matching the art is the only way to hold
-  // the height steady.
-  //
-  // Pointing this back at the operator's own banners is a one-line change —
-  // they just need cutting to the same two ratios first, desktop and mobile
-  // separately, or the jump comes straight back.
-  const items = themeSlides(isMobile);
+  // tenexch's own /user/carousel art is deliberately not used here: it is a
+  // single 4.26:1 set with no phone crop, so it would give the hero a third
+  // height and shrink to ~101px on a phone. Swapping back to it means cutting
+  // banners to the four shapes above first.
+  const items = isAuth ? loggedInSlides(isMobile) : loggedOutSlides(isMobile);
 
   return (
     <div className="banner">
