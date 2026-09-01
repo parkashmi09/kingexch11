@@ -1,8 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { common } from '../assets';
 import { SPORT_NAV, CASINO_NAV, iconSrc } from '../navItems';
 import { useSportTab } from '../useSportTab';
+import useSportsTree from '../../hooks/useSportsTree';
+import SideTree from './SideTree';
 
 // The reference's left rail. Top three entries are flat links; Sports and
 // Casino are collapsible branches; then support, FAQ, the APK button and the
@@ -21,35 +23,35 @@ const SIDEBAR_TOP = [
 // Sports branch children: everything in SPORT_NAV that is an actual sport.
 const SPORT_CHILDREN = SPORT_NAV.filter((s) => !['inplay', 'cpl'].includes(s.key));
 
-// A branch's children.
-//
-// The reference builds this with react-accessible-treeview, and the stylesheet
-// hangs every size on the class names that library emits — `.tree-node img` is
-// what constrains an icon to 32px, and `.sidetree ul.sidebartree li div` is
-// what gives a row its 35px height. Rendering plain divs (as this did) matched
-// none of those selectors, so the icons fell back to their natural size and the
-// rows grew with them.
-//
-// Our rows are all leaves, so they take the leaf class names the library uses
-// for a childless node; nothing here needs the library itself until the tree
-// gains real depth.
-function SideTree({ items, onSelect }) {
-  return (
-    <div className="sidetree">
-      <ul className="tree sidebartree" role="tree">
-        {items.map((item) => (
-          <li className="tree-leaf-list-item" key={item.key}>
-            {/* The reference wires its click to `.innertext` alone; taking the
-                whole row keeps the icon clickable too. */}
-            <div className="tree-node tree-node__leaf" onClick={() => onSelect(item)}>
-              <img src={iconSrc(item)} alt="homeicon" />
-              <span className="innertext">{item.label}</span>
-            </div>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+// The five sports the reference lists, against the tree feed's own ids. Its
+// racing arrives on a separate list (`racing`) and is one level shallower —
+// a race hangs straight off the sport, with no competition between.
+const SPORT_ETID = { cricket: 4, football: 1, tennis: 2, horseracing: 10, greyhoundracing: 65 };
+
+// Sport > competition > event, or for racing, sport > race. A node with
+// children renders as a branch; anything else is a leaf that opens its event.
+function buildSportsTree(navItems, sports, racing) {
+  return navItems.map((item) => {
+    const etid = SPORT_ETID[item.key];
+    const fromRacing = racing.find((r) => Number(r.etid) === etid);
+    const source = fromRacing || sports.find((x) => Number(x.etid) === etid);
+
+    const children = (source?.children || []).map((child, i) =>
+      fromRacing
+        ? { id: `r-${child.gmid}`, name: child.name, route: `/gamedetails/${etid}/${child.gmid}` }
+        : {
+            id: `c-${child.cid ?? i}`,
+            name: child.name,
+            children: (child.children || []).map((ev) => ({
+              id: `e-${ev.gmid}`,
+              name: ev.name,
+              route: `/gamedetails/${ev.etid ?? etid}/${ev.gmid}`,
+            })),
+          }
+    );
+
+    return { id: item.key, name: item.label, icon: iconSrc(item), children };
+  });
 }
 
 function Sidebar({ sideNavVisible, setSideNavVisible }) {
@@ -62,6 +64,12 @@ function Sidebar({ sideNavVisible, setSideNavVisible }) {
   // The reference boots LIGHT — the `dark-theme` class its index.html puts on
   // <body> is vestigial and styles nothing — so this starts false, and the
   // switch below is what turns the class on.
+  const { sports, racing } = useSportsTree();
+  const sportsTree = useMemo(
+    () => buildSportsTree(SPORT_CHILDREN, sports, racing),
+    [sports, racing]
+  );
+
   const [dark, setDark] = useState(() =>
     document.documentElement.classList.contains('dark')
   );
@@ -111,7 +119,7 @@ function Sidebar({ sideNavVisible, setSideNavVisible }) {
               <i className={`fa fa-caret-${sportsOpen ? 'down' : 'right'}`} aria-hidden="true"></i>
             </span>
           </a>
-          {sportsOpen && <SideTree items={SPORT_CHILDREN} onSelect={go} />}
+          {sportsOpen && <SideTree nodes={sportsTree} onSelect={go} />}
         </li>
 
         <li>
@@ -129,7 +137,12 @@ function Sidebar({ sideNavVisible, setSideNavVisible }) {
             </span>
           </a>
         </li>
-        {casinoOpen && <SideTree items={CASINO_NAV} onSelect={go} />}
+        {casinoOpen && (
+          <SideTree
+            nodes={CASINO_NAV.map((c) => ({ id: c.key, name: c.label, icon: iconSrc(c), route: c.route }))}
+            onSelect={go}
+          />
+        )}
 
         <li>
           <a aria-expanded="true">
