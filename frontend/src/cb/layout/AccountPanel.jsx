@@ -3,34 +3,25 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../redux/userSlice';
 import { isDemoUser } from '../../utils/demoStore';
-import SetButtonValueModal from '../../components/modals/SetButtonValueModal';
-import ChangePasswordModal from '../../components/modals/ChangePasswordModal';
 import MyMarketModal from '../../components/modals/MyMarketModal';
 import { common } from '../assets';
 
-// The rows, in the reference's order where the two apps agree.
+// The reference's menu, verbatim: eight rows in this order, each on its own
+// page at the reference's own path. Set Stake and Change Password are pages
+// here, not the dialogs tenexch used to open from this panel.
 //
-// Labels and destinations are tenexch's, not the reference's: this app has an
-// Activity Log, Live Casino Bets, SportBook Bets, a Fraud Report and Security
-// Auth that the reference has no equivalent for, and no Profit/Loss report or
-// Rules page to put in their place. Dropping them to match the reference's list
-// exactly would delete features the operator actually has, so the panel keeps
-// tenexch's menu and borrows the closest reference icon for each row.
-//
-// `modal` rows open a dialog instead of routing — Set Button Value and Change
-// Password are dialogs in this app.
+// tenexch's extra reports — Activity Log, Casino Results, Live Casino Bets,
+// SportBook Bets, Security Auth, Fraud Report — have no row in the reference
+// and so have none here; they keep working at their own /report/* URLs.
 const MENU = [
-  { label: 'Account Statement', icon: 'account-statement.svg', route: '/report/accountstatement' },
-  { label: 'Current Bets', icon: 'unsettled-bet.svg', route: '/report/currentbets' },
-  { label: 'Activity Log', icon: 'bet-history.svg', route: '/report/activity' },
-  { label: 'Casino Results', icon: 'results.svg', route: '/report/casinoresult' },
-  { label: 'Live Casino Bets', icon: 'results.svg', route: '/report/livecasinoresult' },
-  { label: 'SportBook Bets', icon: 'bet-history.svg', route: '/report/sportbookresult' },
-  { label: 'Set Button Value', icon: 'set-stake.svg', modal: 'setstake' },
-  { label: 'Change Password', icon: 'change-password.svg', modal: 'password' },
-  { label: 'Security Auth Verification', icon: 'change-password.svg', route: '/settings/secureauth' },
-  { label: 'Fraud Report', icon: 'profit-loss-report.svg', route: '/report/fraud-report' },
+  { label: 'Account Statement', icon: 'account-statement.svg', route: '/accountstatement' },
+  { label: 'Profit Loss Report', icon: 'profit-loss-report.svg', route: '/profitloss' },
+  { label: 'Bet History', icon: 'bet-history.svg', route: '/bethistory' },
+  { label: 'Unsettled Bet', icon: 'unsettled-bet.svg', route: '/unsettledbet' },
+  { label: 'Set Stake', icon: 'set-stake.svg', route: '/setstake' },
   { label: 'Rules', icon: 'rules.svg', route: '/rules' },
+  { label: 'Change Password', icon: 'change-password.svg', route: '/changepassword' },
+  { label: 'Results', icon: 'results.svg', route: '/results' },
 ];
 
 // A demo session sees Rules and nothing else — every other row reads or writes
@@ -65,10 +56,6 @@ function AccountPanel({ onClose }) {
   const pnlValue = Number(user?.pnl ?? 0);
 
   const pick = (item) => {
-    if (item.modal) {
-      setModal(item.modal);
-      return;
-    }
     onClose();
     navigate(item.route);
   };
@@ -133,7 +120,7 @@ function AccountPanel({ onClose }) {
             {rows.map((item) => (
               <li
                 key={item.label}
-                className={item.route && pathname === item.route ? 'active' : ''}
+                className={pathname === item.route ? 'active' : ''}
                 onClick={() => pick(item)}
               >
                 <div className="profileulli">
@@ -159,8 +146,6 @@ function AccountPanel({ onClose }) {
         </div>
       </div>
 
-      <SetButtonValueModal show={modal === 'setstake'} onClose={() => setModal(null)} />
-      <ChangePasswordModal show={modal === 'password'} onClose={() => setModal(null)} />
       <MyMarketModal
         show={modal === 'mymarket'}
         onClose={() => setModal(null)}

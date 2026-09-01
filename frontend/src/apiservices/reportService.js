@@ -111,3 +111,78 @@ export const getSportBookBets = async (params) => {
   const response = await api.get('/jsGames/sportbook-history', { params });
   return response.data;
 };
+
+/**
+ * Profit & Loss, aggregated per sport and market type over a date range.
+ *
+ * NOT YET IMPLEMENTED SERVER-SIDE — see docs/BACKEND-GAPS.md. The reference
+ * posts { from, to } (ISO strings) and gets back
+ *   { isSuccess, items: [{ _id: { et, mt, bt, provider }, pnl, commission }] }
+ * The report page groups those into the sport/market grid it renders. Until the
+ * route exists this resolves to an empty result and the page reads
+ * "No Profit & Loss Found" rather than erroring.
+ * @param {Object} range - { from, to }
+ */
+export const getUserProfitLoss = async (range) => {
+  try {
+    const response = await api.post('/user/pnl', range);
+    return response.data;
+  } catch {
+    return { isSuccess: false, items: [] };
+  }
+};
+
+/**
+ * Settled bets (WON / LOST / VOID) over a date range, for the Bet History page.
+ *
+ * PARTIALLY IMPLEMENTED SERVER-SIDE — see docs/BACKEND-GAPS.md. It reuses the
+ * open-bets route with `status: 'settled'` and a date range, neither of which
+ * that route understands today, so it currently returns nothing and the page
+ * reads "No Data Found". The response shape it expects is the one the route
+ * already uses: { success, data: [...], pagination: { total } }.
+ * @param {Object} params - { fromDate, toDate, page, limit, category }
+ *   category: 'SPORTS' | 'CASINO'
+ */
+export const getUserBetHistory = async (params) => {
+  try {
+    const response = await api.get('/user/cricket/sports-bets/user', {
+      params: { ...params, status: 'settled' },
+    });
+    return response.data;
+  } catch {
+    return { success: false, data: [] };
+  }
+};
+
+/**
+ * Declared sports results for one sport, split into today's and yesterday's.
+ *
+ * NOT YET IMPLEMENTED SERVER-SIDE — see docs/BACKEND-GAPS.md. The reference
+ * gets back { isSuccess, today_result: [...], yesterday_result: [...] }, each
+ * row { event_id, event_name, competition_name, open_date, declared_date }.
+ * @param {number|string} sportId
+ */
+export const getSportsResults = async (sportId) => {
+  try {
+    const response = await api.get('/user/cricket/results', { params: { sportId } });
+    return response.data;
+  } catch {
+    return { isSuccess: false, today_result: [], yesterday_result: [] };
+  }
+};
+
+/**
+ * Every market's result for one declared event — the popup behind a Results row.
+ *
+ * NOT YET IMPLEMENTED SERVER-SIDE — see docs/BACKEND-GAPS.md. Expected:
+ * { isSuccess, items: [{ marketId, marketName, winnerName, createdAt }] }.
+ * @param {string|number} eventId
+ */
+export const getEventMarketResults = async (eventId) => {
+  try {
+    const response = await api.get('/user/cricket/results/markets', { params: { eventId } });
+    return response.data;
+  } catch {
+    return { isSuccess: false, items: [] };
+  }
+};

@@ -21,6 +21,12 @@ import CbRules from './cb/pages/Rules';
 import CbSportPage from './cb/pages/SportPage';
 import CbRaceDetails from './cb/pages/RaceDetails';
 import CbAccountStatement from './cb/report/AccountStatement';
+import CbProfitLoss from './cb/report/ProfitLoss';
+import CbBetHistory from './cb/report/BetHistory';
+import CbUnsettledBet from './cb/report/UnsettledBet';
+import CbSetStake from './cb/report/SetStake';
+import CbChangePassword from './cb/report/ChangePassword';
+import CbResults from './cb/report/Results';
 import LegacyStyles from './legacyStyles';
 import VirtualCricket from './pages/VirtualCricket';
 import VirtualCricketDetails from './pages/VirtualCricketDetails';
@@ -486,7 +492,15 @@ function App() {
       <Route path="/rules" element={<CbLayout><CbRules /></CbLayout>} />
       <Route path="/game/:sportId" element={<CbLayout><CbSportPage /></CbLayout>} />
       <Route path="/race/:sportId" element={<CbLayout><CbSportPage /></CbLayout>} />
-      <Route path="/report/accountstatement" element={<CbLayout><CbAccountStatement /></CbLayout>} />
+      {/* The account menu, at the reference's own paths — one page each, in
+          the order the panel lists them. */}
+      <Route path="/accountstatement" element={<CbLayout><CbAccountStatement /></CbLayout>} />
+      <Route path="/profitloss" element={<CbLayout><CbProfitLoss /></CbLayout>} />
+      <Route path="/bethistory" element={<CbLayout><CbBetHistory /></CbLayout>} />
+      <Route path="/unsettledbet" element={<CbLayout><CbUnsettledBet /></CbLayout>} />
+      <Route path="/setstake" element={<CbLayout><CbSetStake /></CbLayout>} />
+      <Route path="/changepassword" element={<CbLayout><CbChangePassword /></CbLayout>} />
+      <Route path="/results" element={<CbLayout><CbResults /></CbLayout>} />
       <Route path="/gamedetails/:sid/:gmid" element={<DetailRoute />} />
 
       {/* Everything else still renders in the old chrome. */}
