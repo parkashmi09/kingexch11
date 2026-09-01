@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import Slider from '../Slider';
 import { banner } from '../assets';
-import { getSlides, warmBanners, bannerSrc, failed, announceReady } from '../../utils/bannerCache';
+import { announceReady } from '../../utils/bannerCache';
 import useViewportWidth, { MOBILE_MAX } from '../useViewport';
 
 // The hero set mirrored from the reference, in its order.
@@ -33,45 +32,25 @@ const themeSlides = (mobile) =>
   }));
 
 function Banner() {
-  const navigate = useNavigate();
   const isAuth = useSelector((s) => s.user.isAuthenticated);
   const width = useViewportWidth();
   const isMobile = width < MOBILE_MAX;
-  const [slides, setSlides] = useState(() => getSlides());
   const [loaded, setLoaded] = useState(false);
-  // Slides whose image 404'd. The carousel list outlives the files it points
-  // at — several entries the API returns are already dead — and a broken slide
-  // collapses the banner to nothing, so they are dropped as they fail.
-  const [dead, setDead] = useState(() => new Set());
 
-  // Only signed-in visitors get the admin feed, so only they need it fetched.
-  // warmBanners() is already fired at app boot; calling it again just adopts the
-  // in-flight promise, so this costs a re-render once the list lands.
-  useEffect(() => {
-    if (!isAuth) return undefined;
-    let alive = true;
-    Promise.resolve(warmBanners()).then(() => {
-      if (alive) setSlides(getSlides());
-    });
-    return () => { alive = false; };
-  }, [isAuth]);
-
-  const fromApi = (slides || [])
-    .filter((s) => s.img && !failed.has(s.img))
-    .map((s, i) => ({
-      bimg: bannerSrc(s.img),
-      ky: `admin_bnnr_${s.id ?? i}`,
-      lnkurl: s.href || null,
-      caption: s.caption || null,
-    }))
-    .filter((s) => !dead.has(s.bimg));
-
-  const items = isAuth && fromApi.length ? fromApi : themeSlides(isMobile);
-
-  const openLink = (url) => {
-    if (url.includes('http')) window.open(url, '_blank');
-    else navigate(url);
-  };
+  // The SAME set signed in or out.
+  //
+  // This used to swap to tenexch's /user/carousel art once you logged in, and
+  // the hero visibly changed size at that moment: those images are 1900x446
+  // (4.26:1) against the mirrored set's ~6.4:1, and there is no mobile crop
+  // among them at all. Desktop jumped 199px -> 300px and a phone dropped
+  // 168px -> ~101px, purely because the artwork was a different shape. With no
+  // CSS height anywhere on the hero, matching the art is the only way to hold
+  // the height steady.
+  //
+  // Pointing this back at the operator's own banners is a one-line change —
+  // they just need cutting to the same two ratios first, desktop and mobile
+  // separately, or the jump comes straight back.
+  const items = themeSlides(isMobile);
 
   return (
     <div className="banner">
@@ -89,18 +68,10 @@ function Banner() {
                 // component renders that banner has to be the one to say so.
                 announceReady();
               }}
-              onError={() => {
-                setDead((prev) => new Set(prev).add(item.bimg));
-                // A dead first slide must still release the splash, or the page
-                // sits behind it until the 6s cap.
-                announceReady();
-              }}
+              // A slide that fails to load must still release the splash, or
+              // the page sits behind it until the 6s cap.
+              onError={() => announceReady()}
             />
-            {isAuth && !!item.lnkurl && (
-              <div className="bannerbtn" onClick={() => openLink(item.lnkurl)}>
-                {item.caption ? item.caption : 'Check'}
-              </div>
-            )}
           </div>
         ))}
       </Slider>

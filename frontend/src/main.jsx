@@ -5,7 +5,6 @@ import { BrowserRouter } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import store from './redux/store';
 import App from './App';
-import { warmBanners } from './utils/bannerCache';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -59,7 +58,11 @@ ReactDOM.createRoot(document.getElementById('app')).render(
 // page, anywhere. Navigating to home later then costs nothing: the list and the
 // first image are already in cache, so the carousel paints on mount instead of
 // kicking off an API call plus a CDN download.
-warmBanners();
+// NOT warmed any more: the clickbet hero ships its own mirrored art, so
+// nothing on these routes reads /user/carousel. Warming it cost an API call
+// plus an image prefetch on every page load for a list no one rendered. The old
+// BannerCarousel still calls warmBanners() itself if a legacy route mounts it.
+// warmBanners();
 
 const loader = document.getElementById('ten-loader');
 const splash = document.getElementById('app-splash');
