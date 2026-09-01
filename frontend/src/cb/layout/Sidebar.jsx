@@ -62,7 +62,9 @@ function Sidebar({ sideNavVisible, setSideNavVisible }) {
   // The reference boots LIGHT — the `dark-theme` class its index.html puts on
   // <body> is vestigial and styles nothing — so this starts false, and the
   // switch below is what turns the class on.
-  const [dark, setDark] = useState(false);
+  const [dark, setDark] = useState(() =>
+    document.documentElement.classList.contains('dark')
+  );
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', dark);

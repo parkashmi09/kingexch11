@@ -30,11 +30,7 @@ const MENU = [
   { label: 'Change Password', icon: 'change-password.svg', modal: 'password' },
   { label: 'Security Auth Verification', icon: 'change-password.svg', route: '/settings/secureauth' },
   { label: 'Fraud Report', icon: 'profit-loss-report.svg', route: '/report/fraud-report' },
-  // The reference's Rules is a route to its rules page; tenexch's equivalent is
-  // its terms page. Its per-sport betting rules live in data/rulesData.js with
-  // no viewer of their own — FirstLoginRulesModal renders them, but that is the
-  // accept-or-logout gate, not something to open from a menu.
-  { label: 'Rules', icon: 'rules.svg', route: '/terms-and-conditions' },
+  { label: 'Rules', icon: 'rules.svg', route: '/rules' },
 ];
 
 // A demo session sees Rules and nothing else — every other row reads or writes
