@@ -29,6 +29,10 @@ import 'font-awesome/css/font-awesome.min.css';
 // The clickbet UI itself. Slick, the marquee and the skeleton styles are all
 // already inside it - those libraries need no CSS of their own.
 import './styles/clickbet.css';
+// The shared bet slip is still a tenexch component; these are the only rules
+// from those sheets it needs, carved out so it renders correctly here. See the
+// header of the file.
+import './cb/betslip-legacy.css';
 import './config';
 
 ReactDOM.createRoot(document.getElementById('app')).render(

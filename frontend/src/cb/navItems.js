@@ -13,7 +13,7 @@ import { common } from './assets';
 // giving them URLs would mean inventing routes the data layer doesn't have.
 export const SPORT_NAV = [
   { key: 'inplay',           label: 'In-Play',   icon: 'inplay-icon.png',      alt: 'inplay',      tab: 'inplay' },
-  { key: 'cpl',              label: 'CPL 2026',  icon: 'winner-icon.png',      alt: 'winnericon',  tab: 'cricket' },
+  { key: 'cpl',              label: 'CPL 2026',  icon: 'winner-icon.png',      alt: 'winnericon',  route: '/cpl' },
   { key: 'cricket',          label: 'Cricket',   icon: 'cricket-icon.png',     alt: 'cricket',     tab: 'cricket' },
   { key: 'football',         label: 'Soccer',    icon: 'soccer-icon.png',      alt: 'soccer',      tab: 'football' },
   { key: 'tennis',           label: 'Tennis',    icon: 'tennis-icon.png',      alt: 'tennis',      tab: 'tennis' },

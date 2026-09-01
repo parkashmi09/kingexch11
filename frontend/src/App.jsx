@@ -14,6 +14,8 @@ import Home from './pages/Home';
 // land route by route: the home page renders through CbLayout below, every
 // other route still goes through MainLayout until it is converted too.
 import CbLayout from './cb/Layout';
+import CbHome from './cb/home/Home';
+import CbCpl from './cb/pages/Cpl';
 import LegacyStyles from './legacyStyles';
 import VirtualCricket from './pages/VirtualCricket';
 import VirtualCricketDetails from './pages/VirtualCricketDetails';
@@ -453,10 +455,14 @@ function App() {
       <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
       <Route path="/responsible-gaming" element={<ResponsibleGaming />} />
 
-      {/* Home — rebuilt on the clickbet UI. Listed before the catch-all; the
-          router still ranks these two static paths above "/*". */}
-      <Route path="/" element={<CbLayout />} />
-      <Route path="/home" element={<CbLayout />} />
+      {/* Routes rebuilt on the clickbet UI. Listed before the catch-all; the
+          router still ranks these static paths above "/*". The page goes in as
+          CbLayout's children rather than through a nested <Routes>: the parent
+          match is exact, so a nested router would see an empty remaining path
+          and render the "/" branch on every one of them. */}
+      <Route path="/" element={<CbLayout><CbHome /></CbLayout>} />
+      <Route path="/home" element={<CbLayout><CbHome /></CbLayout>} />
+      <Route path="/cpl" element={<CbLayout><CbCpl /></CbLayout>} />
 
       {/* Everything else still renders in the old chrome. */}
       <Route path="/*" element={<MainLayout />} />

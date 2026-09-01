@@ -15,7 +15,7 @@ import { useSportTab } from '../useSportTab';
 const SIDEBAR_TOP = [
   { key: 'home',    label: 'Home',     icon: 'home-icon.png',   route: '/' },
   { key: 'inplay',  label: 'In-Play',  icon: 'inplay-icon.png', tab: 'inplay' },
-  { key: 'cpl',     label: 'CPL 2026', icon: 'winner-icon.png', tab: 'cricket' },
+  { key: 'cpl',     label: 'CPL 2026', icon: 'winner-icon.png', route: '/cpl' },
 ];
 
 // Sports branch children: everything in SPORT_NAV that is an actual sport.

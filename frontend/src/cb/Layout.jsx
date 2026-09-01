@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import { useSelector } from 'react-redux';
 import Header from './layout/Header';
@@ -6,7 +7,7 @@ import Sidebar from './layout/Sidebar';
 import Banner from './layout/Banner';
 import Footer from './layout/Footer';
 import MobileFooter from './layout/MobileFooter';
-import Home from './home/Home';
+
 
 /**
  * The clickbet page chrome.
@@ -20,12 +21,14 @@ import Home from './home/Home';
  * the wrapper's top margin on the pages that show the banner, since the banner
  * already supplies that gap.
  */
-function Layout() {
+function Layout({ children }) {
   const isAuth = useSelector((s) => s.user.isAuthenticated);
   const [sideNavVisible, setSideNavVisible] = useState(false);
+  const { pathname } = useLocation();
 
-  // The banner belongs to the landing page only.
-  const showBanner = true;
+  // The hero belongs to the landing page only — the reference drops it (and the
+  // wrapper's `mt-0`) on every other route.
+  const showBanner = pathname === '/' || pathname === '/home';
 
   return (
     <>
@@ -37,7 +40,7 @@ function Layout() {
         <Sidebar sideNavVisible={sideNavVisible} setSideNavVisible={setSideNavVisible} />
         {showBanner && <Banner />}
         <div className={`page-wrapper  ${showBanner ? 'mt-0' : ''} ${isAuth ? '' : 'page-wrapper-before'} `}>
-          <Home />
+          {children}
         </div>
         <Footer />
         <MobileFooter />

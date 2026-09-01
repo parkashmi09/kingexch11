@@ -34,7 +34,7 @@ function DesktopNav({ width, explicitTab, go }) {
         // Only a sport the URL names is highlighted. On the bare home page the
         // reference highlights nothing here, In-Play included.
         const active = item.tab
-          ? explicitTab === item.tab && item.key !== 'cpl'
+          ? explicitTab === item.tab
           : window.location.pathname === item.route;
         return <NavItem key={item.key} item={item} active={active} onClick={() => go(item)} />;
       })}
@@ -52,7 +52,9 @@ function MobileNav({ width, explicitTab, go }) {
     <ul>
       {MOBILE_NAV_LEAD.map((item) => {
         if (item.key === 'inplay' && width <= IN_PLAY_MIN_WIDTH) return false;
-        const active = explicitTab === item.tab && item.key !== 'cpl';
+        const active = item.tab
+          ? explicitTab === item.tab
+          : window.location.pathname === item.route;
         return <NavItem key={item.key} item={item} active={active} onClick={() => go(item)} />;
       })}
 
