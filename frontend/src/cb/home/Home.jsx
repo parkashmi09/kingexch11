@@ -5,7 +5,6 @@ import { common, user, login } from '../assets';
 import { useSportTab } from '../useSportTab';
 import { TAB_SPORT_MAP } from '../../hooks/home/useHomeLoad';
 import SportList from '../sports/SportList';
-import RacingBoard from '../sports/RacingBoard';
 import PopularGames from './PopularGames';
 import useViewportWidth from '../useViewport';
 
@@ -31,18 +30,22 @@ const LOGGED_IN_BOARDS = [
   { tab: 'football',         title: 'Soccer' },
   { tab: 'tennis',           title: 'Tennis' },
   { tab: 'horseracing',      title: 'Horse Racing' },
-  { tab: 'greyhoundracing',  title: 'Greyhound' },
+  { tab: 'greyhoundracing',  title: 'Grey Hound' },
 ];
 
 const BONUS_BANNERS = ['bonus-1.jpg', 'bonus-2.jpg', 'bonus-3.jpg', 'bonus-4.jpg'];
 
-// Racing boards are nested country > venue > race and have no back/lay grid.
-const isRacing = (tab) => !!TAB_SPORT_MAP[tab]?.racing;
-
+// Every sport on the home board renders through the same back/lay list —
+// racing included, exactly as the reference does. tenexch's racing feed is
+// nested country > venue > race with no odds, so nothing survives the row
+// mapping and those two sections read "No Active Events Found", which is what
+// the reference shows for them too.
+//
+// The venue-card layout that used to sit here is not on the reference's home at
+// all. It lives on the sport's own page now, /race/:sportId — see cb/pages/Race.
 function Board({ tab, title, showTitle }) {
   const cfg = TAB_SPORT_MAP[tab];
   if (!cfg) return null;
-  if (isRacing(tab)) return <RacingBoard sportId={cfg.sid} />;
   return <SportList sportId={cfg.sid} title={title} showTitle={showTitle} pollOnce={cfg.sid === 4} />;
 }
 

@@ -17,8 +17,8 @@ export const SPORT_NAV = [
   { key: 'cricket',          label: 'Cricket',   icon: 'cricket-icon.png',     alt: 'cricket',     tab: 'cricket' },
   { key: 'football',         label: 'Soccer',    icon: 'soccer-icon.png',      alt: 'soccer',      tab: 'football' },
   { key: 'tennis',           label: 'Tennis',    icon: 'tennis-icon.png',      alt: 'tennis',      tab: 'tennis' },
-  { key: 'horseracing',      label: 'Horse',     icon: 'horse-icon.png',       alt: 'horse',       tab: 'horseracing' },
-  { key: 'greyhoundracing',  label: 'Greyhound', icon: 'greyhound-icon.png',   alt: 'greyhound',   tab: 'greyhoundracing' },
+  { key: 'horseracing',      label: 'Horse',     icon: 'horse-icon.png',       alt: 'horse',       route: '/race/10' },
+  { key: 'greyhoundracing',  label: 'Greyhound', icon: 'greyhound-icon.png',   alt: 'greyhound',   route: '/race/65' },
 ];
 
 // Casino entries map onto the routes tenexch already ships.

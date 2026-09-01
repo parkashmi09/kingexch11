@@ -18,6 +18,7 @@ import CbHome from './cb/home/Home';
 import CbCpl from './cb/pages/Cpl';
 import CbEventDetails from './cb/pages/EventDetails';
 import CbRules from './cb/pages/Rules';
+import CbRace from './cb/pages/Race';
 import LegacyStyles from './legacyStyles';
 import VirtualCricket from './pages/VirtualCricket';
 import VirtualCricketDetails from './pages/VirtualCricketDetails';
@@ -484,6 +485,7 @@ function App() {
       <Route path="/home" element={<CbLayout><CbHome /></CbLayout>} />
       <Route path="/cpl" element={<CbLayout><CbCpl /></CbLayout>} />
       <Route path="/rules" element={<CbLayout><CbRules /></CbLayout>} />
+      <Route path="/race/:sportId" element={<CbLayout><CbRace /></CbLayout>} />
       <Route path="/gamedetails/:sid/:gmid" element={<DetailRoute />} />
 
       {/* Everything else still renders in the old chrome. */}
