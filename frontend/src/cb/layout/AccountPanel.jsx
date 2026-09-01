@@ -29,19 +29,19 @@ const MENU = [
   { label: 'Set Button Value', icon: 'set-stake.svg', modal: 'setstake' },
   { label: 'Change Password', icon: 'change-password.svg', modal: 'password' },
   { label: 'Security Auth Verification', icon: 'change-password.svg', route: '/settings/secureauth' },
-  { label: 'Fraud Report', icon: 'rules.svg', route: '/report/fraud-report' },
+  { label: 'Fraud Report', icon: 'profit-loss-report.svg', route: '/report/fraud-report' },
+  // The reference's Rules is a route to its rules page; tenexch's equivalent is
+  // its terms page. Its per-sport betting rules live in data/rulesData.js with
+  // no viewer of their own — FirstLoginRulesModal renders them, but that is the
+  // accept-or-logout gate, not something to open from a menu.
+  { label: 'Rules', icon: 'rules.svg', route: '/terms-and-conditions' },
 ];
 
-// What a demo session may open. Taken from tenexch's own rule (its user
-// sidebar allows exactly these three reports, and Set Button Value sits outside
-// its !isDemo block) rather than invented here — the reference's own list is no
-// use, since it gates on a Rules page this app does not have.
-const DEMO_ALLOWED = new Set([
-  '/report/accountstatement',
-  '/report/currentbets',
-  '/report/casinoresult',
-]);
-const allowedForDemo = (item) => item.modal === 'setstake' || DEMO_ALLOWED.has(item.route);
+// A demo session sees Rules and nothing else — every other row reads or writes
+// an account that isn't there. This is the reference's rule; tenexch's own user
+// sidebar is more permissive (three reports plus Set Button Value), so a demo
+// user reaches less here than they did through the old menu.
+const allowedForDemo = (item) => item.label === 'Rules';
 
 const money = (v) => Number(v ?? 0).toFixed(2);
 
@@ -51,10 +51,10 @@ const money = (v) => Number(v ?? 0).toFixed(2);
  * Slides in from the right over a click-away overlay: who you are and your
  * balance, your exposure, the report menu, then logout.
  *
- * The reference also shows a P&L row beside Exposure. tenexch's wallet has no
- * profit/loss figure — the header only ever tracked balance and exposure — so
- * that row is left out rather than filled with a zero that would read as a real
- * position.
+ * The P&L row has no figure behind it yet: tenexch tracks balance and exposure
+ * and nothing else — no wallet field, no report endpoint — so it reads 0.00
+ * until the backend supplies one. It renders anyway because the reference shows
+ * it, and it picks up `user.pnl` the moment that exists.
  */
 function AccountPanel({ onClose }) {
   const navigate = useNavigate();
@@ -66,6 +66,7 @@ function AccountPanel({ onClose }) {
   const isDemo = isDemoUser(user) && localStorage.getItem('token') === 'demo-token';
   const username = isDemo ? 'Demo' : user?.username || user?.name || '';
   const exposureValue = Number(exposure ?? 0);
+  const pnlValue = Number(user?.pnl ?? 0);
 
   const pick = (item) => {
     if (item.modal) {
@@ -119,6 +120,15 @@ function AccountPanel({ onClose }) {
                 className={`cmenu ${exposureValue < 0 ? 'rightexdanger' : 'rightexposuccess'}`}
               >
                 {money(exposureValue)}
+              </span>
+            </div>
+          </div>
+
+          <div className="profile-balance pop-pandl-btn">
+            <div>P&L</div>
+            <div>
+              <span className={`cmenu ${pnlValue < 0 ? 'rightexdanger' : 'rightexposuccess'}`}>
+                {money(pnlValue)}
               </span>
             </div>
           </div>
