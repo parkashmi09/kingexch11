@@ -409,11 +409,30 @@ instant / table …) and one normalised `game_subtype` (roulette / blackjack /
 baccarat / game show …) per game. Then the strips are a `GROUP BY`, the Category
 dialog gets the second axis it wants, and `taxonomy.js` can be deleted.
 
-## 11. Tile artwork is not one shape
+## 11. Tile artwork is the wrong shape and too small
 
-Not a bug, just something to know. The reference's own art is uniformly
-480×640, so its grid lines up on markup alone. The catalog's art comes from each
-provider's CDN in portrait, square and landscape, so the tile is pinned to the
-reference's 3:4 box and the art is cropped to fill
-(`src/cb/casino-tiles.css`). Standardising the artwork would let that file go
-away.
+The reference's art is uniformly **480×640** — 3:4 portrait, exactly the shape
+of the card, at twice the size it renders at. That is why its grid is sharp and
+lines up on markup alone.
+
+The catalog's art is neither:
+
+| Source | Size | Shape |
+|---|---|---|
+| `cdn.softswiss.net` (Evolution) | 427×575 | 3:4 portrait — correct, renders sharp |
+| `sitethemedata.com` (everyone else) | **200×150** or 517×388 | 4:3 landscape |
+| the placeholder | 300×160 | — |
+
+A card renders at 201×268. Filling it with a 200×150 image means scaling that
+image up **1.79×**, and it is visibly soft. There is no larger file to fetch —
+those really are 200×150 (checked in the JPEG header), and no `_big`, `@2x`,
+`.webp` or `.png` variant exists at those paths.
+
+There is no front-end fix. Fitting the image inside the card instead of cropping
+it keeps it sharp but leaves the card part-empty; cropping it to fill the card
+is what the design needs and is what `src/cb/casino-tiles.css` does. The
+softness only goes away with better source files.
+
+**What to do:** store tile art at **480×640** (or at least 402×536, twice the
+rendered card) in 3:4 portrait, matching the reference. Every tile then renders
+at or below 1:1 and `casino-tiles.css` can be deleted along with it.

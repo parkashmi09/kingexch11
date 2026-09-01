@@ -118,6 +118,8 @@ function CasinoLobby({ lobbyId }) {
   const [search, setSearch] = useState('');
   const [showCategories, setShowCategories] = useState(false);
   const [loaded, setLoaded] = useState({});
+  // Tiles whose artwork URL failed; they fall back to the placeholder.
+  const [broken, setBroken] = useState({});
 
   const [launching, setLaunching] = useState(false);
   const [frameUrl, setFrameUrl] = useState('');
@@ -333,19 +335,23 @@ function CasinoLobby({ lobbyId }) {
             )}
 
             <div className="mt-2 mb-2 featured-game1 wac-min-height wac-width-100 cb-casino-grid">
-              {shown.map((game) => (
+              {shown.map((game) => {
+                // A URL that fails moves to the placeholder through state
+                // rather than by rewriting the element's own src.
+                const src = broken[game.game_uid] ? FALLBACK_TILE : tileSrc(game);
+                return (
                 <div className="wac-20" key={game.game_uid}>
                   <div className="wacmain-box" onClick={() => launch(game)}>
                     {!loaded[game.game_uid] && <Skeleton height={212} width="100%" />}
                     <img
                       loading="lazy"
                       alt={game.game_name}
-                      src={tileSrc(game)}
+                      src={src}
                       className={`img-fluid ${loaded[game.game_uid] || ''}`}
                       onLoad={() => setLoaded((p) => ({ ...p, [game.game_uid]: true }))}
-                      onError={(e) => {
-                        if (e.currentTarget.src.indexOf(FALLBACK_TILE) === -1) {
-                          e.currentTarget.src = FALLBACK_TILE;
+                      onError={() => {
+                        if (!broken[game.game_uid]) {
+                          setBroken((p) => ({ ...p, [game.game_uid]: true }));
                           return;
                         }
                         setLoaded((p) => ({ ...p, [game.game_uid]: true }));
@@ -362,7 +368,8 @@ function CasinoLobby({ lobbyId }) {
                     )}
                   </div>
                 </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
