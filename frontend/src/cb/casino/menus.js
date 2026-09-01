@@ -79,4 +79,23 @@ export const MENUS = {
       { id: 'Casual Games', label: 'Casual Games', match: (g) => /crash/i.test(g.gameType) },
     ],
   },
+  CHICKENROAD: {
+    displayName: 'Chicken Road',
+    banner: 'chickenroad.webp',
+    // jsGames'  category again — the same catalog Aviator reads, and the
+    // home of every chicken-road title this platform carries (Chicken Road,
+    // Chicken Road 2, Chicken Road Cross, Chicken Route, Pilot Chicken).
+    source: 'jsgames-crash',
+
+    // Real, like Aviator's: INOUT is the reference's only Chicken Road partner
+    // and  is an actual vendor in our crash catalog.
+    partners: [{ id: 'INOUT', label: 'INOUT', match: (g) => g.partner.toLowerCase() === 'inout' }],
+
+    // The reference derives this row from its own INOUT games, and every one of
+    // its 33 is gameType  — so its row is ALL · Crash Games, one
+    // pill, and ours reads the same. The predicate is the honest analog over our
+    // catalog: the genuine crash titles, leaving out the handful of strays that
+    // sit in the category under a slot or casino game_type.
+    gameTypes: [{ id: 'Crash Games', label: 'Crash Games', match: (g) => /crash/i.test(g.gameType) }],
+  },
 };
