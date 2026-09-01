@@ -343,8 +343,14 @@ function CasinoLobby({ lobbyId }) {
                 <div className="wac-20" key={game.game_uid}>
                   <div className="wacmain-box" onClick={() => launch(game)}>
                     {!loaded[game.game_uid] && <Skeleton height={212} width="100%" />}
+                    {/* Not `loading="lazy"`, though the reference marks these
+                        lazy. The grid is inserted after its fetch resolves, and
+                        Chrome only re-tests deferred images on scroll, resize or
+                        a layout pass — so a lobby that loads and is then left
+                        alone keeps every tile deferred forever. Measured: 0 of
+                        24 loaded ten seconds after a clean load, all of them in
+                        the viewport. It is 24 images; fetch them. */}
                     <img
-                      loading="lazy"
                       alt={game.game_name}
                       src={src}
                       className={`img-fluid ${loaded[game.game_uid] || ''}`}

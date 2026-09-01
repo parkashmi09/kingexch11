@@ -181,9 +181,13 @@ export const lobbyBanner = (lobby) =>
   `/newtheme/common/innerpagebanner/${lobby.banner}.webp`;
 
 // Creedroomz sends an empty game_icon for almost every table, and some of the
-// hosts the catalog points at are dead; both land on the same placeholder the
-// old lobby used.
-export const FALLBACK_TILE = '/assets/casino/games/default-2.jpeg';
+// hosts the catalog points at are dead; both land on this placeholder.
+//
+// It is drawn 480x640 — the card's own 3:4 — rather than reusing the old
+// lobby's default-2.jpeg, which is 300x160 landscape and gets sliced in half
+// when a portrait card crops it to fill. Being SVG it is also sharp at any
+// card size, which none of the catalog's raster art is.
+export const FALLBACK_TILE = '/newtheme/common/casino-tile-placeholder.svg';
 
 // Most of the Evolution catalog's art is stored as a boxbet.io Next.js image
 // proxy URL, and that proxy refuses anything but its own site's referer — so

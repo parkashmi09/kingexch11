@@ -30,7 +30,16 @@
 }
 
 /* The skeleton covers the whole card until the image resolves, rather than
-   stacking above it and making the tile two boxes tall. */
+   stacking above it and making the tile two boxes tall.
+   react-loading-skeleton wraps its span in another span and follows it with a
+   <br>, both of which sit in normal flow and were adding 24px above the image,
+   so the wrapper is taken out of flow too. */
+.cb-casino-grid .wacmain-box > span {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
 .cb-casino-grid .wacmain-box .react-loading-skeleton {
   position: absolute;
   inset: 0;
