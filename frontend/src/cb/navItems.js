@@ -1,0 +1,36 @@
+import { common } from './assets';
+
+// The top nav / sidebar entries, in the reference's order.
+//
+// The reference builds this list at runtime from its own menu API; ours is
+// static because the tenexch backend has no equivalent endpoint. Each entry
+// carries where it goes in THIS app:
+//   `tab`   — a home-board sport tab (see TAB_SPORT_MAP in hooks/home/useHomeLoad)
+//   `route` — a real tenexch route
+//
+// Sport entries deliberately resolve to the home board rather than to routes of
+// their own: tenexch renders every sport through the home page's tab switch, so
+// giving them URLs would mean inventing routes the data layer doesn't have.
+export const SPORT_NAV = [
+  { key: 'inplay',           label: 'In-Play',   icon: 'inplay-icon.png',      alt: 'inplay',      tab: 'inplay' },
+  { key: 'cpl',              label: 'CPL 2026',  icon: 'winner-icon.png',      alt: 'winnericon',  tab: 'cricket' },
+  { key: 'cricket',          label: 'Cricket',   icon: 'cricket-icon.png',     alt: 'cricket',     tab: 'cricket' },
+  { key: 'football',         label: 'Soccer',    icon: 'soccer-icon.png',      alt: 'soccer',      tab: 'football' },
+  { key: 'tennis',           label: 'Tennis',    icon: 'tennis-icon.png',      alt: 'tennis',      tab: 'tennis' },
+  { key: 'horseracing',      label: 'Horse',     icon: 'horse-icon.png',       alt: 'horse',       tab: 'horseracing' },
+  { key: 'greyhoundracing',  label: 'Greyhound', icon: 'greyhound-icon.png',   alt: 'greyhound',   tab: 'greyhoundracing' },
+];
+
+// Casino entries map onto the routes tenexch already ships.
+export const CASINO_NAV = [
+  { key: 'indianpoker', label: 'Indian Poker', icon: 'indianpoker-icon.png', route: '/o_casino' },
+  { key: 'aviator',     label: 'Aviator',      icon: 'aviator-icon.png',     route: '/crash' },
+  { key: 'chickenroad', label: 'Chicken Road', icon: 'chickenroll-icon.png', route: '/crash' },
+  { key: 'livecasino',  label: 'Live Casino',  icon: 'livecasino-icon.png',  route: '/o_casino' },
+  { key: 'intcasino',   label: 'Int.Casino',   icon: 'intcasino-icon.png',   route: '/o_casino' },
+  { key: 'slot',        label: 'Slot',         icon: 'slot-icon.png',        route: '/o_slot' },
+];
+
+export const HEADER_NAV = [...SPORT_NAV, ...CASINO_NAV];
+
+export const iconSrc = (item) => common(item.icon);

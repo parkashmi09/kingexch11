@@ -15,23 +15,20 @@ const queryClient = new QueryClient({
     },
   },
 });
-import 'hooper/dist/hooper.css';
-import '../reference/bootstrap.min.css';
-import '../reference/all.css';
-import '../reference/control.css';
-import '../reference/font.css';
-import '../reference/color.css';
-import '../reference/style.css';
-import '../reference/animation.css';
-import '../reference/animation-mobile.css';
-import '../reference/responsive.css';
-import '../reference/main.css';
-import '../reference/wolf-custom.css';
-import '../reference/ten-custom.css';
-import '../reference/theme.css';
-import '../reference/custom.css';
-import './styles/themes/dark.css';
-import './App.css';
+// The tenexch stylesheets are NOT imported here any more. They and the clickbet
+// sheet below style the same element and class names, so only one of them may
+// apply at a time; src/legacyStyles.jsx mounts the old set as <link>s for the
+// routes that still need it. See the note at the top of that file.
+//
+// Bootstrap is the one exception - both UIs are built on it, and the reference
+// loads the same 5.3 line - so it stays global and goes first.
+import 'bootstrap/dist/css/bootstrap.min.css';
+// Font Awesome 4.7 supplies the `fa fa-*` glyphs the clickbet markup uses (the
+// reference pulls the same version off cdnjs).
+import 'font-awesome/css/font-awesome.min.css';
+// The clickbet UI itself. Slick, the marquee and the skeleton styles are all
+// already inside it - those libraries need no CSS of their own.
+import './styles/clickbet.css';
 import './config';
 
 ReactDOM.createRoot(document.getElementById('app')).render(

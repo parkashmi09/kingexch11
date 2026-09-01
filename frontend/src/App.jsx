@@ -10,6 +10,11 @@ import Sidebar from './components/layout/Sidebar';
 import Footer from './components/layout/Footer';
 import UpcomingFixture from './components/home/UpcomingFixture';
 import Home from './pages/Home';
+// The clickbet UI. It ships as its own tree under src/cb so the rebuild can
+// land route by route: the home page renders through CbLayout below, every
+// other route still goes through MainLayout until it is converted too.
+import CbLayout from './cb/Layout';
+import LegacyStyles from './legacyStyles';
 import VirtualCricket from './pages/VirtualCricket';
 import VirtualCricketDetails from './pages/VirtualCricketDetails';
 import Login from './pages/Login';
@@ -362,6 +367,8 @@ function MainLayout() {
 
   return (
     <div className="wrapper">
+      {/* The tenexch stylesheets apply only while this old chrome is on screen. */}
+      <LegacyStyles />
       <HeaderTop />
       {/* Hide left sidebar on casino home, crash and report pages; show on casino game pages */}
       {/* Virtual casino KEEPS the sidebar. It is `d-none-mobile` so it never
@@ -446,7 +453,12 @@ function App() {
       <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
       <Route path="/responsible-gaming" element={<ResponsibleGaming />} />
 
-      {/* Main routes */}
+      {/* Home — rebuilt on the clickbet UI. Listed before the catch-all; the
+          router still ranks these two static paths above "/*". */}
+      <Route path="/" element={<CbLayout />} />
+      <Route path="/home" element={<CbLayout />} />
+
+      {/* Everything else still renders in the old chrome. */}
       <Route path="/*" element={<MainLayout />} />
     </Routes>
     </>
