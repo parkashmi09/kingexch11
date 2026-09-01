@@ -20,7 +20,7 @@ import CbEventDetails from './cb/pages/EventDetails';
 import CbRules from './cb/pages/Rules';
 import CbSportPage from './cb/pages/SportPage';
 import CbRaceDetails from './cb/pages/RaceDetails';
-import CbIndianPoker from './cb/casino/IndianPoker';
+import CbCasinoMenu from './cb/casino/CasinoMenuPage';
 import LegacyStyles from './legacyStyles';
 import VirtualCricket from './pages/VirtualCricket';
 import VirtualCricketDetails from './pages/VirtualCricketDetails';
@@ -484,7 +484,8 @@ function App() {
       <Route path="/home" element={<CbLayout><CbHome /></CbLayout>} />
       <Route path="/cpl" element={<CbLayout><CbCpl /></CbLayout>} />
       <Route path="/rules" element={<CbLayout><CbRules /></CbLayout>} />
-      <Route path="/indianpoker" element={<CbLayout><CbIndianPoker /></CbLayout>} />
+      <Route path="/indianpoker" element={<CbLayout><CbCasinoMenu menu="INDIANPOKER" /></CbLayout>} />
+      <Route path="/aviator" element={<CbLayout><CbCasinoMenu menu="AVIATOR" /></CbLayout>} />
       <Route path="/game/:sportId" element={<CbLayout><CbSportPage /></CbLayout>} />
       <Route path="/race/:sportId" element={<CbLayout><CbSportPage /></CbLayout>} />
       <Route path="/gamedetails/:sid/:gmid" element={<DetailRoute />} />

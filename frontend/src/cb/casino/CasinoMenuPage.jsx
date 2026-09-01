@@ -1,15 +1,17 @@
 import { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { useQuery } from '@tanstack/react-query';
 import { common } from '../assets';
-import { getManagedCasinoGames } from '../../apiservices/casinoManageService';
 import { cbToastError } from '../toast';
 import { minBalanceMessage } from '../../config/casinoGames';
 import useViewportWidth from '../useViewport';
-import { PARTNERS, GAME_TYPES, tileArt, FALLBACK_TILE_IMG } from './catalog';
+import { getGameLaunchURL } from '../../apiservices/jsGamesService';
+import { FALLBACK_TILE_IMG } from './catalog';
+import { MENUS } from './menus';
+import useMenuGames from './useMenuGames';
 import FilterStrip from './FilterStrip';
 import CategoryModal from './CategoryModal';
+import GameFrame, { LaunchSpinner } from './GameFrame';
 
 // The reference paints ten placeholder tiles while its list is in flight.
 const SKELETON_TILES = Array.from({ length: 10 }, (_, i) => i);
@@ -31,7 +33,7 @@ function GameTile({ game, onPlay }) {
         <img
           loading="lazy"
           alt={game.name}
-          src={tileArt(game)}
+          src={game.art}
           className="img-fluid"
           onLoad={() => setLoaded(true)}
           onError={(e) => {
@@ -56,84 +58,71 @@ function GameTile({ game, onPlay }) {
 }
 
 /**
- * The Indian Poker page.
+ * A casino menu page — Indian Poker, Aviator, and the four still to come.
  *
- * Layout is a transcription of the reference's casino category page (`FV` in
- * its bundle, driven by its `$i.INDIANPOKER` config): the `indianpoker.webp`
- * strip, a provider pill row, the search box with its Category button, a
- * game-type pill row, and the `wac-20` tile grid with the Play overlay. Every
- * class it uses is already in clickbet.css, including the `.wac-20` breakpoint
- * that turns the six-across desktop grid into three-across on a phone — so the
- * phone and desktop layouts both come from reproducing the markup.
+ * One component for all of them, as the reference does it: its `FV` serves all
+ * six of its casino menus off a config keyed on the route param, and `menus.js`
+ * is that config here. Adding CHICKENROAD, LIVECASINO, INTERNATIONALCASINO or
+ * SLOT is an entry there plus a route, not another page.
+ *
+ * The layout is transcribed from that component: the innerpagebanner strip, a
+ * partner pill row, the search box with its Category button, a game-type pill
+ * row, the search summary, and the `wac-20` tile grid with the Play overlay.
+ * Every class it uses is already in clickbet.css — including the `.wac-20`
+ * breakpoint that turns the six-across desktop grid into three-across on a
+ * phone — so phone and desktop both come from reproducing the markup.
  *
  * Both pill rows carry the reference's own labels, fixed rather than derived
- * from the data — RVGAMES / INDIAN POKER II / INDIAN POKER / MAC88 above, Live
- * Casino / Table Games / Slot / Crash Games below. The games behind them are
- * THIS platform's own tables (the Casino Manage catalog), because the
- * reference's Indian Poker set comes from partners this backend does not carry.
- * Each pill is therefore pinned to its label and given a predicate over our
- * catalog; the mapping lives in `catalog.js`, in one table.
+ * from the data; `menus.js` pairs each with a predicate over our games and
+ * documents where that pairing is real and where it is only a label.
  *
- * Logged out, the page renders in full — the reference only withholds a grid on
- * its `providers_lobby` menus, and Indian Poker is a `providers` menu. It is the
- * tile that is gated: a click with no session opens the login modal, exactly as
- * the reference does it, by clicking the header's `#loginBtn`.
+ * Logged out the page renders in full, as the reference's does for a
+ * `providers` menu — it only withholds a grid on `providers_lobby`. The gate is
+ * on the tile.
  */
-function IndianPoker() {
+function CasinoMenuPage({ menu }) {
   const navigate = useNavigate();
-  const { isAuthenticated, balance } = useSelector((s) => s.user);
+  const { user, isAuthenticated, balance } = useSelector((s) => s.user);
+  const config = MENUS[menu];
 
   const [provider, setProvider] = useState('');
   const [category, setCategory] = useState('');
   const [search, setSearch] = useState('');
   const [catOpen, setCatOpen] = useState(false);
+  const [launching, setLaunching] = useState(false);
+  const [frameUrl, setFrameUrl] = useState('');
   const width = useViewportWidth();
 
-  const { data: rows = [], isFetching } = useQuery({
-    queryKey: ['casino-manage-games'],
-    queryFn: async ({ signal }) => {
-      const res = await getManagedCasinoGames({ signal });
-      return res?.success ? res.data || [] : [];
-    },
-    staleTime: 30_000,
-    refetchOnMount: 'always',
-  });
+  const { games, isFetching } = useMenuGames(config.source);
 
-  // Owner-disabled tables do not exist as far as this page is concerned.
-  const games = useMemo(() => rows.filter((g) => g.enabled !== false), [rows]);
-
-  // Both rows are the reference's fixed pills, always rendered — NOT derived
-  // from what our catalog happens to hold. Each pill carries its own predicate
-  // (see catalog.js); a pill with no games behind it shows an empty grid rather
-  // than disappearing, because the row has to read the same as the reference's.
-  const providers = PARTNERS;
-  const categories = GAME_TYPES;
+  const providers = config.partners;
+  const categories = config.gameTypes;
 
   // Same filter chain as the reference, in the same order: partner, then game
   // type, then the search box.
   const shown = useMemo(() => {
     let list = games;
     if (provider) {
-      const p = PARTNERS.find((x) => x.id === provider);
+      const p = providers.find((x) => x.id === provider);
       if (p) list = list.filter(p.match);
     }
     if (category) {
-      const c = GAME_TYPES.find((x) => x.id === category);
+      const c = categories.find((x) => x.id === category);
       if (c) list = list.filter(c.match);
     }
     if (search) {
       const q = search.toLowerCase();
-      list = list.filter((g) => (g.name || '').toLowerCase().includes(q));
+      list = list.filter((g) => g.name.toLowerCase().includes(q));
     }
     return list;
-  }, [games, provider, category, search]);
+  }, [games, providers, categories, provider, category, search]);
 
   // The reference caps its grid at 24 tiles with nothing to page past them,
-  // which suits its ~20-game set. Ours runs to 100-odd tables, so the cap is
-  // dropped rather than making three quarters of the catalog unreachable. The
-  // grid renders identically either way.
+  // which suits its ~20-game menus. Ours run to 100-odd tables and ~200 crash
+  // titles, so the cap is dropped rather than making most of them unreachable.
+  // The grid renders identically either way.
 
-  const onPlay = (game) => {
+  const onPlay = async (game) => {
     if (!isAuthenticated) {
       // What the reference does, and our header ships the same button id.
       const loginBtn = document.getElementById('loginBtn');
@@ -141,15 +130,38 @@ function IndianPoker() {
       else cbToastError('Please login to access!');
       return;
     }
-    if (!game.route) return;
-    // Entry threshold, checked at the tile so the user is told here rather than
-    // landing on the table and being bounced straight back out.
-    const need = Number(game.min_balance) || 0;
-    if (need > 0 && Number(balance || 0) < need) {
-      cbToastError(minBalanceMessage(need));
+
+    if (game.launch.kind === 'route') {
+      if (!game.launch.route) return;
+      // Entry threshold, checked at the tile so the user is told here rather
+      // than landing on the table and being bounced straight back out.
+      if (game.minBalance > 0 && Number(balance || 0) < game.minBalance) {
+        cbToastError(minBalanceMessage(game.minBalance));
+        return;
+      }
+      navigate(game.launch.route);
       return;
     }
-    navigate(game.route);
+
+    // Third-party game: fetch a launch URL and open it in the frame, behind the
+    // reference's spinner.
+    setLaunching(true);
+    try {
+      const res = await getGameLaunchURL({
+        game_uid: game.launch.gameUid,
+        user_id: user?.user_id || user?.id,
+        credit_amount: String(balance || 0),
+        currency_code: 'INR',
+        language: 'en',
+      });
+      const url = res?.payload?.game_launch_url || res?.data?.game_launch_url;
+      if (res?.success && url) setFrameUrl(url);
+      else cbToastError(res?.msg || res?.error || 'This game is currently unavailable.');
+    } catch {
+      cbToastError('This game is currently unavailable.');
+    } finally {
+      setLaunching(false);
+    }
   };
 
   const banner = (
@@ -157,12 +169,16 @@ function IndianPoker() {
       <div className="row">
         <div className="sportbook-livecasino">
           <div className="text-center innerbanner">
-            <img alt="Banner" src={common('innerpagebanner/indianpoker.webp')} />
+            <img alt="Banner" src={common(`innerpagebanner/${config.banner}`)} />
           </div>
         </div>
       </div>
     </div>
   );
+
+  if (launching) return <LaunchSpinner />;
+
+  if (frameUrl) return <GameFrame url={frameUrl} onClose={() => setFrameUrl('')} />;
 
   if (isFetching && games.length === 0) {
     return (
@@ -263,7 +279,7 @@ function IndianPoker() {
 
             <div className="mt-2 mb-2 featured-game1 wac-min-height wac-width-100">
               {shown.map((game) => (
-                <GameTile key={game.id} game={game} onPlay={onPlay} />
+                <GameTile key={game.key} game={game} onPlay={onPlay} />
               ))}
             </div>
           </div>
@@ -285,4 +301,4 @@ function IndianPoker() {
   );
 }
 
-export default IndianPoker;
+export default CasinoMenuPage;
