@@ -1,0 +1,3993 @@
+{
+  "iconHost": "https://sitethemedata.com/casino_icons/slot",
+  "providers": [
+    {
+      "provider": "jili",
+      "label": "Jili",
+      "iconDir": "Jili",
+      "categories": [
+        {
+          "id": "slot-game",
+          "label": "Slot Game",
+          "games": [
+            {
+              "name": "Chin Shi Huang",
+              "icon": "2.jpg"
+            },
+            {
+              "name": "God Of Martial",
+              "icon": "4.jpg"
+            },
+            {
+              "name": "Hot Chilli",
+              "icon": "5.jpg"
+            },
+            {
+              "name": "Fortune Tree",
+              "icon": "6.jpg"
+            },
+            {
+              "name": "War Of Dragons",
+              "icon": "9.jpg"
+            },
+            {
+              "name": "Lucky Ball",
+              "icon": "13.jpg"
+            },
+            {
+              "name": "Hyper Burst",
+              "icon": "14.jpg"
+            },
+            {
+              "name": "Shanghai Beauty",
+              "icon": "17.jpg"
+            },
+            {
+              "name": "Fa Fa Fa",
+              "icon": "21.jpg"
+            },
+            {
+              "name": "Candy Baby",
+              "icon": "23.jpg"
+            },
+            {
+              "name": "Hawaii Beauty",
+              "icon": "26.jpg"
+            },
+            {
+              "name": "SevenSevenSeven",
+              "icon": "27.jpg"
+            },
+            {
+              "name": "Bubble Beauty",
+              "icon": "30.jpg"
+            },
+            {
+              "name": "FortunePig",
+              "icon": "33.jpg"
+            },
+            {
+              "name": "Crazy777",
+              "icon": "35.jpg"
+            },
+            {
+              "name": "Bao boon chin",
+              "icon": "36.jpg"
+            },
+            {
+              "name": "Night City",
+              "icon": "37.jpg"
+            },
+            {
+              "name": "Fengshen",
+              "icon": "38.jpg"
+            },
+            {
+              "name": "Crazy FaFaFa",
+              "icon": "40.jpg"
+            },
+            {
+              "name": "XiYangYang",
+              "icon": "43.jpg"
+            },
+            {
+              "name": "DiamondParty",
+              "icon": "44.jpg"
+            },
+            {
+              "name": "Golden Bank",
+              "icon": "45.jpg"
+            },
+            {
+              "name": "Dragon Treasure",
+              "icon": "46.jpg"
+            },
+            {
+              "name": "Charge Buffalo",
+              "icon": "47.jpg"
+            },
+            {
+              "name": "Lucky Goldbricks",
+              "icon": "48.jpg"
+            },
+            {
+              "name": "Super Ace",
+              "icon": "49.jpg"
+            },
+            {
+              "name": "Money Coming",
+              "icon": "51.jpg"
+            },
+            {
+              "name": "Golden Queen",
+              "icon": "58.jpg"
+            },
+            {
+              "name": "Jungle King",
+              "icon": "16.jpg"
+            },
+            {
+              "name": "Boxing King",
+              "icon": "77.jpg"
+            },
+            {
+              "name": "Secret Treasure",
+              "icon": "78.jpg"
+            },
+            {
+              "name": "Pharaoh Treasure",
+              "icon": "85.jpg"
+            },
+            {
+              "name": "Lucky Coming",
+              "icon": "91.jpg"
+            },
+            {
+              "name": "Super Rich",
+              "icon": "100.jpg"
+            },
+            {
+              "name": "Roma X",
+              "icon": "102.jpg"
+            },
+            {
+              "name": "Golden Empire",
+              "icon": "103.jpg"
+            },
+            {
+              "name": "Fortune Gems",
+              "icon": "109.jpg"
+            },
+            {
+              "name": "Crazy Hunter",
+              "icon": "92.jpg"
+            },
+            {
+              "name": "Party Night",
+              "icon": "76.jpg"
+            },
+            {
+              "name": "Magic Lamp",
+              "icon": "108.jpg"
+            },
+            {
+              "name": "Agent Ace",
+              "icon": "115.jpg"
+            },
+            {
+              "name": "TWIN WINS",
+              "icon": "106.jpg"
+            },
+            {
+              "name": "Ali Baba",
+              "icon": "110.jpg"
+            },
+            {
+              "name": "Mega Ace",
+              "icon": "134.jpg"
+            },
+            {
+              "name": "Medusa",
+              "icon": "101.jpg"
+            },
+            {
+              "name": "Book of Gold",
+              "icon": "87.jpg"
+            },
+            {
+              "name": "Thor X",
+              "icon": "130.jpg"
+            },
+            {
+              "name": "Happy Taxi",
+              "icon": "116.jpg"
+            },
+            {
+              "name": "Gold Rush",
+              "icon": "137.jpg"
+            },
+            {
+              "name": "Mayan Empire",
+              "icon": "135.jpg"
+            },
+            {
+              "name": "Crazy Pusher",
+              "icon": "153.jpg"
+            },
+            {
+              "name": "Bone Fortune",
+              "icon": "126.jpg"
+            },
+            {
+              "name": "JILI CAISHEN",
+              "icon": "144.jpg"
+            },
+            {
+              "name": "Bonus Hunter",
+              "icon": "142.jpg"
+            },
+            {
+              "name": "World Cup",
+              "icon": "146.jpg"
+            },
+            {
+              "name": "Samba",
+              "icon": "136.jpg"
+            },
+            {
+              "name": "Neko Fortune",
+              "icon": "145.jpg"
+            },
+            {
+              "name": "Wild Racer",
+              "icon": "166.jpg"
+            },
+            {
+              "name": "Pirate Queen",
+              "icon": "164.jpg"
+            },
+            {
+              "name": "Golden Joker",
+              "icon": "183.jpg"
+            },
+            {
+              "name": "Wild Ace",
+              "icon": "181.jpg"
+            },
+            {
+              "name": "Master Tiger",
+              "icon": "176.jpg"
+            },
+            {
+              "name": "Fortune Gems 2",
+              "icon": "223.jpg"
+            },
+            {
+              "name": "Sweet Land",
+              "icon": "198.jpg"
+            },
+            {
+              "name": "Cricket King 18",
+              "icon": "225.jpg"
+            },
+            {
+              "name": "Elf Bingo",
+              "icon": "172.jpg"
+            },
+            {
+              "name": "Cricket Sah 75",
+              "icon": "230.jpg"
+            },
+            {
+              "name": "Golden Temple",
+              "icon": "191.jpg"
+            },
+            {
+              "name": "Devil Fire",
+              "icon": "193.jpg"
+            },
+            {
+              "name": "Bangla Beauty",
+              "icon": "238.jpg"
+            },
+            {
+              "name": "Aztec Priestess",
+              "icon": "209.jpg"
+            },
+            {
+              "name": "Fortune Monkey",
+              "icon": "303.jpg"
+            },
+            {
+              "name": "Dabanggg",
+              "icon": "239.jpg"
+            },
+            {
+              "name": "Sin City",
+              "icon": "171.jpg"
+            },
+            {
+              "name": "King Arthur",
+              "icon": "214.jpg"
+            },
+            {
+              "name": "Charge Buffalo Ascent",
+              "icon": "259.jpg"
+            },
+            {
+              "name": "Witches Night",
+              "icon": "226.jpg"
+            },
+            {
+              "name": "Arena Fighter",
+              "icon": "228.jpg"
+            },
+            {
+              "name": "Trial of Phoenix",
+              "icon": "208.jpg"
+            },
+            {
+              "name": "Devil Fire 2",
+              "icon": "258.jpg"
+            },
+            {
+              "name": "Zeus",
+              "icon": "252.jpg"
+            },
+            {
+              "name": "Fortune Gems 3",
+              "icon": "300.jpg"
+            },
+            {
+              "name": "3 Coin Treasures",
+              "icon": "399.jpg"
+            },
+            {
+              "name": "Potion Wizard",
+              "icon": "299.jpg"
+            },
+            {
+              "name": "Crazy Hunter 2",
+              "icon": "420.jpg"
+            },
+            {
+              "name": "The Pig House",
+              "icon": "263.jpg"
+            },
+            {
+              "name": "Legacy of Egypt",
+              "icon": "180.jpg"
+            },
+            {
+              "name": "Super Ace Deluxe",
+              "icon": "403.jpg"
+            },
+            {
+              "name": "Money Coming Expand Bets",
+              "icon": "302.jpg"
+            },
+            {
+              "name": "Party Star",
+              "icon": "240.jpg"
+            },
+            {
+              "name": "Egypts Glow",
+              "icon": "264.jpg"
+            },
+            {
+              "name": "3 Lucky Piggy",
+              "icon": "400.jpg"
+            },
+            {
+              "name": "Poseidon",
+              "icon": "375.jpg"
+            },
+            {
+              "name": "3 Pot Dragons",
+              "icon": "372.jpg"
+            },
+            {
+              "name": "Money Pot",
+              "icon": "379.jpg"
+            },
+            {
+              "name": "Nightfall Hunting",
+              "icon": "324.jpg"
+            },
+            {
+              "name": "Shogun",
+              "icon": "376.jpg"
+            },
+            {
+              "name": "Lucky Jaguar",
+              "icon": "421.jpg"
+            },
+            {
+              "name": "Lucky Doggy",
+              "icon": "374.jpg"
+            },
+            {
+              "name": "Golden Bank 2",
+              "icon": "378.jpg"
+            },
+            {
+              "name": "Fruity Wheel",
+              "icon": "422.jpg"
+            },
+            {
+              "name": "Safari Mystery",
+              "icon": "377.jpg"
+            },
+            {
+              "name": "Treasure Quest",
+              "icon": "307.jpg"
+            },
+            {
+              "name": "Coin Tree",
+              "icon": "392.jpg"
+            },
+            {
+              "name": "3 Coin Wild Horse",
+              "icon": "485.jpg"
+            },
+            {
+              "name": "Roma X Deluxe",
+              "icon": "517.jpg"
+            },
+            {
+              "name": "Super Ace Joker",
+              "icon": "409.jpg"
+            },
+            {
+              "name": "Fortune Gems Legend",
+              "icon": "812.jpg"
+            },
+            {
+              "name": "Crazy777 2",
+              "icon": "504.jpg"
+            },
+            {
+              "name": "Circus Joker 4096",
+              "icon": "518.jpg"
+            },
+            {
+              "name": "Fortune Coins",
+              "icon": "523.jpg"
+            },
+            {
+              "name": "Joker Coins",
+              "icon": "529.jpg"
+            },
+            {
+              "name": "Money Pot Deluxe",
+              "icon": "541.jpg"
+            },
+            {
+              "name": "Super Ace II",
+              "icon": "542.jpg"
+            },
+            {
+              "name": "Money Coming 2",
+              "icon": "543.jpg"
+            },
+            {
+              "name": "Clover Coins 3x3",
+              "icon": "545.jpg"
+            },
+            {
+              "name": "Fortune Coins 2",
+              "icon": "573.jpg"
+            },
+            {
+              "name": "Fortune Garuda 500",
+              "icon": "696.jpg"
+            },
+            {
+              "name": "Fortune Garuda 1000",
+              "icon": "807.jpg"
+            }
+          ]
+        },
+        {
+          "id": "table-game",
+          "label": "Table Game",
+          "games": []
+        },
+        {
+          "id": "fish-game",
+          "label": "Fish Game",
+          "games": []
+        },
+        {
+          "id": "crash-game",
+          "label": "Crash Game",
+          "games": []
+        }
+      ]
+    },
+    {
+      "provider": "amigo",
+      "label": "Amigo",
+      "iconDir": "amigo",
+      "categories": [
+        {
+          "id": "new-slots",
+          "label": "New Slots",
+          "games": [
+            {
+              "name": "9 Circles of Hell",
+              "icon": "amigo_9circlesofhell@amigo.jpg"
+            },
+            {
+              "name": "Alexanders Fortune",
+              "icon": "amigo_alexandersfortune@amigo.jpg"
+            },
+            {
+              "name": "Alibabas Bounty",
+              "icon": "amigo_alibabasbounty@amigo.jpg"
+            },
+            {
+              "name": "American Spirit",
+              "icon": "amigo_americanspirit@amigo.jpg"
+            },
+            {
+              "name": "Amigo Bronze Classic",
+              "icon": "amigo_amigobronzeclassic@amigo.jpg"
+            },
+            {
+              "name": "Amigo Double Classic",
+              "icon": "amigo_amigodoubleclassic@amigo.jpg"
+            },
+            {
+              "name": "Amigo Fruits 5",
+              "icon": "amigo_amigofruits5@amigo.jpg"
+            },
+            {
+              "name": "Amigo Gift Store",
+              "icon": "amigo_amigogiftstore@amigo.jpg"
+            },
+            {
+              "name": "Amigo Gold Classic",
+              "icon": "amigo_amigogoldclassic@amigo.jpg"
+            },
+            {
+              "name": "Amigo Hot 100",
+              "icon": "amigo_amigohot100@amigo.jpg"
+            },
+            {
+              "name": "Amigo Hot 20",
+              "icon": "amigo_amigohot20@amigo.jpg"
+            },
+            {
+              "name": "Amigo Hot 40",
+              "icon": "amigo_amigohot40@amigo.jpg"
+            },
+            {
+              "name": "Amigo Hot Classic",
+              "icon": "amigo_amigohotclassic@amigo.jpg"
+            },
+            {
+              "name": "Amigo Lucky Fruits",
+              "icon": "amigo_amigoluckyfruits@amigo.jpg"
+            },
+            {
+              "name": "Amigo Lucky Fruits: Pin Win",
+              "icon": "amigo_amigoluckyfruitspinwin@amigo.jpg"
+            },
+            {
+              "name": "Amigo Mighty Starts",
+              "icon": "amigo_amigomightystars@amigo.jpg"
+            },
+            {
+              "name": "Amigo Monkey",
+              "icon": "amigo_amigomonkey@amigo.jpg"
+            },
+            {
+              "name": "Amigo Monkey 2",
+              "icon": "amigo_amigomonkey2@amigo.jpg"
+            },
+            {
+              "name": "Amigo Multifruits",
+              "icon": "amigo_amigomultifruits@amigo.jpg"
+            },
+            {
+              "name": "Amigo Silver Classic",
+              "icon": "amigo_amigosilverclassic@amigo.jpg"
+            },
+            {
+              "name": "Amigo WIldLuck",
+              "icon": "amigo_amigowildluck@amigo.jpg"
+            },
+            {
+              "name": "Animal Housing",
+              "icon": "amigo_animalhousing@amigo.jpg"
+            },
+            {
+              "name": "Arena",
+              "icon": "amigo_arena@amigo.jpg"
+            },
+            {
+              "name": "Barbarian Stash",
+              "icon": "amigo_barbarianstash@amigo.jpg"
+            },
+            {
+              "name": "Beat Coin",
+              "icon": "amigo_beatcoin@amigo.jpg"
+            },
+            {
+              "name": "Blazing Crown",
+              "icon": "amigo_blazingcrown@amigo.jpg"
+            },
+            {
+              "name": "Blazing Crown Deluxe",
+              "icon": "amigo_blazingcrowndeluxe@amigo.jpg"
+            },
+            {
+              "name": "Book of Amigo",
+              "icon": "amigo_bookofamigo@amigo.jpg"
+            },
+            {
+              "name": "Book of Jurassic",
+              "icon": "amigo_bookofjurassic@amigo.jpg"
+            },
+            {
+              "name": "Book of Sorcery",
+              "icon": "amigo_bookofsorcery@amigo.jpg"
+            },
+            {
+              "name": "Book of Zeus",
+              "icon": "amigo_bookofzeus@amigo.jpg"
+            },
+            {
+              "name": "Burning Phoenix",
+              "icon": "amigo_burningphoenix@amigo.jpg"
+            },
+            {
+              "name": "Candy Time",
+              "icon": "amigo_candytime@amigo.jpg"
+            },
+            {
+              "name": "Carnevale di Venezia",
+              "icon": "amigo_carnevaledivenezia@amigo.jpg"
+            },
+            {
+              "name": "Clover Hell",
+              "icon": "amigo_cloverhell@amigo.jpg"
+            },
+            {
+              "name": "Crystal Hunters",
+              "icon": "amigo_crystalhunters@amigo.jpg"
+            },
+            {
+              "name": "Destiny Dragon",
+              "icon": "amigo_destinydragon@amigo.jpg"
+            },
+            {
+              "name": "Dice Club",
+              "icon": "amigo_diceclub@amigo.jpg"
+            },
+            {
+              "name": "Eagle Wilds",
+              "icon": "amigo_eaglewilds@amigo.jpg"
+            },
+            {
+              "name": "Easy Cash",
+              "icon": "amigo_easycash@amigo.jpg"
+            },
+            {
+              "name": "ElDorado Fruits",
+              "icon": "amigo_eldoradofruits@amigo.jpg"
+            },
+            {
+              "name": "Elephant Splash",
+              "icon": "amigo_elephantsplash@amigo.jpg"
+            },
+            {
+              "name": "Epic Coins",
+              "icon": "amigo_epiccoins@amigo.jpg"
+            },
+            {
+              "name": "Fiesta de los Muertos",
+              "icon": "amigo_fiestadelosmuertos@amigo.jpg"
+            },
+            {
+              "name": "Fortune Bros",
+              "icon": "amigo_fortunebros@amigo.jpg"
+            },
+            {
+              "name": "Frozen Crown",
+              "icon": "amigo_frozencrown@amigo.jpg"
+            },
+            {
+              "name": "Fruit Eruption",
+              "icon": "amigo_fruiteruption@amigo.jpg"
+            },
+            {
+              "name": "Fruit Invaders",
+              "icon": "amigo_fruitinvaders@amigo.jpg"
+            },
+            {
+              "name": "Fruits & Coins",
+              "icon": "amigo_fruitsandcoins@amigo.jpg"
+            },
+            {
+              "name": "Galaxy Chase",
+              "icon": "amigo_galaxychase@amigo.jpg"
+            },
+            {
+              "name": "Gold of Mermaid",
+              "icon": "amigo_goldofmermaid@amigo.jpg"
+            },
+            {
+              "name": "Golden Cloverfield",
+              "icon": "amigo_goldencloverfield@amigo.jpg"
+            },
+            {
+              "name": "Golden Toro",
+              "icon": "amigo_goldentoro@amigo.jpg"
+            },
+            {
+              "name": "Hades Power",
+              "icon": "amigo_hadespower@amigo.jpg"
+            },
+            {
+              "name": "Hearts Go Wild",
+              "icon": "amigo_heartsgowild@amigo.jpg"
+            },
+            {
+              "name": "Jaguar Treasures",
+              "icon": "amigo_jaguartreasures@amigo.jpg"
+            },
+            {
+              "name": "Joker Empire",
+              "icon": "amigo_jokerempire@amigo.jpg"
+            },
+            {
+              "name": "Jokers Joy",
+              "icon": "amigo_jokersjoy@amigo.jpg"
+            },
+            {
+              "name": "Jokers Twist",
+              "icon": "amigo_jokerstwist@amigo.jpg"
+            },
+            {
+              "name": "Kingdom Crown",
+              "icon": "amigo_kingdomcrown@amigo.jpg"
+            },
+            {
+              "name": "Lamp of Wishes",
+              "icon": "amigo_lampofwishes@amigo.jpg"
+            },
+            {
+              "name": "Lion Kingdom",
+              "icon": "amigo_lionkingdom@amigo.jpg"
+            },
+            {
+              "name": "Luxury Fruits",
+              "icon": "amigo_luxuryfruits@amigo.jpg"
+            },
+            {
+              "name": "Max Fury",
+              "icon": "amigo_maxfury@amigo.jpg"
+            },
+            {
+              "name": "Mega Crown",
+              "icon": "amigo_megacrown@amigo.jpg"
+            },
+            {
+              "name": "MiamiX",
+              "icon": "amigo_miamix@amigo.jpg"
+            },
+            {
+              "name": "Miss Neko",
+              "icon": "amigo_missneko@amigo.jpg"
+            },
+            {
+              "name": "Most Wanted",
+              "icon": "amigo_mostwanted@amigo.jpg"
+            },
+            {
+              "name": "Mystery lady",
+              "icon": "amigo_mysterylady@amigo.jpg"
+            },
+            {
+              "name": "Nostradamus the Prophet",
+              "icon": "amigo_nostradamustheprophet@amigo.jpg"
+            },
+            {
+              "name": "Ocean Journey",
+              "icon": "amigo_oceanjourney@amigo.jpg"
+            },
+            {
+              "name": "Olympus Blessing",
+              "icon": "amigo_olympusblessing@amigo.jpg"
+            },
+            {
+              "name": "Penguin Holidays",
+              "icon": "amigo_penguinholidays@amigo.jpg"
+            },
+            {
+              "name": "Piggy Coins",
+              "icon": "amigo_piggycoins@amigo.jpg"
+            },
+            {
+              "name": "Punky Monkey",
+              "icon": "amigo_punkymonkey@amigo.jpg"
+            },
+            {
+              "name": "Rabbit Bonanza",
+              "icon": "amigo_rabbitbonanza@amigo.jpg"
+            },
+            {
+              "name": "RainbowLands",
+              "icon": "amigo_rainbowlands@amigo.jpg"
+            },
+            {
+              "name": "Regal Crown 100",
+              "icon": "amigo_regalcrown100@amigo.jpg"
+            },
+            {
+              "name": "Regal Crown 25",
+              "icon": "amigo_regalcrown25@amigo.jpg"
+            },
+            {
+              "name": "Regal Crown 50",
+              "icon": "amigo_regalcrown50@amigo.jpg"
+            },
+            {
+              "name": "Regal Fruits 100",
+              "icon": "amigo_regalfruits100@amigo.jpg"
+            },
+            {
+              "name": "Regal Fruits 1000",
+              "icon": "amigo_regalfruits1000@amigo.jpg"
+            },
+            {
+              "name": "Regal Fruits 20",
+              "icon": "amigo_regalfruits20@amigo.jpg"
+            },
+            {
+              "name": "Regal Fruits 40",
+              "icon": "amigo_regalfruits40@amigo.jpg"
+            },
+            {
+              "name": "Regal Fruits 5",
+              "icon": "amigo_regalfruits5@amigo.jpg"
+            },
+            {
+              "name": "Samurai Cats",
+              "icon": "amigo_samuraicats@amigo.jpg"
+            },
+            {
+              "name": "Sizzling Coins",
+              "icon": "amigo_sizzlingcoins@amigo.jpg"
+            },
+            {
+              "name": "Skull Coins",
+              "icon": "amigo_skullcoins@amigo.jpg"
+            },
+            {
+              "name": "Sun Crown",
+              "icon": "amigo_suncrown@amigo.jpg"
+            },
+            {
+              "name": "Sunshine fruits",
+              "icon": "amigo_sunshinefruits@amigo.jpg"
+            },
+            {
+              "name": "Super Chili",
+              "icon": "amigo_superchili@amigo.jpg"
+            },
+            {
+              "name": "Thai Charm",
+              "icon": "amigo_thaicharm@amigo.jpg"
+            },
+            {
+              "name": "Thunder and Love",
+              "icon": "amigo_thunderandlove@amigo.jpg"
+            },
+            {
+              "name": "Vampire Joker",
+              "icon": "amigo_vampirejoker@amigo.jpg"
+            },
+            {
+              "name": "Vasco da Gama",
+              "icon": "amigo_vascodagama@amigo.jpg"
+            },
+            {
+              "name": "Vikings Quest",
+              "icon": "amigo_vikingsquest@amigo.jpg"
+            },
+            {
+              "name": "Voodoo Charms",
+              "icon": "amigo_voodoocharms@amigo.jpg"
+            },
+            {
+              "name": "Wanted10",
+              "icon": "amigo_wanted10@amigo.jpg"
+            },
+            {
+              "name": "Wild Coyote",
+              "icon": "amigo_wildcoyote@amigo.jpg"
+            },
+            {
+              "name": "Wildfire Joker",
+              "icon": "amigo_wildfirejoker@amigo.jpg"
+            },
+            {
+              "name": "Xmas Invaders",
+              "icon": "amigo_xmasinvaders@amigo.jpg"
+            },
+            {
+              "name": "3 fortune souls",
+              "icon": "amigo_3fortunesouls@amigo.jpg"
+            },
+            {
+              "name": "3 Tombs",
+              "icon": "amigo_3tombs@amigo.jpg"
+            },
+            {
+              "name": "Fortune Bags",
+              "icon": "amigo_fortunebags@amigo.jpg"
+            },
+            {
+              "name": "3 Spirit Volcanoes",
+              "icon": "amigo_3spiritvolcanoes@amigo.jpg"
+            },
+            {
+              "name": "Moon Girls",
+              "icon": "amigo_moongirls@amigo.jpg"
+            },
+            {
+              "name": "5 Fruit Invaders",
+              "icon": "amigo_5fruitinvaders@amigo.jpg"
+            },
+            {
+              "name": "Cube Guys",
+              "icon": "amigo_cubeguys@amigo.gif"
+            },
+            {
+              "name": "Dice Invaders",
+              "icon": "amigo_diceinvaders@amigo.gif"
+            },
+            {
+              "name": "Triple Chili",
+              "icon": "amigo_triplechili@amigo.gif"
+            },
+            {
+              "name": "Olympus Rivals",
+              "icon": "amigo_olympusrivals@amigo.gif"
+            },
+            {
+              "name": "1st Cricket League",
+              "icon": "amigo_1stcricketleague@amigo.jpg"
+            },
+            {
+              "name": "1000 Olympus Rivals",
+              "icon": "amigo_1000olympusrivals@amigo.jpg"
+            },
+            {
+              "name": "1001 Fruit Wishes",
+              "icon": "amigo_1001fruitwishes@amigo.jpg"
+            },
+            {
+              "name": "12 Fortune Signs",
+              "icon": "amigo_12fortunesigns@amigo.jpg"
+            },
+            {
+              "name": "3 Energy Crowns",
+              "icon": "amigo_3energycrowns@amigo.jpg"
+            },
+            {
+              "name": "3 Frozen Crowns",
+              "icon": "amigo_3frozencrowns@amigo.jpg"
+            },
+            {
+              "name": "3 Muertos",
+              "icon": "amigo_3muertos@amigo.jpg"
+            },
+            {
+              "name": "3 Pharaohs",
+              "icon": "amigo_3pharaohs@amigo.jpg"
+            },
+            {
+              "name": "Buddha Gold",
+              "icon": "amigo_buddhagold@amigo.jpg"
+            },
+            {
+              "name": "Chili XXX",
+              "icon": "amigo_chilixxx@amigo.jpg"
+            },
+            {
+              "name": "Hellcards Scratch",
+              "icon": "amigo_hellcardsscratch@amigo.jpg"
+            },
+            {
+              "name": "Mega Mushrooms",
+              "icon": "amigo_megamushrooms@amigo.jpg"
+            },
+            {
+              "name": "Splash Clash",
+              "icon": "amigo_splashclash@amigo.jpg"
+            },
+            {
+              "name": "Vip Fruits",
+              "icon": "amigo_vipfruits@amigo.jpg"
+            },
+            {
+              "name": "WarAge Online",
+              "icon": "amigo_warageonline@amigo.jpg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "provider": "turbo-games",
+      "label": "Turbo Games",
+      "iconDir": "TurboGames",
+      "categories": [
+        {
+          "id": "new-slots",
+          "label": "New Slots",
+          "games": [
+            {
+              "name": "Jewel Clicker",
+              "icon": "TRB-jewelclicker.jpg"
+            },
+            {
+              "name": "Dice Thrice",
+              "icon": "TRB-dicethrice.jpg"
+            },
+            {
+              "name": "PumpedX",
+              "icon": "TRB-pumpedx.jpg"
+            },
+            {
+              "name": "Donny King",
+              "icon": "TRB-donnyking.jpg"
+            },
+            {
+              "name": "Crystal Poker",
+              "icon": "TRB-crystalpoker.jpg"
+            },
+            {
+              "name": "Crash X",
+              "icon": "TRB-crashx.jpg"
+            },
+            {
+              "name": "Aero",
+              "icon": "TRB-aero.jpg"
+            },
+            {
+              "name": "Vortex",
+              "icon": "TRB-vortex.jpg"
+            },
+            {
+              "name": "1Tap",
+              "icon": "TRB-1tapmines.jpg"
+            },
+            {
+              "name": "Ball & Ball",
+              "icon": "TRB-ballball.jpg"
+            },
+            {
+              "name": "Bayraktar",
+              "icon": "TRB-bayraktar.jpg"
+            },
+            {
+              "name": "Book of Mines",
+              "icon": "TRB-bookofmines.jpg"
+            },
+            {
+              "name": "Bubbles",
+              "icon": "TRB-bubbles.jpg",
+              "missingArt": true
+            },
+            {
+              "name": "Crystal Poker",
+              "icon": "TRB-crystalpoker.jpg"
+            },
+            {
+              "name": "Dice Thrice",
+              "icon": "TRB-dicethrice.jpg"
+            },
+            {
+              "name": "Dice Twice",
+              "icon": "TRB-dicetwice.jpg"
+            },
+            {
+              "name": "Dogs Street",
+              "icon": "TRB-dogsstreet.jpg"
+            },
+            {
+              "name": "Donny King",
+              "icon": "TRB-donnyking.jpg"
+            },
+            {
+              "name": "Double Roll",
+              "icon": "TRB-doubleroll.jpg"
+            },
+            {
+              "name": "Fast Fielder",
+              "icon": "TRB-fastfielder.jpg"
+            },
+            {
+              "name": "Fruit Towers",
+              "icon": "TRB-fruittowers.jpg"
+            },
+            {
+              "name": "Hamsta",
+              "icon": "TRB-hamsta.jpg"
+            },
+            {
+              "name": "Hi-Lo",
+              "icon": "TRB-hilo.jpg"
+            },
+            {
+              "name": "Limbo Rider",
+              "icon": "TRB-limborider.jpg"
+            },
+            {
+              "name": "Mines",
+              "icon": "TRB-mines.jpg"
+            },
+            {
+              "name": "Multiplayer Mines",
+              "icon": "TRB-multiplayermines.jpg"
+            },
+            {
+              "name": "Save the Princess",
+              "icon": "TRB-savetheprincess.jpg"
+            },
+            {
+              "name": "Stairs",
+              "icon": "TRB-stairs.jpg"
+            },
+            {
+              "name": "Trading Dice",
+              "icon": "TRB-tradingdice.jpg"
+            },
+            {
+              "name": "Towers",
+              "icon": "TRB-towers.jpg"
+            },
+            {
+              "name": "Turbo Mines",
+              "icon": "TRB-turbomines.jpg"
+            },
+            {
+              "name": "Turbo Plinko",
+              "icon": "TRB-turboplinko.jpg"
+            },
+            {
+              "name": "Wicket Blast",
+              "icon": "TRB-wicketblast.jpg",
+              "missingArt": true
+            },
+            {
+              "name": "Crash X Football Edition",
+              "icon": "TRB-crashxfootballedition.jpg"
+            },
+            {
+              "name": "JavelinX",
+              "icon": "TRB-javelinx.jpg"
+            },
+            {
+              "name": "Neko",
+              "icon": "TRB-neko.jpg"
+            },
+            {
+              "name": "Spin Strike",
+              "icon": "TRB-spinstrike.jpg"
+            },
+            {
+              "name": "Magic Keno",
+              "icon": "TRB-magickeno.jpg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "provider": "red-tiger",
+      "label": "Red Tiger",
+      "iconDir": "RedTiger",
+      "remoteDir": "Red Tiger",
+      "categories": [
+        {
+          "id": "new-slots",
+          "label": "New Slots",
+          "games": [
+            {
+              "name": "Five Star Power Reels",
+              "icon": "RED-fivestarpowerreels.jpg"
+            },
+            {
+              "name": "Fruit Snap",
+              "icon": "RED-fruitsnap.jpg"
+            },
+            {
+              "name": "Gems Gone Wild Power Reels",
+              "icon": "RED-gemsgonewildpowerreels.jpg"
+            },
+            {
+              "name": "Jingle Bells Power Reels",
+              "icon": "RED-jinglebellspowerreels.jpg"
+            },
+            {
+              "name": "Laser Fruit",
+              "icon": "RED-laserfruit.jpg"
+            },
+            {
+              "name": "Mega Dragon",
+              "icon": "RED-megadragon.jpg"
+            },
+            {
+              "name": "Reptizillions Power Reels",
+              "icon": "RED-reptizillionspowerreels.jpg"
+            },
+            {
+              "name": "Royal Gems",
+              "icon": "RED-royalgems.jpg"
+            },
+            {
+              "name": "Totem Lightning Power Reels",
+              "icon": "RED-totemlightningpowerreels.jpg"
+            },
+            {
+              "name": "Dragons Luck",
+              "icon": "1100001.jpg"
+            },
+            {
+              "name": "Dragons Luck Power Reels",
+              "icon": "1100002.jpg"
+            },
+            {
+              "name": "Fortune House",
+              "icon": "1100007.jpg"
+            },
+            {
+              "name": "Dragons Fire Megaways",
+              "icon": "1100074.jpg"
+            },
+            {
+              "name": "Magic Gate",
+              "icon": "1100009.jpg"
+            },
+            {
+              "name": "Lucky Fortune Cat",
+              "icon": "1100010.jpg"
+            },
+            {
+              "name": "Pirates Plenty Battle For Gold",
+              "icon": "1100004.jpg"
+            },
+            {
+              "name": "Dragons Luck Deluxe",
+              "icon": "1100011.jpg"
+            },
+            {
+              "name": "10,001 Nights",
+              "icon": "1100003.jpg"
+            },
+            {
+              "name": "Epic Journey",
+              "icon": "1100012.jpg"
+            },
+            {
+              "name": "Golden Temple",
+              "icon": "1100013.jpg"
+            },
+            {
+              "name": "Phoenix Fire Power Reels",
+              "icon": "1100014.jpg"
+            },
+            {
+              "name": "Chinese Treasures",
+              "icon": "1100006.jpg"
+            },
+            {
+              "name": "Pirates Plenty",
+              "icon": "1100015.jpg"
+            },
+            {
+              "name": "Golden Offer",
+              "icon": "1100016.jpg"
+            },
+            {
+              "name": "Ras Legend",
+              "icon": "1100017.jpg"
+            },
+            {
+              "name": "Rainbow Jackpots Power Lines",
+              "icon": "1100055.jpg"
+            },
+            {
+              "name": "Mega Pyramid",
+              "icon": "1100020.jpg"
+            },
+            {
+              "name": "God Of Wealth",
+              "icon": "1100005.jpg"
+            },
+            {
+              "name": "777 Strike",
+              "icon": "1100031.jpg"
+            },
+            {
+              "name": "Ancients Blessing",
+              "icon": "1100034.jpg"
+            },
+            {
+              "name": "Aurum Codex",
+              "icon": "1100035.jpg"
+            },
+            {
+              "name": "Betty, Boris and Boo",
+              "icon": "1100037.jpg"
+            },
+            {
+              "name": "Bounty Raid",
+              "icon": "1100069.jpg"
+            },
+            {
+              "name": "Cash Ultimate",
+              "icon": "1100070.jpg"
+            },
+            {
+              "name": "Cash Volt",
+              "icon": "1100071.jpg"
+            },
+            {
+              "name": "Diamond Blitz",
+              "icon": "1100072.jpg"
+            },
+            {
+              "name": "Dragons Fire",
+              "icon": "1100008.jpg"
+            },
+            {
+              "name": "Dynamite Riches",
+              "icon": "1100073.jpg"
+            },
+            {
+              "name": "Five Star",
+              "icon": "1100068.jpg"
+            },
+            {
+              "name": "Jack in a Pot",
+              "icon": "1100066.jpg"
+            },
+            {
+              "name": "Jingle Bells",
+              "icon": "1100065.jpg"
+            },
+            {
+              "name": "Mystery Reels",
+              "icon": "1100061.jpg"
+            },
+            {
+              "name": "Piggy Riches Megaways",
+              "icon": "1100059.jpg"
+            },
+            {
+              "name": "Rainbow Jackpots",
+              "icon": "1100019.jpg"
+            },
+            {
+              "name": "Reel Keeper",
+              "icon": "1100053.jpg"
+            },
+            {
+              "name": "Reel King Mega",
+              "icon": "1100052.jpg"
+            },
+            {
+              "name": "Regal Beasts",
+              "icon": "1100051.jpg"
+            },
+            {
+              "name": "Regal Streak",
+              "icon": "1100050.jpg"
+            },
+            {
+              "name": "Thors Vengeance",
+              "icon": "1100049.jpg"
+            },
+            {
+              "name": "Treasure Mine",
+              "icon": "1100048.jpg"
+            },
+            {
+              "name": "Trillionaire",
+              "icon": "1100047.jpg"
+            },
+            {
+              "name": "War Of Gods",
+              "icon": "1100030.jpg"
+            },
+            {
+              "name": "Wings of Ra",
+              "icon": "1100045.jpg"
+            },
+            {
+              "name": "Zeus Lightning Power Reels",
+              "icon": "1100044.jpg"
+            },
+            {
+              "name": "Gonzos Quest Megaways",
+              "icon": "1100018.jpg"
+            }
+          ]
+        },
+        {
+          "id": "3reel",
+          "label": "3REEL",
+          "games": []
+        },
+        {
+          "id": "4reel",
+          "label": "4REEL",
+          "games": []
+        },
+        {
+          "id": "5reel",
+          "label": "5REEL",
+          "games": []
+        },
+        {
+          "id": "6reel",
+          "label": "6REEL",
+          "games": []
+        },
+        {
+          "id": "7reel",
+          "label": "7REEL",
+          "games": []
+        }
+      ]
+    },
+    {
+      "provider": "1x2-gaming",
+      "label": "1X2 Gaming",
+      "iconDir": "1X2Gaming",
+      "remoteDir": "1X2 Gaming",
+      "categories": [
+        {
+          "id": "3reel",
+          "label": "3REEL",
+          "games": [
+            {
+              "name": "Blazing 777",
+              "icon": "1x2-blazing777.jpg"
+            },
+            {
+              "name": "Classic Fruits",
+              "icon": "1x2-classicfruits.jpg"
+            },
+            {
+              "name": "Italia 3X3",
+              "icon": "1x2-italia3x3.jpg"
+            },
+            {
+              "name": "Triple Bar",
+              "icon": "1x2-triplebar.jpg"
+            },
+            {
+              "name": "Xmas 3X3",
+              "icon": "1x2-xmas3x3.jpg"
+            }
+          ]
+        },
+        {
+          "id": "5reel",
+          "label": "5REEL",
+          "games": []
+        }
+      ]
+    },
+    {
+      "provider": "bb",
+      "label": "BB Games",
+      "iconDir": "BBGames",
+      "remoteDir": "BB Games",
+      "categories": [
+        {
+          "id": "6reel",
+          "label": "6REEL",
+          "games": [
+            {
+              "name": "Yin & Yang",
+              "icon": "BBG-yinandyang.jpg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "provider": "boongo",
+      "label": "Booongo",
+      "iconDir": "Booongo",
+      "categories": [
+        {
+          "id": "3reel",
+          "label": "3REEL",
+          "games": [
+            {
+              "name": "3 Coins : Hold and Win",
+              "icon": "BNG-3coinsholdandwin.jpg"
+            },
+            {
+              "name": "777 Gems",
+              "icon": "BNG-777gems.jpg"
+            }
+          ]
+        },
+        {
+          "id": "5reel",
+          "label": "5REEL",
+          "games": []
+        },
+        {
+          "id": "6reel",
+          "label": "6REEL",
+          "games": []
+        }
+      ]
+    },
+    {
+      "provider": "dragoon-soft",
+      "label": "Dragoon Soft",
+      "iconDir": "DragoonSoft",
+      "remoteDir": "Dragoon Soft",
+      "categories": [
+        {
+          "id": "new-slots",
+          "label": "New Slots",
+          "games": [
+            {
+              "name": "Diamond Mogul",
+              "icon": "3001.jpg"
+            },
+            {
+              "name": "Over Dragons Gate",
+              "icon": "3002.jpg"
+            },
+            {
+              "name": "Get Money",
+              "icon": "3003.jpg"
+            },
+            {
+              "name": "Great Lion",
+              "icon": "3004.jpg"
+            },
+            {
+              "name": "Ultra Treasure",
+              "icon": "3005.jpg"
+            },
+            {
+              "name": "Egypt Oracle",
+              "icon": "3006.jpg"
+            },
+            {
+              "name": "Caishen Coming",
+              "icon": "3007.jpg"
+            },
+            {
+              "name": "Candy Dynasty",
+              "icon": "3008.jpg"
+            },
+            {
+              "name": "Rich Lion",
+              "icon": "3009.jpg"
+            },
+            {
+              "name": "Monkey King",
+              "icon": "3010.jpg"
+            },
+            {
+              "name": "Bust Treasury",
+              "icon": "3011.jpg"
+            },
+            {
+              "name": "5 God Beast",
+              "icon": "3012.jpg"
+            },
+            {
+              "name": "Get High",
+              "icon": "3013.jpg"
+            },
+            {
+              "name": "Arab",
+              "icon": "3014.jpg"
+            },
+            {
+              "name": "Wolf Legend",
+              "icon": "3015.jpg"
+            },
+            {
+              "name": "Crystal Fruits",
+              "icon": "3016.jpg"
+            },
+            {
+              "name": "Golf",
+              "icon": "3017.jpg"
+            },
+            {
+              "name": "Tiger Lord",
+              "icon": "3018.jpg"
+            },
+            {
+              "name": "Zeus",
+              "icon": "3019.jpg"
+            },
+            {
+              "name": "Dracula",
+              "icon": "3020.jpg"
+            },
+            {
+              "name": "Pirate King",
+              "icon": "3021.jpg"
+            },
+            {
+              "name": "Alice",
+              "icon": "3022.jpg"
+            },
+            {
+              "name": "Stone Hominid",
+              "icon": "3023.jpg"
+            },
+            {
+              "name": "T-Rex",
+              "icon": "3024.jpg"
+            },
+            {
+              "name": "Greatest Circus",
+              "icon": "3025.jpg"
+            },
+            {
+              "name": "Midas Touch",
+              "icon": "3026.jpg"
+            },
+            {
+              "name": "Maya King",
+              "icon": "3027.jpg"
+            },
+            {
+              "name": "Fruits Bar",
+              "icon": "3028.jpg"
+            },
+            {
+              "name": "Rich Dragon",
+              "icon": "3029.jpg"
+            },
+            {
+              "name": "JIN HOU YE",
+              "icon": "3030.jpg"
+            },
+            {
+              "name": "Fushen Coming",
+              "icon": "3031.jpg"
+            },
+            {
+              "name": "Pandaria",
+              "icon": "3032.jpg"
+            },
+            {
+              "name": "Rich Now",
+              "icon": "3033.jpg"
+            },
+            {
+              "name": "777",
+              "icon": "3034.jpg"
+            },
+            {
+              "name": "Triple Monkey",
+              "icon": "3035.jpg"
+            },
+            {
+              "name": "ZHAO YUN",
+              "icon": "3036.jpg"
+            },
+            {
+              "name": "Phoenix",
+              "icon": "3037.jpg"
+            },
+            {
+              "name": "LU LING QI",
+              "icon": "3038.jpg"
+            },
+            {
+              "name": "Booming Gems",
+              "icon": "3039.jpg"
+            },
+            {
+              "name": "Many Beauties",
+              "icon": "3040.jpg"
+            },
+            {
+              "name": "More Beauties",
+              "icon": "3041.jpg"
+            },
+            {
+              "name": "Doggy Wealth",
+              "icon": "3042.jpg"
+            },
+            {
+              "name": "Coin Cat",
+              "icon": "3043.jpg"
+            },
+            {
+              "name": "Immortal Heroes",
+              "icon": "3044.jpg"
+            },
+            {
+              "name": "Coin Rat",
+              "icon": "3045.jpg"
+            },
+            {
+              "name": "Chef Lady",
+              "icon": "3046.jpg"
+            },
+            {
+              "name": "Ore Power",
+              "icon": "3047.jpg"
+            },
+            {
+              "name": "Icy Bar",
+              "icon": "3048.jpg"
+            },
+            {
+              "name": "Golden Eye",
+              "icon": "3049.jpg"
+            },
+            {
+              "name": "Chicken Dinner",
+              "icon": "3050.jpg"
+            },
+            {
+              "name": "Farm Family",
+              "icon": "3051.jpg"
+            },
+            {
+              "name": "Roman",
+              "icon": "3052.jpg"
+            },
+            {
+              "name": "Muay Thai",
+              "icon": "3054.jpg"
+            },
+            {
+              "name": "Egypt Dynasty",
+              "icon": "3055.jpg"
+            },
+            {
+              "name": "Dragons Treasure",
+              "icon": "3056.jpg"
+            },
+            {
+              "name": "You Will Win",
+              "icon": "3057.jpg"
+            },
+            {
+              "name": "Give You Money",
+              "icon": "3058.jpg"
+            },
+            {
+              "name": "Rich Ox",
+              "icon": "3059.jpg"
+            },
+            {
+              "name": "Diamond 7",
+              "icon": "3060.jpg"
+            },
+            {
+              "name": "Bonus Cat",
+              "icon": "3061.jpg"
+            },
+            {
+              "name": "Bakufu Shogun",
+              "icon": "3062.jpg"
+            }
+          ]
+        },
+        {
+          "id": "fishing-games",
+          "label": "Fishing Games",
+          "games": []
+        },
+        {
+          "id": "arcade-games",
+          "label": "Arcade Games",
+          "games": []
+        }
+      ]
+    },
+    {
+      "provider": "pocket-game",
+      "label": "Pocket Game",
+      "iconDir": "PocketGame",
+      "remoteDir": "Pocket Game",
+      "categories": [
+        {
+          "id": "new-slots",
+          "label": "New Slots",
+          "games": [
+            {
+              "name": "Mahjong Ways",
+              "icon": "65.jpg"
+            },
+            {
+              "name": "Mahjong Ways 2",
+              "icon": "74.jpg"
+            },
+            {
+              "name": "Treasures of Aztec",
+              "icon": "87.jpg"
+            },
+            {
+              "name": "Leprechaun Riches",
+              "icon": "60.jpg"
+            },
+            {
+              "name": "Lucky Neko",
+              "icon": "89.jpg"
+            },
+            {
+              "name": "Captains Bounty",
+              "icon": "54.jpg"
+            },
+            {
+              "name": "Queen of Bounty",
+              "icon": "84.jpg"
+            },
+            {
+              "name": "Wild Bandito",
+              "icon": "104.jpg"
+            },
+            {
+              "name": "Ways of the Qilin",
+              "icon": "106.jpg"
+            },
+            {
+              "name": "Dragon Hatch",
+              "icon": "57.jpg"
+            },
+            {
+              "name": "Double Fortune",
+              "icon": "48.jpg"
+            },
+            {
+              "name": "The Great Icescape",
+              "icon": "53.jpg"
+            },
+            {
+              "name": "Caishen Wins",
+              "icon": "71.jpg"
+            },
+            {
+              "name": "Ganesha Fortune",
+              "icon": "75.jpg"
+            },
+            {
+              "name": "Dreams of Macau",
+              "icon": "79.jpg"
+            },
+            {
+              "name": "Fortune Ox",
+              "icon": "98.jpg"
+            },
+            {
+              "name": "Wild Bounty Showdown",
+              "icon": "135.jpg"
+            },
+            {
+              "name": "Prosperity Fortune Tree",
+              "icon": "1312883.jpg"
+            },
+            {
+              "name": "Diner Delights",
+              "icon": "1372643.jpg"
+            },
+            {
+              "name": "Egypts Book of Mystery",
+              "icon": "73.jpg"
+            },
+            {
+              "name": "Phoenix Rises",
+              "icon": "82.jpg"
+            },
+            {
+              "name": "Wild Fireworks",
+              "icon": "83.jpg"
+            },
+            {
+              "name": "Thai River Wonders",
+              "icon": "92.jpg"
+            },
+            {
+              "name": "Bali Vacation",
+              "icon": "94.jpg"
+            },
+            {
+              "name": "Crypto Gold",
+              "icon": "103.jpg"
+            },
+            {
+              "name": "Jurassic Kingdom",
+              "icon": "110.jpg"
+            },
+            {
+              "name": "Cocktail Nights",
+              "icon": "117.jpg"
+            },
+            {
+              "name": "Fortune Tiger",
+              "icon": "126.jpg"
+            },
+            {
+              "name": "Speed Winner",
+              "icon": "127.jpg"
+            },
+            {
+              "name": "Legend of Perseus",
+              "icon": "128.jpg"
+            },
+            {
+              "name": "Honey Trap of Diao Chan",
+              "icon": "1.jpg"
+            },
+            {
+              "name": "Fortune Gods",
+              "icon": "3.jpg"
+            },
+            {
+              "name": "Win Win Won",
+              "icon": "24.jpg"
+            },
+            {
+              "name": "Medusa II",
+              "icon": "6.jpg"
+            },
+            {
+              "name": "Tree of Fortune",
+              "icon": "26.jpg"
+            },
+            {
+              "name": "Medusa",
+              "icon": "7.jpg"
+            },
+            {
+              "name": "Plushie Frenzy",
+              "icon": "25.jpg"
+            },
+            {
+              "name": "Gem Saviour",
+              "icon": "2.jpg"
+            },
+            {
+              "name": "Hood vs Wolf",
+              "icon": "18.jpg"
+            },
+            {
+              "name": "Hotpot",
+              "icon": "28.jpg"
+            },
+            {
+              "name": "Dragon Legend",
+              "icon": "29.jpg"
+            },
+            {
+              "name": "Mr. Hallow-Win",
+              "icon": "35.jpg"
+            },
+            {
+              "name": "Legend of Hou Yi",
+              "icon": "34.jpg"
+            },
+            {
+              "name": "Prosperity Lion",
+              "icon": "36.jpg"
+            },
+            {
+              "name": "Hip Hop Panda",
+              "icon": "33.jpg"
+            },
+            {
+              "name": "Santas Gift Rush",
+              "icon": "37.jpg"
+            },
+            {
+              "name": "Baccarat Deluxe",
+              "icon": "31.jpg"
+            },
+            {
+              "name": "Gem Saviour Sword",
+              "icon": "38.jpg"
+            },
+            {
+              "name": "Piggy Gold",
+              "icon": "39.jpg"
+            },
+            {
+              "name": "Symbols of Egypt",
+              "icon": "41.jpg"
+            },
+            {
+              "name": "Emperors Favour",
+              "icon": "44.jpg"
+            },
+            {
+              "name": "Ganesha Gold",
+              "icon": "42.jpg"
+            },
+            {
+              "name": "Jungle Delight",
+              "icon": "40.jpg"
+            },
+            {
+              "name": "Journey to the Wealth",
+              "icon": "50.jpg"
+            },
+            {
+              "name": "Flirting Scholar",
+              "icon": "61.jpg"
+            },
+            {
+              "name": "Ninja vs Samurai",
+              "icon": "59.jpg"
+            },
+            {
+              "name": "Muay Thai Champion",
+              "icon": "64.jpg"
+            },
+            {
+              "name": "Dragon Tiger Luck",
+              "icon": "63.jpg"
+            },
+            {
+              "name": "Fortune Mouse",
+              "icon": "68.jpg"
+            },
+            {
+              "name": "Reel Love",
+              "icon": "20.jpg"
+            },
+            {
+              "name": "Gem Saviour Conquest",
+              "icon": "62.jpg"
+            },
+            {
+              "name": "Shaolin Soccer",
+              "icon": "67.jpg"
+            },
+            {
+              "name": "Candy Burst",
+              "icon": "70.jpg"
+            },
+            {
+              "name": "Bikini Paradise",
+              "icon": "69.jpg"
+            },
+            {
+              "name": "Genies 3 Wishes",
+              "icon": "85.jpg"
+            },
+            {
+              "name": "Circus Delight",
+              "icon": "80.jpg"
+            },
+            {
+              "name": "Secrets of Cleopatra",
+              "icon": "90.jpg"
+            },
+            {
+              "name": "Vampires Charm",
+              "icon": "58.jpg"
+            },
+            {
+              "name": "Jewels of Prosperity",
+              "icon": "88.jpg"
+            },
+            {
+              "name": "Jack Frosts Winter",
+              "icon": "97.jpg"
+            },
+            {
+              "name": "Galactic Gems",
+              "icon": "86.jpg"
+            },
+            {
+              "name": "Guardians of Ice and Fire",
+              "icon": "91.jpg"
+            },
+            {
+              "name": "Opera Dynasty",
+              "icon": "93.jpg"
+            },
+            {
+              "name": "Majestic Treasures",
+              "icon": "95.jpg"
+            },
+            {
+              "name": "Candy Bonanza",
+              "icon": "100.jpg"
+            },
+            {
+              "name": "Heist  Stakes",
+              "icon": "105.jpg"
+            },
+            {
+              "name": "Rise of Apollo",
+              "icon": "101.jpg"
+            },
+            {
+              "name": "Mermaid Riches",
+              "icon": "102.jpg"
+            },
+            {
+              "name": "Raider Janes Crypt of Fortune",
+              "icon": "113.jpg"
+            },
+            {
+              "name": "Supermarket Spree",
+              "icon": "115.jpg"
+            },
+            {
+              "name": "Buffalo Win",
+              "icon": "108.jpg"
+            },
+            {
+              "name": "Legendary Monkey King",
+              "icon": "107.jpg"
+            },
+            {
+              "name": "Spirited Wonders",
+              "icon": "119.jpg"
+            },
+            {
+              "name": "Emoji Riches",
+              "icon": "114.jpg"
+            },
+            {
+              "name": "Mask Carnival",
+              "icon": "118.jpg"
+            },
+            {
+              "name": "Oriental Prosperity",
+              "icon": "112.jpg"
+            },
+            {
+              "name": "Garuda Gems",
+              "icon": "122.jpg"
+            },
+            {
+              "name": "Destiny of Sun & Moon",
+              "icon": "121.jpg"
+            },
+            {
+              "name": "Butterfly Blossom",
+              "icon": "125.jpg"
+            },
+            {
+              "name": "Rooster Rumble",
+              "icon": "123.jpg"
+            },
+            {
+              "name": "The Queens Banquet",
+              "icon": "120.jpg"
+            },
+            {
+              "name": "Battleground Royale",
+              "icon": "124.jpg"
+            },
+            {
+              "name": "Win Win Fish Prawn Crab",
+              "icon": "129.jpg"
+            },
+            {
+              "name": "Lucky Piggy",
+              "icon": "130.jpg"
+            },
+            {
+              "name": "Wild Coaster",
+              "icon": "132.jpg"
+            },
+            {
+              "name": "Totem Wonders",
+              "icon": "1338274.jpg"
+            },
+            {
+              "name": "Alchemy Gold",
+              "icon": "1368367.jpg"
+            },
+            {
+              "name": "Asgardian Rising",
+              "icon": "1340277.jpg"
+            },
+            {
+              "name": "Midas Fortune",
+              "icon": "1402846.jpg"
+            },
+            {
+              "name": "Fortune Rabbit",
+              "icon": "1543462.jpg"
+            },
+            {
+              "name": "Rave Party Fever",
+              "icon": "1420892.jpg"
+            },
+            {
+              "name": "Hawaiian Tiki",
+              "icon": "1381200.jpg"
+            },
+            {
+              "name": "Bakery Bonanza",
+              "icon": "1418544.jpg"
+            },
+            {
+              "name": "Songkran Splash",
+              "icon": "1448762.jpg"
+            },
+            {
+              "name": "Mystical Spirits",
+              "icon": "1432733.jpg"
+            },
+            {
+              "name": "Super Golf Drive",
+              "icon": "1513328.jpg"
+            },
+            {
+              "name": "Lucky Clover Lady",
+              "icon": "1601012.jpg"
+            },
+            {
+              "name": "Fruity Candy",
+              "icon": "1397455.jpg"
+            },
+            {
+              "name": "Cruise Royale",
+              "icon": "1473388.jpg"
+            },
+            {
+              "name": "Safari Wilds",
+              "icon": "1594259.jpg"
+            },
+            {
+              "name": "Gladiators Glory",
+              "icon": "1572362.jpg"
+            },
+            {
+              "name": "Ninja Racoon Frenzy",
+              "icon": "1529867.jpg"
+            },
+            {
+              "name": "Ultimate Striker",
+              "icon": "1489936.jpg"
+            },
+            {
+              "name": "Wild Heist Cashout",
+              "icon": "1568554.jpg"
+            },
+            {
+              "name": "Forge of Wealth",
+              "icon": "1555350.jpg"
+            },
+            {
+              "name": "Mafia Mayhem",
+              "icon": "1580541.jpg"
+            },
+            {
+              "name": "Tsar Treasures",
+              "icon": "1655268.jpg"
+            },
+            {
+              "name": "Werewolfs Hunt",
+              "icon": "1615454.jpg"
+            },
+            {
+              "name": "Dragon Hatch 2",
+              "icon": "1451122.jpg"
+            },
+            {
+              "name": "Fortune Dragon",
+              "icon": "1695365.jpg"
+            },
+            {
+              "name": "Gemstones Gold",
+              "icon": "1671262.jpg"
+            },
+            {
+              "name": "Cash Mania",
+              "icon": "1682240.jpg"
+            },
+            {
+              "name": "Wild Ape #3258",
+              "icon": "1508783.jpg"
+            },
+            {
+              "name": "Pinata Wins",
+              "icon": "1492288.jpg"
+            },
+            {
+              "name": "Mystic Potion",
+              "icon": "1717688.jpg"
+            },
+            {
+              "name": "Anubis Wrath",
+              "icon": "1623475.jpg"
+            },
+            {
+              "name": "Zombie Outbreak",
+              "icon": "1635221.jpg"
+            },
+            {
+              "name": "Chicky Run",
+              "icon": "1738001.jpg"
+            },
+            {
+              "name": "Futebol Fever",
+              "icon": "1778752.jpg"
+            },
+            {
+              "name": "Shark Hunter",
+              "icon": "1648578.jpg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "provider": "evoplay",
+      "label": "Evoplay",
+      "iconDir": "Evoplay",
+      "categories": [
+        {
+          "id": "new-slots",
+          "label": "New Slots",
+          "games": [
+            {
+              "name": "Candy Dreams",
+              "icon": "EVP-candydreams.jpg"
+            },
+            {
+              "name": "Dungeon: Immortal Evil",
+              "icon": "EVP-dungeonimmortalevil.jpg"
+            },
+            {
+              "name": "Epic Gladiators",
+              "icon": "EVP-epicgladiators.jpg"
+            },
+            {
+              "name": "Legend of Kaan",
+              "icon": "EVP-legendofkaan.jpg"
+            }
+          ]
+        },
+        {
+          "id": "3reel",
+          "label": "3REEL",
+          "games": []
+        },
+        {
+          "id": "4reel",
+          "label": "4REEL",
+          "games": []
+        },
+        {
+          "id": "5reel",
+          "label": "5REEL",
+          "games": []
+        },
+        {
+          "id": "6reel",
+          "label": "6REEL",
+          "games": []
+        },
+        {
+          "id": "7reel",
+          "label": "7REEL",
+          "games": []
+        }
+      ]
+    },
+    {
+      "provider": "fantasma",
+      "label": "Fantasma Games",
+      "iconDir": "FantasmaGames",
+      "remoteDir": "Fantasma Games",
+      "categories": [
+        {
+          "id": "5reel",
+          "label": "5REEL",
+          "games": [
+            {
+              "name": "Desert Shark",
+              "icon": "FNG-desertshark.jpg"
+            },
+            {
+              "name": "Serpent Shrine",
+              "icon": "FNG-serpentshrine.jpg"
+            },
+            {
+              "name": "Twisted Turbine",
+              "icon": "FNG-twistedturbine.jpg"
+            }
+          ]
+        },
+        {
+          "id": "6reel",
+          "label": "6REEL",
+          "games": []
+        },
+        {
+          "id": "7reel",
+          "label": "7REEL",
+          "games": []
+        }
+      ]
+    },
+    {
+      "provider": "habanero",
+      "label": "Habanero",
+      "iconDir": "Habanero",
+      "categories": [
+        {
+          "id": "new-slots",
+          "label": "New Slots",
+          "games": [
+            {
+              "name": "Orbs Of Atlantis",
+              "icon": "HAB-orbsofatlantis.jpg"
+            },
+            {
+              "name": "Techno Tumble",
+              "icon": "HAB-technotumble.jpg"
+            }
+          ]
+        },
+        {
+          "id": "3reel",
+          "label": "3REEL",
+          "games": []
+        },
+        {
+          "id": "4reel",
+          "label": "4REEL",
+          "games": []
+        },
+        {
+          "id": "5reel",
+          "label": "5REEL",
+          "games": []
+        },
+        {
+          "id": "6reel",
+          "label": "6REEL",
+          "games": []
+        }
+      ]
+    },
+    {
+      "provider": "hacksaw",
+      "label": "Hacksaw Gaming",
+      "iconDir": "HacksawGaming",
+      "remoteDir": "Hacksaw Gaming",
+      "categories": [
+        {
+          "id": "4reel",
+          "label": "4REEL",
+          "games": [
+            {
+              "name": "Miami Multiplier",
+              "icon": "HAK-miamimultiplier.jpg"
+            },
+            {
+              "name": "OmNom",
+              "icon": "HAK-omnom.jpg"
+            }
+          ]
+        },
+        {
+          "id": "5reel",
+          "label": "5REEL",
+          "games": []
+        },
+        {
+          "id": "6reel",
+          "label": "6REEL",
+          "games": []
+        }
+      ]
+    },
+    {
+      "provider": "iron-dog-studio",
+      "label": "Iron Dog Studio",
+      "iconDir": "IronDogStudio",
+      "remoteDir": "Iron Dog Studio",
+      "categories": [
+        {
+          "id": "5reel",
+          "label": "5REEL",
+          "games": [
+            {
+              "name": "Aztec Wilds",
+              "icon": "IDS-aztecwilds.jpg"
+            },
+            {
+              "name": "Barbarian Gold",
+              "icon": "IDS-barbariangold.jpg"
+            },
+            {
+              "name": "Blirixs Workshop",
+              "icon": "IDS-blirixsworkshop.jpg"
+            },
+            {
+              "name": "Blood Queen",
+              "icon": "IDS-bloodqueen.jpg"
+            },
+            {
+              "name": "Cherry Blast",
+              "icon": "IDS-cherryblast.jpg"
+            },
+            {
+              "name": "Crown of Avalon",
+              "icon": "IDS-crownofavalon.jpg"
+            },
+            {
+              "name": "Dr Jekyll and Mr Hyde",
+              "icon": "IDS-drjekyllandmrhyde.jpg"
+            },
+            {
+              "name": "Gifts of Ostara",
+              "icon": "IDS-giftsofostara.jpg"
+            },
+            {
+              "name": "Neon Jungle",
+              "icon": "IDS-neonjungle.jpg"
+            },
+            {
+              "name": "Rainbow Wilds",
+              "icon": "IDS-rainbowwilds.jpg"
+            },
+            {
+              "name": "Richie in Vegas",
+              "icon": "IDS-richieinvegas.jpg"
+            },
+            {
+              "name": "Robbin Robin",
+              "icon": "IDS-robbinrobin.jpg"
+            },
+            {
+              "name": "Sirens Kingdom",
+              "icon": "IDS-sirenskingdom.jpg"
+            },
+            {
+              "name": "The Curious Cabinet",
+              "icon": "IDS-thecuriouscabinet.jpg"
+            },
+            {
+              "name": "Viking Wilds",
+              "icon": "IDS-vikingwilds.jpg"
+            },
+            {
+              "name": "Western Wilds",
+              "icon": "IDS-westernwilds.jpg"
+            }
+          ]
+        },
+        {
+          "id": "6reel",
+          "label": "6REEL",
+          "games": []
+        },
+        {
+          "id": "7reel",
+          "label": "7REEL",
+          "games": []
+        }
+      ]
+    },
+    {
+      "provider": "kalamba",
+      "label": "Kalamba Games",
+      "iconDir": "KalambaGames",
+      "remoteDir": "Kalamba Games",
+      "categories": [
+        {
+          "id": "3reel",
+          "label": "3REEL",
+          "games": [
+            {
+              "name": "Double Joker",
+              "icon": "KGL-doublejoker.jpg"
+            },
+            {
+              "name": "Miami Bonus Wheel",
+              "icon": "KGL-miamibonuswheel.jpg"
+            }
+          ]
+        },
+        {
+          "id": "5reel",
+          "label": "5REEL",
+          "games": []
+        },
+        {
+          "id": "6reel",
+          "label": "6REEL",
+          "games": []
+        }
+      ]
+    },
+    {
+      "provider": "lady-luck",
+      "label": "Lady Luck",
+      "iconDir": "LadyLuck",
+      "remoteDir": "Lady Luck",
+      "categories": [
+        {
+          "id": "3reel",
+          "label": "3REEL",
+          "games": [
+            {
+              "name": "Lucky Heaven",
+              "icon": "LL-luckyheaven.jpg"
+            }
+          ]
+        },
+        {
+          "id": "5reel",
+          "label": "5REEL",
+          "games": []
+        },
+        {
+          "id": "6reel",
+          "label": "6REEL",
+          "games": []
+        }
+      ]
+    },
+    {
+      "provider": "nolimit-city",
+      "label": "Nolimit city",
+      "iconDir": "NolimitCity",
+      "remoteDir": "Nolimit city",
+      "categories": [
+        {
+          "id": "new-slots",
+          "label": "New Slots",
+          "games": [
+            {
+              "name": "Barbarian Fury",
+              "icon": "NLC-barbarianfury.jpg"
+            },
+            {
+              "name": "Buffalo Hunter",
+              "icon": "NLC-buffalohunter.jpg"
+            }
+          ]
+        },
+        {
+          "id": "3reel",
+          "label": "3REEL",
+          "games": []
+        },
+        {
+          "id": "4reel",
+          "label": "4REEL",
+          "games": []
+        },
+        {
+          "id": "5reel",
+          "label": "5REEL",
+          "games": []
+        },
+        {
+          "id": "6reel",
+          "label": "6REEL",
+          "games": []
+        }
+      ]
+    },
+    {
+      "provider": "omi-gaming",
+      "label": "OMI Gaming",
+      "iconDir": "OMIGaming",
+      "remoteDir": "OMI Gaming",
+      "categories": [
+        {
+          "id": "3reel",
+          "label": "3REEL",
+          "games": [
+            {
+              "name": "Super Gold",
+              "icon": "OMI-supergold.jpg"
+            }
+          ]
+        },
+        {
+          "id": "5reel",
+          "label": "5REEL",
+          "games": []
+        },
+        {
+          "id": "6reel",
+          "label": "6REEL",
+          "games": []
+        }
+      ]
+    },
+    {
+      "provider": "onetouch",
+      "label": "OneTouch",
+      "iconDir": "OneTouch",
+      "categories": [
+        {
+          "id": "new-slots",
+          "label": "New Slots",
+          "games": [
+            {
+              "name": "Golden Stripe",
+              "icon": "OT-goldenstripe.jpg"
+            }
+          ]
+        },
+        {
+          "id": "3reel",
+          "label": "3REEL",
+          "games": []
+        },
+        {
+          "id": "4reel",
+          "label": "4REEL",
+          "games": []
+        },
+        {
+          "id": "5reel",
+          "label": "5REEL",
+          "games": []
+        },
+        {
+          "id": "6reel",
+          "label": "6REEL",
+          "games": []
+        }
+      ]
+    },
+    {
+      "provider": "playpearls",
+      "label": "PlayPearls",
+      "iconDir": "PlayPearls",
+      "categories": [
+        {
+          "id": "new-slots",
+          "label": "New Slots",
+          "games": [
+            {
+              "name": "777 Hot Ice",
+              "icon": "PP-777hotice.jpg"
+            }
+          ]
+        },
+        {
+          "id": "3reel",
+          "label": "3REEL",
+          "games": []
+        },
+        {
+          "id": "5reel",
+          "label": "5REEL",
+          "games": []
+        }
+      ]
+    },
+    {
+      "provider": "push-gaming",
+      "label": "Push Gaming",
+      "iconDir": "PushGaming",
+      "remoteDir": "Push Gaming",
+      "categories": [
+        {
+          "id": "new-slots",
+          "label": "New Slots",
+          "games": [
+            {
+              "name": "Jammin Jars",
+              "icon": "PUG-jamminjars.jpg"
+            },
+            {
+              "name": "Jammin Jars 2",
+              "icon": "PUG-jamminjars2.jpg"
+            },
+            {
+              "name": "Viking Clash",
+              "icon": "PUG-vikingclash.jpg"
+            }
+          ]
+        },
+        {
+          "id": "4reel",
+          "label": "4REEL",
+          "games": []
+        },
+        {
+          "id": "5reel",
+          "label": "5REEL",
+          "games": []
+        },
+        {
+          "id": "6reel",
+          "label": "6REEL",
+          "games": []
+        }
+      ]
+    },
+    {
+      "provider": "quickspin",
+      "label": "Quickspin",
+      "iconDir": "Quickspin",
+      "categories": [
+        {
+          "id": "new-slots",
+          "label": "New Slots",
+          "games": [
+            {
+              "name": "Golden Glyph",
+              "icon": "QS-goldenglyph.jpg"
+            }
+          ]
+        },
+        {
+          "id": "3reel",
+          "label": "3REEL",
+          "games": []
+        },
+        {
+          "id": "5reel",
+          "label": "5REEL",
+          "games": []
+        },
+        {
+          "id": "6reel",
+          "label": "6REEL",
+          "games": []
+        },
+        {
+          "id": "7reel",
+          "label": "7REEL",
+          "games": []
+        }
+      ]
+    },
+    {
+      "provider": "relax-gaming",
+      "label": "Relax Gaming",
+      "iconDir": "RelaxGaming",
+      "remoteDir": "Relax Gaming",
+      "categories": [
+        {
+          "id": "3reel",
+          "label": "3REEL",
+          "games": [
+            {
+              "name": "Emeralds Infinity Reels",
+              "icon": "RLX-emeraldsinfinityreels.jpg"
+            },
+            {
+              "name": "Epic Joker",
+              "icon": "RLX-epicjoker.jpg"
+            },
+            {
+              "name": "Powerspin",
+              "icon": "RLX-powerspin.jpg"
+            }
+          ]
+        },
+        {
+          "id": "5reel",
+          "label": "5REEL",
+          "games": []
+        },
+        {
+          "id": "6reel",
+          "label": "6REEL",
+          "games": []
+        }
+      ]
+    },
+    {
+      "provider": "rtg-slots",
+      "label": "RTG Slots",
+      "iconDir": "RTGSlots",
+      "remoteDir": "RTG Slots",
+      "categories": [
+        {
+          "id": "new-slots",
+          "label": "New Slots",
+          "games": [
+            {
+              "name": "Cubee",
+              "icon": "RTG-cubee.jpg"
+            }
+          ]
+        },
+        {
+          "id": "3reel",
+          "label": "3REEL",
+          "games": []
+        },
+        {
+          "id": "5reel",
+          "label": "5REEL",
+          "games": []
+        },
+        {
+          "id": "6reel",
+          "label": "6REEL",
+          "games": []
+        }
+      ]
+    },
+    {
+      "provider": "spearhead-studios",
+      "label": "Spearhead Studios",
+      "iconDir": "SpearheadStudios",
+      "remoteDir": "Spearhead Studios",
+      "categories": [
+        {
+          "id": "new-slots",
+          "label": "New Slots",
+          "games": [
+            {
+              "name": "Fruit Slot",
+              "icon": "SHS-fruitslot.jpg"
+            }
+          ]
+        },
+        {
+          "id": "3reel",
+          "label": "3REEL",
+          "games": []
+        },
+        {
+          "id": "5reel",
+          "label": "5REEL",
+          "games": []
+        },
+        {
+          "id": "6reel",
+          "label": "6REEL",
+          "games": []
+        }
+      ]
+    },
+    {
+      "provider": "slotmill",
+      "label": "Slotmill",
+      "iconDir": "Slotmill",
+      "categories": [
+        {
+          "id": "3reel",
+          "label": "3REEL",
+          "games": [
+            {
+              "name": "Neon Dreams",
+              "icon": "SM-neondreams.jpg"
+            },
+            {
+              "name": "Vegas Gold",
+              "icon": "SM-vegasgold.jpg"
+            },
+            {
+              "name": "WildFire",
+              "icon": "SM-wildfire.jpg"
+            }
+          ]
+        },
+        {
+          "id": "5reel",
+          "label": "5REEL",
+          "games": []
+        }
+      ]
+    },
+    {
+      "provider": "splitrock-gaming",
+      "label": "Splitrock Gaming",
+      "iconDir": "SplitrockGaming",
+      "remoteDir": "Splitrock Gaming",
+      "categories": [
+        {
+          "id": "3reel",
+          "label": "3REEL",
+          "games": [
+            {
+              "name": "Seasons Autumn",
+              "icon": "SPR-seasonsautumn.jpg"
+            },
+            {
+              "name": "Seasons Spring",
+              "icon": "SPR-seasonsspring.jpg"
+            },
+            {
+              "name": "Seasons Summer",
+              "icon": "SPR-seasonssummer.jpg"
+            },
+            {
+              "name": "Seasons Winter",
+              "icon": "SPR-seasonswinter.jpg"
+            }
+          ]
+        },
+        {
+          "id": "5reel",
+          "label": "5REEL",
+          "games": []
+        }
+      ]
+    },
+    {
+      "provider": "thunderkick",
+      "label": "Thunderkick",
+      "iconDir": "Thunderkick",
+      "categories": [
+        {
+          "id": "new-slots",
+          "label": "New Slots",
+          "games": [
+            {
+              "name": "Well Of Wonders",
+              "icon": "TK-wellofwonders.jpg"
+            }
+          ]
+        },
+        {
+          "id": "3reel",
+          "label": "3REEL",
+          "games": []
+        },
+        {
+          "id": "5reel",
+          "label": "5REEL",
+          "games": []
+        },
+        {
+          "id": "6reel",
+          "label": "6REEL",
+          "games": []
+        }
+      ]
+    },
+    {
+      "provider": "woohoo-games",
+      "label": "Woohoo Games",
+      "iconDir": "WoohooGames",
+      "remoteDir": "Woohoo Games",
+      "categories": [
+        {
+          "id": "3reel",
+          "label": "3REEL",
+          "games": [
+            {
+              "name": "5 Times Vegas",
+              "icon": "WOO-5timesvegas.jpg"
+            }
+          ]
+        },
+        {
+          "id": "5reel",
+          "label": "5REEL",
+          "games": []
+        },
+        {
+          "id": "6reel",
+          "label": "6REEL",
+          "games": []
+        }
+      ]
+    },
+    {
+      "provider": "yggdrasil",
+      "label": "Yggdrasil",
+      "iconDir": "Yggdrasil",
+      "categories": [
+        {
+          "id": "3reel",
+          "label": "3REEL",
+          "games": [
+            {
+              "name": "Avatars: Gateway Guardians",
+              "icon": "YGG-avatarsgatewayguardians.jpg"
+            },
+            {
+              "name": "El Dorado Infinity Reels",
+              "icon": "YGG-eldoradoinfinityreels.jpg"
+            },
+            {
+              "name": "Giza Infinity Reels",
+              "icon": "YGG-gizainfinityreels.jpg"
+            },
+            {
+              "name": "Lightning Joker",
+              "icon": "YGG-lightningjoker.jpg"
+            },
+            {
+              "name": "Odin Infinity Reels",
+              "icon": "YGG-odininfinityreels.jpg"
+            },
+            {
+              "name": "Royal Dragon Infinity Reels",
+              "icon": "YGG-royaldragoninfinityreels.jpg"
+            },
+            {
+              "name": "Thor Infinity Reels",
+              "icon": "YGG-thorinfinityreels.jpg"
+            }
+          ]
+        },
+        {
+          "id": "5reel",
+          "label": "5REEL",
+          "games": []
+        },
+        {
+          "id": "6reel",
+          "label": "6REEL",
+          "games": []
+        }
+      ]
+    },
+    {
+      "provider": "virtual-games",
+      "label": "Virtual Games",
+      "iconDir": "VirtualGames",
+      "remoteDir": "Virtual Games",
+      "categories": [
+        {
+          "id": "all-games",
+          "label": "All Games",
+          "games": [
+            {
+              "name": "Virtual Football Pro",
+              "icon": "1x2-virtualfootballpro.jpg"
+            },
+            {
+              "name": "Dashing Derby",
+              "icon": "KIR-dashingderby.jpg"
+            },
+            {
+              "name": "English Fast League Football Match",
+              "icon": "KIR-englishfastleaguefootballmatch.jpg"
+            },
+            {
+              "name": "English Fast League Football Single",
+              "icon": "KIR-englishfastleaguefootballsingle.jpg"
+            },
+            {
+              "name": "Ice Hockey",
+              "icon": "KIR-icehockey.jpg"
+            },
+            {
+              "name": "Italian Fast League Football Single",
+              "icon": "KIR-italianfastleaguefootballsingle.jpg"
+            },
+            {
+              "name": "Keno",
+              "icon": "KIR-keno.jpg"
+            },
+            {
+              "name": "Max Car Motor Racing",
+              "icon": "KIR-maxcarmotorracing.jpg"
+            },
+            {
+              "name": "Platinum Hounds",
+              "icon": "KIR-platinumhounds.jpg"
+            },
+            {
+              "name": "Pro-Pong Table Tennis",
+              "icon": "KIR-propongtabletennis.jpg"
+            },
+            {
+              "name": "Racing Roulette Horses",
+              "icon": "KIR-racingroulettehorses.jpg"
+            },
+            {
+              "name": "Spanish Fast League Football Single",
+              "icon": "KIR-spanishfastleaguefootballsingle.jpg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "provider": "kingmidas",
+      "label": "Kingmidas",
+      "iconDir": "Kingmidas",
+      "remoteDir": "king",
+      "categories": [
+        {
+          "id": "all-games",
+          "label": "All Games",
+          "games": [
+            {
+              "name": "Wonder Ace",
+              "icon": "wonder_ace.jpg"
+            },
+            {
+              "name": "Flame of Fortune",
+              "icon": "flame_of_fortune.jpg"
+            },
+            {
+              "name": "Lucky Cat Gala",
+              "icon": "lucky_cat_gala.jpg"
+            },
+            {
+              "name": "Samba Rhapsody",
+              "icon": "samba_rhapsody.jpg"
+            },
+            {
+              "name": "Mahjong Beauty",
+              "icon": "mahjong_beauty.jpg"
+            },
+            {
+              "name": "Salsa Fury",
+              "icon": "salsa_fury.jpg"
+            },
+            {
+              "name": "Dear Senpai",
+              "icon": "dear_senpai.jpg"
+            },
+            {
+              "name": "Hunk Cai Shen",
+              "icon": "hunk_cai_shen.jpg"
+            },
+            {
+              "name": "Rome Gladiator",
+              "icon": "rome_gladiator.jpg"
+            },
+            {
+              "name": "Cupid Archery",
+              "icon": "cupid_archery.jpg"
+            },
+            {
+              "name": "Hippo Splash",
+              "icon": "hippo_splash.jpg"
+            },
+            {
+              "name": "Pirates Treasure",
+              "icon": "pirates_treasure.jpg"
+            },
+            {
+              "name": "Piggy Heist",
+              "icon": "piggy_heist.jpg"
+            },
+            {
+              "name": "Merlins Saga",
+              "icon": "merlins_saga.jpg"
+            },
+            {
+              "name": "London Mystery",
+              "icon": "london_mystery.jpg"
+            },
+            {
+              "name": "Horus Glory",
+              "icon": "horus_glory.jpg"
+            },
+            {
+              "name": "Gold Rush Bonanza",
+              "icon": "gold_rush_bonanza.jpg"
+            },
+            {
+              "name": "Leppys Loot",
+              "icon": "leppys_loot.jpg"
+            },
+            {
+              "name": "Warriors Temple",
+              "icon": "warriors_temple.jpg"
+            },
+            {
+              "name": "Almighty Greek",
+              "icon": "almighty_greek.jpg"
+            },
+            {
+              "name": "Gold Mine",
+              "icon": "gold_mine.jpg"
+            },
+            {
+              "name": "Rooster Blitz",
+              "icon": "rooster_blitz.jpg"
+            },
+            {
+              "name": "Cleopatras Treasure",
+              "icon": "cleopatras_treasure.jpg"
+            },
+            {
+              "name": "Sugar Blast Frenzy",
+              "icon": "sugar_blast_frenzy.jpg"
+            },
+            {
+              "name": "Gems of Valhalla",
+              "icon": "gems_of_valhalla.jpg"
+            },
+            {
+              "name": "Sugar Blast",
+              "icon": "sugar_blast.jpg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "provider": "egt",
+      "label": "EGT",
+      "iconDir": "EGT",
+      "remoteDir": "egt",
+      "categories": [
+        {
+          "id": "all-games",
+          "label": "All Games",
+          "games": [
+            {
+              "name": "Amazons Battle",
+              "icon": "ABSlot.jpg"
+            },
+            {
+              "name": "20 Super Hot Progressive JP",
+              "icon": "TSHSlot.jpg"
+            },
+            {
+              "name": "40 Super Hot Progressive JP",
+              "icon": "FSHSlot.jpg"
+            },
+            {
+              "name": "Burning Hot Progressive JP",
+              "icon": "BHSlot.jpg"
+            },
+            {
+              "name": "Flaming Hot",
+              "icon": "FHSlot.jpg"
+            },
+            {
+              "name": "Shining Crown",
+              "icon": "SCSlot.gif"
+            },
+            {
+              "name": "40 Shining Crown",
+              "icon": "FSCSlot.jpg"
+            },
+            {
+              "name": "Vampire Night",
+              "icon": "VNSlot.jpg"
+            },
+            {
+              "name": "40 Burning Hot",
+              "icon": "FBHSlot.gif"
+            },
+            {
+              "name": "Flaming Hot Extreme",
+              "icon": "FHESlot.jpg"
+            },
+            {
+              "name": "Burning Hot Bell Link",
+              "icon": "BHBLSlot.jpg"
+            },
+            {
+              "name": "Rise of Ra Progressive JP",
+              "icon": "RORSlot.jpg"
+            },
+            {
+              "name": "5 Dazzling Hot",
+              "icon": "FDHSlot.jpg"
+            },
+            {
+              "name": "20 Super Hot Bell Link",
+              "icon": "TSHBLSlot.jpg"
+            },
+            {
+              "name": "40 Super Hot Bell Link",
+              "icon": "FSHBLSlot.jpg"
+            },
+            {
+              "name": "Vampire Night Bell Link",
+              "icon": "VNBLSlot.jpg"
+            },
+            {
+              "name": "Flaming Hot Bell Link",
+              "icon": "FHBLSlot.jpg"
+            },
+            {
+              "name": "Shining Crown Bell Link",
+              "icon": "SCBLSlot.jpg"
+            },
+            {
+              "name": "Flaming Hot Extreme Bell Link",
+              "icon": "FHEBLSlot.jpg"
+            },
+            {
+              "name": "5 Dazzling Hot Bell Link",
+              "icon": "FDHBLSlot.jpg"
+            },
+            {
+              "name": "40 Burning Hot Bell Link",
+              "icon": "FBHBLSlot.jpg"
+            },
+            {
+              "name": "40 Shining Crown Bell Link",
+              "icon": "FSCBLSlot.jpg"
+            },
+            {
+              "name": "Versailles Gold Progressive JP",
+              "icon": "VGSlot.jpg"
+            },
+            {
+              "name": "Dragons Realm High Cash",
+              "icon": "DRHCSlot.jpg"
+            },
+            {
+              "name": "Leprechaun Hot",
+              "icon": "LHSlot.jpg"
+            },
+            {
+              "name": "40 Mega Clover",
+              "icon": "FMCSlot.jpg"
+            },
+            {
+              "name": "40 Charming Joker",
+              "icon": "FCHJSlot.jpg"
+            },
+            {
+              "name": "30 Spicy Fruits",
+              "icon": "THSFSlot.jpg"
+            },
+            {
+              "name": "20 Burning Hot",
+              "icon": "TBHSlot.gif"
+            },
+            {
+              "name": "Royal Secrets",
+              "icon": "RSSlot.jpg"
+            },
+            {
+              "name": "Emperors Palace",
+              "icon": "EPSlot.jpg"
+            },
+            {
+              "name": "Emperors Dream",
+              "icon": "EDSlot.jpg"
+            },
+            {
+              "name": "Princess Cash High Cash",
+              "icon": "PCHCSlot.jpg"
+            },
+            {
+              "name": "Leprechance Treasury High Cash",
+              "icon": "LTHCSlot.jpg"
+            },
+            {
+              "name": "Tropical Beauties",
+              "icon": "TBSlot.jpg"
+            },
+            {
+              "name": "10 Crystal Wish",
+              "icon": "TCWSlot.jpg"
+            },
+            {
+              "name": "100 Super Hot",
+              "icon": "OSHSlot.jpg"
+            },
+            {
+              "name": "100 Lucky Hat",
+              "icon": "OLHSlot.jpg"
+            },
+            {
+              "name": "The Wild Griffin",
+              "icon": "TWGSlot.jpg"
+            },
+            {
+              "name": "Book Of Realm",
+              "icon": "BORSlot.jpg"
+            },
+            {
+              "name": "20 Dazzling Hot",
+              "icon": "TDHSlot.jpg"
+            },
+            {
+              "name": "5 Burning Heart",
+              "icon": "FBHRSlot.jpg"
+            },
+            {
+              "name": "10 Burning Heart",
+              "icon": "TBHRSlot.jpg"
+            },
+            {
+              "name": "Mystic Desert",
+              "icon": "MDSlot.jpg"
+            },
+            {
+              "name": "40 Lucky King",
+              "icon": "FLKSlot.jpg"
+            },
+            {
+              "name": "100 Burning Hot",
+              "icon": "OBHSlot.jpg"
+            },
+            {
+              "name": "Zodiac Wheel",
+              "icon": "ZWSlot.jpg"
+            },
+            {
+              "name": "50 Hot Blast",
+              "icon": "FHBSlot.jpg"
+            },
+            {
+              "name": "Sugartime",
+              "icon": "STSlot.jpg"
+            },
+            {
+              "name": "10 Shining Diamond",
+              "icon": "TSDSlot.jpg"
+            },
+            {
+              "name": "20 Charming Joker",
+              "icon": "TCHJSlot.jpg"
+            },
+            {
+              "name": "5 Burning Clover",
+              "icon": "BCSlot.jpg"
+            },
+            {
+              "name": "Spinning Crown",
+              "icon": "TSPCSlot.jpg"
+            },
+            {
+              "name": "40 Burning Hot 6 Reels",
+              "icon": "FBHSSlot.jpg"
+            },
+            {
+              "name": "Ultimate Hot",
+              "icon": "UHSlot.jpg"
+            },
+            {
+              "name": "Rise of Ra",
+              "icon": "RORSASlot.jpg"
+            },
+            {
+              "name": "Burning Hot",
+              "icon": "BHSASlot.jpg"
+            },
+            {
+              "name": "20 Super Hot",
+              "icon": "TSHSASlot.jpg"
+            },
+            {
+              "name": "40 Super Hot",
+              "icon": "FSHSASlot.gif"
+            },
+            {
+              "name": "Versailles Gold",
+              "icon": "VGSASlot.jpg"
+            },
+            {
+              "name": "10 Crown Hot",
+              "icon": "TCHSlot.jpg"
+            },
+            {
+              "name": "20 Burning Clover",
+              "icon": "TBCSlot.jpg"
+            },
+            {
+              "name": "40 Burning Clover",
+              "icon": "FBCSlot.jpg"
+            },
+            {
+              "name": "100 Burning Clover",
+              "icon": "OBCSlot.jpg"
+            },
+            {
+              "name": "20 Super Fruits",
+              "icon": "TSFSlot.jpg"
+            },
+            {
+              "name": "40 Super Fruits",
+              "icon": "FSFSlot.jpg"
+            },
+            {
+              "name": "100 Super Fruits",
+              "icon": "OSFSlot.jpg"
+            },
+            {
+              "name": "40 Crown Hot",
+              "icon": "FCHSlot.jpg"
+            },
+            {
+              "name": "40 Burning Clover 6 Reels",
+              "icon": "FBCSSlot.jpg"
+            },
+            {
+              "name": "100 Super Hot 6 Reels",
+              "icon": "OSHSSlot.jpg"
+            },
+            {
+              "name": "Karnak Treasure",
+              "icon": "KTSlot.jpg"
+            },
+            {
+              "name": "Ultimate Fruits",
+              "icon": "UFSlot.jpg"
+            },
+            {
+              "name": "30 Spinning 7s",
+              "icon": "TSSSlot.jpg"
+            },
+            {
+              "name": "20 Hot Burst",
+              "icon": "THBSlot.jpg"
+            },
+            {
+              "name": "Mummy Secret High Cash",
+              "icon": "MSHCSlot.jpg"
+            },
+            {
+              "name": "Hermes Fortunes",
+              "icon": "HFSlot.gif"
+            },
+            {
+              "name": "Desert Wealth",
+              "icon": "DWSlot.jpg"
+            },
+            {
+              "name": "Shining Boooom",
+              "icon": "SBSlot.jpg"
+            },
+            {
+              "name": "XRide",
+              "icon": "XRideMP.jpg"
+            },
+            {
+              "name": "20 Super Fruits Bell Link",
+              "icon": "TSFBLSlot.jpg"
+            },
+            {
+              "name": "10 Action Diamond",
+              "icon": "TADSlot.jpg"
+            },
+            {
+              "name": "40 Super Fruits Bell Link",
+              "icon": "FSFBLSlot.jpg"
+            },
+            {
+              "name": "Burning Hot Extreme",
+              "icon": "BHESlot.jpg"
+            },
+            {
+              "name": "Pyramid Riddles Osiris",
+              "icon": "PROSlot.jpg"
+            },
+            {
+              "name": "Zodiac Wheel Bell Link",
+              "icon": "ZWBLSlot.jpg"
+            },
+            {
+              "name": "Spooky Jack",
+              "icon": "SJSlot.jpg"
+            },
+            {
+              "name": "27 Fruit Ways",
+              "icon": "TFWSlot.jpg"
+            },
+            {
+              "name": "40 Zodiac Wheel Bell Link",
+              "icon": "FZWBLSlot.jpg"
+            },
+            {
+              "name": "Supreme Cash",
+              "icon": "SUCSlot.jpg"
+            },
+            {
+              "name": "20 Dazzling Cash",
+              "icon": "TDCSlot.jpg"
+            },
+            {
+              "name": "5 Dazzling Cash",
+              "icon": "FDCSlot.jpg"
+            },
+            {
+              "name": "5x6 Fruity Shots",
+              "icon": "FXSFSSlot.jpg"
+            },
+            {
+              "name": "40 Lucky King Bell Link",
+              "icon": "FLKBLSlot.jpg"
+            },
+            {
+              "name": "10 Super Fruits",
+              "icon": "TNSFSlot.jpg"
+            },
+            {
+              "name": "5 Super Fruits",
+              "icon": "FVSFSlot.jpg"
+            },
+            {
+              "name": "Sugar Duke",
+              "icon": "SDSlot.jpg"
+            },
+            {
+              "name": "10 Burning Clover",
+              "icon": "TNBCSlot.jpg"
+            },
+            {
+              "name": "Clover Respin",
+              "icon": "CRSlot.jpg"
+            },
+            {
+              "name": "Book Of Realm Jumboways",
+              "icon": "BORJWSlot.jpg"
+            },
+            {
+              "name": "Glorious Alexander Gods & Kings Link",
+              "icon": "GAGKLSlot.jpg"
+            },
+            {
+              "name": "Burning Eye",
+              "icon": "BESlot.jpg"
+            },
+            {
+              "name": "Jolly Wish",
+              "icon": "JWSlot.jpg"
+            },
+            {
+              "name": "5 Crown Hot",
+              "icon": "FVCHSlot.jpg"
+            },
+            {
+              "name": "20 Crown Hot",
+              "icon": "TWCHSlot.jpg"
+            },
+            {
+              "name": "100 Crown Hot",
+              "icon": "OHCHSlot.jpg"
+            },
+            {
+              "name": "Aztec Rush",
+              "icon": "ARSlot.jpg"
+            },
+            {
+              "name": "Book Of Shining Hot",
+              "icon": "BOSHSlot.jpg"
+            },
+            {
+              "name": "10 Leprechaun Hot",
+              "icon": "TNLHSlot.jpg"
+            },
+            {
+              "name": "20 Leprechaun Hot",
+              "icon": "TWLHSlot.jpg"
+            },
+            {
+              "name": "Burning Hot Instant",
+              "icon": "BHIScratch.jpg"
+            },
+            {
+              "name": "40 Leprechaun Hot",
+              "icon": "FRLHSlot.jpg"
+            },
+            {
+              "name": "100 Leprechaun Hot",
+              "icon": "OHLHSlot.jpg"
+            },
+            {
+              "name": "5 Crown Hit",
+              "icon": "FVCHTSlot.jpg"
+            },
+            {
+              "name": "10 Crown Hit",
+              "icon": "TNCHTSlot.jpg"
+            },
+            {
+              "name": "20 Crown Hit",
+              "icon": "TWCHTSlot.jpg"
+            },
+            {
+              "name": "40 Crown Hit",
+              "icon": "FRCHTSlot.jpg"
+            },
+            {
+              "name": "100 Crown Hit",
+              "icon": "OHCHTSlot.jpg"
+            },
+            {
+              "name": "10 Dazzling Cash",
+              "icon": "TNDCSlot.jpg"
+            },
+            {
+              "name": "40 Dazzling Cash",
+              "icon": "FRDCSlot.jpg"
+            },
+            {
+              "name": "100 Dazzling Cash",
+              "icon": "OHDCSlot.jpg"
+            },
+            {
+              "name": "10 Dazzling Hot",
+              "icon": "TNDHSlot.jpg"
+            },
+            {
+              "name": "40 Dazzling Hot",
+              "icon": "FRDHSlot.jpg"
+            },
+            {
+              "name": "100 Dazzling Hot",
+              "icon": "OHDHSlot.jpg"
+            },
+            {
+              "name": "Exquisite Wealth Cash Heat",
+              "icon": "EWCHSlot.jpg"
+            },
+            {
+              "name": "Burning Goals",
+              "icon": "BGSlot.jpg"
+            },
+            {
+              "name": "Shining Crown Cash Heat",
+              "icon": "SCCHSlot.gif"
+            },
+            {
+              "name": "Book Of Shining Hot Jumboways",
+              "icon": "BOSHJWSlot.jpg"
+            },
+            {
+              "name": "5 Shiny Hit",
+              "icon": "FVSHSlot.jpg"
+            },
+            {
+              "name": "10 Shiny Hit",
+              "icon": "TNSHSlot.jpg"
+            },
+            {
+              "name": "20 Shiny Hit",
+              "icon": "TWSHSlot.jpg"
+            },
+            {
+              "name": "40 Shiny Hit",
+              "icon": "FRSHSlot.jpg"
+            },
+            {
+              "name": "100 Shiny Hit",
+              "icon": "OHSHSlot.jpg"
+            },
+            {
+              "name": "Ape of Luck Gods & Kings Link",
+              "icon": "ALGKLSlot.gif"
+            },
+            {
+              "name": "5 Clover Hit",
+              "icon": "FVCLHSlot.jpg"
+            },
+            {
+              "name": "50 Hot Burst",
+              "icon": "FYHBSlot.jpg"
+            },
+            {
+              "name": "10 Clover Hit",
+              "icon": "TNCLHSlot.jpg"
+            },
+            {
+              "name": "20 Clover Hit",
+              "icon": "TWCLHSlot.jpg"
+            },
+            {
+              "name": "40 Clover Hit",
+              "icon": "FRCLHSlot.jpg"
+            },
+            {
+              "name": "100 Clover Hit",
+              "icon": "OHCLHSlot.jpg"
+            },
+            {
+              "name": "40 Super Power",
+              "icon": "FRSPSlot.jpg"
+            },
+            {
+              "name": "10 Super Power",
+              "icon": "TNSPSlot.jpg"
+            },
+            {
+              "name": "5 Burning Power",
+              "icon": "FVBPSlot.jpg"
+            },
+            {
+              "name": "40 Lucky King Extreme Bell Link",
+              "icon": "FRLKEBLSlot.jpg"
+            },
+            {
+              "name": "SugarVille",
+              "icon": "SVSlot.jpg"
+            },
+            {
+              "name": "20 Super Roll",
+              "icon": "TWSRSlot.jpg"
+            },
+            {
+              "name": "Senor Muerto",
+              "icon": "SMSlot.jpg"
+            },
+            {
+              "name": "5 Shining Roll",
+              "icon": "FVSHRSlot.jpg"
+            },
+            {
+              "name": "Rise of Ra Gods & Kings Link",
+              "icon": "RORGKLSlot.jpg"
+            },
+            {
+              "name": "Mystic Desert Bell Link",
+              "icon": "MDBLSlot.jpg"
+            },
+            {
+              "name": "Book of Shining Hot Bell Link",
+              "icon": "BOSHBLSlot.jpg"
+            },
+            {
+              "name": "Pyramid Riddles Cleopatra Jumboways",
+              "icon": "PRCJWSlot.jpg"
+            },
+            {
+              "name": "Egypt Glory",
+              "icon": "InstEgypt.jpg"
+            },
+            {
+              "name": "Ricos Treasure",
+              "icon": "InstRico.jpg"
+            },
+            {
+              "name": "Happy Clovers",
+              "icon": "InstHClover.jpg"
+            },
+            {
+              "name": "Shining Cash",
+              "icon": "InstShCash.jpg"
+            },
+            {
+              "name": "Mr. Action Money",
+              "icon": "InstMrAction.jpg"
+            },
+            {
+              "name": "Mighty Gods Of The Oceans",
+              "icon": "InstPsd.jpg"
+            },
+            {
+              "name": "Super Clovers",
+              "icon": "InstSuperClovers.jpg"
+            },
+            {
+              "name": "Lucky 7s Hot",
+              "icon": "InstLucky7Hot.jpg"
+            },
+            {
+              "name": "Dazzling Space",
+              "icon": "InstDazzlingSpace.jpg"
+            },
+            {
+              "name": "Shiny Crown",
+              "icon": "InstShinyCrown.jpg"
+            },
+            {
+              "name": "Fortune of Hawaii",
+              "icon": "InstHawaii.jpg"
+            },
+            {
+              "name": "Colosseum of Glory",
+              "icon": "InstColosseum.jpg"
+            },
+            {
+              "name": "Dashing Cherry",
+              "icon": "InstCherry.jpg"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

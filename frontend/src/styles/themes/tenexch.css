@@ -1,0 +1,6 @@
+/* TENEXCH brand overrides — targets :root[data-brand="tenexch"] */
+/* Add brand-specific variable overrides here */
+
+:root[data-brand="tenexch"] {
+    /* Brand palette is the default — no overrides needed */
+}

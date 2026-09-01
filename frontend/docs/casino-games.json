@@ -1,0 +1,407 @@
+[
+  {
+    "label": "Goal 2",
+    "route": "/casino/goal2",
+    "slug": "goal2"
+  },
+  {
+    "label": "Worli 3",
+    "route": "/casino/worli3",
+    "slug": "worli3"
+  },
+  {
+    "label": "Teen 62",
+    "route": "/casino/teen62",
+    "slug": "teen62"
+  },
+  {
+    "label": "Doli Danna",
+    "route": "/casino/dolidana",
+    "slug": "dolidana"
+  },
+  {
+    "label": "Mogambo",
+    "route": "/casino/mogambo",
+    "slug": "mogambo"
+  },
+  {
+    "label": "Teen Patti 20 V1",
+    "route": "/casino/teen20v1",
+    "slug": "teen20v1"
+  },
+  {
+    "label": "Lucky 5",
+    "route": "/casino/lucky5",
+    "slug": "lucky5"
+  },
+  {
+    "label": "Roulette 12",
+    "route": "/casino/roulette12",
+    "slug": "roulette12"
+  },
+  {
+    "label": "Roulette 13",
+    "route": "/casino/roulette13",
+    "slug": "roulette13"
+  },
+  {
+    "label": "Roulette 11",
+    "route": "/casino/roulette11",
+    "slug": "roulette11"
+  },
+  {
+    "label": "Poison",
+    "route": "/casino/poison",
+    "slug": "poison"
+  },
+  {
+    "label": "Unique Teenpatti",
+    "route": "/casino/teenunique",
+    "slug": "teenunique"
+  },
+  {
+    "label": "Poison 20",
+    "route": "/casino/poison20",
+    "slug": "poison20"
+  },
+  {
+    "label": "Joker 120",
+    "route": "/casino/jokerteenpatti120",
+    "slug": "jokerteenpatti120"
+  },
+  {
+    "label": "Joker 20",
+    "route": "/casino/jokerteenpatti20",
+    "slug": "jokerteenpatti20"
+  },
+  {
+    "label": "Joker",
+    "route": "/casino/jokerteenpatti1",
+    "slug": "jokerteenpatti1"
+  },
+  {
+    "label": "Teen Patti 20c",
+    "route": "/casino/teen20c",
+    "slug": "teen20c"
+  },
+  {
+    "label": "Bet Table 2",
+    "route": "/casino/bollywoodtable2",
+    "slug": "bollywoodtable2"
+  },
+  {
+    "label": "Our Roulette",
+    "route": "/casino/ourroullete",
+    "slug": "ourroullete"
+  },
+  {
+    "label": "Super Over 3",
+    "route": "/casino/superover3",
+    "slug": "superover3"
+  },
+  {
+    "label": "Goals",
+    "route": "/casino/goal",
+    "slug": "goal"
+  },
+  {
+    "label": "Andar Bahar 4",
+    "route": "/casino/ab4",
+    "slug": "ab4"
+  },
+  {
+    "label": "Lucky 15",
+    "route": "/casino/lucky15",
+    "slug": "lucky15"
+  },
+  {
+    "label": "Super Over 2",
+    "route": "/casino/superover2",
+    "slug": "superover2"
+  },
+  {
+    "label": "Teen Patti 41",
+    "route": "/casino/teen41",
+    "slug": "teen41"
+  },
+  {
+    "label": "Teen Patti 42",
+    "route": "/casino/teen42",
+    "slug": "teen42"
+  },
+  {
+    "label": "Sicbo 2",
+    "route": "/casino/sicbo2",
+    "slug": "sicbo2"
+  },
+  {
+    "label": "Instant Teenpatti 3.0",
+    "route": "/casino/instantteenpatti3",
+    "slug": "instantteenpatti3"
+  },
+  {
+    "label": "Sicbo",
+    "route": "/casino/sicbo",
+    "slug": "sicbo"
+  },
+  {
+    "label": "Ball by Ball",
+    "route": "/casino/ballbyball",
+    "slug": "ballbyball"
+  },
+  {
+    "label": "Instant Teenpatti 2.0",
+    "route": "/casino/instantteenpatti2",
+    "slug": "instantteenpatti2"
+  },
+  {
+    "label": "Teen Patti",
+    "route": "/casino/teen",
+    "slug": "teen"
+  },
+  {
+    "label": "Teen Patti 20",
+    "route": "/casino/teen20",
+    "slug": "teen20"
+  },
+  {
+    "label": "Teen Patti 9",
+    "route": "/casino/teenpattitest",
+    "slug": "teenpattitest"
+  },
+  {
+    "label": "Teen Patti 8",
+    "route": "/casino/teenpattiopen",
+    "slug": "teenpattiopen"
+  },
+  {
+    "label": "Poker",
+    "route": "/casino/pokeroneday",
+    "slug": "pokeroneday"
+  },
+  {
+    "label": "Poker 20",
+    "route": "/casino/poker20",
+    "slug": "poker20"
+  },
+  {
+    "label": "Poker 6",
+    "route": "/casino/poker6player",
+    "slug": "poker6player"
+  },
+  {
+    "label": "Baccarat",
+    "route": "/casino/baccarat",
+    "slug": "baccarat"
+  },
+  {
+    "label": "Baccarat 2",
+    "route": "/casino/baccarat2",
+    "slug": "baccarat2"
+  },
+  {
+    "label": "Dragon Tiger 20",
+    "route": "/casino/dt20",
+    "slug": "dt20"
+  },
+  {
+    "label": "Dragon Tiger 6",
+    "route": "/casino/dt6",
+    "slug": "dt6"
+  },
+  {
+    "label": "DTL 20",
+    "route": "/casino/dtl20",
+    "slug": "dtl20"
+  },
+  {
+    "label": "Dragon Tiger 202",
+    "route": "/casino/dt202",
+    "slug": "dt202"
+  },
+  {
+    "label": "Card 32",
+    "route": "/casino/card32",
+    "slug": "card32"
+  },
+  {
+    "label": "Card 32 EU",
+    "route": "/casino/card32eu",
+    "slug": "card32eu"
+  },
+  {
+    "label": "Andar Bahar 20",
+    "route": "/casino/ab20",
+    "slug": "ab20"
+  },
+  {
+    "label": "AB Joker",
+    "route": "/casino/abj",
+    "slug": "abj"
+  },
+  {
+    "label": "Lucky 7",
+    "route": "/casino/lucky7",
+    "slug": "lucky7"
+  },
+  {
+    "label": "Lucky 7 EU",
+    "route": "/casino/lucky7eu",
+    "slug": "lucky7eu"
+  },
+  {
+    "label": "3 Card Judgement",
+    "route": "/casino/3cardj",
+    "slug": "3cardj"
+  },
+  {
+    "label": "Casino War",
+    "route": "/casino/war",
+    "slug": "war"
+  },
+  {
+    "label": "Worli",
+    "route": "/casino/worli",
+    "slug": "worli"
+  },
+  {
+    "label": "Worli 2",
+    "route": "/casino/worli2",
+    "slug": "worli2"
+  },
+  {
+    "label": "AAA",
+    "route": "/casino/aaa",
+    "slug": "aaa"
+  },
+  {
+    "label": "Bet Table",
+    "route": "/casino/btable",
+    "slug": "btable"
+  },
+  {
+    "label": "Lott Card",
+    "route": "/casino/lottcard",
+    "slug": "lottcard"
+  },
+  {
+    "label": "Cricket V3",
+    "route": "/casino/cricketv3",
+    "slug": "cricketv3"
+  },
+  {
+    "label": "Cricket Match",
+    "route": "/casino/cmatch20",
+    "slug": "cmatch20"
+  },
+  {
+    "label": "Casino Meter",
+    "route": "/casino/cmeter",
+    "slug": "cmeter"
+  },
+  {
+    "label": "Teen Patti 6",
+    "route": "/casino/teen6",
+    "slug": "teen6"
+  },
+  {
+    "label": "Queen",
+    "route": "/casino/queen",
+    "slug": "queen"
+  },
+  {
+    "label": "Race 20",
+    "route": "/casino/race20",
+    "slug": "race20"
+  },
+  {
+    "label": "Lucky 7 EU 2",
+    "route": "/casino/lucky7eu2",
+    "slug": "lucky7eu2"
+  },
+  {
+    "label": "Super Over",
+    "route": "/casino/superover",
+    "slug": "superover"
+  },
+  {
+    "label": "Trap",
+    "route": "/casino/trap",
+    "slug": "trap"
+  },
+  {
+    "label": "Teen Patti 2",
+    "route": "/casino/teenpatti2cards",
+    "slug": "teenpatti2cards"
+  },
+  {
+    "label": "29Card Baccarat",
+    "route": "/casino/29cardbaccarat",
+    "slug": "29cardbaccarat"
+  },
+  {
+    "label": "Teen Patti Muflis",
+    "route": "/casino/teenmuf",
+    "slug": "teenmuf"
+  },
+  {
+    "label": "Race to 17",
+    "route": "/casino/raceto17",
+    "slug": "raceto17"
+  },
+  {
+    "label": "20-20 Teenpatti B",
+    "route": "/casino/teenpattit20b",
+    "slug": "teenpattit20b"
+  },
+  {
+    "label": "Trio",
+    "route": "/casino/trio",
+    "slug": "trio"
+  },
+  {
+    "label": "Note Number",
+    "route": "/casino/notenum",
+    "slug": "notenum"
+  },
+  {
+    "label": "1 Card 20-20",
+    "route": "/casino/1card2020",
+    "slug": "1card2020"
+  },
+  {
+    "label": "1 Card One-Day",
+    "route": "/casino/1card1day",
+    "slug": "1card1day"
+  },
+  {
+    "label": "Andar Bahar",
+    "route": "/casino/ab3",
+    "slug": "ab3"
+  },
+  {
+    "label": "AAA 2",
+    "route": "/casino/aaa2",
+    "slug": "aaa2"
+  },
+  {
+    "label": "Race 2",
+    "route": "/casino/race2",
+    "slug": "race2"
+  },
+  {
+    "label": "Instant Teenpatti",
+    "route": "/casino/instantteenpatti",
+    "slug": "instantteenpatti"
+  },
+  {
+    "label": "Dum 10",
+    "route": "/casino/dum10",
+    "slug": "dum10"
+  },
+  {
+    "label": "Casino Meter 1",
+    "route": "/casino/cmeter1",
+    "slug": "cmeter1"
+  }
+]

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/assets/tenexch-favicon.png" />
+    <!-- Home banners are served from this CDN. Warming DNS+TLS here saves the
+         handshake on mobile, where it costs several hundred ms before the first
+         banner byte can even start. -->
+    <link rel="preconnect" href="https://sitethemedata.com" crossorigin />
+    <link rel="dns-prefetch" href="https://sitethemedata.com" />
+    <!-- Use the splash-loader window to fetch the first home banner.
+         This runs during HTML parse — roughly a second before the ~800KB JS
+         bundle has even executed — so by the time the splash is ready to close
+         the image is usually decoded already. The URL comes from the cache
+         BannerCarousel writes ('ten:carousel'); main.jsx closes the splash on
+         window.__bannerReady / the 'banner-ready' event. A first-ever visit has
+         no cache, so the component fires the same event once its image lands. -->
+    <script>
+      window.__bannerReady = false;
+      (function () {
+        try {
+          var list = JSON.parse(localStorage.getItem('ten:carousel'));
+          var src = list && list[0] && list[0].img;
+          if (!src) return;
+          // Bytes already in localStorage from a previous visit: nothing to
+          // fetch, the banner is ready before the splash has even painted.
+          var kept = JSON.parse(localStorage.getItem('ten:banner0') || 'null');
+          if (kept && kept.url === src && kept.data) {
+            window.__bannerReady = true;
+            return;
+          }
+          var img = new Image();
+          img.decoding = 'async';
+          img.fetchPriority = 'high';
+          img.onload = img.onerror = function () {
+            window.__bannerReady = true;
+            window.dispatchEvent(new Event('banner-ready'));
+          };
+          img.src = src;
+          window.__bannerImg = img; // keep it alive; the component reuses the cache entry
+        } catch (e) { /* private mode / bad JSON — the component handles it */ }
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <script>
+      // iOS Safari ignores user-scalable=no; pre-iOS-13 devices also ignore
+      // touch-action, so block their legacy GestureEvent pinch-zoom directly.
+      // Zoom acquired this way persists across refresh and makes the casino
+      // stream look zoomed in.
+      document.addEventListener('gesturestart', function (e) { e.preventDefault(); }, { passive: false });
+      document.addEventListener('gesturechange', function (e) { e.preventDefault(); }, { passive: false });
+    </script>
+    <title>TENEXCH</title>
+    <!-- Critical CSS for the app-shell loader. The reference styles it via
+         ten-custom.css loaded in <head>; ours ships CSS in the JS bundle, which
+         isn't ready while the loader is visible on first paint. Rules below are
+         copied VERBATIM from ten-custom.css so the loader is styled immediately. -->
+    <style>
+      /* Reference body rule (style.css). App.css ships in the JS bundle which
+         isn't ready on first paint, so it's inlined here with literal fallbacks
+         for the CSS vars (they're only defined once variables.css loads). */
+      body {
+        font-family: "Noto Sans";
+        background-color: var(--bg-body, #DFE5E5);
+        font-size: var(--font-body, 16px);
+        line-height: 22px;
+        letter-spacing: 0;
+        color: var(--text-body, #222222);
+        scrollbar-width: thin;
+        scrollbar-color: #333333 #000000;
+      }
+      .loader-section {
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        background-color: #131313b8;
+        z-index: 1000;
+      }
+      .loader-section {
+        /* background-color: #fdfbfe78; */
+      }
+      .ten-main-loader .loader-section {
+        z-index: 1051;
+        flex-direction: column;
+        background-color: #fff;
+      }
+      /* Themed full-screen splash shown for 0.5s AFTER the gif loader hides and
+         BEFORE the home page is revealed. Sits behind the loader (lower z-index)
+         so it's uncovered the moment the loader goes. */
+      .app-splash {
+        position: fixed;
+        inset: 0;
+        height: 100vh;
+        width: 100%;
+        background-color: var(--bg-body, #16191C);
+        z-index: 1040;
+      }
+      .app-splash.hidden {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s;
+      }
+    </style>
+  </head>
+  <body class="app-loading">
+    <div class="ten-main-loader" id="ten-loader">
+      <div class="loader-section">
+        <img src="/assets/animate/loader-ten.gif" alt="loading">
+      </div>
+    </div>
+    <div class="app-splash" id="app-splash"></div>
+    <div id="app"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

@@ -1,0 +1,876 @@
+/* Override dark defaults from reference/style.css with light theme values */
+/* :root {
+    --bg-body: #dfe5e5;
+    --text-body: #222;
+    --bg-sidebar: #dddddd;
+    --text-sidebar: #222;
+    --bg-table: #fdfbfe;
+    --text-table: #222;
+    --bg-table-header-new: #126e51;
+    --text-table-header-new: #eeeeee;
+    --text-highlight:#ffffff;
+    --bg-menu1: #eeeeee;
+    --text-menu1: #222222;
+    --btn-primary: #03b37f;
+    --text-btn-primary: #ffffff;
+    --btn-secondary: 75, 75, 75;
+    --text-btn-secondary: #eeeeee;
+    --btn-reset: #fc4242;
+} */
+/* 
+body {
+    font-family: "Noto Sans";
+    background-color: var(--bg-body);
+    font-size: var(--font-body);
+    line-height: 22px;
+    letter-spacing: 0;
+    color: var(--text-body);
+    scrollbar-width: thin;
+    scrollbar-color: #333333 #000000;
+} */
+
+/* Readable profit/loss "book" colours. The reference lime (--book-green:#00ff00)
+   is hard to read on the light-blue (--back:#72bbef) betting boxes. App.css loads
+   last, so this :root wins over reference/color.css. This fixes BOTH the shared
+   .book-green/.book-red classes AND the ~27 casino tables that inline
+   var(--text-success,#00ff00)/var(--text-danger,#ff0000) — those undefined vars
+   used to fall back to lime/pure-red; now they resolve here. #228b22 matches the
+   forest green already used for the horse-racing book. */
+:root {
+    --book-green: #228b22;
+    --text-success: #228b22;
+    --text-danger: #f7505e;
+}
+
+ .rules-sub-highlight {
+    color: #FDCF13;
+    font-size: 14px;
+}
+
+/* Bootstrap-Vue b-sidebar component CSS (not included in plain Bootstrap) */
+.b-sidebar-outer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 0;
+    overflow: visible;
+    z-index: 1035;
+}
+
+.b-sidebar {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    width: 320px;
+    max-width: 100%;
+    height: 100vh;
+    max-height: 100%;
+    margin: 0;
+    outline: 0;
+    z-index: 1035;
+}
+
+.b-sidebar:not(.b-sidebar-right) {
+    left: 0;
+    right: auto;
+}
+
+@media only screen and (max-width: 1279px) {
+    .b-sidebar {
+        width: 100% !important;
+    }
+}
+
+/* Hide the footer only while the app-shell loader is up, so it doesn't bleed
+   through under the home loader on first load. The `app-loading` class is set on
+   <body> in index.html and removed once the loader hides (Home onFirstLoad /
+   main.jsx safety net), so the footer reappears after loading. */
+body.app-loading .footer {
+    display: none;
+}
+
+/* Hide the ENTIRE app shell while the boot loader/splash is up — with no
+   content in the page at all, nothing can ever peek out below the splash
+   (bottom carousel, nav, board). main.jsx removes `app-loading` when the
+   splash lifts (~2s), and the wrapper appears together with the reveal. */
+body.app-loading .wrapper {
+    display: none;
+}
+
+/* Mobile user sidebar: bold the menu link of the currently active route
+   (NavLink adds the router-link-active classes, like the reference Vue app) */
+/* .menu-box .navbar-nav a.router-link-active {
+    font-weight: bold;
+} */
+
+.b-sidebar.b-sidebar-right {
+    left: auto;
+    right: 0;
+}
+
+.b-sidebar-header {
+    display: none;
+}
+
+.b-sidebar-body {
+    flex-grow: 1;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.b-sidebar-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1030;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0.6;
+}
+
+/* Fix wave2.svg background path for Vite (reference uses ../img/wave2.svg) */
+.new-event .new-event-item {
+    background-image: url('/assets/wave2.svg');
+    background-position: center bottom;
+}
+
+/* Login page background */
+.login-page-container {
+    background-image: linear-gradient(var(--bg-op1), rgba(255, 255, 255, 0.6)), url('/assets/login-bg-ten.jpg');
+    background-size: contain;
+    min-height: 100vh;
+}
+
+@media only screen and (max-width: 1279px) {
+    .login-page-container {
+        background-image: linear-gradient(var(--bg-op1), rgba(255, 255, 255, 0.6)), url('/assets/login-bg-mobile-ten.jpg');
+    }
+}
+
+/* Back arrow icon on detail pages (mobile) */
+.top-home-icon {
+    width: 30px;
+    vertical-align: middle;
+    margin-top: 8px;
+    margin-left: 10px;
+}
+
+@media only screen and (max-width: 767px) {
+    .top-home-icon {
+        margin-left: 0;
+    }
+}
+
+/* .top-home-icon i {
+    font-size: 22px;
+    color: var(--text-sidebar);
+    cursor: pointer;
+} */
+
+/* Fix lock.svg path for suspended odds (reference uses ../img/lock.svg) */
+.suspended:before {
+    background-image: url('/assets/icons/lock.svg') !important;
+}
+
+/* BootstrapVue toaster styles — copied verbatim from the BV library CSS
+   (same block admin uses in admin/src/styles/app.css) */
+.b-toast {
+    display: block;
+    position: relative;
+    max-width: 350px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background-clip: padding-box;
+    z-index: 1;
+    border-radius: .25rem;
+}
+
+.b-toast:not(:last-child) {
+    margin-bottom: .75rem;
+}
+
+.b-toast .toast {
+    opacity: 1;
+}
+
+.b-toaster {
+    z-index: 1100;
+}
+
+/* BootstrapVue modal backdrop (BV renders it without the .show class) */
+.modal-backdrop {
+    opacity: 0.5;
+}
+
+/* BootstrapVue table wrapper spacing (from the BV library CSS) */
+.b-table-sticky-header, .table-responsive, [class*=table-responsive-] {
+    margin-bottom: -1px;
+}
+
+.b-toaster .b-toaster-slot {
+    position: relative;
+    display: block;
+}
+
+.b-toaster .b-toaster-slot:empty {
+    display: none !important;
+}
+
+.b-toaster.b-toaster-bottom-center, .b-toaster.b-toaster-bottom-full, .b-toaster.b-toaster-bottom-left, .b-toaster.b-toaster-bottom-right, .b-toaster.b-toaster-top-center, .b-toaster.b-toaster-top-full, .b-toaster.b-toaster-top-left, .b-toaster.b-toaster-top-right {
+    position: fixed;
+    left: .5rem;
+    right: .5rem;
+    margin: 0;
+    padding: 0;
+    height: 0;
+    overflow: visible;
+}
+
+.b-toaster.b-toaster-bottom-center .b-toaster-slot, .b-toaster.b-toaster-bottom-full .b-toaster-slot, .b-toaster.b-toaster-bottom-left .b-toaster-slot, .b-toaster.b-toaster-bottom-right .b-toaster-slot, .b-toaster.b-toaster-top-center .b-toaster-slot, .b-toaster.b-toaster-top-full .b-toaster-slot, .b-toaster.b-toaster-top-left .b-toaster-slot, .b-toaster.b-toaster-top-right .b-toaster-slot {
+    position: absolute;
+    max-width: 350px;
+    width: 100%;
+    left: 0;
+    right: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.b-toaster.b-toaster-top-center, .b-toaster.b-toaster-top-full, .b-toaster.b-toaster-top-left, .b-toaster.b-toaster-top-right {
+    top: 0;
+}
+
+.b-toaster.b-toaster-top-center .b-toaster-slot, .b-toaster.b-toaster-top-full .b-toaster-slot, .b-toaster.b-toaster-top-left .b-toaster-slot, .b-toaster.b-toaster-top-right .b-toaster-slot {
+    top: .5rem;
+}
+
+.b-toaster.b-toaster-bottom-center .b-toaster-slot, .b-toaster.b-toaster-bottom-right .b-toaster-slot, .b-toaster.b-toaster-top-center .b-toaster-slot, .b-toaster.b-toaster-top-right .b-toaster-slot {
+    margin-left: auto;
+}
+
+.b-toaster.b-toaster-bottom-center .b-toaster-slot, .b-toaster.b-toaster-bottom-left .b-toaster-slot, .b-toaster.b-toaster-top-center .b-toaster-slot, .b-toaster.b-toaster-top-left .b-toaster-slot {
+    margin-right: auto;
+}
+
+/* Select dropdown arrow (reference uses custom SVG arrow) */
+select {
+    background: url('/assets/arrow-down.svg') center right 10px no-repeat;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+/* Casino table pages: remove top margin so the game fills the space */
+/* .header-casino ~ .center-main-content.casino-table-open {
+    margin-top: 0; */
+    /* min-height: 100%; */
+/* } */
+
+/* Disconnect / Inactivity overlay */
+.disconnected-box {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    height: 100%;
+    width: 100%;
+    z-index: 1060;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.disconnected-message {
+    padding: 10px;
+    font-size: 10px;
+    background-color: #222;
+    color: #eee;
+}
+
+.disconnected-message b {
+    font-size: 14px;
+}
+
+.disconnected-message i {
+    font-size: 14px;
+}
+
+.disconnected-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.disconnected-buttons .btn {
+    width: 49%;
+    padding: 4px;
+    border-radius: 0;
+    font-size: 0.7rem;
+    color: #fff;
+}
+
+/* Right sidebar: internally scrollable */
+.right-sidebar {
+    overflow-y: auto !important;
+}
+
+.right-sidebar.sticky {
+    max-height: calc(100vh - 82px);
+}
+
+.animate-on .right-sidebar.sticky {
+    max-height: calc(100vh - 106px);
+}
+
+/* Ball popup overlay (Goal game) */
+.cricket20ballpopup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -50px;
+    margin-top: -50px;
+    z-index: 10;
+}
+
+.goal .cricket20ballpopup {
+    margin-left: -125px;
+    margin-top: -125px;
+    animation: zoom-in-zoom-out-goal 1s ease;
+    -webkit-animation: zoom-in-zoom-out-goal 1s ease;
+    animation-iteration-count: 1;
+}
+
+.goal .cricket20ballpopup img {
+    height: 250px;
+    width: auto;
+}
+
+.cricket20ballpopup span {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 26px;
+}
+
+.goal .cricket20ballpopup span {
+    top: unset;
+    left: 58%;
+    color: #000;
+    bottom: -10px;
+    font-size: 15px;
+    width: 60%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Goal result modal */
+.cricket20ballresult {
+    position: relative;
+    width: auto;
+    left: unset;
+    top: unset;
+    margin: 0;
+    display: inline-block;
+    animation: none;
+}
+
+.goal-result img {
+    height: 250px;
+}
+
+.goal-result span {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+    top: unset;
+    left: 58%;
+    color: #000;
+    font-weight: bold;
+    bottom: -10px;
+    font-size: 15px;
+    width: 60%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes zoom-in-zoom-out-goal {
+    0% { transform: scale(1, 1); }
+    50% { transform: scale(1.1, 1.1); }
+    100% { transform: scale(1, 1); }
+}
+
+@media screen and (max-width: 567px) {
+    .goal .cricket20ballpopup {
+        margin-left: -90px;
+        margin-top: -90px;
+    }
+    .goal .cricket20ballpopup img {
+        height: 180px;
+    }
+        .goal .cricket20ballpopup span {
+        height: 30px;
+        font-size: 12px;
+    }
+}
+
+/* ── Goal 2 — copied verbatim from reference v228 style.css / responsive.css ── */
+.goal2 .detail-page-container .market-6 {
+  min-width: calc(50% - 6px);
+  max-width: calc(50% - 6px);
+  margin-left: 3px;
+  margin-right: 3px;
+  flex: 1;
+  width: 50%;
+}
+
+.goal2 .detail-page-container .market-comb {
+  min-width: calc(100% - 6px);
+  max-width: calc(100% - 6px);
+  margin-left: 3px;
+  margin-right: 3px;
+  flex: 1;
+  width: 50%;
+}
+
+.goal2 .detail-page-container .market-6 .bet-table-header .nation-name {
+  width: calc(100% - 224px);
+}
+
+.goal2 .detail-page-container .market-6 .nation-name {
+  width: calc(100% - 224px);
+}
+
+.goal2 .detail-page-container .market-6 .bl-title,
+.goal2 .detail-page-container .market-6 .bl-box {
+  width: 72px;
+  margin-right: 4px;
+}
+
+.goal2 .detail-page-container .market-6 .fancy-min-max {
+  width: 72px;
+}
+
+.goal2 .detail-page-container .market-comb .nation-name {
+  width: calc(100% - 148px);
+  cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  position: relative;
+}
+
+.goal2 .detail-page-container .market-comb .bl-title,
+.goal2 .detail-page-container .market-comb .bl-box,
+.goal2 .detail-page-container .market-comb .fancy-min-max {
+  width: 72px;
+}
+
+.goal2 .detail-page-container .market-comb .bl-title,
+.goal2 .detail-page-container .market-comb .bl-box {
+  margin-right: 4px;
+}
+
+.goal2 .detail-page-container .market-comb .combo-odds-wrap {
+  width: 72px;
+  margin-right: 4px;
+}
+
+.goal2 .detail-page-container .market-comb .combo-odds-wrap .bl-box {
+  width: 100%;
+  margin-right: 0;
+}
+
+.goal2 .detail-page-container .market-comb .nation-name p {
+  height: 16px;
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.goal2 .detail-page-container .market-comb .nation-name p:last-child {
+  width: 100%;
+  text-align: left;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 1279px) {
+  .ball-by-ball.goal2 .fancy-min-max {
+    width: 52px;
+  }
+
+  .goal2 .detail-page-container .market-6 .bl-title,
+  .goal2 .detail-page-container .market-6 .bl-box {
+    width: 54px;
+    min-width: 54px;
+    margin-right: 0;
+  }
+
+  .goal2 .detail-page-container .market-6 .lay {
+    margin-right: 6px;
+  }
+
+  .goal2 .detail-page-container .market-6 .bet-table-row {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  .goal2 .detail-page-container .market-6 .fancy-min-max {
+    width: 52px;
+    min-width: 52px;
+    text-align: left;
+  }
+
+  .goal2 .detail-page-container .market-comb .bl-title,
+  .goal2 .detail-page-container .market-comb .bl-box {
+    width: 54px;
+    margin-right: 0;
+  }
+
+  .goal2 .detail-page-container .market-comb .fancy-min-max {
+    width: 52px;
+  }
+
+  .goal2 .detail-page-container .market-6 .nation-name {
+    width: calc(100% - 160px);
+    min-width: 0;
+  }
+
+  .goal2 .detail-page-container .market-comb .nation-name {
+    width: calc(100% - 106px);
+  }
+}
+
+@media only screen and (min-width: 1280px) and (max-width: 1599px) {
+  .goal2 .detail-page-container .market-6 .nation-name {
+    width: calc(100% - 160px);
+    min-width: 0;
+  }
+
+  .goal2 .detail-page-container .market-comb .nation-name {
+    width: calc(100% - 106px);
+  }
+
+  .goal2 .detail-page-container .market-6 .bet-table-header .nation-name {
+    width: calc(100% - 160px);
+  }
+
+  .goal2 .detail-page-container .market-6 .bet-table-row {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  .goal2 .detail-page-container .market-6 .bl-title,
+  .goal2 .detail-page-container .market-6 .bl-box {
+    width: 54px;
+    min-width: 54px;
+    margin-right: 0;
+  }
+
+  .goal2 .detail-page-container .market-6 .lay {
+    margin-right: 6px;
+  }
+
+  .goal2 .detail-page-container .market-6 .fancy-min-max {
+    width: 52px;
+    min-width: 52px;
+    text-align: left;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .goal2 .detail-page-container .market-comb .bet-table-row {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  .goal2 .detail-page-container .market-comb .nation-name {
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 0;
+  }
+
+  .goal2 .detail-page-container .market-comb .combo-odds-wrap {
+    flex: 0 0 72px;
+    width: 72px;
+    margin-right: 4px;
+  }
+
+  .goal2 .detail-page-container .market-comb .bl-title {
+    flex: 0 0 72px;
+    width: 72px;
+    margin-right: 4px;
+  }
+
+  .goal2 .detail-page-container .market-comb .combo-odds-wrap .bl-box {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .goal2 .detail-page-container .market-comb .combo-info-btn {
+    display: none !important;
+  }
+
+  .goal2 .detail-page-container .market-comb .fancy-min-max {
+    display: block;
+    flex: 0 0 72px;
+    width: 72px;
+    min-width: 72px;
+    margin-left: 6px;
+    position: static;
+    transform: none;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+  .goal2 .detail-page-container .market-6 .bet-table-row {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  .goal2 .detail-page-container .market-6 .nation-name {
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 0;
+  }
+
+  .goal2 .detail-page-container .market-6 .bl-title,
+  .goal2 .detail-page-container .market-6 .bl-box {
+    flex: 0 0 56px;
+    width: 56px;
+    min-width: 56px;
+    margin-right: 4px;
+  }
+
+  .goal2 .detail-page-container .market-6 .lay {
+    margin-right: 8px;
+  }
+
+  .goal2 .detail-page-container .market-6 .fancy-min-max {
+    flex: 0 0 64px;
+    width: 64px;
+    min-width: 64px;
+    text-align: left;
+  }
+
+  .goal2 .detail-page-container .market-6 .bet-table-header .nation-name {
+    width: calc(100% - 192px);
+  }
+
+  .goal2 .detail-page-container .market-comb .combo-odds-wrap {
+    flex-basis: 54px;
+    width: 54px;
+    margin-right: 0;
+  }
+
+  .goal2 .detail-page-container .market-comb .bl-title {
+    flex-basis: 54px;
+    width: 54px;
+    margin-right: 0;
+  }
+
+  .goal2 .detail-page-container .market-comb .fancy-min-max {
+    flex-basis: 52px;
+    width: 52px;
+    min-width: 52px;
+    margin-left: 6px;
+    text-align: left;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .goal2 .detail-page-container .market-comb .bet-table-row {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding: 10px 0 10px 0;
+  }
+
+  .goal2 .detail-page-container .market-comb .nation-name {
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 0;
+    padding-right: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .goal2 .detail-page-container .market-comb .nation-name p:first-child {
+    height: auto;
+    white-space: normal;
+    overflow: hidden;
+    line-height: 18px;
+  }
+
+  .goal2 .detail-page-container .market-comb .nation-name p:last-child {
+    display: block;
+    position: static;
+    right: auto;
+    left: auto;
+    top: auto;
+    bottom: auto;
+    transform: none;
+    height: 16px;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 2px;
+    margin-bottom: 0;
+    line-height: 16px;
+    font-size: 13px;
+    text-align: left;
+    align-self: flex-start;
+    clear: both;
+  }
+
+  .goal2 .detail-page-container .market-comb .combo-info-btn {
+    flex: 0 0 20px;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    margin: 0 6px 0 0;
+    border: 0;
+    background: transparent;
+    color: var(--text-table);
+    line-height: 20px;
+    text-align: center;
+  }
+
+  .goal2 .detail-page-container .market-comb .combo-info-btn i {
+    font-size: 14px;
+  }
+
+  .goal2 .detail-page-container .market-comb .combo-odds-wrap {
+    flex: 0 0 84px;
+    width: 84px;
+    min-width: 84px;
+    margin-right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .goal2 .detail-page-container .market-comb .bl-box {
+    flex: none;
+    width: 100%;
+    min-width: 100%;
+    min-height: 50px;
+    height: auto;
+    margin-right: 0;
+  }
+
+  .goal2 .detail-page-container .market-comb .fancy-min-max {
+    display: none;
+    position: absolute;
+    right: 92px;
+    bottom: calc(100% - 2px);
+    z-index: 20;
+    width: 82px;
+    min-width: 82px;
+    padding: 4px 6px;
+    border: 1px solid #6f7982;
+    border-radius: 4px;
+    background-color: #101820;
+    color: #fff;
+    line-height: 14px;
+    text-align: left;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+    transform: none;
+    pointer-events: none;
+  }
+
+  .goal2 .detail-page-container .market-comb .fancy-min-max::after {
+    content: "";
+    position: absolute;
+    right: 9px;
+    bottom: -6px;
+    width: 10px;
+    height: 10px;
+    background-color: #101820;
+    border-right: 1px solid #6f7982;
+    border-bottom: 1px solid #6f7982;
+    transform: rotate(45deg);
+  }
+
+  .goal2 .detail-page-container .market-comb .fancy-min-max.combo-range-open {
+    display: block;
+  }
+}
+/* ── Racing: COMBINED betting + greyhound cleanup ─────────────────────────── */
+/* Greyhound rows render no checkbox — hide the empty box pseudo-elements the
+   custom-checkbox label would otherwise draw. */
+.horse-detail .custom-control-label.no-checkbox::before,
+.horse-detail .custom-control-label.no-checkbox::after {
+  display: none;
+}
+
+/* Per-leg split preview inside the combined slip */
+.horse-detail .place-bet .book-green { color: #228b22; }
+.horse-detail .place-bet .book-red { color: #d0021b; }
+
+/* ── Andar Bahar 2 (abj): worst-exposure book UNDER the runner box ──────────
+   The SA/SB and 1st/2nd Bet cells were flex items sized by width; to hang the
+   book beneath the box the runner becomes a column wrapper that carries the
+   old box width, and the box itself fills the wrapper. */
+.andar-bahar2 .teen20left .ab2-runner,
+.andar-bahar2 .teen20right .ab2-runner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.andar-bahar2 .ab2-runner.sa  { width: 20%; margin-right: 2%; }
+.andar-bahar2 .ab2-runner.bet { width: 30%; margin-right: 2%; }
+.andar-bahar2 .ab2-runner .sa-sb-box,
+.andar-bahar2 .ab2-runner .ab2-bet {
+  width: 100%;
+  margin-right: 0;
+}
+/* Grid cells (odd/even, suits): the book is a flex sibling of the box-item, so
+   force it full-width to wrap onto its own line directly below the box. */
+.andar-bahar2 .casino-bl-box .casino-book { width: 100%; }
+
+/* iOS Safari lays an iframe out at its content's intrinsic size, ignoring CSS
+   width/height — the vendor stream then sees an oversized inner viewport and
+   renders zoomed/cropped after a page refresh. A definite 1px size with
+   min-* 100% pins the layout box, so the inner viewport always equals the
+   visible box. Same computed size as before on every other browser. */
+.casino-video .video-box > iframe,
+.video-box > iframe {
+  width: 1px;
+  min-width: 100%;
+  height: 1px;
+  min-height: 100%;
+  touch-action: pan-x pan-y;
+}
+
+/* The viewport meta declares user-scalable=no, but iOS Safari ignores it and
+   still allows pinch / double-tap zoom — which survives a refresh and shows
+   the stream zoomed in. touch-action enforces the no-zoom intent on iOS 13+
+   (scrolling still works); index.html blocks legacy GestureEvent pinch. */
+html,
+body {
+  touch-action: pan-x pan-y;
+}
+
+/* /othergames/:id — the panel sits flush under the header without this. The
+   reference leaves a small gap between the header and the framed page, so the
+   panel gets the same breathing room the other report boxes have. */
+.sports-books-page {
+  margin-top: 22px;
+}

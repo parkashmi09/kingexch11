@@ -1,0 +1,32 @@
+/* Dark theme — activate with data-theme="dark" on <html> */
+
+:root[data-theme="dark"] {
+    /* W3 / Matka calendar */
+    --w3-bg: #2f3136;
+    --w3-panel: #3a3d43;
+    --w3-panel-2: #31343a;
+    --w3-line: #4a4d54;
+    --w3-text: #e6e7ea;
+    --w3-muted: #9da3ae;
+    --w3-head: #f3b516;
+    --w3-chip: #16181d;
+    --w3-date-bg: #0f1319;
+    --w3-date-ring: #f3b516;
+    --w3-digit: #b7bfcb;
+    --w3-digit-bg: rgba(183, 191, 203, 0.22);
+    --w3-cell-min: 130px;
+    --w3-big-color: #d3d7de;
+
+    /* Brand */
+    --bg-body: #DFE5E5;
+    --text-body: #222222;
+    --bg-table: #FDFBFE;
+    --text-table: #222222;
+    --bg-primary: #FFB80C;
+    --text-primary: #222222;
+    --bg-secondary: #222222;
+    --text-secondary: #eeeeee;
+    --bg-op1: #FFB80C99;
+    --bg-op2: #22222299;
+    --text-fancy: #FDCF13;
+}

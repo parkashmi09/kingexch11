@@ -1,0 +1,975 @@
+<div id=app>
+  <div class="wrapper">
+    <div class="header-top">
+      <ul>
+        <li>
+          <a class="aviator">
+            <svg id=Layer_2>
+              <g id=Layer_1-2>
+                <g>
+                  <path class="cls-1">
+                  <path class="cls-1">
+                  <path class="cls-1">
+                  <path class="cls-1">
+                  <path class="cls-1">
+                  <path class="cls-1">
+            <span class="ml-1">
+        <li>
+          <a>
+        <li>
+          <a>
+        <li>
+          <a class="router-link-exact-active router-link-active">
+        <li>
+          <a>
+        <li>
+          <a>
+    <div class="main-container">
+      <header class="header header-casino">
+        <a class="d-none-desktop">
+          <div class="d-none-desktop d-inline-block top-home-icon">
+            <i class="fa fas fa-chevron-left">
+        <div class="logo">
+          <a>
+            <img class="img-fluid">
+        <div class="b-sidebar-outer">
+          <div id=sidebar-border-right class="b-sidebar shadow bg-light text-dark d-none-desktop">
+            <header class="b-sidebar-header">
+              <span>
+              <button class="close text-dark">
+                <svg class="bi-x b-icon bi">
+                  <g>
+                    <path>
+            <div class="b-sidebar-body">
+              <div id=sidebar-left-mo class="sidebar-left">
+                <div class="menu-top">
+                  <div class="float-left home-icon">
+                    <a>
+                      <i class="fas fa-home">
+                  <div class="float-left logo">
+                    <a>
+                      <img class="img-fluid">
+                  <div class="float-right m-r-10 close-icon">
+                    <i class="fa fa-times">
+                <div class="menu-scrolable">
+                  <div>
+                    <span class="ml-2">
+                      <b>
+                    <div class="ml-2">
+                      <b>
+                      <span>
+                      <span>
+                        <b>
+                  <div class="menu-box">
+                    <h5 class="text-yellow pl-2">
+                      <u>
+                    <ul class="navbar-nav">
+                      <li>
+                        <a>
+                      <li>
+                      <li>
+                      <li>
+                        <a>
+                      <li>
+                      <li>
+                        <a>
+                      <li>
+                      <li>
+                      <li>
+                        <a>
+                      <li>
+                      <li>
+                      <li>
+                    <div class="login-seperator">
+                    <a class="text-danger ml-2">
+                      <b>
+          <div class="b-sidebar-backdrop bg-dark">
+        <div class="b-sidebar-outer">
+          <div id=sidebar-border class="b-sidebar shadow bg-light text-dark d-none-desktop">
+            <div class="b-sidebar-body">
+              <div id=sidebar-left-mo class="sidebar-left">
+                <div class="menu-scrolable">
+                  <div class="search-box">
+                    <div class="form-group d-inline-block mb-0">
+                      <input class="form-control">
+                      <img class="search-icon">
+                    <div class="menu-button-mobile d-none-desktop">
+                      <span class="menu-button-bar">
+                      <span class="menu-button-bar">
+                      <span class="menu-button-bar">
+                  <div class="menu-box">
+          <div class="b-sidebar-backdrop bg-dark">
+        <div class="news-bar">
+          <img>
+          <div class="marquee-wrapper">
+            <div class="marquee-content">
+          <div class="news-title">
+        <div class="float-right header-right">
+          <div class="balance d-none-mobile">
+            <div>
+              <b>
+              <span>
+            <div>
+              <u>
+                <b>
+          <div class="username-info d-none-mobile">
+            <span class="username">
+            <i class="fas fa-caret-down ml-1">
+            <div id=user-dropdown class="collapse user-dropdown">
+              <a>
+              <a>
+              <a>
+              <a>
+              <div class="login-seperator">
+              <a>
+          <div class="d-none-desktop bal-point">
+            <span>
+          <div class="username-info d-none-desktop">
+            <u>
+              <span>
+            <div class="d-inline-block">
+              <u>
+                <span class="username">
+        <div class="search-box-container d-none-desktop">
+          <div class="search-box float-left">
+            <input class="search_input">
+      <div class="center-main-content report-container">
+        <div class="news-box d-none-desktop">
+          <div class="news-bar d-none-desktop">
+            <div class="marquee-wrapper">
+              <div class="marquee-content">
+            <div class="news-title">
+              <img>
+        <div class="upcoming-fixure d-none-desktop">
+          <div class="fixure-title">
+          <div class="fixure-box-container">
+            <div id=carousel2 class="carousel vert slide">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="fixure-box">
+                    <a>
+                      <div>
+                        <i class="d-icon mr-2 icon-4">
+                      <div>
+                <div class="carousel-item">
+                  <div class="fixure-box">
+                    <a>
+                      <div>
+                        <i class="d-icon mr-2 icon-2">
+                      <div>
+        <div class="casino-list-container center-container">
+          <div>
+            <div class="report-box casino-box fancy-page">
+              <div class="container-fluid container-fluid-5 d-none-mobile">
+                <div class="row row1">
+                  <div class="col-md-2">
+                    <div class="facncy-provider">
+                      <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                          <a class="nav-link active">
+                            <div>
+                              <img>
+                              <span>
+                        <li class="nav-item">
+                          <a class="nav-link">
+                            <div>
+                              <img>
+                              <span>
+                        <li class="nav-item">
+                          <a class="nav-link">
+                            <div>
+                              <img>
+                              <span>
+                        <li class="nav-item">
+                          <a class="nav-link">
+                            <div>
+                              <img>
+                              <span>
+                        <li class="nav-item">
+                          <a class="nav-link">
+                            <div>
+                              <img>
+                              <span>
+                        <li class="nav-item">
+                          <a class="nav-link">
+                            <div>
+                              <img>
+                              <span>
+                        <li class="nav-item">
+                          <a class="nav-link">
+                            <div>
+                              <img>
+                              <span>
+                        <li class="nav-item">
+                          <a class="nav-link">
+                            <div>
+                              <img>
+                              <span>
+                        <li class="nav-item">
+                          <a class="nav-link">
+                            <div>
+                              <img>
+                              <span>
+                        <li class="nav-item">
+                          <a class="nav-link">
+                            <div>
+                              <img>
+                              <span>
+                        <li class="nav-item">
+                          <a class="nav-link">
+                            <div>
+                              <img>
+                              <span>
+                  <div class="col-md-10 tab-content">
+                    <div class="casino-tabs">
+                      <div class="casino-tabs-menu">
+                        <ul id=casino-scroll-tab class="nav nav-tabs">
+                          <li class="nav-item">
+                            <a class="nav-link active">
+                              <img>
+                              <span>
+                          <li class="nav-item">
+                            <a class="nav-link">
+                              <img>
+                              <span>
+                          <li class="nav-item">
+                            <a class="nav-link">
+                              <img>
+                              <span>
+                          <li class="nav-item">
+                            <a class="nav-link">
+                              <img>
+                              <span>
+                          <li class="nav-item">
+                            <a class="nav-link">
+                              <img>
+                              <span>
+                          <li class="nav-item">
+                            <a class="nav-link">
+                              <img>
+                              <span>
+                          <li class="nav-item">
+                            <a class="nav-link">
+                              <img>
+                              <span>
+                          <li class="nav-item">
+                            <a class="nav-link">
+                              <img>
+                              <span>
+                          <li class="nav-item">
+                            <a class="nav-link">
+                              <img>
+                              <span>
+                          <li class="nav-item">
+                            <a class="nav-link">
+                              <img>
+                              <span>
+                          <li class="nav-item">
+                            <a class="nav-link">
+                              <img>
+                              <span>
+                          <li class="nav-item">
+                            <a class="nav-link">
+                              <img>
+                              <span>
+                          <li class="nav-item">
+                            <a class="nav-link">
+                              <img>
+                              <span>
+                          <li class="nav-item">
+                            <a class="nav-link">
+                              <img>
+                              <span>
+                          <li class="nav-item">
+                            <a class="nav-link">
+                              <img>
+                              <span>
+                          <li class="nav-item">
+                            <a class="nav-link">
+                              <img>
+                              <span>
+                          <li class="nav-item">
+                            <a class="nav-link">
+                              <img>
+                              <span>
+                          <li class="nav-item">
+                            <a class="nav-link">
+                              <img>
+                              <span>
+                      <div class="casino-search">
+                        <input class="form-control">
+                        <div class="search-icon">
+                          <i class="fas fa-search">
+                    <div class="tab-pane active">
+                      <div class="casino-banners">
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+                        <div class="casino-banner-item">
+                          <a>
+                            <div>
+              <div class="d-none-desktop">
+                <div class="facncy-provider">
+                  <div class="fancy-provider-title">
+                    <a>
+                      <span>
+                      <span>
+                  <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                      <a class="nav-link active">
+                        <div>
+                          <img>
+                          <span>
+                    <li class="nav-item">
+                      <a class="nav-link">
+                        <div>
+                          <img>
+                          <span>
+                    <li class="nav-item">
+                      <a class="nav-link">
+                        <div>
+                          <img>
+                          <span>
+                    <li class="nav-item">
+                      <a class="nav-link">
+                        <div>
+                          <img>
+                          <span>
+                    <li class="nav-item">
+                      <a class="nav-link">
+                        <div>
+                          <img>
+                          <span>
+                    <li class="nav-item">
+                      <a class="nav-link">
+                        <div>
+                          <img>
+                          <span>
+                    <li class="nav-item">
+                      <a class="nav-link">
+                        <div>
+                          <img>
+                          <span>
+                    <li class="nav-item">
+                      <a class="nav-link">
+                        <div>
+                          <img>
+                          <span>
+                    <li class="nav-item">
+                      <a class="nav-link">
+                        <div>
+                          <img>
+                          <span>
+                    <li class="nav-item">
+                      <a class="nav-link">
+                        <div>
+                          <img>
+                          <span>
+                    <li class="nav-item">
+                      <a class="nav-link">
+                        <div>
+                          <img>
+                          <span>
+                <div id=casinoListTarget class="fancy-provider-list">
+                  <div class="fancy-provider-title">
+                    <a>
+                      <span>
+                      <div class="casino-search">
+                        <input class="form-control">
+                        <div class="search-icon">
+                          <i class="fas fa-search">
+                  <div class="casino-tabs">
+                    <div class="casino-tabs-menu">
+                      <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                          <a class="nav-link active">
+                            <img>
+                            <span>
+                        <li class="nav-item">
+                          <a class="nav-link">
+                            <img>
+                            <span>
+                        <li class="nav-item">
+                          <a class="nav-link">
+                            <img>
+                            <span>
+                        <li class="nav-item">
+                          <a class="nav-link">
+                            <img>
+                            <span>
+                        <li class="nav-item">
+                          <a class="nav-link">
+                            <img>
+                            <span>
+                        <li class="nav-item">
+                          <a class="nav-link">
+                            <img>
+                            <span>
+                        <li class="nav-item">
+                          <a class="nav-link">
+                            <img>
+                            <span>
+                        <li class="nav-item">
+                          <a class="nav-link">
+                            <img>
+                            <span>
+                        <li class="nav-item">
+                          <a class="nav-link">
+                            <img>
+                            <span>
+                        <li class="nav-item">
+                          <a class="nav-link">
+                            <img>
+                            <span>
+                        <li class="nav-item">
+                          <a class="nav-link">
+                            <img>
+                            <span>
+                        <li class="nav-item">
+                          <a class="nav-link">
+                            <img>
+                            <span>
+                        <li class="nav-item">
+                          <a class="nav-link">
+                            <img>
+                            <span>
+                        <li class="nav-item">
+                          <a class="nav-link">
+                            <img>
+                            <span>
+                        <li class="nav-item">
+                          <a class="nav-link">
+                            <img>
+                            <span>
+                        <li class="nav-item">
+                          <a class="nav-link">
+                            <img>
+                            <span>
+                        <li class="nav-item">
+                          <a class="nav-link">
+                            <img>
+                            <span>
+                        <li class="nav-item">
+                          <a class="nav-link">
+                            <img>
+                            <span>
+                  <div class="casino-banners-fancy all">
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+                    <div class="casino-banner-item">
+                      <a>
+                        <div>
+      <footer class="footer">
+        <div class="support">
+          <div class="secure-logo">
+            <div>
+              <img>
+            <div class="ml-2">
+              <b>
+              <div>
+          <div class="customer-support">
+            <div class="w-100 text-center">
+              <b>
+            <div class="text-center w-100">
+        <div class="footer-menu">
+          <ul>
+            <li>
+              <a>
+            <li>
+              <a>
+            <li>
+              <a>
+            <li>
+              <a>
+        <p class="text-center upper-footer text-white">
+          <a>
+            <img>
+          <a>
+            <img>
+          <a>
+            <img>
+          <a class="begambleaware">
+            <img>
+          <a>
+            <img class="gamstop">
+          <a>
+        <div class="footer-box">
+          <div class="footer-bottom">
+            <span>
+        <div class="text-center mt-1 w-100 copyright">
+          <span>
