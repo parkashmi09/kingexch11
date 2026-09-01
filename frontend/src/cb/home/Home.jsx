@@ -29,29 +29,26 @@ const BUTTON_LABEL = { hor: 'Horse Racing', gho: 'Greyhound' };
 
 // Signed in, the reference stacks every sport's board at once instead of
 // showing one at a time.
-// Horse Racing and Grey Hound are NOT here, though the reference lists them.
-// Its own feed has no racing events, so those two sections read "No Active
-// Events Found" for it and the claim happens to be true. Ours has races — they
-// simply arrive nested country > venue > race, with nothing the back/lay list
-// can render — so the same empty section would be telling the user there is no
-// racing while /race/10 lists fifteen courses. A heading that lies is worse
-// than a heading that is missing; the nav and the sports tiles both lead there.
 const LOGGED_IN_BOARDS = [
-  { tab: 'cricket',   title: 'Cricket' },
-  { tab: 'football',  title: 'Soccer' },
-  { tab: 'tennis',    title: 'Tennis' },
+  { tab: 'cricket',          title: 'Cricket' },
+  { tab: 'football',         title: 'Soccer' },
+  { tab: 'tennis',           title: 'Tennis' },
+  { tab: 'horseracing',      title: 'Horse Racing' },
+  { tab: 'greyhoundracing',  title: 'Grey Hound' },
 ];
 
 const BONUS_BANNERS = ['bonus-1.jpg', 'bonus-2.jpg', 'bonus-3.jpg', 'bonus-4.jpg'];
 
 // Every sport on the home board renders through the same back/lay list —
-// racing included, exactly as the reference does. tenexch's racing feed is
-// nested country > venue > race with no odds, so nothing survives the row
-// mapping and those two sections read "No Active Events Found", which is what
-// the reference shows for them too.
+// racing included, exactly as the reference does.
 //
-// The venue-card layout that used to sit here is not on the reference's home at
-// all. It lives on the sport's own page now, /race/:sportId — see cb/pages/Race.
+// The two racing sections will read "No Active Events Found": tenexch's racing
+// feed is nested country > venue > race with no odds on it, so nothing survives
+// the row mapping. That is what the reference shows for them as well, but for a
+// different reason — its racing feed is simply empty. Ours has races, and they
+// are on the sport's own page, /race/10 and /race/65, which every route to
+// racing leads to: the nav entries, the sports tiles and the pill buttons. The
+// venue-card layout is not on the reference's home at all.
 function Board({ tab, title, showTitle }) {
   const cfg = TAB_SPORT_MAP[tab];
   if (!cfg) return null;
