@@ -72,6 +72,14 @@ function DetailPage() {
   return RACING_SIDS.includes(String(sid)) ? <RacingDetails /> : <GameDetails />;
 }
 
+// NOTE: match details (/gamedetails/:sid/:gmid) deliberately still render the
+// OLD page. cb/pages/EventDetails is written and works — it is the CPL board's
+// view with the match header — but a cricket match is mostly fancy, session,
+// line and odd/even markets, and each of those has its own layout in the
+// reference that has not been rebuilt yet. Routed as-is they would all come out
+// as the six-column back/lay ladder, which is wrong for every one of them.
+// Wire it up once those market families exist.
+
 // Mobile-only news marquee shown above report boxes and the logged-in casino
 // list (reference: news-box > news-bar > marquee-wrapper).
 function NewsStrip() {

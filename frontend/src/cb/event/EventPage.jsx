@@ -34,12 +34,18 @@ function eventClock(stime) {
  * polls private-data exactly as the old GameDetails page does, and a price tap
  * opens the same bet slip the home board uses.
  */
-function EventPage({ gmid, sid, title, showTitleStrip = true }) {
+function EventPage({ gmid, sid, title, variant = 'tournament', showTitleStrip = true }) {
   const isAuth = useSelector((s) => s.user.isAuthenticated);
   const { matchData, markets, loading, error, noMarkets } = useMatchData(gmid, sid);
   const [slipBet, setSlipBet] = useState(null);
 
   const eventName = (title || matchData?.ename || '').trim();
+  // A match page leads with its competition; the outright board does not.
+  const competition = (matchData?.cname || '').trim();
+  const headerTitle =
+    variant === 'match' && competition && competition !== eventName
+      ? `${competition} - ${eventName}`
+      : eventName;
 
   const onOddsClick = useCallback(
     (market, runner, side, price) => {
@@ -83,9 +89,12 @@ function EventPage({ gmid, sid, title, showTitleStrip = true }) {
 
   return (
     <div className="eventdetails-box">
+      {/* Same strip either way, but a match carries the banner background and a
+          "{competition} - {event}" title, where a tournament outright is just
+          its own name on the plain bar. */}
       {showTitleStrip && (
-        <div className="eventtitle-box mb-1">
-          <div className="etitle">{eventName}</div>
+        <div className={variant === 'match' ? ' eventtitle-box mb-0 maintitlebgimage' : 'eventtitle-box mb-1'}>
+          <div className="etitle">{headerTitle}</div>
           <div className="event-info-strip-meta">{eventClock(matchData?.stime)}</div>
         </div>
       )}
