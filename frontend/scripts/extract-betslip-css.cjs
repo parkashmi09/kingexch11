@@ -102,15 +102,18 @@ const header = `/* ────────────────────�
 
 // Hand-written addition, kept here so regenerating cannot drop it.
 //
-// The slip renders a bare `.modal-backdrop` with no `show` class — tenexch's
-// house convention across all its modals, whose sheet styles the bare class.
-// clickbet.css styles it too, but opaque and with no opacity of its own, so on
-// these routes the backdrop blacked the whole page out instead of dimming it;
-// Bootstrap's 50% only arrives via `.show`, which this markup never carries.
-// Scoped to the slip's own backdrop (its adjacent sibling) so no other modal is
-// touched.
+// Every tenexch modal renders a BARE `.modal-backdrop`, with no `show` class —
+// their house convention, and their stylesheet styles the bare class. On the
+// clickbet routes that stylesheet is gone and clickbet.css styles the bare
+// class too, but opaque and with no opacity of its own, so the backdrop blacked
+// the whole page out instead of dimming it; Bootstrap's 50% only arrives via
+// `.show`, which this markup never carries.
+//
+// Scoped to bare backdrops so nothing that DOES carry `.show` (the clickbet
+// login modal, for one) is touched. It reaches the bet slip, the account
+// panel's dialogs and any other tenexch modal opened from the new UI.
 const EXTRA = `
-.home-bet-slip + .modal-backdrop {
+.modal-backdrop:not(.show) {
   opacity: var(--bs-backdrop-opacity, 0.5);
 }
 `;

@@ -446,6 +446,6 @@
   }
 }
 
-.home-bet-slip + .modal-backdrop {
+.modal-backdrop:not(.show) {
   opacity: var(--bs-backdrop-opacity, 0.5);
 }

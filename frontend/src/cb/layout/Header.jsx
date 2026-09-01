@@ -7,6 +7,7 @@ import { HEADER_NAV, CASINO_NAV, GROUPED_SPORTS, MOBILE_NAV_LEAD, iconSrc } from
 import { useSportTab } from '../useSportTab';
 import useViewportWidth from '../useViewport';
 import LoginModal from './LoginModal';
+import AccountPanel from './AccountPanel';
 
 // The reference hides the In-Play entry below 767px because the strip is
 // already tight there; both lists render it and CSS decides which list shows.
@@ -121,6 +122,7 @@ function Header({ sideNavVisible, setSideNavVisible }) {
   const [, setActiveTab, explicitTab] = useSportTab();
   const width = useViewportWidth();
   const [loginOpen, setLoginOpen] = useState(false);
+  const [accountOpen, setAccountOpen] = useState(false);
 
   // A nav entry either switches the home board's sport (every sport entry) or
   // opens a route (the casino entries). Either way the mobile drawer closes.
@@ -152,7 +154,7 @@ function Header({ sideNavVisible, setSideNavVisible }) {
             {isAuth ? (
               <div className="loginbtngroup loginbtngroup--loggedin">
                 <div>
-                  <button className="loginbtn" onClick={() => navigate('/report/account-statement')}>
+                  <button className="loginbtn" onClick={() => setAccountOpen(true)}>
                     {walletTotal.toFixed(2)}
                   </button>
                 </div>
@@ -191,6 +193,7 @@ function Header({ sideNavVisible, setSideNavVisible }) {
           keeps it here, as a sibling of the header, and mounts it from this
           button. */}
       {loginOpen && <LoginModal onClose={() => setLoginOpen(false)} />}
+      {accountOpen && <AccountPanel onClose={() => setAccountOpen(false)} />}
     </>
   );
 }
