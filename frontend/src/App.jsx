@@ -16,6 +16,7 @@ import Home from './pages/Home';
 import CbLayout from './cb/Layout';
 import CbHome from './cb/home/Home';
 import CbCpl from './cb/pages/Cpl';
+import CbEventDetails from './cb/pages/EventDetails';
 import LegacyStyles from './legacyStyles';
 import VirtualCricket from './pages/VirtualCricket';
 import VirtualCricketDetails from './pages/VirtualCricketDetails';
@@ -72,13 +73,23 @@ function DetailPage() {
   return RACING_SIDS.includes(String(sid)) ? <RacingDetails /> : <GameDetails />;
 }
 
-// NOTE: match details (/gamedetails/:sid/:gmid) deliberately still render the
-// OLD page. cb/pages/EventDetails is written and works — it is the CPL board's
-// view with the match header — but a cricket match is mostly fancy, session,
-// line and odd/even markets, and each of those has its own layout in the
-// reference that has not been rebuilt yet. Routed as-is they would all come out
-// as the six-column back/lay ladder, which is wrong for every one of them.
-// Wire it up once those market families exist.
+// Match details. Non-racing sports go to the clickbet event view — the same one
+// the CPL board uses, which is how the reference serves both. Ladder markets
+// render as cards, the fancy family as its own grouped list.
+//
+// Horse racing stays on the old page: its view is nothing like an event's —
+// silk colours, jockey and trainer rows, a combined dutching slip — and none of
+// that has been rebuilt. Rendering MainLayout hands the route back to the old
+// chrome, whose own router still resolves it to RacingDetails.
+function DetailRoute() {
+  const { sid } = useParams();
+  if (RACING_SIDS.includes(String(sid))) return <MainLayout />;
+  return (
+    <CbLayout>
+      <CbEventDetails />
+    </CbLayout>
+  );
+}
 
 // Mobile-only news marquee shown above report boxes and the logged-in casino
 // list (reference: news-box > news-bar > marquee-wrapper).
@@ -471,6 +482,7 @@ function App() {
       <Route path="/" element={<CbLayout><CbHome /></CbLayout>} />
       <Route path="/home" element={<CbLayout><CbHome /></CbLayout>} />
       <Route path="/cpl" element={<CbLayout><CbCpl /></CbLayout>} />
+      <Route path="/gamedetails/:sid/:gmid" element={<DetailRoute />} />
 
       {/* Everything else still renders in the old chrome. */}
       <Route path="/*" element={<MainLayout />} />

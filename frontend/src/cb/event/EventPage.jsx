@@ -6,8 +6,16 @@ import { isCricketLimitedOvers } from '../../components/betting/placeBet/placeBe
 import { formatOpenDate } from '../../utils/betTableData';
 import { cbToastError } from '../toast';
 import EventMarket from './EventMarket';
+import FancyMarkets from './FancyMarkets';
+import { classifyMarket } from '../../utils/oddsHelpers';
 
 const SPORT_NAME_BY_SID = { 1: 'Soccer', 2: 'Tennis', 4: 'Cricket' };
+
+// Two shapes of market, two layouts. A back/lay ladder gets a card of its own;
+// everything else — session, odd/even, the cricket-casino lines — is a No/Yes
+// pair and shares the one grouped fancy list, as the reference has it.
+const LADDER_FAMILIES = ['MATCH_ODDS', 'BOOKMAKER'];
+const isLadder = (m) => LADDER_FAMILIES.includes(classifyMarket(m));
 
 // "8/5/2020 6:30:00 AM" → "05/08/2020 06:30", the strip the reference prints
 // beside the event name. The clock value is already server/IST time.
@@ -87,6 +95,47 @@ function EventPage({ gmid, sid, title, variant = 'tournament', showTitleStrip = 
     [isAuth, gmid, sid, eventName, matchData]
   );
 
+  // A fancy pick carries the SECTION's own limits — each line quotes its own
+  // min/max, unlike a ladder market where they sit on the market.
+  const onFancyPick = useCallback(
+    (market, section, side, price) => {
+      if (!isAuth) {
+        cbToastError('Please login to access!');
+        return;
+      }
+      setSlipBet({
+        team: section.nat,
+        betType: side,
+        odds: price.odds,
+        size: price.size,
+        market_id: market.mid,
+        selectionId: section.sid,
+        marketType: 'FANCY',
+        market_type: 'FANCY',
+        mname: market.mname,
+        gtype: market.gtype,
+        market,
+        section,
+        runners: [section.nat],
+        event_id: gmid,
+        event_name: eventName,
+        match_title: eventName,
+        match_start_time: matchData?.stime || '',
+        sid,
+        sports: SPORT_NAME_BY_SID[sid] || 'Cricket',
+        game_type: 'FANCY',
+        min_stake: section.min,
+        max_stake: section.max,
+        team_one: '',
+        team_two: '',
+      });
+    },
+    [isAuth, gmid, sid, eventName, matchData]
+  );
+
+  const ladderMarkets = markets.filter(isLadder);
+  const fancyMarkets = markets.filter((m) => !isLadder(m));
+
   return (
     <div className="eventdetails-box">
       {/* Same strip either way, but a match carries the banner background and a
@@ -113,7 +162,7 @@ function EventPage({ gmid, sid, title, variant = 'tournament', showTitleStrip = 
               <div className="noevent">No Active Events Found </div>
             </div>
           )}
-          {markets.map((market, i) => (
+          {ladderMarkets.map((market, i) => (
             <EventMarket
               key={market.mid ?? market.mname ?? i}
               market={market}
@@ -125,6 +174,15 @@ function EventPage({ gmid, sid, title, variant = 'tournament', showTitleStrip = 
               onSlipClose={() => setSlipBet(null)}
             />
           ))}
+
+          {fancyMarkets.length > 0 && (
+            <FancyMarkets
+              markets={fancyMarkets}
+              slipBet={slipBet}
+              onPick={onFancyPick}
+              onSlipClose={() => setSlipBet(null)}
+            />
+          )}
         </div>
 
         <div className="eventdetails-rightside">

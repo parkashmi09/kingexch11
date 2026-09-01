@@ -54,10 +54,20 @@ function BetSlip({ bet, onClose }) {
           // Written in place: usePlaceBetPanel wipes the typed stake whenever
           // the bet object's identity changes, so the live limits have to land
           // on the same object rather than a copy.
-          bet.maxb = mo.maxb;
-          bet.min_stake = mo.min;
-          bet.max_stake = mo.max;
           bet.market = mo;
+          const sec = (mo.section || []).find(
+            (x) => String(x.sid) === String(bet.selectionId)
+          );
+          if (sec) bet.section = sec;
+          // A fancy line carries its OWN min/max — every session line is
+          // limited separately — where a back/lay ladder quotes them once for
+          // the whole book. Taking the market's unconditionally zeroed every
+          // fancy slip's limits.
+          const secMin = Number(sec?.min) || 0;
+          const secMax = Number(sec?.max) || 0;
+          bet.maxb = mo.maxb;
+          bet.min_stake = secMin || mo.min;
+          bet.max_stake = secMax || mo.max;
         }
       } catch { /* transient poll failure — keep the last snapshot */ }
     };
