@@ -99,8 +99,9 @@ function BetSlip({ bet, onClose }) {
     oddsValue,
     stakeValue,
     oddsEditable,
-    handleOddsInputChange,
+    handleOddsStep,
     handleStakeChange,
+    handleStakeKeyPress,
     handleClose,
     handleSubmit,
   } = usePlaceBetPanel({
@@ -130,14 +131,11 @@ function BetSlip({ bet, onClose }) {
   const nsmallCls = isBack ? 'nsmall-back' : 'nsmall-lay';
   const sideLabel = isBack ? 'Back' : 'Lay';
 
-  // The stepper nudges the price by a tick. Only markets whose odds are
-  // editable at all accept it — a bookmaker's price is take-it-or-leave-it.
-  const nudge = (delta) => {
-    if (!oddsEditable) return;
-    const next = (parseFloat(oddsValue) + delta).toFixed(2);
-    if (next.includes('-') || parseFloat(next) < 0) return;
-    handleOddsInputChange(next);
-  };
+  // handleStakeChange is an input's onChange — it reads e.target.value. The
+  // presets and the keypad have no event to give it, so they hand it the same
+  // shape. Passing the bare string (which is what this did) left e.target
+  // undefined and the click did nothing at all.
+  const setStake = (value) => handleStakeChange({ target: { value: String(value) } });
 
   const min = Number(bet.min_stake ?? bet.market?.min ?? 0);
   const rawMax = Number(bet.maxb) > 0 ? Number(bet.maxb) : Number(bet.max_stake ?? bet.market?.max ?? 0);
@@ -180,8 +178,8 @@ function BetSlip({ bet, onClose }) {
                 className={`odds-adj-btn odds-adj-btn--${isBack ? 'back' : 'lay'}`}
                 type="button"
                 tabIndex={-1}
-                disabled={loading}
-                onClick={() => nudge(-0.01)}
+                disabled={loading || !oddsEditable}
+                onClick={() => handleOddsStep(-1)}
               >
                 <i className="fa fa-minus"></i>
               </button>
@@ -196,8 +194,8 @@ function BetSlip({ bet, onClose }) {
                 className={`odds-adj-btn odds-adj-btn--${isBack ? 'back' : 'lay'}`}
                 type="button"
                 tabIndex={-1}
-                disabled={loading}
-                onClick={() => nudge(0.01)}
+                disabled={loading || !oddsEditable}
+                onClick={() => handleOddsStep(1)}
               >
                 <i className="fa fa-plus"></i>
               </button>
@@ -216,10 +214,8 @@ function BetSlip({ bet, onClose }) {
                   inputMode="decimal"
                   autoComplete="off"
                   value={stakeValue}
-                  onChange={(e) => {
-                    const v = e.target.value;
-                    if (v === '' || /^\d*\.?\d*$/.test(v)) handleStakeChange(v);
-                  }}
+                  onChange={handleStakeChange}
+                  onKeyPress={handleStakeKeyPress}
                   name="stake"
                   disabled={loading}
                   readOnly={loading}
@@ -265,7 +261,7 @@ function BetSlip({ bet, onClose }) {
                 <button
                   type="button"
                   className={`stakebtn ${stakeCls}`}
-                  onClick={() => handleStakeChange(String(value))}
+                  onClick={() => setStake(value)}
                   disabled={loading}
                   key={i}
                 >
@@ -281,7 +277,7 @@ function BetSlip({ bet, onClose }) {
                 <button
                   type="button"
                   className={`stakebtn ${stakeCls} keypad`}
-                  onClick={() => handleStakeChange(key === 'clear' ? '' : stakeValue + key)}
+                  onClick={() => setStake(key === 'clear' ? '' : stakeValue + key)}
                   disabled={loading}
                   key={key}
                 >
