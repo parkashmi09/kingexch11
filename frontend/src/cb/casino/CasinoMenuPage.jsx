@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { common } from '../assets';
@@ -12,6 +12,7 @@ import useMenuGames from './useMenuGames';
 import FilterStrip from './FilterStrip';
 import CategoryModal from './CategoryModal';
 import GameFrame, { LaunchSpinner } from './GameFrame';
+import './casino-tiles.css';
 
 // The reference paints ten placeholder tiles while its list is in flight.
 const SKELETON_TILES = Array.from({ length: 10 }, (_, i) => i);
@@ -19,18 +20,33 @@ const SKELETON_TILES = Array.from({ length: 10 }, (_, i) => i);
 // `react-loading-skeleton`'s markup, written out rather than depended on: the
 // package is not installed, but clickbet.css already carries its stylesheet
 // (base #EBEBEB, highlight #F5F5F5, 1.5s sweep), so one span is the whole thing.
-function Skeleton({ height }) {
-  return <span className="react-loading-skeleton" style={{ height, width: '100%' }}>&zwnj;</span>;
+function Skeleton({ height, className = '' }) {
+  return (
+    <span className={`react-loading-skeleton ${className}`} style={{ height, width: '100%' }}>
+      &zwnj;
+    </span>
+  );
 }
 
 /** One tile: skeleton until its art loads, then the art and its hover overlay. */
 function GameTile({ game, onPlay }) {
   const [loaded, setLoaded] = useState(false);
+
+  // An image already in cache finishes loading before React attaches onLoad, so
+  // that handler never fires and the tile would sit on its skeleton for good —
+  // with no `.slots__bg` mounted, which silently costs it the hover overlay too.
+  // Reading `complete` when the node mounts covers the cached case; onLoad still
+  // covers the rest.
+  const imgRef = useCallback((node) => {
+    if (node && node.complete && node.naturalWidth > 0) setLoaded(true);
+  }, []);
+
   return (
     <div className="wac-20">
       <div className="wacmain-box" onClick={() => onPlay(game)}>
-        {!loaded && <Skeleton height={212} />}
+        {!loaded && <Skeleton className="cb-tile-skeleton" />}
         <img
+          ref={imgRef}
           loading="lazy"
           alt={game.name}
           src={game.art}
