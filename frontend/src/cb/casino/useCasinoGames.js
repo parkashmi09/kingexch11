@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getActiveGames } from '../../apiservices/jsGamesService';
-import { partnerIndex, vendorsFor } from './lobbies';
+import { partnerIndex, tileSrc, vendorsFor, FALLBACK_TILE } from './lobbies';
 
 // jsGames caps a page at 100 however large per_page is asked for.
 const PER_PAGE = 100;
@@ -76,11 +76,27 @@ export default function useCasinoGames(lobby, partner) {
       try {
         const all = await fetchAll(vendors, partner ? PAGES_PARTNER : PAGES_ALL, alive);
         if (cancelled) return;
-        setGames(
-          all
-            .filter((g) => g && g.game_uid)
-            .map((g) => ({ ...g, partner: labels[g.vendor] || '' }))
+        // Within a partner, games that have artwork come first.
+        //
+        // The grid only ever draws 24 tiles, and `game_icon` is an empty
+        // string for most of this catalog — Play'n GO ships 516 slots with
+        // art on about 40 of them. Left in catalog order the page opens as
+        // two dozen identical placeholders, so the ones with a picture are
+        // floated to the front of their own partner's block. Nothing is
+        // removed: search and the filter strips still see every game, and
+        // this whole sort can go the day game_icon is populated.
+        // Array.prototype.sort is stable, so the partner order the fetch
+        // produced survives it.
+        const tagged = all
+          .filter((g) => g && g.game_uid)
+          .map((g) => ({ ...g, partner: labels[g.vendor] || '' }));
+        const rank = (g) => (tileSrc(g) === FALLBACK_TILE ? 1 : 0);
+        const order = lobby.partners.map((pt) => pt.label);
+        tagged.sort(
+          (a, b) =>
+            order.indexOf(a.partner) - order.indexOf(b.partner) || rank(a) - rank(b)
         );
+        setGames(tagged);
       } catch (err) {
         console.error('Casino games api error', err);
         if (!cancelled) setGames([]);

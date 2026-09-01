@@ -293,6 +293,27 @@ own internal game code, not by `game_uid` or `game_name`.
 reachable image URL. Until then those tiles show
 `/assets/casino/games/default-2.jpeg`.
 
+**What the front end does meanwhile.** The grid draws 24 tiles, so within each
+partner's block the games that *do* have art are floated to the front
+(`src/cb/casino/useCasinoGames.js`). Nothing is hidden — search and both filter
+strips still see every game — but a partner with forty usable pictures out of
+five hundred now opens on those forty instead of on a wall of placeholders.
+Playtech Live went from 23 of 24 tiles blank to none. It does not help a partner
+with *no* art at all: AE Sexy's eleven games are still eleven placeholders.
+Delete the sort the day `game_icon` is populated.
+
+**There is already a fully-arted slot catalog in this backend.** The curated
+slot section — `GET /jsGames/games/category/slot/providers` and
+`/jsGames/games/slot-providers/:p/games` — has artwork on **938 of 939** games
+sampled, across all 33 of its providers. The raw `?vendor=` query over the same
+studios is 50–95% empty. So the art exists somewhere; whatever populates the
+curated set should populate the main catalog too.
+
+(The Slot lobby still reads the raw vendor query, because the curated providers
+are named after studios — `red-tiger`, `yggdrasil`, `thunderkick` — and only
+three of the reference's twelve partner tabs map onto them. Using it would trade
+a matching partner strip for the artwork.)
+
 ### Two smaller artwork problems
 
 **a) Evolution's art is behind someone else's proxy.** 78 of Evolution's first
@@ -341,6 +362,12 @@ VIVO, BETGAMES and GAMZIX stay in the strip so the page matches the reference;
 selecting one shows nothing. Either load those providers into the catalog or
 say they should come out of the design.
 
+**Slot.** Twelve partners; ten map, **BETGAMES** and **GAMZIX** have nothing.
+Note that this lobby's EVOLUTION tab is not the live-dealer vendor — Evolution
+ships slots through the studios it owns, so it maps to `evolution-redtiger`,
+`evolution-nlc`, `evolutioin-bigtimegaming` and `evolutioin-netent`. (Those last
+two are misspelled `evolutioin` in the catalog; worth fixing at some point.)
+
 The mapping lives in `src/cb/casino/lobbies.js` and has to be edited by hand —
 see gap 10a.
 
@@ -373,7 +400,9 @@ patterns expect.
 
 Of the 36 game-type tabs the reference shows on Int.Casino, 32 find games in
 this catalog. Four come up empty for these vendors: **Live Crash**,
-**Live Lottery**, **Casual Games**, **Other Table Games**.
+**Live Lottery**, **Casual Games**, **Other Table Games**. On Slot, 11 of 13
+tabs find games — **Casual Games** and **Other Table Games** are empty there
+too, for the same reason.
 
 **Recommended:** store one normalised `game_category` (live / slot / crash /
 instant / table …) and one normalised `game_subtype` (roulette / blackjack /

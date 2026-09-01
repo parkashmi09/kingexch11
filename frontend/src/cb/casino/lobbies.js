@@ -111,7 +111,55 @@ const INTERNATIONALCASINO = {
   categories: ['LIVECASINO', 'LOTTERY', 'SLOT', 'CRASHGAMES', 'TABLE', 'OTHER', 'INSTANTWIN'],
 };
 
-export const LOBBIES = { LIVECASINO, INTERNATIONALCASINO };
+// SLOT — the reference's reel lobby. Its EVOLUTION tab is not the live-dealer
+// vendor of the other two lobbies: Evolution ships its slots through the
+// studios it owns (Red Tiger, NoLimit City, Big Time Gaming, NetEnt), and those
+// are what belong under this partner.
+const SLOT = {
+  menu: 'SLOT',
+  displayName: 'Slot',
+  banner: 'slot',
+  partners: [
+    { label: 'EVOPLAY', vendors: ['evoplay-aisa', 'evoplay-eu'] },
+    { label: 'BETGAMES', vendors: [] },
+    { label: 'CREED', vendors: ['creedroomz'] },
+    {
+      label: 'EVOLUTION',
+      vendors: [
+        'evolution-redtiger',
+        'evolution-nlc',
+        'evolutioin-bigtimegaming',
+        'evolutioin-netent',
+      ],
+    },
+    { label: 'PLAY N GO', vendors: ['playngo'] },
+    { label: 'PRAGMATIC', vendors: ['pragmatic'] },
+    { label: 'PRAGMATIC PLAY', vendors: ['pragmaticplay-eu'] },
+    { label: 'PRAGMATIC PLAY 2', vendors: ['pragmaticplay-asia'] },
+    { label: 'PRAGMATIC PLAY LIVE', vendors: ['pragmaticplaylive-eu', 'pragmaticplaylive-asia', 'pragmaticlive'] },
+    { label: 'JILI GAMING', vendors: ['jili', 'jiligaming', 'jilisweep'] },
+    { label: 'SMARTSOFT GAMING', vendors: ['smartsoft'] },
+    { label: 'GAMZIX', vendors: [] },
+  ],
+  gameTypes: [
+    'Slot',
+    'Scratch Cards',
+    'Roulette',
+    'Video Poker',
+    'Others',
+    'Casual Games',
+    'Arcade Games',
+    'Blackjack',
+    'Table Games',
+    'Bingo',
+    'Other Table Games',
+    'Crash Games',
+    'Game Show',
+  ],
+  categories: ['SLOT'],
+};
+
+export const LOBBIES = { LIVECASINO, INTERNATIONALCASINO, SLOT };
 
 /** Every vendor a lobby draws on, or just one partner's when given. */
 export const vendorsFor = (lobby, partnerLabel) => {

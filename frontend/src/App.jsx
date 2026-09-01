@@ -507,6 +507,7 @@ function App() {
           cb/casino/lobbies.js are pages; anything else falls back to home. */}
       <Route path="/casino/LIVECASINO" element={<CbLayout><CbCasinoLobby lobbyId="LIVECASINO" /></CbLayout>} />
       <Route path="/casino/INTERNATIONALCASINO" element={<CbLayout><CbCasinoLobby lobbyId="INTERNATIONALCASINO" /></CbLayout>} />
+      <Route path="/casino/SLOT" element={<CbLayout><CbCasinoLobby lobbyId="SLOT" /></CbLayout>} />
       <Route path="/gamedetails/:sid/:gmid" element={<DetailRoute />} />
 
       {/* Everything else still renders in the old chrome. */}

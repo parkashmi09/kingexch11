@@ -28,7 +28,7 @@ export const CASINO_NAV = [
   { key: 'chickenroad', label: 'Chicken Road', icon: 'chickenroll-icon.png', route: '/crash' },
   { key: 'livecasino',  label: 'Live Casino',  icon: 'livecasino-icon.png',  route: '/casino/LIVECASINO' },
   { key: 'intcasino',   label: 'Int.Casino',   icon: 'intcasino-icon.png',   route: '/casino/INTERNATIONALCASINO' },
-  { key: 'slot',        label: 'Slot',         icon: 'slot-icon.png',        route: '/o_slot' },
+  { key: 'slot',        label: 'Slot',         icon: 'slot-icon.png',        route: '/casino/SLOT' },
 ];
 
 export const HEADER_NAV = [...SPORT_NAV, ...CASINO_NAV];
