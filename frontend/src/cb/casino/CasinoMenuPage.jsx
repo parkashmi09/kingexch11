@@ -43,7 +43,14 @@ function GameTile({ game, onPlay }) {
 
   return (
     <div className="wac-20">
-      <div className="wacmain-box" onClick={() => onPlay(game)}>
+      {/* `--tile-art` feeds the blurred backdrop that fills the card behind the
+          art — see casino-tiles.css. Set here because only the tile knows its
+          own image. */}
+      <div
+        className="wacmain-box"
+        style={{ '--tile-art': `url(${game.art})` }}
+        onClick={() => onPlay(game)}
+      >
         {!loaded && <Skeleton className="cb-tile-skeleton" />}
         <img
           ref={imgRef}

@@ -3,48 +3,83 @@
  * The reference constrains nothing here — `.wacmain-box img` is a plain
  * img-fluid, so a card is exactly as tall as its art. It gets away with that
  * because every tile it serves is the same file shape: 480x640 (3:4) out of
- * casino/ciptahubimg, checked by fetching them. Uniform art, uniform grid.
+ * casino/ciptahubimg, checked by fetching them. Uniform portrait art, uniform
+ * grid, every card filled edge to edge.
  *
- * Ours is landscape and comes in several shapes — the Casino Manage uploads run
- * 300x169 / 400x225 / 600x320 and jsGames' vendor icons are 300x160, all around
+ * Ours is landscape and comes in several shapes — Casino Manage uploads run
+ * 300x169 / 400x225 / 600x320, jsGames' vendor icons are 300x160, all around
  * 16:9. On the reference's CSS alone that gave short, wide cards instead of its
  * tall ones, and because `.wac-20` is inline-block, a row went ragged the moment
  * two tiles differed in height.
  *
- * So the card is pinned to the reference's 3:4 and the art is fitted whole
- * inside it. `contain`, not `cover`: cropping 16:9 into 3:4 keeps only about 40%
- * of the width, which cut the game name off nearly every tile ("Aviator" came
- * out as "viato"). The bands that leaves above and below are filled with the
- * theme's own dark slate so a card reads as one deliberate object rather than
- * art floating in a gap.
+ * So the card is pinned to the reference's 3:4. Filling that with 16:9 art
+ * leaves a third of the card over above and below, and neither obvious way out
+ * works: cropping to fill keeps only ~40% of the width and cut the game name off
+ * nearly every tile ("Aviator" came out "viato"), and a flat fill left two dead
+ * bands that looked nothing like the reference.
+ *
+ * Instead the leftover is filled with the tile's own art, blown up and blurred
+ * behind the sharp copy. The card reads as full and edge-to-edge like the
+ * reference's, in the tile's own colours, and nothing is cropped or hidden.
  *
  * This is the one place these pages depart from the reference's stylesheet, and
- * it exists to reproduce its geometry from art it was never cut for. Give the
- * catalogue 3:4 art and the bands disappear on their own — nothing here needs
- * changing for that.
- *
- * The ratio goes on the CARD, not on the image, so the skeleton and the image
- * stack in the same box instead of adding up: both are in the DOM at once while
- * the art loads, and sized in normal flow they made every card twice as tall
- * until it arrived. Laying them one on top of the other also means
- * `.slots__bg` — absolute at 100%/100% of the card — covers the art exactly, so
- * the hover overlay dims the whole card rather than part of it.
- *
- * `:not(.wacmain-box-border)` keeps this off the page-level loading
- * placeholders, which are the reference's own and keep its 200/30 heights.
+ * it exists only because our art was never cut to its shape. Give the catalogue
+ * 3:4 art and the sharp copy covers the card on its own — the backdrop stays
+ * behind it, unseen, and nothing here needs changing.
  */
 .featured-game1 .wacmain-box:not(.wacmain-box-border) {
+  position: relative;
   aspect-ratio: 3 / 4;
-  background-color: var(--sidemenu-iconbg);
   border-radius: 5px;
+  overflow: hidden;
+  background-color: var(--sidemenu-iconbg);
 }
 
+/* The backdrop. `--tile-art` is set per card by the component; without it this
+   paints nothing and the card falls back to the flat colour above. Scaled up so
+   the blur's soft edge is pushed outside the card instead of showing as a halo. */
+.featured-game1 .wacmain-box:not(.wacmain-box-border)::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: var(--tile-art);
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.3);
+  filter: blur(22px) brightness(0.65) saturate(1.15);
+}
+
+/* The art itself, and the placeholder that stands in for it.
+ *
+ * The ratio goes on the CARD and these are laid over it, rather than sized in
+ * normal flow: both are in the DOM at once while the art loads, and in flow they
+ * added up and made every card twice as tall until it arrived. Stacking them
+ * also means `.slots__bg` — absolute at 100%/100% of the card — covers the whole
+ * card, so the hover dim lands on all of it rather than part. */
 .featured-game1 .wacmain-box:not(.wacmain-box-border) > img,
 .featured-game1 .wacmain-box:not(.wacmain-box-border) > .cb-tile-skeleton {
   position: absolute;
   inset: 0;
+  z-index: 1;
   display: block;
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+
+/* The art keeps the reference's border, but on the CARD rather than on the
+   image: with `contain` the image box is the whole card, so a border on it would
+   trace the card while the art floats inside — two edges instead of one. */
+.featured-game1 .wacmain-box:not(.wacmain-box-border) > img {
+  border: 0 !important;
+}
+
+.featured-game1 .wacmain-box:not(.wacmain-box-border) {
+  border: 2px solid var(--headermenu-bottomborder);
+}
+
+/* Above both the backdrop and the art. */
+.featured-game1 .wacmain-box:not(.wacmain-box-border) > .slots__bg {
+  z-index: 2;
 }
