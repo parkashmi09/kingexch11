@@ -253,40 +253,96 @@ design. It runs on the jsGames catalog that is already there — again, nothing 
 the backend was changed — but the catalog has some holes the page has to paper
 over.
 
-## 8. Most live-casino games have no artwork
+## 8. Most of the game catalog has no artwork
 
-The lobby is a wall of tiles, so this is the most visible one.
+The lobbies are walls of tiles, so this is the most visible gap by a distance.
 
-`GET /jsGames/games?vendor=<v>` returns a `game_icon` per game. Today:
+`GET /jsGames/games?vendor=<v>` returns a `game_icon` per game. For most vendors
+that field is an **empty string**. Sampling the first 100 games of every vendor
+the two lobbies draw on:
 
-| Vendor | Games | Artwork state |
+| Vendor | Games | No artwork |
 |---|---|---|
-| evolution | 128 | 78 of the first 100 point at a **boxbet.io image proxy** that refuses to serve anyone but its own site. Worked around (see below). |
-| ezugi | 133 | 54 fine (S3), 25 fine (CloudFront), **6 dead** (`bc.imgix.net` answers `402 Payment Required`), **14 empty** |
-| creedroomz | 135 | **99 of 100 are an empty string** — nearly the whole vendor shows the placeholder |
+| evolution | 128 | 0% |
+| jili | 151 | 0% |
+| pragmatic | 248 | 0% |
+| km (KingMidas) | 109 | 23% |
+| jiligaming | 106 | 39% |
+| pragmaticlive | 124 | 52% |
+| evoplay-aisa | 319 | 60% |
+| smartsoft | 46 | 72% |
+| ag (Asia Gaming) | 115 | 89% |
+| pragmaticplay-asia | 110 | 91% |
+| jilisweep / playngo | 105 / 516 | 92% |
+| pragmaticplay-eu | 368 | 93% |
+| playtech, playtech(row) | 654 / 198 | 98% |
+| creedroomz | 135 | 99% |
+| pragmaticplaylive-eu | 372 | 99% |
+| **evolution live**, **evolution live(asia)** | 223 / 373 | **100%** |
+| **sexy (AE Sexy)**, **pragmaticplaylive-asia**, **km-onegaming** | 11 / 10 / 57 | **100%** |
 
-**The boxbet.io workaround.** Those rows store a URL of the form
-`https://boxbet.io/_next/image?url=<real CDN url>&w=640&q=100`. The proxy 404s
-for us, but the address in its own `url=` parameter (`cdn.softswiss.net/...`)
-serves fine, so the front end unwraps it. That should not be permanent: the
-catalog should store the real CDN address, not somebody else's proxy wrapper.
+So a Play'n GO or Playtech Live page is 23 of 24 tiles showing the placeholder.
 
-**What to do:** fill `game_icon` with a directly reachable image URL for every
-active game — the unwrapped `cdn.softswiss.net` address for Evolution, and real
-art for Creedroomz and the empty Ezugi rows. Until then those tiles show
+There is **no way to fix this in the front end**. The rows that do have art use
+per-vendor paths that cannot be derived from anything the API returns — e.g.
+`sitethemedata.com/casino_icons/slot/Jili/74.jpg` and
+`sitethemedata.com/casino_icons/slot/egt/DWSlot.jpg` are keyed by each provider's
+own internal game code, not by `game_uid` or `game_name`.
+
+**What to do:** populate `game_icon` for every active game with a directly
+reachable image URL. Until then those tiles show
 `/assets/casino/games/default-2.jpeg`.
 
-## 9. Five of the live-casino vendors are empty
+### Two smaller artwork problems
 
-The old lobby offered twelve provider tabs. Of the eight vendor ones, only three
-return anything:
+**a) Evolution's art is behind someone else's proxy.** 78 of Evolution's first
+100 rows store a URL of the form
+`https://boxbet.io/_next/image?url=<real CDN url>&w=640&q=100`. That proxy
+refuses to serve anyone but its own site, so the tile 404s. The address in its
+own `url=` parameter (`cdn.softswiss.net/...`) serves fine, so the front end
+unwraps it — but the catalog should store the real address, not a third party's
+proxy wrapper.
+
+**b) A handful of rows point at a dead host.** `bc.imgix.net` now answers
+`402 Payment Required` (6 Ezugi rows, 4 Jili, 1 pragmaticlive).
+
+## 9. Some provider tabs have no vendor behind them
+
+**Live Casino.** The old lobby offered twelve provider tabs. Of the eight vendor
+ones, only three return anything:
 
 - has games: `evolution`, `ezugi`, `creedroomz`
 - returns 0: `vivo`, `cockfight`, `winfinity`, `jacktop`, `holi`
 
-The new lobby lists the three that work. If the other five are meant to be live,
-their games need loading into the catalog; if they are dead, they should come
-out of the old lobby's tab list too.
+**Int.Casino.** The reference lists seventeen partners. Fourteen map onto a
+vendor in this catalog; three have nothing at all:
+
+| Reference partner | Catalog vendor(s) |
+|---|---|
+| AE SEXY | `sexy` |
+| EVOLUTION | `evolution`, `evolution live`, `evolution live(asia)` |
+| **VIVO** | **none** |
+| **BETGAMES** | **none** |
+| PLAYTECH LIVE | `playtech`, `playtech(row)` |
+| JILI GAMING | `jili`, `jiligaming`, `jilisweep` |
+| EVOPLAY | `evoplay-aisa`, `evoplay-eu` |
+| **GAMZIX** | **none** |
+| KINGMIDAS | `km`, `km-onegaming` |
+| SMARTSOFT GAMING | `smartsoft` |
+| CREED | `creedroomz` |
+| ASIA GAMING | `ag` |
+| PLAY N GO | `playngo` |
+| PRAGMATIC | `pragmatic` |
+| PRAGMATIC PLAY | `pragmaticplay-eu` |
+| PRAGMATIC PLAY 2 | `pragmaticplay-asia` |
+| PRAGMATIC PLAY LIVE | `pragmaticplaylive-eu`, `pragmaticplaylive-asia`, `pragmaticlive` |
+
+VIVO, BETGAMES and GAMZIX stay in the strip so the page matches the reference;
+selecting one shows nothing. Either load those providers into the catalog or
+say they should come out of the design.
+
+The mapping lives in `src/cb/casino/lobbies.js` and has to be edited by hand —
+see gap 10a.
 
 ## 10. There is no "live casino" category, and `game_type` barely classifies
 
@@ -301,24 +357,28 @@ vendor is added or removed, that list has to be edited and redeployed.
 **Recommended:** add a `live_casino` (or `casino`) category so a lobby can be
 one API call instead of a hard-coded vendor list.
 
-**b) `game_type` is not a real classification.** The reference sorts a lobby on
-three axes — provider, game type and category — and gives each its own control.
-The catalog has two, and one of them barely varies:
+**b) `game_type` is not a usable classification.** The reference's filter strips
+read "Live Roulette", "Game Shows", "Instant Win" because its aggregator stores
+a tidy label on every game. This catalog has **173 distinct `game_type` strings
+across 134 vendors**, in three languages and every casing — `Slot`, `Slot Game`,
+`Slots`, `slots`, `Video Slot`, `棋牌游戏` — and a live table is very often just
+`CasinoLive` with everything interesting in the name (`XXXtreme Lightning
+Roulette` is filed as plain `CasinoLive`).
 
-| Vendor | `game_type` values |
-|---|---|
-| evolution | `CasinoLive` (all 100) |
-| ezugi | `CasinoLive` (99), `Lobby` (1) |
-| creedroomz | `roulette` (27), `other` (61), `blackjack` (11), `Lobby` (1) |
+The strips still show the reference's exact labels. To do that,
+`src/cb/casino/taxonomy.js` classifies each game itself, from its type **and**
+its name — which is guesswork the server should not be making the browser do,
+and it will silently mis-file any game whose name does not read the way the
+patterns expect.
 
-So the game-type strip is useful for Creedroomz and does nothing for Evolution
-or Ezugi. Creedroomz shows the shape it should be: roulette, blackjack,
-baccarat, poker, and so on per game.
+Of the 36 game-type tabs the reference shows on Int.Casino, 32 find games in
+this catalog. Four come up empty for these vendors: **Live Crash**,
+**Live Lottery**, **Casual Games**, **Other Table Games**.
 
-**Recommended:** classify every game the way Creedroomz already is. Then the
-strip works, and the Category dialog can be given the third axis it wants —
-today the dialog and the strip are two entry points into the same game-type
-filter, because there is no second thing to filter on.
+**Recommended:** store one normalised `game_category` (live / slot / crash /
+instant / table …) and one normalised `game_subtype` (roulette / blackjack /
+baccarat / game show …) per game. Then the strips are a `GROUP BY`, the Category
+dialog gets the second axis it wants, and `taxonomy.js` can be deleted.
 
 ## 11. Tile artwork is not one shape
 

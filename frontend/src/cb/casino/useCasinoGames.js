@@ -1,82 +1,96 @@
 import { useEffect, useState } from 'react';
 import { getActiveGames } from '../../apiservices/jsGamesService';
+import { partnerIndex, vendorsFor } from './lobbies';
 
-// jsGames caps a page at 100 however large per_page is, so a vendor with more
-// than that needs following pages. The reference asks its provider endpoint
-// once and takes what comes back; here one lobby is several vendors, so the
-// pages are walked and merged before the grid sees them.
+// jsGames caps a page at 100 however large per_page is asked for.
 const PER_PAGE = 100;
-const MAX_PAGES = 5;
 
-const asPartner = (vendor) => String(vendor || '').toUpperCase();
+// How deep to read. The reference gets a lobby in one call; here a lobby is up
+// to thirty vendors, so the whole-lobby view takes the first page of each and a
+// selected partner is read out in full. Int.Casino's partners run to 650 games,
+// and the grid only ever shows 24 — a deeper read on the ALL tab would be
+// dozens of requests nobody sees the result of.
+const PAGES_ALL = 1;
+const PAGES_PARTNER = 7;
 
-async function fetchVendor(vendor) {
+// Requests go out in waves rather than all at once: Int.Casino's ALL view is
+// thirty vendors, and thirty simultaneous XHRs is how you get a stalled tab.
+const CONCURRENCY = 6;
+
+async function fetchVendor(vendor, maxPages) {
   const out = [];
-  for (let page = 1; page <= MAX_PAGES; page++) {
+  for (let page = 1; page <= maxPages; page++) {
     const res = await getActiveGames({ vendor, page, per_page: PER_PAGE });
     const games = res?.success ? res.payload?.games || [] : [];
     out.push(...games);
     const total = res?.payload?.pagination?.total ?? out.length;
-    if (out.length >= total || games.length === 0) break;
+    if (games.length === 0 || out.length >= total) break;
+  }
+  return out;
+}
+
+async function fetchAll(vendors, maxPages, alive) {
+  const out = [];
+  for (let i = 0; i < vendors.length; i += CONCURRENCY) {
+    if (!alive()) return out;
+    const wave = vendors.slice(i, i + CONCURRENCY);
+    const results = await Promise.all(
+      wave.map((v) => fetchVendor(v, maxPages).catch(() => []))
+    );
+    out.push(...results.flat());
   }
   return out;
 }
 
 /**
- * Every game in one lobby, plus the two filter strips it needs.
+ * The games behind one lobby, for the whole lobby or for one partner.
  *
- * Games arrive sorted by their partner's position in the lobby's `partners`
- * list — the reference's own ordering — and each is given a `partner` (the
- * vendor, upper-cased, which is what the strip matches on) so the grid can
- * filter without re-reading the vendor field's casing.
+ * Selecting a partner re-queries rather than filtering what is already loaded:
+ * the ALL view only holds each vendor's first hundred, so filtering it would
+ * quietly hide the rest of a partner's catalogue.
+ *
+ * Every game is tagged with the `partner` label it renders under, so the strip
+ * has something to match on without knowing the vendor list itself.
  */
-export default function useCasinoGames(lobby) {
+export default function useCasinoGames(lobby, partner) {
   const [games, setGames] = useState([]);
-  const [gameTypes, setGameTypes] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (!lobby) return undefined;
-    let alive = true;
+
+    let cancelled = false;
+    const alive = () => !cancelled;
+    const vendors = vendorsFor(lobby, partner);
+    const labels = partnerIndex(lobby);
+
     setLoading(true);
     setGames([]);
-    setGameTypes([]);
+
+    if (vendors.length === 0) {
+      setLoading(false);
+      return () => { cancelled = true; };
+    }
 
     (async () => {
       try {
-        const results = await Promise.all(lobby.vendors.map((v) => fetchVendor(v)));
-        if (!alive) return;
-
-        const all = results
-          .flat()
-          .filter((g) => g && g.game_uid)
-          .map((g) => ({ ...g, partner: asPartner(g.vendor) }))
-          .sort(
-            (a, b) => lobby.partners.indexOf(a.partner) - lobby.partners.indexOf(b.partner)
-          );
-
-        const types = [];
-        all.forEach((g) => {
-          if (g.game_type && !types.includes(g.game_type)) types.push(g.game_type);
-        });
-
-        setGames(all);
-        setGameTypes(types);
+        const all = await fetchAll(vendors, partner ? PAGES_PARTNER : PAGES_ALL, alive);
+        if (cancelled) return;
+        setGames(
+          all
+            .filter((g) => g && g.game_uid)
+            .map((g) => ({ ...g, partner: labels[g.vendor] || '' }))
+        );
       } catch (err) {
         console.error('Casino games api error', err);
-        if (alive) {
-          setGames([]);
-          setGameTypes([]);
-        }
+        if (!cancelled) setGames([]);
       } finally {
-        if (alive) setLoading(false);
+        if (!cancelled) setLoading(false);
       }
     })();
 
-    return () => {
-      alive = false;
-    };
-  }, [lobby]);
+    return () => { cancelled = true; };
+  }, [lobby, partner]);
 
-  return { games, gameTypes, loading };
+  return { games, loading };
 }

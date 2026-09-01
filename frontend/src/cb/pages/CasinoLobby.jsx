@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import { getGameLaunchURL } from '../../apiservices/jsGamesService';
 import { isDemoUser } from '../../utils/demoStore';
 import { FALLBACK_TILE, LOBBIES, lobbyBanner, tileSrc } from '../casino/lobbies';
+import { matchesCategory, matchesGameType } from '../casino/taxonomy';
 import useCasinoGames from '../casino/useCasinoGames';
 import CategoryModal from '../casino/CategoryModal';
 
@@ -111,10 +112,9 @@ function CasinoLobby({ lobbyId }) {
   const lobby = LOBBIES[id];
   const { user, isAuthenticated, balance } = useSelector((s) => s.user);
 
-  const { games, gameTypes, loading } = useCasinoGames(lobby);
-
   const [provider, setProvider] = useState('');
   const [gameType, setGameType] = useState('');
+  const [category, setCategory] = useState('');
   const [search, setSearch] = useState('');
   const [showCategories, setShowCategories] = useState(false);
   const [loaded, setLoaded] = useState({});
@@ -125,11 +125,15 @@ function CasinoLobby({ lobbyId }) {
   const providerRef = useRef(null);
   const typeRef = useRef(null);
 
+  // Partner selection re-queries; everything else filters what is loaded.
+  const { games, loading } = useCasinoGames(lobby, provider);
+
   // A fresh lobby starts with every filter cleared, the way the reference
   // resets them whenever :id changes.
   useEffect(() => {
     setProvider('');
     setGameType('');
+    setCategory('');
     setSearch('');
     setFrameUrl('');
   }, [id]);
@@ -187,8 +191,8 @@ function CasinoLobby({ lobbyId }) {
   if (!lobby) return null;
 
   const filtered = games
-    .filter((g) => !provider || g.partner === provider)
-    .filter((g) => !gameType || g.game_type === gameType)
+    .filter((g) => !category || matchesCategory(g, category))
+    .filter((g) => !gameType || matchesGameType(g, gameType))
     .filter((g) => !search || g.game_name?.toLowerCase().includes(search.toLowerCase()));
   const shown = filtered.slice(0, PAGE_SIZE);
 
@@ -266,7 +270,7 @@ function CasinoLobby({ lobbyId }) {
               <div className="row">
                 <div className="col-12 ">
                   <FilterStrip
-                    items={lobby.partners}
+                    items={lobby.partners.map((p) => p.label)}
                     active={provider}
                     onPick={setProvider}
                     scrollRef={providerRef}
@@ -303,11 +307,11 @@ function CasinoLobby({ lobbyId }) {
               </div>
             </div>
 
-            {gameTypes.length > 0 && (
+            {lobby.gameTypes.length > 0 && (
               <div className="row">
                 <div className="col-12">
                   <FilterStrip
-                    items={gameTypes}
+                    items={lobby.gameTypes}
                     active={gameType}
                     onPick={setGameType}
                     scrollRef={typeRef}
@@ -366,9 +370,9 @@ function CasinoLobby({ lobbyId }) {
 
       {showCategories && (
         <CategoryModal
-          categories={gameTypes}
-          selected={gameType}
-          onSelect={setGameType}
+          categories={lobby.categories}
+          selected={category}
+          onSelect={setCategory}
           onClose={() => setShowCategories(false)}
         />
       )}

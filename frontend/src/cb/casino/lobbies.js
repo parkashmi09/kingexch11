@@ -1,23 +1,131 @@
 /**
  * The casino lobbies, keyed the way the reference keys them.
  *
- * The reference drives /casino/:id off one config object: which providers to
- * ask for, which partner names to show as the filter strip, and which banner
- * sits at the top. This is the same shape, with tenexch's own vendors in place
- * of the reference's providers.
+ * Each lobby is three lists, all lifted from the reference's own pages:
  *
- * `vendors` are the jsGames `vendor` values to fetch; `partners` is the strip,
- * in the order it renders, and doubles as the sort order of the grid — the
- * reference sorts games by their partner's position in this list.
+ *   partners   the top strip, in the reference's order. Each carries the
+ *              tenexch vendors that make it up — the reference asks one
+ *              aggregator for a partner's games, we ask the catalog for each
+ *              vendor that partner ships under.
+ *   gameTypes  the strip under the search box, verbatim from the reference.
+ *              cb/casino/taxonomy.js decides which of our games land on each.
+ *   categories the Category dialog's list, likewise verbatim.
+ *
+ * A partner with no vendors is one the reference lists and this catalog has
+ * nothing for; it stays in the strip so the page matches, and selecting it
+ * shows nothing. docs/BACKEND-GAPS.md names them.
  */
-export const LOBBIES = {
-  LIVECASINO: {
-    menu: 'LIVECASINO',
-    displayName: 'Live Casino',
-    banner: 'livecasino',
-    vendors: ['evolution', 'ezugi', 'creedroomz'],
-    partners: ['EVOLUTION', 'EZUGI', 'CREEDROOMZ'],
-  },
+
+// LIVECASINO — the reference serves this from one partner (EZUGI); the three
+// live-dealer vendors below are the catalog's equivalent.
+const LIVECASINO = {
+  menu: 'LIVECASINO',
+  displayName: 'Live Casino',
+  banner: 'livecasino',
+  partners: [
+    { label: 'EVOLUTION', vendors: ['evolution', 'evolution live', 'evolution live(asia)'] },
+    { label: 'EZUGI', vendors: ['ezugi'] },
+    { label: 'CREEDROOMZ', vendors: ['creedroomz'] },
+  ],
+  gameTypes: [
+    'Live Blackjack',
+    'Live Roulette',
+    'Live Poker',
+    'Live Games',
+    'Live Baccarat',
+    'Baccarat',
+    'Blackjack',
+    'Sicbo',
+    'Live Casino',
+    'Roulette',
+    'Slot',
+    'Arcade Games',
+    'Casual Games',
+  ],
+  categories: ['LIVECASINO'],
+};
+
+// INTERNATIONALCASINO — the reference's widest lobby: seventeen partners over
+// live tables, slots, crash and instant games.
+const INTERNATIONALCASINO = {
+  menu: 'INTERNATIONALCASINO',
+  displayName: 'Int.Casino',
+  banner: 'internationalcasino',
+  partners: [
+    { label: 'AE SEXY', vendors: ['sexy'] },
+    { label: 'EVOLUTION', vendors: ['evolution', 'evolution live', 'evolution live(asia)'] },
+    { label: 'VIVO', vendors: [] },
+    { label: 'BETGAMES', vendors: [] },
+    { label: 'PLAYTECH LIVE', vendors: ['playtech', 'playtech(row)'] },
+    { label: 'JILI GAMING', vendors: ['jili', 'jiligaming', 'jilisweep'] },
+    { label: 'EVOPLAY', vendors: ['evoplay-aisa', 'evoplay-eu'] },
+    { label: 'GAMZIX', vendors: [] },
+    { label: 'KINGMIDAS', vendors: ['km', 'km-onegaming'] },
+    { label: 'SMARTSOFT GAMING', vendors: ['smartsoft'] },
+    { label: 'CREED', vendors: ['creedroomz'] },
+    { label: 'ASIA GAMING', vendors: ['ag'] },
+    { label: 'PLAY N GO', vendors: ['playngo'] },
+    { label: 'PRAGMATIC', vendors: ['pragmatic'] },
+    { label: 'PRAGMATIC PLAY', vendors: ['pragmaticplay-eu'] },
+    { label: 'PRAGMATIC PLAY 2', vendors: ['pragmaticplay-asia'] },
+    { label: 'PRAGMATIC PLAY LIVE', vendors: ['pragmaticplaylive-eu', 'pragmaticplaylive-asia', 'pragmaticlive'] },
+  ],
+  gameTypes: [
+    'Live Casino',
+    'Live Games',
+    'Live Baccarat',
+    'Live Blackjack',
+    'Live Roulette',
+    'Live Poker',
+    'Others',
+    'Live Lobby',
+    'Game Shows',
+    'Live Crash',
+    'Live Dice',
+    'Live Dealer',
+    'Live Lottery',
+    'Slot',
+    'Casual Games',
+    'Crash Games',
+    'Live Dragon Tiger',
+    'Live Sic Bo',
+    'Top Card',
+    'Dragon Tiger',
+    'Blackjack',
+    'Roulette',
+    'Baccarat',
+    'Other Live Games',
+    'SicBo',
+    'Live',
+    'Instant Win',
+    'Scratch Cards',
+    'Video Poker',
+    'Arcade Games',
+    'Table Games',
+    'Live Teenpatti',
+    'Keno',
+    'Bingo',
+    'Other Table Games',
+    'Game Show',
+  ],
+  categories: ['LIVECASINO', 'LOTTERY', 'SLOT', 'CRASHGAMES', 'TABLE', 'OTHER', 'INSTANTWIN'],
+};
+
+export const LOBBIES = { LIVECASINO, INTERNATIONALCASINO };
+
+/** Every vendor a lobby draws on, or just one partner's when given. */
+export const vendorsFor = (lobby, partnerLabel) => {
+  const chosen = partnerLabel
+    ? lobby.partners.filter((p) => p.label === partnerLabel)
+    : lobby.partners;
+  return chosen.flatMap((p) => p.vendors);
+};
+
+/** vendor -> the partner label it renders under, so a tile knows its strip. */
+export const partnerIndex = (lobby) => {
+  const index = {};
+  lobby.partners.forEach((p) => p.vendors.forEach((v) => { index[v] = p.label; }));
+  return index;
 };
 
 /** The banner strip at the top of a lobby. */

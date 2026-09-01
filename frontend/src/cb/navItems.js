@@ -27,7 +27,7 @@ export const CASINO_NAV = [
   { key: 'aviator',     label: 'Aviator',      icon: 'aviator-icon.png',     route: '/crash' },
   { key: 'chickenroad', label: 'Chicken Road', icon: 'chickenroll-icon.png', route: '/crash' },
   { key: 'livecasino',  label: 'Live Casino',  icon: 'livecasino-icon.png',  route: '/casino/LIVECASINO' },
-  { key: 'intcasino',   label: 'Int.Casino',   icon: 'intcasino-icon.png',   route: '/o_casino' },
+  { key: 'intcasino',   label: 'Int.Casino',   icon: 'intcasino-icon.png',   route: '/casino/INTERNATIONALCASINO' },
   { key: 'slot',        label: 'Slot',         icon: 'slot-icon.png',        route: '/o_slot' },
 ];
 
