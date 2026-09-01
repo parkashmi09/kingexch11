@@ -7,7 +7,7 @@
  * "Game Shows", "Instant Win". Its labels are fixed per lobby, so they are
  * written out here verbatim, in the order the reference renders them.
  *
- * tenexch's catalog classifies the same games with 173 different `game_type`
+ * tenexch's catalog classifies the same games with 173 different game-type
  * strings across 134 vendors — "Slot", "Slot Game", "Slots", "slots",
  * "Video Slot", "棋牌游戏" — and a live table is very often just "CasinoLive"
  * with everything interesting in the name. So a tab is not a value match; it is
@@ -46,7 +46,7 @@ const LIVE_TYPES = new Set([
   'keno',
 ]);
 
-export const isLiveGame = (game) => LIVE_TYPES.has(norm(game.game_type));
+export const isLiveGame = (game) => LIVE_TYPES.has(norm(game.gameType));
 
 // The subjects a table game can be about. Names are far more reliable than
 // types here: "XXXtreme Lightning Roulette" is filed as plain "CasinoLive".
@@ -137,8 +137,8 @@ export function matchesGameType(game, label) {
   if (tab.live === true && !live) return false;
   if (tab.live === false && live) return false;
 
-  const byType = tab.types ? tab.types.has(norm(game.game_type)) : false;
-  const byName = tab.name ? tab.name.test(game.game_name || '') : false;
+  const byType = tab.types ? tab.types.has(norm(game.gameType)) : false;
+  const byName = tab.name ? tab.name.test(game.name || '') : false;
   if (!tab.types && !tab.name) return true;
   return byType || byName;
 }

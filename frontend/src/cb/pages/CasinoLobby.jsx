@@ -1,14 +1,17 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Skeleton from 'react-loading-skeleton';
 import Swal from 'sweetalert2';
 import { getGameLaunchURL } from '../../apiservices/jsGamesService';
+import { minBalanceMessage } from '../../config/casinoGames';
 import { isDemoUser } from '../../utils/demoStore';
-import { FALLBACK_TILE, LOBBIES, lobbyBanner, tileSrc } from '../casino/lobbies';
-import { matchesCategory, matchesGameType } from '../casino/taxonomy';
-import useCasinoGames from '../casino/useCasinoGames';
+import { FALLBACK_TILE, LOBBIES, lobbyBanner } from '../casino/lobbies';
 import CategoryModal from '../casino/CategoryModal';
+import FilterStrip from '../casino/FilterStrip';
+import GameFrame, { LaunchSpinner } from '../casino/GameFrame';
+import useCasinoGames from '../casino/useCasinoGames';
+import useViewportWidth from '../useViewport';
 
 // The reference draws exactly this many tiles and never draws more — its
 // infinite-scroll handler reads a property off `undefined` and throws on the
@@ -18,88 +21,65 @@ const PAGE_SIZE = 24;
 // Ten placeholder cards, the same count the reference's skeleton grid uses.
 const SKELETON_CARDS = Array.from({ length: 10 });
 
-/** The horizontal filter strip, with its fade arrows. Used for both rows. */
-function FilterStrip({ items, active, onPick, scrollRef }) {
-  const [left, setLeft] = useState(false);
-  const [right, setRight] = useState(false);
+/** One tile. Its own component so each can track its own image state. */
+function GameTile({ game, onPlay }) {
+  const [loaded, setLoaded] = useState(false);
+  const [broken, setBroken] = useState(false);
+  const src = broken ? FALLBACK_TILE : game.art;
 
-  const measure = useCallback(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    const overflows = el.scrollWidth > el.clientWidth;
-    setLeft(overflows && el.scrollLeft > 0);
-    setRight(overflows && el.scrollLeft < el.scrollWidth - el.clientWidth - 1);
-  }, [scrollRef]);
-
-  useEffect(() => {
-    const id = setTimeout(measure, 100);
-    window.addEventListener('resize', measure);
-    return () => {
-      clearTimeout(id);
-      window.removeEventListener('resize', measure);
-    };
-  }, [measure, items]);
-
-  const nudge = (direction) => {
-    const el = scrollRef.current;
-    if (!el) return;
-    el.scrollBy({ left: direction === 'left' ? -750 : 750, behavior: 'smooth' });
-    setTimeout(measure, 300);
-  };
+  // An image already in cache finishes loading before React attaches onLoad, so
+  // that handler never fires and the tile would sit on its skeleton for good —
+  // with no `.slots__bg` mounted, which silently costs it the hover overlay
+  // too. Reading `complete` when the node mounts covers the cached case; onLoad
+  // still covers the rest.
+  const imgRef = useCallback((node) => {
+    if (node && node.complete && node.naturalWidth > 0) setLoaded(true);
+  }, []);
 
   return (
-    <div
-      className={`game-type-container position-relative prl5 ${left ? 'show-left-fade' : ''} ${right ? 'show-right-fade' : ''}`}
-    >
-      {left && (
-        <button className="game-type-arrow game-type-arrow-left" onClick={() => nudge('left')}>
-          <i className="fa fa-chevron-left" />
-        </button>
-      )}
-      <div className="wacfilter-box-scroll" ref={scrollRef} onScroll={measure}>
-        <div className="align-items-center d-flex mt-2 wacfilter-box flex-nowrap">
-          <div className={`mr-1 ${active === '' ? 'active' : ''}`} onClick={() => onPick('')}>
-            ALL
-          </div>
-          {items.map((item) => (
-            <div
-              key={item}
-              className={`mr-1 ${active === item ? 'active' : ''}`}
-              onClick={() => onPick(item)}
-            >
-              {item}
+    <div className="wac-20">
+      <div className="wacmain-box" onClick={() => onPlay(game)}>
+        {!loaded && <Skeleton height={212} width="100%" />}
+        {/* Not `loading="lazy"`, though the reference marks these lazy. The
+            grid is inserted after its fetch resolves, and Chrome only re-tests
+            a deferred image on scroll, resize or a layout pass — so a lobby
+            that loads and is then left alone keeps every tile deferred
+            forever. Measured: 0 of 24 loaded ten seconds after a clean load,
+            all of them in the viewport. It is 24 images; fetch them. */}
+        <img
+          ref={imgRef}
+          alt={game.name}
+          src={src}
+          className={`img-fluid ${loaded || ''}`}
+          onLoad={() => setLoaded(true)}
+          onError={() => (broken ? setLoaded(true) : setBroken(true))}
+        />
+        {loaded && (
+          <div className="slots__bg">
+            <div className="slots__overlay">
+              <a className="b2clogin btn-default" title={game.name}>
+                Play
+              </a>
             </div>
-          ))}
-        </div>
+          </div>
+        )}
       </div>
-      {right && (
-        <button className="game-type-arrow game-type-arrow-right" onClick={() => nudge('right')}>
-          <i className="fa fa-chevron-right" />
-        </button>
-      )}
     </div>
   );
 }
 
 /**
- * A casino lobby — /casino/LIVECASINO and its siblings.
+ * A casino lobby — every one of the reference's six, off one config.
  *
- * Banner, a provider strip, search beside a Category button, a game-type strip,
- * then the tile grid. Clicking a tile opens the game in an iframe that replaces
- * the lobby, with a cross to come back.
+ * Banner, a provider strip, search beside a Category dialog, a game-type strip,
+ * then the tile grid. A third-party game opens in a frame that replaces the
+ * lobby; one of this platform's own tables navigates to its route.
  *
- * Two notes on the mapping to tenexch's catalog:
- *
- * - The reference classifies a game on three axes — partner, gameType and
- *   category — and gives each its own control. tenexch has two: `vendor` and
- *   `game_type`. So the provider strip is the vendor, and the game-type strip
- *   and the Category dialog are two ways into the same game-type filter. Both
- *   controls are here because both are in the reference; they share one state
- *   so they can never disagree.
- * - Tiles use the catalog's own `game_icon`, which is a full CDN URL. The
- *   reference builds its tile path from a game id it owns the art for; ours
- *   does not exist for these games, so the URL is used as it comes and a
- *   missing one falls back to the placeholder.
+ * On the mapping to tenexch's catalog: the reference classifies a game on three
+ * axes — partner, gameType and category — and gives each its own control. Ours
+ * has two, and one of them barely varies, so both pill rows carry the
+ * reference's own labels and cb/casino/taxonomy.js decides what lands on each.
+ * See docs/BACKEND-GAPS.md.
  */
 function CasinoLobby({ lobbyId }) {
   // The lobbies are routed one path at a time rather than as /casino/:id —
@@ -110,6 +90,7 @@ function CasinoLobby({ lobbyId }) {
   const id = lobbyId || paramId;
   const navigate = useNavigate();
   const lobby = LOBBIES[id];
+  const width = useViewportWidth();
   const { user, isAuthenticated, balance } = useSelector((s) => s.user);
 
   const [provider, setProvider] = useState('');
@@ -117,21 +98,16 @@ function CasinoLobby({ lobbyId }) {
   const [category, setCategory] = useState('');
   const [search, setSearch] = useState('');
   const [showCategories, setShowCategories] = useState(false);
-  const [loaded, setLoaded] = useState({});
-  // Tiles whose artwork URL failed; they fall back to the placeholder.
-  const [broken, setBroken] = useState({});
-
   const [launching, setLaunching] = useState(false);
   const [frameUrl, setFrameUrl] = useState('');
 
-  const providerRef = useRef(null);
-  const typeRef = useRef(null);
-
-  // Partner selection re-queries; everything else filters what is loaded.
-  const { games, loading } = useCasinoGames(lobby, provider);
+  // A vendor lobby re-queries when a partner is picked; the other sources are
+  // one list, so they filter in place.
+  const requeries = !lobby || lobby.source === 'vendor';
+  const { games, loading } = useCasinoGames(lobby, requeries ? provider : '');
 
   // A fresh lobby starts with every filter cleared, the way the reference
-  // resets them whenever :id changes.
+  // resets them whenever the menu changes.
   useEffect(() => {
     setProvider('');
     setGameType('');
@@ -145,9 +121,10 @@ function CasinoLobby({ lobbyId }) {
     if (!lobby) navigate('/', { replace: true });
   }, [lobby, navigate]);
 
-  const launch = async (game) => {
+  const play = async (game) => {
     if (!isAuthenticated) {
-      document.getElementById('loginBtn')?.click();
+      const btn = document.getElementById('loginBtn');
+      if (btn) btn.click();
       return;
     }
     if (isDemoUser(user) && localStorage.getItem('token') === 'demo-token') {
@@ -160,12 +137,29 @@ function CasinoLobby({ lobbyId }) {
       return;
     }
 
+    // One of this platform's own tables: check the owner's entry threshold and
+    // navigate, rather than asking the aggregator for a URL.
+    if (game.launch?.kind === 'route') {
+      if (!game.launch.route) return;
+      if (game.minBalance && Number(balance || 0) < game.minBalance) {
+        Swal.fire({
+          title: 'Insufficient balance',
+          text: minBalanceMessage(game.minBalance),
+          icon: 'warning',
+          confirmButtonText: 'OK',
+        });
+        return;
+      }
+      navigate(game.launch.route);
+      return;
+    }
+
     window.scrollTo(0, 0);
     setLaunching(true);
     let url = '';
     try {
       const res = await getGameLaunchURL({
-        game_uid: game.game_uid,
+        game_uid: game.launch?.gameUid,
         user_id: user?.user_id || user?.id,
         credit_amount: String(balance || 0),
         currency_code: 'INR',
@@ -192,40 +186,31 @@ function CasinoLobby({ lobbyId }) {
 
   if (!lobby) return null;
 
+  // A pill can be a link to the lobby that actually holds that kind of game,
+  // rather than a filter that would select nothing here.
+  const pick = (list, setter) => (value) => {
+    const hit = list.find((x) => x.id === value);
+    if (hit?.goTo) {
+      navigate(hit.goTo);
+      return;
+    }
+    setter(value);
+  };
+
+  const matches = (list, value) => (g) => {
+    const hit = list.find((x) => x.id === value);
+    return hit?.match ? hit.match(g) : true;
+  };
+
   const filtered = games
-    .filter((g) => !category || matchesCategory(g, category))
-    .filter((g) => !gameType || matchesGameType(g, gameType))
-    .filter((g) => !search || g.game_name?.toLowerCase().includes(search.toLowerCase()));
+    .filter((g) => (requeries || !provider ? true : matches(lobby.partners, provider)(g)))
+    .filter((g) => (gameType ? matches(lobby.gameTypes, gameType)(g) : true))
+    .filter((g) => (category ? matches(lobby.categories, category)(g) : true))
+    .filter((g) => !search || g.name?.toLowerCase().includes(search.toLowerCase()));
   const shown = filtered.slice(0, PAGE_SIZE);
 
-  if (launching) {
-    return (
-      <div className="roulette-gif">
-        <img alt="" src="/casino/banner/roulette.gif" className="roulette-gif-img" />
-      </div>
-    );
-  }
-
-  if (frameUrl) {
-    return (
-      <div className="casino-content-page">
-        <div className="row">
-          <div
-            onClick={() => setFrameUrl('')}
-            style={{ position: 'absolute', width: '30px', textAlign: 'center' }}
-          >
-            <i className="fa fa-times popup-cross" />
-          </div>
-          <iframe
-            key="iframe"
-            title="iframe"
-            style={{ height: '84vh', width: '100%', border: '0px' }}
-            src={frameUrl}
-          />
-        </div>
-      </div>
-    );
-  }
+  if (launching) return <LaunchSpinner />;
+  if (frameUrl) return <GameFrame url={frameUrl} onClose={() => setFrameUrl('')} />;
 
   if (loading) {
     return (
@@ -272,10 +257,10 @@ function CasinoLobby({ lobbyId }) {
               <div className="row">
                 <div className="col-12 ">
                   <FilterStrip
-                    items={lobby.partners.map((p) => p.label)}
-                    active={provider}
-                    onPick={setProvider}
-                    scrollRef={providerRef}
+                    items={lobby.partners}
+                    value={provider}
+                    onSelect={pick(lobby.partners, setProvider)}
+                    keyPrefix="prv"
                   />
                 </div>
               </div>
@@ -283,7 +268,9 @@ function CasinoLobby({ lobbyId }) {
 
             <div className="row">
               <div
-                className={`newsearchbox col-12 ${lobby.partners.length > 0 && window.innerWidth > 768 ? '' : 'mt5'}`}
+                className={`newsearchbox col-12 ${
+                  lobby.partners.length > 0 && width > 768 ? '' : 'mt5'
+                }`}
               >
                 <div className="newsearchbox_search prl5">
                   <div className="p-relative">
@@ -314,9 +301,9 @@ function CasinoLobby({ lobbyId }) {
                 <div className="col-12">
                   <FilterStrip
                     items={lobby.gameTypes}
-                    active={gameType}
-                    onPick={setGameType}
-                    scrollRef={typeRef}
+                    value={gameType}
+                    onSelect={pick(lobby.gameTypes, setGameType)}
+                    keyPrefix="gmty"
                   />
                 </div>
               </div>
@@ -335,47 +322,9 @@ function CasinoLobby({ lobbyId }) {
             )}
 
             <div className="mt-2 mb-2 featured-game1 wac-min-height wac-width-100 cb-casino-grid">
-              {shown.map((game) => {
-                // A URL that fails moves to the placeholder through state
-                // rather than by rewriting the element's own src.
-                const src = broken[game.game_uid] ? FALLBACK_TILE : tileSrc(game);
-                return (
-                <div className="wac-20" key={game.game_uid}>
-                  <div className="wacmain-box" onClick={() => launch(game)}>
-                    {!loaded[game.game_uid] && <Skeleton height={212} width="100%" />}
-                    {/* Not `loading="lazy"`, though the reference marks these
-                        lazy. The grid is inserted after its fetch resolves, and
-                        Chrome only re-tests deferred images on scroll, resize or
-                        a layout pass — so a lobby that loads and is then left
-                        alone keeps every tile deferred forever. Measured: 0 of
-                        24 loaded ten seconds after a clean load, all of them in
-                        the viewport. It is 24 images; fetch them. */}
-                    <img
-                      alt={game.game_name}
-                      src={src}
-                      className={`img-fluid ${loaded[game.game_uid] || ''}`}
-                      onLoad={() => setLoaded((p) => ({ ...p, [game.game_uid]: true }))}
-                      onError={() => {
-                        if (!broken[game.game_uid]) {
-                          setBroken((p) => ({ ...p, [game.game_uid]: true }));
-                          return;
-                        }
-                        setLoaded((p) => ({ ...p, [game.game_uid]: true }));
-                      }}
-                    />
-                    {loaded[game.game_uid] && (
-                      <div className="slots__bg">
-                        <div className="slots__overlay">
-                          <a className="b2clogin btn-default" title={game.game_name}>
-                            Play
-                          </a>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </div>
-                );
-              })}
+              {shown.map((game) => (
+                <GameTile key={game.key} game={game} onPlay={play} />
+              ))}
             </div>
           </div>
         </div>
@@ -384,8 +333,8 @@ function CasinoLobby({ lobbyId }) {
       {showCategories && (
         <CategoryModal
           categories={lobby.categories}
-          selected={category}
-          onSelect={setCategory}
+          value={category}
+          onSelect={pick(lobby.categories, setCategory)}
           onClose={() => setShowCategories(false)}
         />
       )}

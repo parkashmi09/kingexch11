@@ -23,9 +23,9 @@ export const SPORT_NAV = [
 
 // Casino entries map onto the routes tenexch already ships.
 export const CASINO_NAV = [
-  { key: 'indianpoker', label: 'Indian Poker', icon: 'indianpoker-icon.png', route: '/o_casino' },
-  { key: 'aviator',     label: 'Aviator',      icon: 'aviator-icon.png',     route: '/crash' },
-  { key: 'chickenroad', label: 'Chicken Road', icon: 'chickenroll-icon.png', route: '/crash' },
+  { key: 'indianpoker', label: 'Indian Poker', icon: 'indianpoker-icon.png', route: '/casino/INDIANPOKER' },
+  { key: 'aviator',     label: 'Aviator',      icon: 'aviator-icon.png',     route: '/casino/AVIATOR' },
+  { key: 'chickenroad', label: 'Chicken Road', icon: 'chickenroll-icon.png', route: '/casino/CHICKENROAD' },
   { key: 'livecasino',  label: 'Live Casino',  icon: 'livecasino-icon.png',  route: '/casino/LIVECASINO' },
   { key: 'intcasino',   label: 'Int.Casino',   icon: 'intcasino-icon.png',   route: '/casino/INTERNATIONALCASINO' },
   { key: 'slot',        label: 'Slot',         icon: 'slot-icon.png',        route: '/casino/SLOT' },

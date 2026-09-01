@@ -1,26 +1,25 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 /**
- * The Category dialog behind the lobby's "Category" button.
+ * The "Category" dialog, opened by the button beside the search box.
  *
- * A searchable list with "All" pinned on top; picking one closes nothing —
- * the reference leaves the dialog open and lets the grid update behind it.
+ * Markup is the reference's — an `encasino catmain` dialog holding a
+ * `categorymodel` with a `currencybox-header` and `currencybox-body`, and a
+ * `categorypopbox > .parent` of choices — including its own search field, which
+ * filters the list of categories rather than the games.
+ *
+ * Selecting does not close it: the reference leaves the dialog up and lets the
+ * grid change behind it.
+ *
+ * Items are `{ id, label }` so a lobby can show the reference's wording for a
+ * bucket whose internal name differs.
  */
-function CategoryModal({ categories, selected, onSelect, onClose }) {
+function CategoryModal({ categories, value, onSelect, onClose }) {
   const [query, setQuery] = useState('');
-  const [shown, setShown] = useState(categories);
 
-  useEffect(() => {
-    setShown(categories);
-  }, [categories]);
-
-  const search = (e) => {
-    const value = e.target.value;
-    setQuery(value);
-    setShown(
-      value ? categories.filter((c) => c.toLowerCase().includes(value.toLowerCase())) : categories
-    );
-  };
+  const shown = query
+    ? categories.filter((c) => c.label.toLowerCase().includes(query.toLowerCase()))
+    : categories;
 
   return (
     <div>
@@ -52,7 +51,7 @@ function CategoryModal({ categories, selected, onSelect, onClose }) {
                   <div className="newsearchbox_search w-100 ">
                     <div className="p-relative">
                       <span>
-                        <i className="fa fa-search cfa" aria-hidden="true" />
+                        <i className="fa fa-search cfa" aria-hidden="true"></i>
                       </span>
                       <input
                         type="text"
@@ -61,25 +60,25 @@ function CategoryModal({ categories, selected, onSelect, onClose }) {
                         placeholder="Search"
                         name="searchcat"
                         value={query}
-                        onChange={search}
+                        onChange={(e) => setQuery(e.target.value)}
                       />
                     </div>
                   </div>
                   <div className="categorypopbox">
                     <div className="parent">
-                      {!!shown && shown.length > 0 && (
-                        <div className={selected === '' ? 'active' : ''} onClick={() => onSelect('')}>
+                      {shown.length > 0 && (
+                        <div className={value === '' ? 'active' : ''} onClick={() => onSelect('')}>
                           All
                         </div>
                       )}
-                      {shown && shown.length > 0 ? (
-                        shown.map((c, i) => (
+                      {shown.length > 0 ? (
+                        shown.map((c) => (
                           <div
-                            key={`${c}_${i}`}
-                            className={selected === c ? 'active' : ''}
-                            onClick={() => onSelect(c)}
+                            key={c.id}
+                            className={value === c.id ? 'active' : ''}
+                            onClick={() => onSelect(c.id)}
                           >
-                            {c}
+                            {c.label}
                           </div>
                         ))
                       ) : (
@@ -92,8 +91,8 @@ function CategoryModal({ categories, selected, onSelect, onClose }) {
             </div>
           </div>
         </div>
+        <div className="modal-backdrop fade show" onClick={onClose}></div>
       </div>
-      <div className="modal-backdrop fade show" onClick={onClose} />
     </div>
   );
 }

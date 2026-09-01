@@ -505,6 +505,9 @@ function App() {
 
       {/* The casino lobbies, at the reference's /casino/:id. Only the ids in
           cb/casino/lobbies.js are pages; anything else falls back to home. */}
+      <Route path="/casino/INDIANPOKER" element={<CbLayout><CbCasinoLobby lobbyId="INDIANPOKER" /></CbLayout>} />
+      <Route path="/casino/AVIATOR" element={<CbLayout><CbCasinoLobby lobbyId="AVIATOR" /></CbLayout>} />
+      <Route path="/casino/CHICKENROAD" element={<CbLayout><CbCasinoLobby lobbyId="CHICKENROAD" /></CbLayout>} />
       <Route path="/casino/LIVECASINO" element={<CbLayout><CbCasinoLobby lobbyId="LIVECASINO" /></CbLayout>} />
       <Route path="/casino/INTERNATIONALCASINO" element={<CbLayout><CbCasinoLobby lobbyId="INTERNATIONALCASINO" /></CbLayout>} />
       <Route path="/casino/SLOT" element={<CbLayout><CbCasinoLobby lobbyId="SLOT" /></CbLayout>} />
