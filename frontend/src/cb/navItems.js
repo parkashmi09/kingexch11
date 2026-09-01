@@ -14,9 +14,9 @@ import { common } from './assets';
 export const SPORT_NAV = [
   { key: 'inplay',           label: 'In-Play',   icon: 'inplay-icon.png',      alt: 'inplay',      tab: 'inplay' },
   { key: 'cpl',              label: 'CPL 2026',  icon: 'winner-icon.png',      alt: 'winnericon',  route: '/cpl' },
-  { key: 'cricket',          label: 'Cricket',   icon: 'cricket-icon.png',     alt: 'cricket',     tab: 'cricket' },
-  { key: 'football',         label: 'Soccer',    icon: 'soccer-icon.png',      alt: 'soccer',      tab: 'football' },
-  { key: 'tennis',           label: 'Tennis',    icon: 'tennis-icon.png',      alt: 'tennis',      tab: 'tennis' },
+  { key: 'cricket',          label: 'Cricket',   icon: 'cricket-icon.png',     alt: 'cricket',     route: '/game/4' },
+  { key: 'football',         label: 'Soccer',    icon: 'soccer-icon.png',      alt: 'soccer',      route: '/game/1' },
+  { key: 'tennis',           label: 'Tennis',    icon: 'tennis-icon.png',      alt: 'tennis',      route: '/game/2' },
   { key: 'horseracing',      label: 'Horse',     icon: 'horse-icon.png',       alt: 'horse',       route: '/race/10' },
   { key: 'greyhoundracing',  label: 'Greyhound', icon: 'greyhound-icon.png',   alt: 'greyhound',   route: '/race/65' },
 ];

@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Slider from '../Slider';
 import { common, user, login } from '../assets';
@@ -11,12 +12,15 @@ import useViewportWidth from '../useViewport';
 // The six tiles in the SPORTS carousel, and the buttons under it. They are the
 // same six sports in the same order — `cls` is the reference's per-sport button
 // class (it colours each pill), `tab` is the board this app switches to.
+// The two racing entries open their own page rather than switching a board:
+// the home list has no shape for a race card, so selecting them here would only
+// ever show an empty board.
 const SPORTS = [
   { name: 'Cricket',   img: 'cricket.png',   cls: 'cri', tab: 'cricket' },
   { name: 'Soccer',    img: 'soccer.png',    cls: 'soc', tab: 'football' },
   { name: 'Tennis',    img: 'tennis.png',    cls: 'ten', tab: 'tennis' },
-  { name: 'Horse',     img: 'horse.png',     cls: 'hor', tab: 'horseracing' },
-  { name: 'GreyHound', img: 'greyhound.png', cls: 'gho', tab: 'greyhoundracing' },
+  { name: 'Horse',     img: 'horse.png',     cls: 'hor', route: '/race/10' },
+  { name: 'GreyHound', img: 'greyhound.png', cls: 'gho', route: '/race/65' },
   { name: 'Kabaddi',   img: 'kabaddi.png',   cls: 'kab', tab: 'kabaddi' },
 ];
 
@@ -25,12 +29,17 @@ const BUTTON_LABEL = { hor: 'Horse Racing', gho: 'Greyhound' };
 
 // Signed in, the reference stacks every sport's board at once instead of
 // showing one at a time.
+// Horse Racing and Grey Hound are NOT here, though the reference lists them.
+// Its own feed has no racing events, so those two sections read "No Active
+// Events Found" for it and the claim happens to be true. Ours has races — they
+// simply arrive nested country > venue > race, with nothing the back/lay list
+// can render — so the same empty section would be telling the user there is no
+// racing while /race/10 lists fifteen courses. A heading that lies is worse
+// than a heading that is missing; the nav and the sports tiles both lead there.
 const LOGGED_IN_BOARDS = [
-  { tab: 'cricket',          title: 'Cricket' },
-  { tab: 'football',         title: 'Soccer' },
-  { tab: 'tennis',           title: 'Tennis' },
-  { tab: 'horseracing',      title: 'Horse Racing' },
-  { tab: 'greyhoundracing',  title: 'Grey Hound' },
+  { tab: 'cricket',   title: 'Cricket' },
+  { tab: 'football',  title: 'Soccer' },
+  { tab: 'tennis',    title: 'Tennis' },
 ];
 
 const BONUS_BANNERS = ['bonus-1.jpg', 'bonus-2.jpg', 'bonus-3.jpg', 'bonus-4.jpg'];
@@ -52,6 +61,8 @@ function Board({ tab, title, showTitle }) {
 function Home() {
   const isAuth = useSelector((s) => s.user.isAuthenticated);
   const [activeTab, setActiveTab] = useSportTab();
+  const navigate = useNavigate();
+  const pickSport = (sport) => (sport.route ? navigate(sport.route) : setActiveTab(sport.tab));
   const width = useViewportWidth();
   const sportsSlider = useRef(null);
 
@@ -98,7 +109,7 @@ function Home() {
                   <div
                     className="sportsgamebg cursor-pointer"
                     key={`sportimg-${sport.name}`}
-                    onClick={() => setActiveTab(sport.tab)}
+                    onClick={() => pickSport(sport)}
                   >
                     <div className="sportimg">
                       <img src={common(sport.img)} alt={sport.name} />
@@ -116,8 +127,8 @@ function Home() {
               {SPORTS.map((sport) => (
                 <li
                   key={sport.cls}
-                  className={`gamenamebox ${sport.cls} ${shownTab === sport.tab ? 'active' : ''}`}
-                  onClick={() => setActiveTab(sport.tab)}
+                  className={`gamenamebox ${sport.cls} ${sport.tab && shownTab === sport.tab ? 'active' : ''}`}
+                  onClick={() => pickSport(sport)}
                 >
                   {BUTTON_LABEL[sport.cls] || sport.name}
                 </li>
