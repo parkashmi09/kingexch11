@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { ToastContainer } from 'react-toastify';
 import { useSelector } from 'react-redux';
 import Header from './layout/Header';
 import Sidebar from './layout/Sidebar';
@@ -28,6 +29,9 @@ function Layout() {
 
   return (
     <>
+      {/* First in the tree, as the reference has it. Styled by clickbet.css,
+          which already bundles react-toastify's stylesheet. */}
+      <ToastContainer />
       <Header sideNavVisible={sideNavVisible} setSideNavVisible={setSideNavVisible} />
       <div className="middlepart">
         <Sidebar sideNavVisible={sideNavVisible} setSideNavVisible={setSideNavVisible} />

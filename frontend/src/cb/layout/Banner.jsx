@@ -102,7 +102,9 @@ function Banner() {
       {/* Logged out, the banner carries one call to action of its own. It waits
           for the first image so the button never floats over an empty box. */}
       {!isAuth && loaded && (
-        <div className="bannerbtn" onClick={() => navigate('/login')}>
+        // Drives the header's own button rather than holding a second copy of
+        // the modal — exactly what the reference does from here.
+        <div className="bannerbtn" onClick={() => document.getElementById('loginBtn')?.click()}>
           Login
         </div>
       )}

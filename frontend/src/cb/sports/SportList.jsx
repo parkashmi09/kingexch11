@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import useSportData from '../../hooks/useSportData';
 import MarketRow from './MarketRow';
 import HomeBetSlipModal from '../../components/betting/HomeBetSlipModal';
-import { bToastError } from '../../components/BToast';
+import { cbToastError } from '../toast';
 import { isCricketLimitedOvers } from '../../components/betting/placeBet/placeBetRules';
 import { mapGame, buildCricketRows, buildFootballRows, buildTennisRows } from '../../utils/betTableData';
 
@@ -28,7 +28,7 @@ function SportList({ sportId, title, showTitle = false, reloadKey = 0, pollOnce 
   const onCellClick = useCallback(
     (match, { side, col, odds, size }) => {
       if (!isAuth) {
-        bToastError('Please login to access!');
+        cbToastError('Please login to access!');
         return;
       }
       const game = match._raw;

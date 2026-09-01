@@ -6,6 +6,7 @@ import { user, common } from '../assets';
 import { HEADER_NAV, CASINO_NAV, GROUPED_SPORTS, MOBILE_NAV_LEAD, iconSrc } from '../navItems';
 import { useSportTab } from '../useSportTab';
 import useViewportWidth from '../useViewport';
+import LoginModal from './LoginModal';
 
 // The reference hides the In-Play entry below 767px because the strip is
 // already tight there; both lists render it and CSS decides which list shows.
@@ -117,6 +118,7 @@ function Header({ sideNavVisible, setSideNavVisible }) {
   const balance = useSelector((s) => s.user.balance);
   const [, setActiveTab, explicitTab] = useSportTab();
   const width = useViewportWidth();
+  const [loginOpen, setLoginOpen] = useState(false);
 
   // A nav entry either switches the home board's sport (every sport entry) or
   // opens a route (the casino entries). Either way the mobile drawer closes.
@@ -155,7 +157,7 @@ function Header({ sideNavVisible, setSideNavVisible }) {
               </div>
             ) : (
               <div className="loginbtngroup">
-                <button className="loginbtn" id="loginBtn" onClick={() => navigate('/login')}>
+                <button className="loginbtn" id="loginBtn" onClick={() => setLoginOpen(true)}>
                   Login
                 </button>
               </div>
@@ -182,6 +184,11 @@ function Header({ sideNavVisible, setSideNavVisible }) {
           </Marquee>
         </div>
       </div>
+
+      {/* Login is a modal over the current page, not a route — the reference
+          keeps it here, as a sibling of the header, and mounts it from this
+          button. */}
+      {loginOpen && <LoginModal onClose={() => setLoginOpen(false)} />}
     </>
   );
 }
