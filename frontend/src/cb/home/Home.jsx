@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import { useSelector } from 'react-redux';
 import Slider from '../Slider';
 import { common, user, login } from '../assets';
@@ -7,6 +7,7 @@ import { TAB_SPORT_MAP } from '../../hooks/home/useHomeLoad';
 import SportList from '../sports/SportList';
 import RacingBoard from '../sports/RacingBoard';
 import PopularGames from './PopularGames';
+import useViewportWidth from '../useViewport';
 
 // The six tiles in the SPORTS carousel, and the buttons under it. They are the
 // same six sports in the same order — `cls` is the reference's per-sport button
@@ -48,14 +49,8 @@ function Board({ tab, title, showTitle }) {
 function Home() {
   const isAuth = useSelector((s) => s.user.isAuthenticated);
   const [activeTab, setActiveTab] = useSportTab();
-  const [width, setWidth] = useState(window.innerWidth);
+  const width = useViewportWidth();
   const sportsSlider = useRef(null);
-
-  useEffect(() => {
-    const onResize = () => setWidth(window.innerWidth);
-    window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
-  }, []);
 
   // In-Play has no tile of its own; landing on it shows the cricket board, which
   // is what the reference's default selection resolves to.

@@ -4,17 +4,34 @@ import { useSelector } from 'react-redux';
 import Slider from '../Slider';
 import { login } from '../assets';
 import { getSlides, warmBanners, bannerSrc, failed, announceReady } from '../../utils/bannerCache';
+import useViewportWidth, { MOBILE_MAX } from '../useViewport';
 
 // The theme's own hero set — five slides, shipped with the skin rather than
 // fetched. This is what the reference shows to a LOGGED-OUT visitor: its banner
 // component only asks the admin feed for images once you are signed in, and
-// falls back to these files (`main-banner0…4`) otherwise.
-const THEME_SLIDES = ['main-banner0.jpg', 'main-banner1.webp', 'main-banner2.webp', 'main-banner3.webp', 'main-banner4.webp']
-  .map((f, i) => ({ bimg: login(f), ky: `theme_bnnr_${i}`, lnkurl: null, caption: null }));
+// falls back to these files otherwise.
+//
+// Desktop and phone get DIFFERENT artwork, not the same file rescaled: the
+// reference keeps two lists side by side and picks by viewport. The crops are
+// cut to suit each shape — 1502x486 (3.09:1) for desktop, 768x403 (1.91:1) for
+// phones — and since the image is `width: 100%` with its own aspect ratio, that
+// choice is what sets the hero's height. Serving the desktop crop to a phone
+// rendered a hero barely half as tall as the original's.
+const EXT = ['jpg', 'webp', 'webp', 'webp', 'webp'];
+
+const themeSlides = (mobile) =>
+  EXT.map((ext, i) => ({
+    bimg: login(`main-banner${mobile ? '-mobile' : ''}${i}.${ext}`),
+    ky: `theme_bnnr_${mobile ? 'mb' : 'dsktp'}_${i}`,
+    lnkurl: null,
+    caption: null,
+  }));
 
 function Banner() {
   const navigate = useNavigate();
   const isAuth = useSelector((s) => s.user.isAuthenticated);
+  const width = useViewportWidth();
+  const isMobile = width < MOBILE_MAX;
   const [slides, setSlides] = useState(() => getSlides());
   const [loaded, setLoaded] = useState(false);
   // Slides whose image 404'd. The carousel list outlives the files it points
@@ -44,7 +61,7 @@ function Banner() {
     }))
     .filter((s) => !dead.has(s.bimg));
 
-  const items = isAuth && fromApi.length ? fromApi : THEME_SLIDES;
+  const items = isAuth && fromApi.length ? fromApi : themeSlides(isMobile);
 
   const openLink = (url) => {
     if (url.includes('http')) window.open(url, '_blank');
@@ -57,7 +74,7 @@ function Banner() {
         {items.map((item) => (
           <div className="loginimages" key={item.ky}>
             <img
-              className={window.innerWidth < 768 ? 'mbanner' : 'dbanner'}
+              className={isMobile ? 'mbanner' : 'dbanner'}
               src={item.bimg}
               alt={item.ky}
               onLoad={() => {

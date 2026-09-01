@@ -1,22 +1,10 @@
-import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { common, oddsIcon } from '../assets';
 import { formatGameDate } from '../../utils/betTableData';
+import useViewportWidth, { MOBILE_MAX } from '../useViewport';
 
 // Desktop shows the kickoff inline next to the team names; the phone layout
-// moves it to its own line under them, next to the competition. Same breakpoint
-// the reference uses.
-const DESKTOP_MIN = 768;
-
-function useIsDesktop() {
-  const [wide, setWide] = useState(window.innerWidth > DESKTOP_MIN);
-  useEffect(() => {
-    const onResize = () => setWide(window.innerWidth > DESKTOP_MIN);
-    window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
-  }, []);
-  return wide;
-}
+// moves it to its own line under them, next to the competition.
 
 // "01 Sept 14:30" — the reference's compact kickoff label.
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
@@ -62,7 +50,7 @@ function OddsRow({ match, onCellClick }) {
 
 function MarketRow({ match, isLast, onCellClick }) {
   const navigate = useNavigate();
-  const desktop = useIsDesktop();
+  const desktop = useViewportWidth() > MOBILE_MAX;
   const open = () => navigate(match.href, { state: match._raw ? { game: match._raw } : undefined });
   const time = kickoff(match.date);
 

@@ -1,17 +1,31 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Marquee from 'react-fast-marquee';
-import { user } from '../assets';
-import { HEADER_NAV, iconSrc } from '../navItems';
+import { user, common } from '../assets';
+import { HEADER_NAV, CASINO_NAV, GROUPED_SPORTS, MOBILE_NAV_LEAD, iconSrc } from '../navItems';
 import { useSportTab } from '../useSportTab';
+import useViewportWidth from '../useViewport';
 
-// The reference hides the In-Play entry below 767px because the mobile-menu
-// copy of the same strip takes over there; both lists are rendered, and CSS
-// decides which one is visible.
+// The reference hides the In-Play entry below 767px because the strip is
+// already tight there; both lists render it and CSS decides which list shows.
 const IN_PLAY_MIN_WIDTH = 766;
 
-function NavList({ width, explicitTab, go }) {
+function NavItem({ item, active, onClick }) {
+  return (
+    <li className={active ? 'active' : ''} onClick={onClick}>
+      <a>
+        <span className="sports-icon  sideiconbg">
+          <img className="headernothover" src={iconSrc(item)} alt={item.alt || item.label} />
+        </span>
+        {item.label}
+      </a>
+    </li>
+  );
+}
+
+// Desktop strip: every sport listed flat, then the casino entries.
+function DesktopNav({ width, explicitTab, go }) {
   return (
     <ul>
       {HEADER_NAV.map((item) => {
@@ -21,17 +35,78 @@ function NavList({ width, explicitTab, go }) {
         const active = item.tab
           ? explicitTab === item.tab && item.key !== 'cpl'
           : window.location.pathname === item.route;
-        return (
-          <li key={item.key} className={active ? 'active' : ''} onClick={() => go(item)}>
-            <a>
-              <span className="sports-icon  sideiconbg">
-                <img className="headernothover" src={iconSrc(item)} alt={item.alt || item.label} />
-              </span>
-              {item.label}
-            </a>
-          </li>
-        );
+        return <NavItem key={item.key} item={item} active={active} onClick={() => go(item)} />;
       })}
+    </ul>
+  );
+}
+
+// Phone strip: the same row, except Soccer / Tennis / Horse / Greyhound are
+// folded behind one "Sports" entry that opens a dropdown.
+function MobileNav({ width, explicitTab, go }) {
+  const [sportsOpen, setSportsOpen] = useState(false);
+  const groupActive = GROUPED_SPORTS.some((s) => explicitTab === s.tab);
+
+  return (
+    <ul>
+      {MOBILE_NAV_LEAD.map((item) => {
+        if (item.key === 'inplay' && width <= IN_PLAY_MIN_WIDTH) return false;
+        const active = explicitTab === item.tab && item.key !== 'cpl';
+        return <NavItem key={item.key} item={item} active={active} onClick={() => go(item)} />;
+      })}
+
+      <li
+        className={`${groupActive ? 'active' : ''} ${sportsOpen ? 'open' : ''}`}
+        onMouseLeave={() => setSportsOpen(false)}
+      >
+        <a
+          className="sf-with-ul"
+          onClick={(e) => {
+            e.preventDefault();
+            setSportsOpen((v) => !v);
+          }}
+        >
+          <span className="sports-icon  sideiconbg">
+            <img className="headernothover" src={common('sports-icon.png')} alt="soccer" />
+          </span>
+          Sports
+        </a>
+        <div className="header-menubox ">
+          <div className="">
+            <ul>
+              {GROUPED_SPORTS.map((item) => (
+                <li
+                  key={item.key}
+                  className={explicitTab === item.tab ? 'active' : ''}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSportsOpen(false);
+                    go(item);
+                  }}
+                >
+                  <a>
+                    {/* Single space here, unlike the outer entries — the
+                        reference's own spacing. */}
+                    <span className="sports-icon sideiconbg">
+                      <img className="headernothover" src={iconSrc(item)} alt={item.alt || item.label} />
+                    </span>
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </li>
+
+      {CASINO_NAV.map((item) => (
+        <NavItem
+          key={item.key}
+          item={item}
+          active={window.location.pathname === item.route}
+          onClick={() => go(item)}
+        />
+      ))}
     </ul>
   );
 }
@@ -41,13 +116,7 @@ function Header({ sideNavVisible, setSideNavVisible }) {
   const isAuth = useSelector((s) => s.user.isAuthenticated);
   const balance = useSelector((s) => s.user.balance);
   const [, setActiveTab, explicitTab] = useSportTab();
-  const [width, setWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    const onResize = () => setWidth(window.innerWidth);
-    window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
-  }, []);
+  const width = useViewportWidth();
 
   // A nav entry either switches the home board's sport (every sport entry) or
   // opens a route (the casino entries). Either way the mobile drawer closes.
@@ -74,7 +143,7 @@ function Header({ sideNavVisible, setSideNavVisible }) {
               <img src={user('logo.svg')} alt="" onClick={() => navigate('/')} />
             </div>
             <div className="headermenu header-scroll-menu mobile-hide">
-              <NavList width={width} explicitTab={explicitTab} go={go} />
+              <DesktopNav width={width} explicitTab={explicitTab} go={go} />
             </div>
             {isAuth ? (
               <div className="loginbtngroup loginbtngroup--loggedin">
@@ -95,12 +164,12 @@ function Header({ sideNavVisible, setSideNavVisible }) {
         </div>
       </header>
 
-      {/* Second copy of the same strip. It lives OUTSIDE <header> in the
-          reference and is the one that shows on phones — .mobile-hide takes the
-          first list away there, and this wrapper is hidden on desktop. */}
+      {/* The phone strip. It lives OUTSIDE <header> in the reference and is the
+          one that shows on phones — .mobile-hide takes the desktop list away
+          there, and this wrapper is hidden on desktop. */}
       <div className="mobile-menu">
         <div className="headermenu header-scroll-menu ">
-          <NavList width={width} explicitTab={explicitTab} go={go} />
+          <MobileNav width={width} explicitTab={explicitTab} go={go} />
         </div>
       </div>
 

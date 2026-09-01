@@ -33,4 +33,14 @@ export const CASINO_NAV = [
 
 export const HEADER_NAV = [...SPORT_NAV, ...CASINO_NAV];
 
+// The phone strip is NOT the desktop list at a smaller size: the reference
+// folds Soccer / Tennis / Horse / Greyhound into one "Sports" entry that opens
+// a dropdown, so the row still fits without scrolling past the casino links.
+export const MOBILE_SPORT_GROUP = ['football', 'tennis', 'horseracing', 'greyhoundracing'];
+
+export const GROUPED_SPORTS = SPORT_NAV.filter((s) => MOBILE_SPORT_GROUP.includes(s.key));
+
+// What stays inline on the phone strip, either side of that group.
+export const MOBILE_NAV_LEAD = SPORT_NAV.filter((s) => !MOBILE_SPORT_GROUP.includes(s.key));
+
 export const iconSrc = (item) => common(item.icon);
