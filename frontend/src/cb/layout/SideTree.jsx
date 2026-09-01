@@ -39,8 +39,14 @@ function TreeNode({ node, depth, onSelect }) {
         <span className="innertext">{node.name}</span>
       </div>
 
+      {/* `--expanded` is not cosmetic: the stylesheet hangs the hover
+          highlight on every `.tree-node`, then cancels it again for nodes
+          inside `.tree-node-group--expanded`. Without the modifier that
+          cancellation never matches and every sub-item lights up on hover,
+          which the reference's do not. The group only renders while open, so
+          it always carries it. */}
       {isBranch && open && (
-        <ul className="tree-node-group">
+        <ul className="tree-node-group tree-node-group--expanded">
           {children.map((child, i) => (
             <TreeNode
               key={child.id ?? `${child.name}-${i}`}
