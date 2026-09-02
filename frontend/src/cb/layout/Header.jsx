@@ -9,6 +9,12 @@ import useViewportWidth from '../useViewport';
 import LoginModal from './LoginModal';
 import AccountPanel from './AccountPanel';
 
+// The ticker copy. The reference serves it from GET /marketprovider/marquee
+// and refreshes it over the socket; we have no such endpoint, so the message
+// the reference is currently running is carried verbatim.
+const MARQUEE_MESSAGE =
+  '1️⃣ Welcome To Our New Version Exchange💫💫💫2️⃣Betting is now open for the Caribbean Premier League Winner Cup! Place your bet on your favorite team and enjoy the action';
+
 // The reference hides the In-Play entry below 767px because the strip is
 // already tight there; both lists render it and CSS decides which list shows.
 const IN_PLAY_MIN_WIDTH = 766;
@@ -183,7 +189,7 @@ function Header({ sideNavVisible, setSideNavVisible }) {
         <div className="container-fluid">
           <Marquee className="marqueetext">
             <i className="fa fa-bullhorn mr-6" aria-hidden="true"></i>
-            Welcome To Our New Version Exchange.....{'  '}
+            {MARQUEE_MESSAGE}{'  '}
             <span className="mw100"></span>
           </Marquee>
         </div>
