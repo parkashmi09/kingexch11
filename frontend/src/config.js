@@ -2,13 +2,21 @@
 // host is hardcoded. A missing key resolves to '' rather than a baked-in
 // default, so a bad deploy fails visibly instead of quietly reaching whatever
 // server happened to be compiled into the bundle.
-export const API_URL = import.meta.env.VITE_API_URL || '';
+//
+// A production build always calls the API on its own origin (/api, proxied to
+// the backend by the host: vercel.json + api/proxy.js, or vite preview). The
+// backend's CORS whitelist rejects any other site calling it directly, and a
+// VITE_API_URL left in a host's dashboard would otherwise override
+// .env.production and break every deploy. VITE_API_DIRECT=true opts out, for
+// a domain the backend has whitelisted.
+const DIRECT = !import.meta.env.PROD || import.meta.env.VITE_API_DIRECT === 'true';
+export const API_URL = DIRECT ? import.meta.env.VITE_API_URL || '' : '/api';
 // Socket host falls back to the API host (minus the /api suffix): a missing
 // VITE_SOCKET_URL otherwise resolves to '' and socket.io silently connects to
 // the PAGE origin (e.g. localhost:5173 in dev) — no call ever reaches the
 // server and the header balance never updates in real time.
 export const SOCKET_URL =
-  import.meta.env.VITE_SOCKET_URL || API_URL.replace(/\/api\/?$/, '');
+  (DIRECT && import.meta.env.VITE_SOCKET_URL) || API_URL.replace(/\/api\/?$/, '');
 export const BRAND = import.meta.env.VITE_BRAND || 'tenexch';
 export const SPORTS_STREAM_BASE = import.meta.env.VITE_SPORTS_STREAM_BASE || '';
 export const SCORECARD_BASE = import.meta.env.VITE_SCORECARD_BASE || '';

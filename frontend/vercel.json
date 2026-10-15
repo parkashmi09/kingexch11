@@ -5,6 +5,7 @@
   "outputDirectory": "dist",
   "rewrites": [
     { "source": "/api/:path*", "destination": "/api/proxy?__prefix=api&__path=:path*" },
+    { "source": "/socket.io/", "destination": "/api/proxy?__prefix=socket.io&__path=" },
     { "source": "/socket.io/:path*", "destination": "/api/proxy?__prefix=socket.io&__path=:path*" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
