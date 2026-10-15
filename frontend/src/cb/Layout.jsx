@@ -1,51 +1,60 @@
-import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import { useSelector } from 'react-redux';
-import Header from './layout/Header';
-import Sidebar from './layout/Sidebar';
-import Banner from './layout/Banner';
+import KxHeader from '../kx/header/KxHeader';
+import SideBar from '../kx/SideBar';
+import RightNav from '../kx/RightNav';
+import { ng, KX } from '../kx/ng';
 import Footer from './layout/Footer';
-import MobileFooter from './layout/MobileFooter';
+import BottomNav from '../kx/BottomNav';
 
+const L = ng('kl');
+
+// The reference's fullMarketPage: switched on by a match page (/fullMarket
+// there, /gamedetails here) and off again only by home — so it outlives the
+// match on whatever page comes next, as it does there. It narrows the content
+// column (sideLayout-fullmarket) and nudges the right rail.
+let fullMarketPage = false;
 
 /**
- * The clickbet page chrome.
- *
- * Structure is the reference's exactly: header (+ its mobile strip and the
- * marquee) above a `middlepart` holding the rail, the hero banner, the routed
- * page in `page-wrapper`, then the footer and the phone bottom bar.
- *
- * `page-wrapper-before` is what the reference puts on the wrapper while logged
- * OUT — the stylesheet hangs the logged-out spacing off it — and `mt-0` cancels
- * the wrapper's top margin on the pages that show the banner, since the banner
- * already supplies that gap.
+ * The page chrome, mid-conversion to kingexch111: its app-layout (header, then
+ * left rail | content | right rail, then the bottom bar). `kx` pages are
+ * already kingexch and fill `.content` themselves; the rest still render the
+ * clickbet page inside it (wrapper, footer); `page-wrapper-before` is what
+ * clickbet puts on the wrapper while logged OUT.
  */
-function Layout({ children }) {
+function Layout({ kx = false, children }) {
   const isAuth = useSelector((s) => s.user.isAuthenticated);
-  const [sideNavVisible, setSideNavVisible] = useState(false);
   const { pathname } = useLocation();
-
-  // The hero belongs to the landing page only — the reference drops it (and the
-  // wrapper's `mt-0`) on every other route.
-  const showBanner = pathname === '/' || pathname === '/home';
+  // The reference: `adjust-height` on home/in-play, `adjust-height-100` elsewhere.
+  const home = pathname === '/' || pathname === '/home';
+  if (pathname.startsWith('/gamedetails/')) fullMarketPage = true;
+  if (home) fullMarketPage = false;
 
   return (
-    <>
-      {/* First in the tree, as the reference has it. Styled by clickbet.css,
-          which already bundles react-toastify's stylesheet. */}
+    <div {...L} className="prevent-select">
       <ToastContainer />
-      <Header sideNavVisible={sideNavVisible} setSideNavVisible={setSideNavVisible} />
-      <div className="middlepart">
-        <Sidebar sideNavVisible={sideNavVisible} setSideNavVisible={setSideNavVisible} />
-        {showBanner && <Banner />}
-        <div className={`page-wrapper  ${showBanner ? 'mt-0' : ''} ${isAuth ? '' : 'page-wrapper-before'} `}>
-          {children}
+      <KxHeader />
+      <div {...L} className={`d-flex app-body ${home || pathname === '/inplay' ? 'adjust-height' : 'adjust-height-100'}`}>
+        <div {...L} {...KX} className="sidebar showDesktop hideDekstop">
+          <SideBar />
         </div>
-        <Footer />
-        <MobileFooter />
+        <div {...L} className={`content${fullMarketPage ? ' sideLayout-fullmarket' : ''}`}>
+          {kx ? children : (
+            <>
+              <div className={`page-wrapper ${isAuth ? '' : 'page-wrapper-before'}`}>
+                {children}
+              </div>
+              <Footer />
+            </>
+          )}
+        </div>
+        <div {...L} {...KX} className={`sidebarright hideDekstop${fullMarketPage ? ' sideLayout-fullmarket-right-side' : ''}`} style={{ width: '27vw' }}>
+          <RightNav />
+        </div>
       </div>
-    </>
+      <BottomNav />
+    </div>
   );
 }
 

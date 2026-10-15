@@ -410,14 +410,14 @@ function MobileUserSidebar({ open, onClose, username, balance, exposure, onLogou
                       Casino Results and Set Button Value are shown */}
                   <ul className="navbar-nav">
                     {[
-                      ['/report/accountstatement', 'Account Statement'],
+                      ['/account-statement', 'Account Statement'],
                       ['/report/currentbets', 'Current Bets'],
-                      ['/report/activity', 'Activity Log'],
+                      ['/activity-log', 'Activity Log'],
                       ['/report/casinoresult', 'Casino Results'],
                       ['/report/livecasinoresult', 'Live Casino Bets'],
                       ['/report/sportbookresult', 'SportBook Bets'],
                     ]
-                      .filter(([to]) => !isDemo || ['/report/accountstatement', '/report/currentbets', '/report/casinoresult'].includes(to))
+                      .filter(([to]) => !isDemo || ['/account-statement', '/report/currentbets', '/report/casinoresult'].includes(to))
                       .map(([to, label]) => (
                         <li key={to}>
                           <NavLink
@@ -492,12 +492,12 @@ function HeaderTop() {
             shows to signed-out visitors. */}
         {!isAuth && <li><Link to="/login">Sports Book</Link></li>}
         {/* Lottery has no catalogue of its own — signed in it lands on
-            /othergames/33 (the reference's own id), signed out it sends you to
+            /allsport-highlight/66104 (the reference's own id), signed out it sends you to
             login like the other gated entries. NavLink so the yellow active pill
             lights on the page, same as Exchange / Live Casino / Slot. */}
         <li>
           {isAuth ? (
-            <NavLink to="/othergames/33" className={({ isActive }) => isActive ? 'router-link-exact-active router-link-active' : ''}>
+            <NavLink to="/allsport-highlight/66104" className={({ isActive }) => isActive ? 'router-link-exact-active router-link-active' : ''}>
               Lottery
             </NavLink>
           ) : (
@@ -705,9 +705,9 @@ function MainHeader({ extraClass = '' }) {
               <span className="username">{username}</span>
               <i className="fas fa-caret-down ml-1"></i>
               <div id="user-dropdown" className={`collapse user-dropdown${userDropdown ? ' show' : ''}`}>
-                <Link to="/report/accountstatement">Account Statement</Link>
+                <Link to="/account-statement">Account Statement</Link>
                 <Link to="/report/currentbets">Current Bets</Link>
-                <Link to="/report/activity">Activity Log</Link>
+                <Link to="/activity-log">Activity Log</Link>
                 <Link to="/report/casinoresult">Casino Results</Link>
                 <Link to="/report/livecasinoresult">Live Casino Bets</Link>
                 <Link to="/report/sportbookresult">SportBook Bets</Link>

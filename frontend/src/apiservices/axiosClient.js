@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { API_URL } from '../config';
+import { createSecureChannel } from './secureChannel';
 
 const axiosClient = axios.create({
   baseURL: API_URL,
@@ -39,5 +40,9 @@ axiosClient.interceptors.response.use(
     return Promise.reject(error);
   }
 );
+
+// Every call goes over the API's secure channel (see secureChannel.js).
+export const secureChannel = createSecureChannel({ handshakeUrl: `${API_URL}/cs/handshake` });
+secureChannel.installHttp(axiosClient);
 
 export default axiosClient;

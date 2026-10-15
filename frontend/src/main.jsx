@@ -33,6 +33,51 @@ import './styles/clickbet.css';
 // header of the file.
 import './cb/betslip-legacy.css';
 import './cb/casino-tiles.css';
+// The kingexch111 UI (src/kx), last: the reference loads Bootstrap, then Font
+// Awesome, then its own sheets, and its rules win equal-weight ties against
+// Bootstrap's (e.g. its `hr { opacity: 1 }` over Bootstrap's .25). Imported here
+// rather than from the components, because everything under `./App` is
+// evaluated before the imports above.
+import './kx/theme.css';
+import './kx/css/fa5.css';
+import './kx/css/styles.css';
+import './kx/css/kx-base.css';
+import './kx/css/app-layout.css';
+import './kx/css/app-header.css';
+import './kx/css/app-desktop-header.css';
+import './kx/css/app-header-nav.css';
+import './kx/css/app-side-bar.css';
+import './kx/css/app-right-nav.css';
+import './kx/css/app-dashboard.css';
+import './kx/css/app-markets.css';
+import './kx/css/app-horse-racing.css';
+import './kx/css/app-lottery.css';
+import './kx/css/app-lottery-details.css';
+import './kx/css/app-tips-and-previews.css';
+import './kx/css/app-tips-and-previews-details.css';
+import './kx/css/app-inplay.css';
+import './kx/css/app-sports.css';
+import './kx/css/app-account.css';
+import './kx/css/app-bottom-nav.css';
+import './kx/css/app-market-details.css';
+import './kx/css/app-market-tabs.css';
+import './kx/css/app-betslip.css';
+import './kx/css/owl-carousel-o.css';
+import './kx/css/app-old-casino.css';
+import './kx/css/app-footer-desktop.css';
+import './kx/css/app-loader.css';
+import './kx/css/app-bet-loader.css';
+import './kx/css/app-login-unity.css';
+import './kx/css/my-date-picker.css';
+import './kx/css/app-my-profile.css';
+import './kx/css/app-rolling-commission.css';
+import './kx/css/app-account-statement.css';
+import './kx/css/app-bet-history.css';
+import './kx/css/app-profit-loss.css';
+import './kx/css/app-password-history.css';
+import './kx/css/app-activity-log.css';
+// Temporary: fits the not-yet-converted pages into the layout (see the file).
+import './kx/css/transition.css';
 import './config';
 
 ReactDOM.createRoot(document.getElementById('app')).render(

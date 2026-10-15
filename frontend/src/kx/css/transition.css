@@ -1,0 +1,16 @@
+/* TEMPORARY — delete once every page is kingexch.
+ *
+ * Pages not yet converted render the clickbet page inside app-layout's
+ * `.content`, which already clears the kingexch header and both rails, so
+ * clickbet's own offsets for its old fixed header and 252px rail go. */
+
+.app-body .page-wrapper,
+.app-body .footermain {
+  margin: 0;
+}
+
+/* Without the reference's own width at exactly 992px, the content sizes to its
+   widest child; clickbet's nowrap sliders would make that 200,000px. */
+.app-body .content {
+  min-width: 0;
+}

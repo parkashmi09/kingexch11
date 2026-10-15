@@ -1,5 +1,5 @@
 import { Suspense, useEffect } from 'react';
-import { Routes, Route, Navigate, useLocation, useNavigate, useParams, useNavigationType } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation, useParams, useNavigationType } from 'react-router-dom';
 import BToastContainer from './components/BToast';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchStakeButtonsThunk } from './redux/stakeButtonSlice';
@@ -14,24 +14,32 @@ import Home from './pages/Home';
 // land route by route: the home page renders through CbLayout below, every
 // other route still goes through MainLayout until it is converted too.
 import CbLayout from './cb/Layout';
-import CbHome from './cb/home/Home';
+import Dashboard from './kx/dashboard/Dashboard';
+import Markets from './kx/markets/Markets';
+import MarketDetails from './kx/market/MarketDetails';
+import LiveCasino from './kx/casino/LiveCasino';
+import InPlay from './kx/inplay/InPlay';
+import Sports from './kx/sports/Sports';
+import Account from './kx/account/Account';
+import AccountStatement from './kx/account/AccountStatement';
+import MyProfile from './kx/account/MyProfile';
+import RollingCommission from './kx/account/RollingCommission';
+import BetHistory from './kx/account/BetHistory';
+import ProfitLoss from './kx/account/ProfitLoss';
+import PasswordHistory from './kx/account/PasswordHistory';
+import ActivityLog from './kx/account/ActivityLog';
+import LotteryDetails from './kx/lottery/LotteryDetails';
 import CbCpl from './cb/pages/Cpl';
-import CbEventDetails from './cb/pages/EventDetails';
 import CbRules from './cb/pages/Rules';
-import CbSportPage from './cb/pages/SportPage';
 import CbRaceDetails from './cb/pages/RaceDetails';
-import CbAccountStatement from './cb/report/AccountStatement';
-import CbProfitLoss from './cb/report/ProfitLoss';
-import CbBetHistory from './cb/report/BetHistory';
 import CbUnsettledBet from './cb/report/UnsettledBet';
 import CbSetStake from './cb/report/SetStake';
-import CbChangePassword from './cb/report/ChangePassword';
 import CbResults from './cb/report/Results';
 import CbCasinoLobby from './cb/pages/CasinoLobby';
 import LegacyStyles from './legacyStyles';
 import VirtualCricket from './pages/VirtualCricket';
 import VirtualCricketDetails from './pages/VirtualCricketDetails';
-import Login from './pages/Login';
+import Login from './kx/Login';
 import TwoFactorAuth from './pages/TwoFactorAuth';
 import TermsAndConditions from './pages/TermsAndConditions';
 import ResponsibleGaming from './pages/ResponsibleGaming';
@@ -41,7 +49,6 @@ import CasinoHome from './pages/CasinoHome';
 import SlotHome from './pages/SlotHome';
 import FantasyHome from './pages/FantasyHome';
 import CrashPage from './pages/CrashPage';
-import OtherGames from './pages/OtherGames';
 import { casinoRoutes, reportRoutes, vcasinoRoutes } from './routes';
 import ForcePasswordChange from './components/ForcePasswordChange';
 import useEntranceGlide from './hooks/useEntranceGlide';
@@ -92,11 +99,23 @@ function DetailPage() {
 // ladder markets as cards, the fancy family as its own grouped list.
 function DetailRoute() {
   const { sid } = useParams();
-  return (
-    <CbLayout>
-      {RACING_SIDS.includes(String(sid)) ? <CbRaceDetails /> : <CbEventDetails />}
-    </CbLayout>
-  );
+  if (RACING_SIDS.includes(String(sid))) return <CbLayout><CbRaceDetails /></CbLayout>;
+  return <CbLayout kx><MarketDetails /></CbLayout>;
+}
+
+// The old racing boards' address: racing lists are the reference's
+// /allsport-highlight/7 (horse) and /4339 (greyhound) now.
+function RaceRedirect() {
+  const { sportId } = useParams();
+  return <Navigate to={`/allsport-highlight/${sportId === '65' ? 4339 : 7}`} replace />;
+}
+
+// A My Account page: the kingexch chrome, and home for anyone logged out
+// (the reference's login guard).
+function Authed({ children }) {
+  const isAuth = useSelector((s) => s.user.isAuthenticated);
+  if (!isAuth) return <Navigate to="/" replace />;
+  return <CbLayout kx>{children}</CbLayout>;
 }
 
 // Mobile-only news marquee shown above report boxes and the logged-in casino
@@ -216,10 +235,6 @@ function MainLayout() {
   const isVCasinoPage = location.pathname.startsWith('/vcasino/');
   const isReportPage = location.pathname.startsWith('/report/') || location.pathname.startsWith('/settings/');
   const isCrashPage = location.pathname.startsWith('/crash');
-  // `/othergames/:id` — the top-nav sections with no catalogue of their own
-  // (Lottery is 33). Same chrome as the report pages: header-casino + a merged
-  // center-main-content report-container.
-  const isOtherGamesPage = location.pathname.startsWith('/othergames/');
 
   // Container class mirrors the reference: logged IN → `logged-in`, logged OUT →
   // `tenopenhome` (the open-home / logged-out theme). This applies on EVERY page,
@@ -343,19 +358,6 @@ function MainLayout() {
         </div>
       );
     }
-    if (isOtherGamesPage) {
-      // Reference: `center-main-content report-container` (merged, unlike the
-      // crash page above) > mobile news + upcoming-fixture strips > the panel.
-      return (
-        <div className="center-main-content report-container">
-          <NewsStrip />
-          <UpcomingFixture />
-          <Routes>
-            <Route path="/othergames/:id" element={<OtherGames />} />
-          </Routes>
-        </div>
-      );
-    }
     if (isReportPage) {
       // Fraud Report uses a plain center-main-content in the reference
       const isFraudReport = location.pathname.startsWith('/report/fraud-report');
@@ -404,7 +406,7 @@ function MainLayout() {
           shows on a phone, but its presence is what makes
           `.sidebar-left ~ .main-container` match — remove the element and the
           board loses every margin/padding rule that selector carries. */}
-      {!isCasinoPage && !isReportPage && !isCrashPage && !isOtherGamesPage && <Sidebar />}
+      {!isCasinoPage && !isReportPage && !isCrashPage && <Sidebar />}
       <div className={containerClass}>
         {/* Report/settings pages also use header-casino in the reference —
             `.header-casino ~ .center-main-content` drives the top margin. On
@@ -418,7 +420,7 @@ function MainLayout() {
             (ten-custom.css, max-width:1279px: margin-top 50px + min-height).
             Without header-casino on the header, that rule never matches and the
             shell loses both its top margin and its height. */}
-        <MainHeader extraClass={((isCasinoPage && isAuth) || isSlotPage || isReportPage || isCrashPage || isOtherGamesPage) ? 'header-casino' : ''} />
+        <MainHeader extraClass={((isCasinoPage && isAuth) || isSlotPage || isReportPage || isCrashPage) ? 'header-casino' : ''} />
         <Suspense fallback={null}>{renderContent()}</Suspense>
         {/* Casino promo banners placeholder — sits right before the footer
             after login (reference layout). Casino game pages render their own
@@ -435,21 +437,6 @@ function MainLayout() {
 }
 
 function App() {
-  const navigate = useNavigate();
-
-  // A full page load (refresh / direct URL) on the login page lands on home
-  // instead — login is only reachable via in-app navigation. Runs once at
-  // boot, so clicking the Login button (SPA navigation) is unaffected.
-  useEffect(() => {
-    if (window.location.pathname === '/login') {
-      // No exception for a pending first-login change: userSlice drops that
-      // session at module load, so by the time this runs the user is simply
-      // logged out and belongs on the home page like any other visitor.
-      navigate('/', { replace: true });
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   // Mirror the reference: keep the CSS var `--app-height` on <html> in sync with
   // the real viewport height (px), so `height: var(--app-height)` rules avoid the
   // mobile 100vh / address-bar problem. Updated on load and resize.
@@ -487,20 +474,33 @@ function App() {
           CbLayout's children rather than through a nested <Routes>: the parent
           match is exact, so a nested router would see an empty remaining path
           and render the "/" branch on every one of them. */}
-      <Route path="/" element={<CbLayout><CbHome /></CbLayout>} />
-      <Route path="/home" element={<CbLayout><CbHome /></CbLayout>} />
+      <Route path="/" element={<CbLayout kx><Dashboard /></CbLayout>} />
+      <Route path="/home" element={<CbLayout kx><Dashboard /></CbLayout>} />
+      <Route path="/allsport-highlight/:sportId" element={<CbLayout kx><Markets /></CbLayout>} />
+      <Route path="/lottery/:sportId/:eventId" element={<CbLayout kx><LotteryDetails /></CbLayout>} />
+      <Route path="/inplay" element={<CbLayout kx><InPlay /></CbLayout>} />
+      <Route path="/sports" element={<CbLayout kx><Sports /></CbLayout>} />
+      <Route path="/account" element={<CbLayout kx><Account /></CbLayout>} />
+      <Route path="/livecasino" element={<CbLayout kx><LiveCasino /></CbLayout>} />
       <Route path="/cpl" element={<CbLayout><CbCpl /></CbLayout>} />
       <Route path="/rules" element={<CbLayout><CbRules /></CbLayout>} />
-      <Route path="/game/:sportId" element={<CbLayout><CbSportPage /></CbLayout>} />
-      <Route path="/race/:sportId" element={<CbLayout><CbSportPage /></CbLayout>} />
-      {/* The account menu, at the reference's own paths — one page each, in
-          the order the panel lists them. */}
-      <Route path="/accountstatement" element={<CbLayout><CbAccountStatement /></CbLayout>} />
-      <Route path="/profitloss" element={<CbLayout><CbProfitLoss /></CbLayout>} />
-      <Route path="/bethistory" element={<CbLayout><CbBetHistory /></CbLayout>} />
+      <Route path="/race/:sportId" element={<RaceRedirect />} />
+      {/* The My Account menu, at the reference's own paths (it requires a
+          login there); the app's older addresses for them redirect. */}
+      <Route path="/myprofile" element={<Authed><MyProfile /></Authed>} />
+      <Route path="/rolling-commission" element={<Authed><RollingCommission /></Authed>} />
+      <Route path="/account-statement" element={<Authed><AccountStatement /></Authed>} />
+      <Route path="/bet-history" element={<Authed><BetHistory /></Authed>} />
+      <Route path="/profit-loss" element={<Authed><ProfitLoss /></Authed>} />
+      <Route path="/password-history" element={<Authed><PasswordHistory /></Authed>} />
+      <Route path="/activity-log" element={<Authed><ActivityLog /></Authed>} />
+      {[['/accountstatement', '/account-statement'], ['/report/accountstatement', '/account-statement'], ['/bethistory', '/bet-history'],
+        ['/profitloss', '/profit-loss'], ['/changepassword', '/myprofile'], ['/report/activity', '/activity-log']].map(([from, to]) => (
+        <Route key={from} path={from} element={<Navigate to={to} replace />} />
+      ))}
+      {/* The other old account pages, still on the clickbet UI. */}
       <Route path="/unsettledbet" element={<CbLayout><CbUnsettledBet /></CbLayout>} />
       <Route path="/setstake" element={<CbLayout><CbSetStake /></CbLayout>} />
-      <Route path="/changepassword" element={<CbLayout><CbChangePassword /></CbLayout>} />
       <Route path="/results" element={<CbLayout><CbResults /></CbLayout>} />
 
       {/* The casino lobbies, at the reference's /casino/:id. Only the ids in

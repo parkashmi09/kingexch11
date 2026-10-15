@@ -11,39 +11,6 @@ export const getUserAccountStatement = async (filters) => {
 };
 
 /**
- * Every bet the user had on one market, for a SPORTS statement row's Result
- * popup, plus the market's winner and header.
- * @param {Object} ids - { matchId, eventId } — both from the statement row
- *   (`matchId` is the market id / mid, `eventId` the match id / gmid)
- */
-export const getStatementMarketBets = async ({ matchId, eventId }) => {
-  const response = await api.post('/user/account-statement-v2/bets', { matchId, eventId });
-  return response.data;
-};
-
-/**
- * Fetch account statement via admin endpoint (supports user search).
- * @param {Object} filters - { fromDate, toDate, page, limit, reportType }
- */
-/**
- * Every bet the user had on one casino ROUND, for a CASINO statement row's
- * Result popup, plus the round's winner and header. Purpose-built for the
- * modal: each bet already carries `side`, `win` and `deleted`, and `winner`
- * falls back to a live provider lookup when the round isn't in casinoresult.
- * @param {Object} ids - { roundId } from the statement row; `betId` is the
- *   fallback for legacy rows whose roundId is null.
- */
-export const getStatementCasinoBets = async ({ roundId, betId }) => {
-  const response = await api.post('/user/account-statement-v2/casino-bets', { roundId, betId });
-  return response.data;
-};
-
-export const getAccountStatement = async (filters) => {
-  const response = await api.post('/admin/reports/accountstatement', filters);
-  return response.data;
-};
-
-/**
  * Fetch current sports bets for the logged-in user.
  * @param {Object} params - { page, limit, search, betType }
  */

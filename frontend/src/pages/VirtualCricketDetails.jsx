@@ -613,7 +613,7 @@ function VirtualCricketDetails() {
   useEffect(() => {
     if (!gmid || !user) return;
     const userId = user?.user_id || user?.id;
-    if (!userId || user?.username === 'Demo') return;
+    if (!userId || user?.email === 'demo@mail.com') return;
     dispatch(fetchMatchedBetsThunk({ eventId: gmid, userId }));
     const iv = setInterval(() => dispatch(fetchMatchedBetsThunk({ eventId: gmid, userId })), 5000);
     const onPlaced = () => dispatch(fetchMatchedBetsThunk({ eventId: gmid, userId }));

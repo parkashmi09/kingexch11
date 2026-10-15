@@ -1,0 +1,91 @@
+/* What the kingexch components get from OUTSIDE their own stylesheets.
+ *
+ * 1. Inheritance. In the reference every component sits under a <body> styled
+ *    by Bootstrap 5.3 and styles.css (`body { font-family: Tahoma, Helvetica,
+ *    sans-serif !important; font-size: 14px; -webkit-font-smoothing:
+ *    antialiased }`). Our <body> still belongs to the old UI, so each kingexch
+ *    root re-establishes what that body would have passed down — the outermost
+ *    one only: a kingexch component inside another (the bet slip in a market
+ *    table cell) inherits from its parent there, as it does in the reference.
+ *
+ * 2. The global styles.css rules css/styles.css (generated) cannot carry at
+ *    the right weight: the FA 4 pins below. */
+
+[data-kx]:not(:where([data-kx] *)) {
+  font-family: Tahoma, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: start;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* The headers' .site-header is position: fixed with no `top`, so it sits at its
+   static position — y = 0 in the reference, where nothing precedes it. Here the
+   old layout below it still has a top margin (clickbet's .page-wrapper, 98px
+   at 992px), and with nothing in flow before it that margin collapsed up
+   through #app and carried the header's static position down with it. A block
+   formatting context on #app keeps the margin inside; nothing else moves. */
+#app:has([data-kx]) {
+  display: flow-root;
+}
+
+/* FA 5 is loaded after FA 4 in the reference, so a bare `.fa` draws with FA 5;
+   styles.css pins these icons back to FA 4. (The [data-kx] prefix matches
+   the weight of fa5.css's `[data-kx] .fa` rule, as the reference's equal-weight
+   rules are decided by order.) */
+[data-kx] .fa-sign-in,
+[data-kx] .fa-arrow-right {
+  font-family: fontawesome;
+  font-weight: 400;
+}
+
+@media screen and (max-width: 992px) {
+  [data-kx] .fa-cog {
+    font-family: fontawesome;
+  }
+}
+
+/* Bootstrap: the reference runs 5.3.0-alpha3, whose tables are transparent and
+   take the body colour; 5.3.8 paints them var(--bs-body-bg) in the emphasis
+   colour. Its alpha3 values, back on every kingexch table. */
+[data-kx] .table {
+  --bs-table-color: var(--bs-body-color);
+  --bs-table-bg: transparent;
+  --bs-table-striped-color: var(--bs-body-color);
+  --bs-table-active-color: var(--bs-body-color);
+  --bs-table-hover-color: var(--bs-body-color);
+}
+
+/* alpha3's cell rule sets no colour, so a cell takes its table's (a component
+   rule often colours the table); 5.3.8's paints every cell itself, and leaves
+   the table to inherit. Both at Bootstrap's own weight, so component rules on
+   the table and cells still win. */
+:where([data-kx]) .table {
+  color: var(--bs-table-color);
+}
+
+:where([data-kx]) .table > :not(caption) > * > * {
+  color: inherit;
+}
+
+/* The dashboard's highlights header: Angular puts its <th>s straight into
+   <thead>, with no <tr>, so two rules that reach them through a row never
+   match in the reference: styles.css's `table thead tr th { min-width: 99px }`
+   (it widened the pin column to 99px), and Bootstrap's `.table>:not(caption)>*>*`
+   cell rule, which lands one level down, on each th's <span>, instead. React
+   needs the <tr>; these put both back where the reference has them. */
+[data-kx] .dashboard-custom-table > thead > tr > th {
+  min-width: auto;
+  color: inherit;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+[data-kx] .dashboard-custom-table > thead > tr > th > * {
+  padding: .5rem;
+  background-color: var(--bs-table-bg);
+  border-bottom-width: var(--bs-border-width);
+  box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
+}

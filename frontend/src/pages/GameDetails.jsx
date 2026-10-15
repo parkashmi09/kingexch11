@@ -225,7 +225,7 @@ function GameDetails() {
   useEffect(() => {
     if (!gmid || !user) return;
     const userId = user?.user_id || user?.id;
-    if (!userId || user?.username === 'Demo') return;
+    if (!userId || user?.email === 'demo@mail.com') return;
     dispatch(fetchMatchedBetsThunk({ eventId: gmid, userId }));
     const iv = setInterval(() => dispatch(fetchMatchedBetsThunk({ eventId: gmid, userId })), 5000);
     // Instant refresh right after a bet completes (poll alone is too slow)
@@ -240,7 +240,7 @@ function GameDetails() {
   useEffect(() => {
     if (!gmid || !user) return;
     const userId = user?.user_id || user?.id;
-    if (!userId || user?.username === 'Demo') return;
+    if (!userId || user?.email === 'demo@mail.com') return;
     let alive = true;
     const fetchExp = () => {
       getMatchExposures(String(gmid), userId)

@@ -49,7 +49,7 @@ export default function BToastContainer() {
     // This is not defensive padding — it fixes a toast that never went away.
     // React runs mount effects in tree order, then (StrictMode, and on any
     // remount) runs every cleanup and every effect a second time. A page that
-    // toasts on arrival — /othergames/33 — fires during that same first pass,
+    // toasts on arrival fires during that same first pass,
     // so its dismiss timer is created BEFORE this cleanup runs and is killed by
     // it. The second pass re-registers the listener, but the toast is already in
     // toastsRef, so the dedupe drops the repeat and no new timer is ever set:

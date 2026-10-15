@@ -9,10 +9,11 @@ import { calculateSingleBetPLValue, calculateMatchOddsResults } from './betHelpe
 const KEY = 'demo_state';
 const TTL_MS = 24 * 60 * 60 * 1000; // stale demo state re-seeds after 24h
 
-export const DEMO_STARTING_BALANCE = 1500;
+// The reference's demo account ("exchange") shows Main PTI 0.00.
+export const DEMO_STARTING_BALANCE = 0;
 
 export function isDemoUser(user) {
-  return !user || user.username === 'Demo' || user.email === 'demo@mail.com';
+  return !user || user.email === 'demo@mail.com';
 }
 
 export function isDemoToken() {
@@ -34,6 +35,7 @@ export function seedDemoState() {
         remark: 'Opening Balance',
       },
     ],
+    start: DEMO_STARTING_BALANCE,
     createdAt: Date.now(),
   };
   saveDemoState(state);
@@ -47,6 +49,7 @@ export function loadDemoState() {
     const state = JSON.parse(raw);
     if (!state || typeof state.balance !== 'number') return null;
     if (Date.now() - (state.createdAt || 0) > TTL_MS) return null; // stale → re-seed
+    if (state.start !== DEMO_STARTING_BALANCE) return null; // seeded at an old balance → re-seed
     return state;
   } catch {
     return null;
@@ -237,10 +240,19 @@ export function getDemoCasinoBets(mid) {
   return state.casinoBets.filter((b) => String(b.mid) === String(mid));
 }
 
-/** Demo statements for the Account Statement page. */
-export function getDemoStatements() {
-  const state = loadDemoState();
-  return state ? [...state.statements].reverse() : [];
+/**
+ * Each demo login, for the Activity Log (newest first). Like the reference's
+ * rows whose lookup failed, the address and location read "0": the app has
+ * no way to know them.
+ */
+export function recordDemoLogin() {
+  const state = getOrSeedDemoState();
+  const entry = { logMessage: 'Login Successful', createdAt: new Date().toISOString(), ip: '0', isp: '0', city: '0', state: '0', country: '0' };
+  saveDemoState({ ...state, logins: [entry, ...(state.logins || [])] });
+}
+
+export function getDemoLogins() {
+  return loadDemoState()?.logins || [];
 }
 
 /** All open demo bets — for the Current Bets page. */

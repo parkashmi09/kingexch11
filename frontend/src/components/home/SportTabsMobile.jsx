@@ -7,9 +7,9 @@ const TABS = [
   { label: 'Crash', to: '/crash', className: 'aviator', icon: true, disabledLoggedOut: true },
   // Sports Book is display-only: visible logged-out but click does nothing
   { label: 'Sports Book', to: '/home', hideAfterLogin: true, disabledLoggedOut: true },
-  // Signed in, Lottery lands on the reference's /othergames/33; signed out it is
+  // Signed in, Lottery lands on the reference's /allsport-highlight/66104; signed out it is
   // inert like Crash and Exchange, so `to` is never followed in that state.
-  { label: 'Lottery', to: '/othergames/33', disabledLoggedOut: true },
+  { label: 'Lottery', to: '/allsport-highlight/66104', disabledLoggedOut: true },
   { label: 'Exchange', to: '/home', disabledLoggedOut: true },
   { label: 'Live Casino', to: '/o_casino' },
   { label: 'Slot', to: '/o_slot' },

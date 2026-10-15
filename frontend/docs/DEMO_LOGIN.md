@@ -6,7 +6,9 @@
 ## Goal
 
 A full client-side "Demo" login: no backend token, static starting balance
-(1500), balance/exposure maintained through a local statement ledger, working
+(1500 when this was written; now 0, user "exchange", matching the kingexch111
+reference's demo account — see DEMO_STARTING_BALANCE in src/utils/demoStore.js),
+balance/exposure maintained through a local statement ledger, working
 sports placebet + casino placebet, and refresh-safe persistence.
 
 ---
@@ -22,7 +24,7 @@ sports placebet + casino placebet, and refresh-safe persistence.
 | Header Demo button | ❌ does nothing | `src/components/layout/Header.jsx` (logged-out view) |
 | Casino placebet demo path | ❌ missing — demo bet hits real API | `src/hooks/casino/useCasinoBet.js` |
 | Persistence across refresh | ❌ redux-only, resets to 1500 | — |
-| Demo statements / reports | ❌ report pages call real APIs → 401 | `src/pages/AccountStatement.jsx` etc. |
+| Demo statements / reports | ✅ My Account pages read as the reference demo | `src/kx/account/*` |
 | 401 bounce bug: `demo-token` counts as `hadToken` → any 401 redirects to `/login` | ❌ must exempt | `src/apiservices/axiosClient.js` |
 | `isDemoUser()` helper | ⚠ duplicated inside PlaceBetPanel — extract to shared util | `src/utils/` |
 
@@ -92,10 +94,13 @@ Reference implementation to port from: `old-code/d99-frontend/src/utils/demoUtil
   `demo_state` so the "My Bet" sidebar shows them.
 
 ### 5. Report pages demo read  — ◐ partial (2026-07-10: AccountStatement done)
-- On Submit, demo users render from `demo_state` instead of the API:
-  - AccountStatement ← `statements` (date-range filtered);
-  - CurrentBets ← open `matchedBets` + `casinoBets`.
-- Other reports (ActivityLog, LiveCasinoBets, SportBookBets, FraudReport):
+- The My Account pages (`src/kx/account/`, 2026-10-15) read as the
+  reference's demo account does: Account Statement, Bets History, Profit &
+  Loss, Rolling Commission and Password History show "No data!"; My Profile
+  shows exchange / 0 / 100000; Activity Log lists this browser's demo logins
+  (`demo_state.logins`, recorded by `recordDemoLogin()`, address "0").
+- CurrentBets ← open `matchedBets` + `casinoBets`.
+- Other reports (LiveCasinoBets, SportBookBets, FraudReport):
   empty + "No Record Found." is acceptable.
 
 ### 6. Phase 2 (optional) — settlement simulation  — ☐ not started

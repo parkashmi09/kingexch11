@@ -1,6 +1,6 @@
 import { io } from 'socket.io-client';
 import { SOCKET_URL } from '../config';
-import api from './axiosClient';
+import api, { secureChannel } from './axiosClient';
 
 // Socket connection
 let socket = null;
@@ -27,7 +27,8 @@ export const initializeSocket = (token, userId) => {
   socketUserId = String(userId);
 
   socket = io(SOCKET_URL, {
-    auth: { token },
+    // A callback, so each (re)connect also carries the secure-channel sid.
+    auth: secureChannel.socketAuth({ token }),
     path: '/socket.io',
     // Stay on long-polling instead of upgrading to a websocket. The proxy in
     // front of the API accepts the upgrade and then drops the frames, so the
@@ -46,6 +47,8 @@ export const initializeSocket = (token, userId) => {
     reconnectionDelay: 1000,
     reconnectionDelayMax: 5000,
   });
+  // Server pushes arrive encrypted; this decrypts them for every listener.
+  secureChannel.secureSocket(socket);
 
   // Fires on the initial connect AND on every successful reconnect, so the
   // socket always (re)joins its `user_<id>` room after a drop.

@@ -14,14 +14,16 @@ import { telegram2faService } from '../apiservices/telegram2faService';
 import { getOrSeedDemoState, saveDemoState, loadDemoState, clearDemoState } from '../utils/demoStore';
 
 const demoUser = {
-  username: 'Demo',
+  username: 'exchange', // the reference's demo account name
   email: 'demo@mail.com',
   role: 'User',
 };
 
 // Refresh in demo mode: rehydrate balance/exposure from the local demo store
-// (setDemoUser only runs on the Demo button click, not on page load).
-const _demoBoot = localStorage.getItem('token') === 'demo-token' ? loadDemoState() : null;
+// (setDemoUser only runs on the Demo button click, not on page load). A demo
+// state that expired (24h) re-seeds at the starting balance — demo never
+// fetches one from the server, so a null here left the header empty for good.
+const _demoBoot = localStorage.getItem('token') === 'demo-token' ? getOrSeedDemoState() : null;
 
 // First login: the account still has the password the upline handed out, so the
 // change is mandatory. It has to survive a reload — the token is already in
@@ -40,7 +42,8 @@ if (localStorage.getItem(MUST_CHANGE_KEY) === '1') {
 }
 
 const initialState = {
-  user: JSON.parse(localStorage.getItem('user')) || null,
+  // A demo session always shows the current demo identity (older ones stored "Demo").
+  user: localStorage.getItem('token') === 'demo-token' ? demoUser : JSON.parse(localStorage.getItem('user')) || null,
   isAuthenticated: !!(JSON.parse(localStorage.getItem('user')) && localStorage.getItem('token')),
   mustChangePassword: localStorage.getItem(MUST_CHANGE_KEY) === '1',
   loading: false,
@@ -276,7 +279,7 @@ const userSlice = createSlice({
       state.realTimeConnected = action.payload;
     },
     updateDemoBalanceAndExposure: (state, action) => {
-      if (!state.isAuthenticated || (state.user && state.user.username === 'Demo')) {
+      if (!state.isAuthenticated || (state.user && state.user.email === 'demo@mail.com')) {
         // Balance stays at the seed value. Payload carries the ABSOLUTE
         // exposure (≤ 0) recomputed by demoStore from the worst-case book —
         // NOT an increment, so offsetting bets on one market don't double-count.
