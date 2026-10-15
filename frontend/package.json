@@ -9,9 +9,7 @@
     "prebuild": "npm run sync-messages",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "sync-assets": "node scripts/download-assets.mjs",
-    "sync-slot-icons": "node scripts/sync-slot-icons.mjs",
+    "preview": "vite preview",
     "sync-messages": "node scripts/sync-messages.mjs"
   },
   "dependencies": {

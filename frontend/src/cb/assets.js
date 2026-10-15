@@ -21,9 +21,6 @@ export const user = (file) => `/newtheme/${BRAND}/user/${file}`;
 /** Logged-out banners + bonus strip. */
 export const login = (file) => `/newtheme/${BRAND}/login/${file}`;
 
-/** Home hero slides. Separate desktop and mobile crops, picked by viewport. */
-export const banner = (file) => `/banners/${file}`;
-
 /** Odds-row market badges (bookmaker / fancy / tv). */
 export const oddsIcon = (file) => `/newtheme/${THEME}/user/${file}`;
 

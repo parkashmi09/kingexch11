@@ -9,7 +9,6 @@ import { HeaderTop, MainHeader } from './components/layout/Header';
 import Sidebar from './components/layout/Sidebar';
 import Footer from './components/layout/Footer';
 import UpcomingFixture from './components/home/UpcomingFixture';
-import Home from './pages/Home';
 // The clickbet UI. It ships as its own tree under src/cb so the rebuild can
 // land route by route: the home page renders through CbLayout below, every
 // other route still goes through MainLayout until it is converted too.
@@ -29,12 +28,9 @@ import ProfitLoss from './kx/account/ProfitLoss';
 import PasswordHistory from './kx/account/PasswordHistory';
 import ActivityLog from './kx/account/ActivityLog';
 import LotteryDetails from './kx/lottery/LotteryDetails';
-import CbCpl from './cb/pages/Cpl';
-import CbRules from './cb/pages/Rules';
 import CbRaceDetails from './cb/pages/RaceDetails';
 import CbUnsettledBet from './cb/report/UnsettledBet';
 import CbSetStake from './cb/report/SetStake';
-import CbResults from './cb/report/Results';
 import CbCasinoLobby from './cb/pages/CasinoLobby';
 import LegacyStyles from './legacyStyles';
 import VirtualCricket from './pages/VirtualCricket';
@@ -43,8 +39,6 @@ import Login from './kx/Login';
 import TwoFactorAuth from './pages/TwoFactorAuth';
 import TermsAndConditions from './pages/TermsAndConditions';
 import ResponsibleGaming from './pages/ResponsibleGaming';
-import GameDetails from './pages/GameDetails';
-import RacingDetails from './pages/RacingDetails';
 import CasinoHome from './pages/CasinoHome';
 import SlotHome from './pages/SlotHome';
 import FantasyHome from './pages/FantasyHome';
@@ -78,18 +72,7 @@ function CasinoGameEntranceGlide() {
   return null;
 }
 
-// The sidebar links every sport — racing included — at /gamedetails/{etid}/{gmid},
-// but racing's feed and layout share nothing with a cricket/football match, so
-// horse racing takes its own page. Greyhound (65) stays on GameDetails: its
-// feed ships no silk/jockey/trainer data and the reference gives it a plain
-// back/lay grid (market-13, rendered by Market13Block off the market's dtype),
-// so it needs none of RacingDetails' silk rows or COMBINED slip.
 const RACING_SIDS = ['10', '65'];
-
-function DetailPage() {
-  const { sid } = useParams();
-  return RACING_SIDS.includes(String(sid)) ? <RacingDetails /> : <GameDetails />;
-}
 
 // Match details, split by what the sport's card actually looks like.
 //
@@ -212,7 +195,7 @@ function MainLayout() {
     }
     window.scrollTo(0, 0);
   }, [location.key, navigationType]);
-  const isDetailPage = location.pathname.startsWith('/gamedetails') || location.pathname.startsWith('/tp-virtual-cricket/');
+  const isDetailPage = location.pathname.startsWith('/tp-virtual-cricket/');
   // /o_slot shares the casino list's page chrome exactly — the reference dumps
   // both pages with the same center-main-content > center-container wrapper —
   // so it rides the same branch instead of getting a near-duplicate of it.
@@ -301,7 +284,6 @@ function MainLayout() {
         <div className={`center-main-content${isAuth ? '' : ' center-home-content'}`}>
           <UpcomingFixture />
           <Routes>
-            <Route path="/gamedetails/:sid/:gmid" element={<DetailPage />} />
             {/* Virtual cricket rounds open on their own route (reference:
                 /tp-virtual-cricket/4/gmid) with their own named component */}
             <Route path="/tp-virtual-cricket/:sid/:gmid" element={<VirtualCricketDetails />} />
@@ -378,17 +360,9 @@ function MainLayout() {
     return (
       <div className="center-main-content center-home-content">
         <div className="center-container">
-          {/* key={location.key} → Home remounts on EVERY navigation to a home route
-              (from login, gamedetails, casino, report, or anywhere), so the load
-              choreography (cascade / logout sequence) re-runs each time — identical
-              to the login→/home flow. A new history entry = a new location.key;
-              staying on the page (tab clicks, redux updates) keeps the same key, so
-              those don't remount. */}
           <Routes>
-            <Route path="/home" element={<Home key={location.key} />} />
             {/* Standalone Virtual Cricket board (Dim/e-cricket leagues only) */}
             <Route path="/virtual-cricket" element={<VirtualCricket />} />
-            <Route path="/" element={<Home key={location.key} />} />
           </Routes>
         </div>
       </div>
@@ -482,8 +456,6 @@ function App() {
       <Route path="/sports" element={<CbLayout kx><Sports /></CbLayout>} />
       <Route path="/account" element={<CbLayout kx><Account /></CbLayout>} />
       <Route path="/livecasino" element={<CbLayout kx><LiveCasino /></CbLayout>} />
-      <Route path="/cpl" element={<CbLayout><CbCpl /></CbLayout>} />
-      <Route path="/rules" element={<CbLayout><CbRules /></CbLayout>} />
       <Route path="/race/:sportId" element={<RaceRedirect />} />
       {/* The My Account menu, at the reference's own paths (it requires a
           login there); the app's older addresses for them redirect. */}
@@ -501,7 +473,6 @@ function App() {
       {/* The other old account pages, still on the clickbet UI. */}
       <Route path="/unsettledbet" element={<CbLayout><CbUnsettledBet /></CbLayout>} />
       <Route path="/setstake" element={<CbLayout><CbSetStake /></CbLayout>} />
-      <Route path="/results" element={<CbLayout><CbResults /></CbLayout>} />
 
       {/* The casino lobbies, at the reference's /casino/:id. Only the ids in
           cb/casino/lobbies.js are pages; anything else falls back to home. */}
