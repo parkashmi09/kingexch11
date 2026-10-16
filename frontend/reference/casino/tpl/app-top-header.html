@@ -1,0 +1,225 @@
+<ng-if fn="lme">
+  <app-loader></app-loader>
+</ng-if>
+<ng-if fn="cme">
+  <app-side-nav-bets [newItemEvent] (newItemEvent)>
+  </app-side-nav-bets>
+</ng-if>
+<div class="site-header app-header">
+  <div class="before-login-items">
+    <div class="site-logo-con" style="display: flex; align-items: center">
+      <ng-if fn="ume">
+        <img class="site-logo" alt style="cursor: pointer" [src] [click] (click)>
+        </img>
+      </ng-if>
+      <ng-if fn="dme">
+        <div class="site-logo"></div>
+      </ng-if>
+      <div class="col col-lg-4 col-xl-4 text-start exchangeList" [ngClass]>
+        <div class="Fancy-marketCategory position-relative">
+          <ul class="scrollContainer" id="scrollContainer">
+            <li class="Fancy-marketCategoryList exch-nav-item" [ngClass] [click] (click)>
+              <a>
+                 LOBBY 
+              </a>
+            </li>
+            <ng-for fn="pme">
+              <ng-container>
+                <li class="Fancy-marketCategoryList exch-nav-item" [ngClass] [click] (click)>
+                  <a>
+                    {{ }}
+                  </a>
+                </li>
+              </ng-container>
+            </ng-for>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="login-signup-uname-pass">
+      <ul class="desktopviewButton hideDekstop showDekstop" style="position: relative">
+        <li>
+          <ng-if fn="vme">
+            <div class="searchIconDiv me-2 ng-input 456456" style="position: absolute; left: -18.5rem; top: 3px" [ngClass]>
+              <i class="fa fa-search searchIcon" aria-hidden="true"></i>
+              <input class="form-control searchbar" type="text" placeholder aria-label="Search" id="myInput" autocomplete="OFF" [ngModel] [placeholder] [ngClass] [ngModelChange] [keyup] [focus] (ngModelChange) (keyup) (focus)>
+              </input>
+              <ng-if fn="hme">
+                <span class="searchIconCross" aria-hidden="true" id="myClose" [click] (click)>
+                  ×
+                </span>
+              </ng-if>
+              <ng-if fn="gme">
+                <div class="searchBox" style="position: absolute; left: 0; top: 23.5px">
+                  <div class="scrollSearchBox">
+                    <ul class="search-game-ul" style="margin-bottom: 0px">
+                      <ng-for fn="mme">
+                        <li>
+                          <a style="width: 100%; display: block" [click] (click)>
+                            <div class="d-flex justify-content-between w-100">
+                              <div class="search-game-name d-flex">
+                                <b>
+                                  {{ }}
+                                </b>
+                              </div>
+                              <div class="text-end">
+                                {{ }}
+                              </div>
+                            </div>
+                            <div class="game-teams w-100">
+                              {{ }}
+                            </div>
+                          </a>
+                        </li>
+                      </ng-for>
+                      <ng-if fn="fme">
+                        <li class="no-item-founds">
+                          <a>
+                            No items found
+                          </a>
+                        </li>
+                      </ng-if>
+                    </ul>
+                  </div>
+                </div>
+              </ng-if>
+            </div>
+          </ng-if>
+        </li>
+        <li class="search float-left">
+          <a [click] (click)>
+            <i class="fas fa-search-plus" id="searchiconDesktopID"></i>
+          </a>
+        </li>
+        <ng-if fn="kme">
+          <li class="float-left account margin-setting">
+            <a class="rules-link m-r-5" data-bs-toggle="modal" data-bs-target="#rulesModal">
+              <b>
+                Rules
+              </b>
+            </a>
+          </li>
+        </ng-if>
+      </ul>
+      <ng-if fn="Cme">
+        <div class="Myaccount-after-login">
+          <div class="user-blnc">
+            <ng-if fn="bme">
+              <div class="loadingBalance">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </ng-if>
+            <ng-if fn="xme">
+              <div class="balance" style="text-align: center">
+                <p class="pti-ic" style="display: block">
+                   Main 
+                  <strong>
+                    PTI 
+                    <span class="userTotalBalance">
+                      {{ }}
+                    </span>
+                  </strong>
+                </p>
+                <p class="exp-topcount">
+                  Exposure 
+                  <a class="text-white mouse-pointer" data-bs-toggle="modal" data-bs-target="#exposureModals" [click] (click)>
+                    <strong>
+                      (
+                      <span class="exp-red userTotalExposure">
+                        {{ }}
+                      </span>
+                      ) 
+                    </strong>
+                  </a>
+                </p>
+              </div>
+            </ng-if>
+          </div>
+          <div class="login-refresh-MAcnt-btn">
+            <span class="head-refresh">
+              <a id="menuRefresh" style="cursor: pointer" [click] (click)>
+                <i class="fas fa-undo-alt"></i>
+              </a>
+            </span>
+            <a class="a-referesh" href="javascript:;" title="Setting"></a>
+          </div>
+          <div class="myaccnt hidden-xs" placement="bottom right">
+            <a class="nav-link My-acc-font" aria-haspopup="true" data-bs-toggle="dropdown" id="accountPopup" role="button" aria-expanded="false" style="cursor: pointer">
+              <i class="fas fa-user"></i>
+              My Account
+              <i class="fas fa-sort-down" style="position: relative; top: -2px"></i>
+            </a>
+            <ul class="dropdown-menu align">
+              <div class="dropdown-header text-left">
+                <strong>
+                  {{ }}
+                </strong>
+              </div>
+              <a class="dropdown-item" [click] (click)>
+                My Profile
+              </a>
+              <a class="dropdown-item" [click] (click)>
+                Rolling Commission
+              </a>
+              <a class="dropdown-item" [click] (click)>
+                Account Statement
+              </a>
+              <a class="dropdown-item" [click] (click)>
+                Bets History
+              </a>
+              <a class="dropdown-item" [click] (click)>
+                Profit & Loss
+              </a>
+              <a class="dropdown-item" [click] (click)>
+                Password History
+              </a>
+              <a class="dropdown-item" [click] (click)>
+                Activity Log
+              </a>
+              <a class="dropdown-item drp-logout">
+                <button class="btn btn-primary logout-btn" [click] (click)>
+                  LOGOUT 
+                  <i class="fa fa-sign-out-alt" aria-hidden="true"></i>
+                </button>
+              </a>
+            </ul>
+          </div>
+        </div>
+      </ng-if>
+      <ng-if fn="wme">
+        <div class="login-signup">
+          <ng-if fn="Ame">
+            <button class="btn login me-1 222" [click] (click)>
+              <b style="width: 33px; height: 18px">
+                 Login 
+              </b>
+              <i class="fa fa-sign-in"></i>
+            </button>
+          </ng-if>
+          <ng-if fn="Ime">
+            <button class="btn login me-1 111" data-bs-toggle="modal" data-bs-target="#ageconfirmationModal">
+              <b style="width: 33px; height: 18px">
+                Login
+              </b>
+              <i class="fa fa-sign-in ms-1"></i>
+            </button>
+          </ng-if>
+        </div>
+      </ng-if>
+      <ng-if fn="Pme">
+        <span class="err-invalid"></span>
+      </ng-if>
+    </div>
+  </div>
+</div>
+<app-header-nav class="hideMobile"></app-header-nav>
+

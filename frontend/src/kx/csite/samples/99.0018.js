@@ -1,0 +1,142 @@
+// 99.0018 DRAGON TIGER: the markets casino.kingexch111.com showed for this table,
+// captured from the reference (UI only: the backend replaces it with the live table).
+export default {
+  game: {
+    status: 'SUSPEND',
+    roundId: "9181510175141",
+    cards: {"DRAGON":{"card_1":"0"},"TIGER":{"card_1":"0"}},
+    marketArr: [
+      {
+        marketId: '9181510175142', marketName: 'WINNER', min: 100, max: 100000, status: 'ACTIVE',
+        runners: [
+          { selectionId: '91815101751421', status: 'ACTIVE', price: { back: [{ price: 2, size: 500000 }], lay: [] } },
+          { selectionId: '91815101751422', status: 'ACTIVE', price: { back: [{ price: 11, size: 500000 }], lay: [] } },
+          { selectionId: '91815101751423', status: 'ACTIVE', price: { back: [{ price: 2, size: 500000 }], lay: [] } },
+        ],
+        runnersName: {
+          '91815101751421': 'DRAGON',
+          '91815101751422': 'TIE',
+          '91815101751423': 'TIGER',
+        },
+      },
+      {
+        marketId: '9181510175143', marketName: 'DRAGON ODD/EVEN', min: 100, max: 100000, status: 'ACTIVE',
+        runners: [
+          { selectionId: '91815101751431', status: 'ACTIVE', price: { back: [{ price: 1.81, size: 500000 }], lay: [] } },
+          { selectionId: '91815101751432', status: 'ACTIVE', price: { back: [{ price: 2.14, size: 500000 }], lay: [] } },
+        ],
+        runnersName: {
+          '91815101751431': 'DRAGON ODD',
+          '91815101751432': 'DRAGON EVEN',
+        },
+      },
+      {
+        marketId: '9181510175144', marketName: 'TIGER ODD/EVEN', min: 100, max: 100000, status: 'ACTIVE',
+        runners: [
+          { selectionId: '91815101751441', status: 'ACTIVE', price: { back: [{ price: 1.81, size: 500000 }], lay: [] } },
+          { selectionId: '91815101751442', status: 'ACTIVE', price: { back: [{ price: 2.14, size: 500000 }], lay: [] } },
+        ],
+        runnersName: {
+          '91815101751441': 'TIGER ODD',
+          '91815101751442': 'TIGER EVEN',
+        },
+      },
+      {
+        marketId: '9181510175145', marketName: 'DRAGON CARD COLOR', min: 100, max: 100000, status: 'ACTIVE',
+        runners: [
+          { selectionId: '91815101751451', status: 'ACTIVE', price: { back: [{ price: 1.97, size: 500000 }], lay: [] } },
+          { selectionId: '91815101751452', status: 'ACTIVE', price: { back: [{ price: 1.97, size: 500000 }], lay: [] } },
+        ],
+        runnersName: {
+          '91815101751451': 'RED',
+          '91815101751452': 'BLACK',
+        },
+      },
+      {
+        marketId: '9181510175146', marketName: 'TIGER CARD COLOR', min: 100, max: 100000, status: 'ACTIVE',
+        runners: [
+          { selectionId: '91815101751461', status: 'ACTIVE', price: { back: [{ price: 1.97, size: 500000 }], lay: [] } },
+          { selectionId: '91815101751462', status: 'ACTIVE', price: { back: [{ price: 1.97, size: 500000 }], lay: [] } },
+        ],
+        runnersName: {
+          '91815101751461': 'RED',
+          '91815101751462': 'BLACK',
+        },
+      },
+      {
+        marketId: '9181510175147', marketName: 'DRAGON CARD', min: 100, max: 20000, status: 'ACTIVE',
+        runners: [
+          { selectionId: '5825901', status: 'ACTIVE', price: { back: [{ price: 12, size: 50000 }], lay: [] } },
+          { selectionId: '5825902', status: 'ACTIVE', price: { back: [{ price: 12, size: 50000 }], lay: [] } },
+          { selectionId: '5825903', status: 'ACTIVE', price: { back: [{ price: 12, size: 50000 }], lay: [] } },
+          { selectionId: '5825904', status: 'ACTIVE', price: { back: [{ price: 12, size: 50000 }], lay: [] } },
+          { selectionId: '5825905', status: 'ACTIVE', price: { back: [{ price: 12, size: 50000 }], lay: [] } },
+          { selectionId: '5825906', status: 'ACTIVE', price: { back: [{ price: 12, size: 50000 }], lay: [] } },
+          { selectionId: '5825907', status: 'ACTIVE', price: { back: [{ price: 12, size: 50000 }], lay: [] } },
+          { selectionId: '5825908', status: 'ACTIVE', price: { back: [{ price: 12, size: 50000 }], lay: [] } },
+          { selectionId: '5825909', status: 'ACTIVE', price: { back: [{ price: 12, size: 50000 }], lay: [] } },
+          { selectionId: '58259010', status: 'ACTIVE', price: { back: [{ price: 12, size: 50000 }], lay: [] } },
+          { selectionId: '58259011', status: 'ACTIVE', price: { back: [{ price: 12, size: 50000 }], lay: [] } },
+          { selectionId: '58259012', status: 'ACTIVE', price: { back: [{ price: 12, size: 50000 }], lay: [] } },
+          { selectionId: '58259013', status: 'ACTIVE', price: { back: [{ price: 12, size: 50000 }], lay: [] } },
+        ],
+        runnersName: {
+          '5825901': 'A',
+          '5825902': '2',
+          '5825903': '3',
+          '5825904': '4',
+          '5825905': '5',
+          '5825906': '6',
+          '5825907': '7',
+          '5825908': '8',
+          '5825909': '9',
+          '58259010': '10',
+          '58259011': 'J',
+          '58259012': 'Q',
+          '58259013': 'K',
+        },
+      },
+      {
+        marketId: '9181510175148', marketName: 'TIGER CARD', min: 100, max: 20000, status: 'ACTIVE',
+        runners: [
+          { selectionId: '5825901', status: 'ACTIVE', price: { back: [{ price: 12, size: 50000 }], lay: [] } },
+          { selectionId: '5825902', status: 'ACTIVE', price: { back: [{ price: 12, size: 50000 }], lay: [] } },
+          { selectionId: '5825903', status: 'ACTIVE', price: { back: [{ price: 12, size: 50000 }], lay: [] } },
+          { selectionId: '5825904', status: 'ACTIVE', price: { back: [{ price: 12, size: 50000 }], lay: [] } },
+          { selectionId: '5825905', status: 'ACTIVE', price: { back: [{ price: 12, size: 50000 }], lay: [] } },
+          { selectionId: '5825906', status: 'ACTIVE', price: { back: [{ price: 12, size: 50000 }], lay: [] } },
+          { selectionId: '5825907', status: 'ACTIVE', price: { back: [{ price: 12, size: 50000 }], lay: [] } },
+          { selectionId: '5825908', status: 'ACTIVE', price: { back: [{ price: 12, size: 50000 }], lay: [] } },
+          { selectionId: '5825909', status: 'ACTIVE', price: { back: [{ price: 12, size: 50000 }], lay: [] } },
+          { selectionId: '58259010', status: 'ACTIVE', price: { back: [{ price: 12, size: 50000 }], lay: [] } },
+          { selectionId: '58259011', status: 'ACTIVE', price: { back: [{ price: 12, size: 50000 }], lay: [] } },
+          { selectionId: '58259012', status: 'ACTIVE', price: { back: [{ price: 12, size: 50000 }], lay: [] } },
+          { selectionId: '58259013', status: 'ACTIVE', price: { back: [{ price: 12, size: 50000 }], lay: [] } },
+        ],
+        runnersName: {
+          '5825901': 'A',
+          '5825902': '2',
+          '5825903': '3',
+          '5825904': '4',
+          '5825905': '5',
+          '5825906': '6',
+          '5825907': '7',
+          '5825908': '8',
+          '5825909': '9',
+          '58259010': '10',
+          '58259011': 'J',
+          '58259012': 'Q',
+          '58259013': 'K',
+        },
+      },
+    ],
+  },
+  results: [
+    {"roundId":"9181610062553","eventId":"99.0018","eventName":"DRAGON TIGER","cards":{"DRAGON":{"card_1":"H5_"},"TIGER":{"card_1":"HA_"}},"results":[{"marketId":"9181610062554","marketName":"WINNER","index":0,"runners":[{"selectionId":"3884437","result":"LOSER"},{"selectionId":"3954374","result":"LOSER"},{"selectionId":"38372466","result":"WINNER"}],"runnersName":{"3884437":"TIGER","3954374":"TIE","38372466":"DRAGON"}},{"marketId":"9181610062555","marketName":"DRAGON ODD/EVEN","index":1,"runners":[{"selectionId":"3724660995566","result":"WINNER"},{"selectionId":"3724660665566","result":"LOSER"}],"runnersName":{"3724660995566":"DRAGON ODD","3724660665566":"DRAGON EVEN"}},{"marketId":"9181610062556","marketName":"TIGER ODD/EVEN","index":2,"runners":[{"selectionId":"844370995566","result":"WINNER"},{"selectionId":"844370665566","result":"LOSER"}],"runnersName":{"844370995566":"TIGER ODD","844370665566":"TIGER EVEN"}},{"marketId":"9181610062557","marketName":"DRAGON CARD COLOR","index":3,"runners":[{"selectionId":"58259733","result":"WINNER"},{"selectionId":"5825925225","result":"LOSER"}],"runnersName":{"58259733":"RED","5825925225":"BLACK"}},{"marketId":"9181610062558","marketName":"TIGER CARD COLOR","index":4,"runners":[{"selectionId":"58259733","result":"WINNER"},{"selectionId":"5825925225","result":"LOSER"}],"runnersName":{"58259733":"RED","5825925225":"BLACK"}},{"marketId":"9181610062559","marketName":"DRAGON CARD","index":5,"runners":[{"selectionId":"5825901","result":"LOSER"},{"selectionId":"5825902","result":"LOSER"},{"selectionId":"5825903","result":"LOSER"},{"selectionId":"5825904","result":"LOSER"},{"selectionId":"5825905","result":"WINNER"},{"selectionId":"5825906","result":"LOSER"},{"selectionId":"5825907","result":"LOSER"},{"selectionId":"5825908","result":"LOSER"},{"selectionId":"5825909","result":"LOSER"},{"selectionId":"58259010","result":"LOSER"},{"selectionId":"58259011","result":"LOSER"},{"selectionId":"58259012","result":"LOSER"},{"selectionId":"58259013","result":"LOSER"}],"runnersName":{"5825901":"A","5825902":"2","5825903":"3","5825904":"4","5825905":"5","5825906":"6","5825907":"7","5825908":"8","5825909":"9","58259010":"10","58259011":"J","58259012":"Q","58259013":"K"}},{"marketId":"9181610062560","marketName":"TIGER CARD","index":6,"runners":[{"selectionId":"5825901","result":"WINNER"},{"selectionId":"5825902","result":"LOSER"},{"selectionId":"5825903","result":"LOSER"},{"selectionId":"5825904","result":"LOSER"},{"selectionId":"5825905","result":"LOSER"},{"selectionId":"5825906","result":"LOSER"},{"selectionId":"5825907","result":"LOSER"},{"selectionId":"5825908","result":"LOSER"},{"selectionId":"5825909","result":"LOSER"},{"selectionId":"58259010","result":"LOSER"},{"selectionId":"58259011","result":"LOSER"},{"selectionId":"58259012","result":"LOSER"},{"selectionId":"58259013","result":"LOSER"}],"runnersName":{"5825901":"A","5825902":"2","5825903":"3","5825904":"4","5825905":"5","5825906":"6","5825907":"7","5825908":"8","5825909":"9","58259010":"10","58259011":"J","58259012":"Q","58259013":"K"}}],"winner":"DRAGON"},
+    {"roundId":"9181610062517","eventId":"99.0018","eventName":"DRAGON TIGER","cards":{"DRAGON":{"card_1":"SJ_"},"TIGER":{"card_1":"S3_"}},"results":[{"marketId":"9181610062518","marketName":"WINNER","index":0,"runners":[{"selectionId":"3884437","result":"LOSER"},{"selectionId":"3954374","result":"LOSER"},{"selectionId":"38372466","result":"WINNER"}],"runnersName":{"3884437":"TIGER","3954374":"TIE","38372466":"DRAGON"}},{"marketId":"9181610062519","marketName":"DRAGON ODD/EVEN","index":1,"runners":[{"selectionId":"3724660995566","result":"WINNER"},{"selectionId":"3724660665566","result":"LOSER"}],"runnersName":{"3724660995566":"DRAGON ODD","3724660665566":"DRAGON EVEN"}},{"marketId":"9181610062520","marketName":"TIGER ODD/EVEN","index":2,"runners":[{"selectionId":"844370995566","result":"WINNER"},{"selectionId":"844370665566","result":"LOSER"}],"runnersName":{"844370995566":"TIGER ODD","844370665566":"TIGER EVEN"}},{"marketId":"9181610062521","marketName":"DRAGON CARD COLOR","index":3,"runners":[{"selectionId":"58259733","result":"LOSER"},{"selectionId":"5825925225","result":"WINNER"}],"runnersName":{"58259733":"RED","5825925225":"BLACK"}},{"marketId":"9181610062522","marketName":"TIGER CARD COLOR","index":4,"runners":[{"selectionId":"58259733","result":"LOSER"},{"selectionId":"5825925225","result":"WINNER"}],"runnersName":{"58259733":"RED","5825925225":"BLACK"}},{"marketId":"9181610062523","marketName":"DRAGON CARD","index":5,"runners":[{"selectionId":"5825901","result":"LOSER"},{"selectionId":"5825902","result":"LOSER"},{"selectionId":"5825903","result":"LOSER"},{"selectionId":"5825904","result":"LOSER"},{"selectionId":"5825905","result":"LOSER"},{"selectionId":"5825906","result":"LOSER"},{"selectionId":"5825907","result":"LOSER"},{"selectionId":"5825908","result":"LOSER"},{"selectionId":"5825909","result":"LOSER"},{"selectionId":"58259010","result":"LOSER"},{"selectionId":"58259011","result":"WINNER"},{"selectionId":"58259012","result":"LOSER"},{"selectionId":"58259013","result":"LOSER"}],"runnersName":{"5825901":"A","5825902":"2","5825903":"3","5825904":"4","5825905":"5","5825906":"6","5825907":"7","5825908":"8","5825909":"9","58259010":"10","58259011":"J","58259012":"Q","58259013":"K"}},{"marketId":"9181610062524","marketName":"TIGER CARD","index":6,"runners":[{"selectionId":"5825901","result":"LOSER"},{"selectionId":"5825902","result":"LOSER"},{"selectionId":"5825903","result":"WINNER"},{"selectionId":"5825904","result":"LOSER"},{"selectionId":"5825905","result":"LOSER"},{"selectionId":"5825906","result":"LOSER"},{"selectionId":"5825907","result":"LOSER"},{"selectionId":"5825908","result":"LOSER"},{"selectionId":"5825909","result":"LOSER"},{"selectionId":"58259010","result":"LOSER"},{"selectionId":"58259011","result":"LOSER"},{"selectionId":"58259012","result":"LOSER"},{"selectionId":"58259013","result":"LOSER"}],"runnersName":{"5825901":"A","5825902":"2","5825903":"3","5825904":"4","5825905":"5","5825906":"6","5825907":"7","5825908":"8","5825909":"9","58259010":"10","58259011":"J","58259012":"Q","58259013":"K"}}],"winner":"DRAGON"},
+    {"roundId":"9181610062441","eventId":"99.0018","eventName":"DRAGON TIGER","cards":{"DRAGON":{"card_1":"S5_"},"TIGER":{"card_1":"S4_"}},"results":[{"marketId":"9181610062442","marketName":"WINNER","index":0,"runners":[{"selectionId":"3884437","result":"LOSER"},{"selectionId":"3954374","result":"LOSER"},{"selectionId":"38372466","result":"WINNER"}],"runnersName":{"3884437":"TIGER","3954374":"TIE","38372466":"DRAGON"}},{"marketId":"9181610062443","marketName":"DRAGON ODD/EVEN","index":1,"runners":[{"selectionId":"3724660995566","result":"WINNER"},{"selectionId":"3724660665566","result":"LOSER"}],"runnersName":{"3724660995566":"DRAGON ODD","3724660665566":"DRAGON EVEN"}},{"marketId":"9181610062444","marketName":"TIGER ODD/EVEN","index":2,"runners":[{"selectionId":"844370995566","result":"LOSER"},{"selectionId":"844370665566","result":"WINNER"}],"runnersName":{"844370995566":"TIGER ODD","844370665566":"TIGER EVEN"}},{"marketId":"9181610062445","marketName":"DRAGON CARD COLOR","index":3,"runners":[{"selectionId":"58259733","result":"LOSER"},{"selectionId":"5825925225","result":"WINNER"}],"runnersName":{"58259733":"RED","5825925225":"BLACK"}},{"marketId":"9181610062446","marketName":"TIGER CARD COLOR","index":4,"runners":[{"selectionId":"58259733","result":"LOSER"},{"selectionId":"5825925225","result":"WINNER"}],"runnersName":{"58259733":"RED","5825925225":"BLACK"}},{"marketId":"9181610062447","marketName":"DRAGON CARD","index":5,"runners":[{"selectionId":"5825901","result":"LOSER"},{"selectionId":"5825902","result":"LOSER"},{"selectionId":"5825903","result":"LOSER"},{"selectionId":"5825904","result":"LOSER"},{"selectionId":"5825905","result":"WINNER"},{"selectionId":"5825906","result":"LOSER"},{"selectionId":"5825907","result":"LOSER"},{"selectionId":"5825908","result":"LOSER"},{"selectionId":"5825909","result":"LOSER"},{"selectionId":"58259010","result":"LOSER"},{"selectionId":"58259011","result":"LOSER"},{"selectionId":"58259012","result":"LOSER"},{"selectionId":"58259013","result":"LOSER"}],"runnersName":{"5825901":"A","5825902":"2","5825903":"3","5825904":"4","5825905":"5","5825906":"6","5825907":"7","5825908":"8","5825909":"9","58259010":"10","58259011":"J","58259012":"Q","58259013":"K"}},{"marketId":"9181610062448","marketName":"TIGER CARD","index":6,"runners":[{"selectionId":"5825901","result":"LOSER"},{"selectionId":"5825902","result":"LOSER"},{"selectionId":"5825903","result":"LOSER"},{"selectionId":"5825904","result":"WINNER"},{"selectionId":"5825905","result":"LOSER"},{"selectionId":"5825906","result":"LOSER"},{"selectionId":"5825907","result":"LOSER"},{"selectionId":"5825908","result":"LOSER"},{"selectionId":"5825909","result":"LOSER"},{"selectionId":"58259010","result":"LOSER"},{"selectionId":"58259011","result":"LOSER"},{"selectionId":"58259012","result":"LOSER"},{"selectionId":"58259013","result":"LOSER"}],"runnersName":{"5825901":"A","5825902":"2","5825903":"3","5825904":"4","5825905":"5","5825906":"6","5825907":"7","5825908":"8","5825909":"9","58259010":"10","58259011":"J","58259012":"Q","58259013":"K"}}],"winner":"DRAGON"},
+    {"roundId":"9181610062404","eventId":"99.0018","eventName":"DRAGON TIGER","cards":{"DRAGON":{"card_1":"C4_"},"TIGER":{"card_1":"D9_"}},"results":[{"marketId":"9181610062405","marketName":"WINNER","index":0,"runners":[{"selectionId":"3884437","result":"WINNER"},{"selectionId":"3954374","result":"LOSER"},{"selectionId":"38372466","result":"LOSER"}],"runnersName":{"3884437":"TIGER","3954374":"TIE","38372466":"DRAGON"}},{"marketId":"9181610062406","marketName":"DRAGON ODD/EVEN","index":1,"runners":[{"selectionId":"3724660995566","result":"LOSER"},{"selectionId":"3724660665566","result":"WINNER"}],"runnersName":{"3724660995566":"DRAGON ODD","3724660665566":"DRAGON EVEN"}},{"marketId":"9181610062407","marketName":"TIGER ODD/EVEN","index":2,"runners":[{"selectionId":"844370995566","result":"WINNER"},{"selectionId":"844370665566","result":"LOSER"}],"runnersName":{"844370995566":"TIGER ODD","844370665566":"TIGER EVEN"}},{"marketId":"9181610062408","marketName":"DRAGON CARD COLOR","index":3,"runners":[{"selectionId":"58259733","result":"LOSER"},{"selectionId":"5825925225","result":"WINNER"}],"runnersName":{"58259733":"RED","5825925225":"BLACK"}},{"marketId":"9181610062409","marketName":"TIGER CARD COLOR","index":4,"runners":[{"selectionId":"58259733","result":"WINNER"},{"selectionId":"5825925225","result":"LOSER"}],"runnersName":{"58259733":"RED","5825925225":"BLACK"}},{"marketId":"9181610062410","marketName":"DRAGON CARD","index":5,"runners":[{"selectionId":"5825901","result":"LOSER"},{"selectionId":"5825902","result":"LOSER"},{"selectionId":"5825903","result":"LOSER"},{"selectionId":"5825904","result":"WINNER"},{"selectionId":"5825905","result":"LOSER"},{"selectionId":"5825906","result":"LOSER"},{"selectionId":"5825907","result":"LOSER"},{"selectionId":"5825908","result":"LOSER"},{"selectionId":"5825909","result":"LOSER"},{"selectionId":"58259010","result":"LOSER"},{"selectionId":"58259011","result":"LOSER"},{"selectionId":"58259012","result":"LOSER"},{"selectionId":"58259013","result":"LOSER"}],"runnersName":{"5825901":"A","5825902":"2","5825903":"3","5825904":"4","5825905":"5","5825906":"6","5825907":"7","5825908":"8","5825909":"9","58259010":"10","58259011":"J","58259012":"Q","58259013":"K"}},{"marketId":"9181610062411","marketName":"TIGER CARD","index":6,"runners":[{"selectionId":"5825901","result":"LOSER"},{"selectionId":"5825902","result":"LOSER"},{"selectionId":"5825903","result":"LOSER"},{"selectionId":"5825904","result":"LOSER"},{"selectionId":"5825905","result":"LOSER"},{"selectionId":"5825906","result":"LOSER"},{"selectionId":"5825907","result":"LOSER"},{"selectionId":"5825908","result":"LOSER"},{"selectionId":"5825909","result":"WINNER"},{"selectionId":"58259010","result":"LOSER"},{"selectionId":"58259011","result":"LOSER"},{"selectionId":"58259012","result":"LOSER"},{"selectionId":"58259013","result":"LOSER"}],"runnersName":{"5825901":"A","5825902":"2","5825903":"3","5825904":"4","5825905":"5","5825906":"6","5825907":"7","5825908":"8","5825909":"9","58259010":"10","58259011":"J","58259012":"Q","58259013":"K"}}],"winner":"TIGER"},
+    {"roundId":"9181610062328","eventId":"99.0018","eventName":"DRAGON TIGER","cards":{"DRAGON":{"card_1":"SK_"},"TIGER":{"card_1":"H5_"}},"results":[{"marketId":"9181610062329","marketName":"WINNER","index":0,"runners":[{"selectionId":"3884437","result":"LOSER"},{"selectionId":"3954374","result":"LOSER"},{"selectionId":"38372466","result":"WINNER"}],"runnersName":{"3884437":"TIGER","3954374":"TIE","38372466":"DRAGON"}},{"marketId":"9181610062330","marketName":"DRAGON ODD/EVEN","index":1,"runners":[{"selectionId":"3724660995566","result":"WINNER"},{"selectionId":"3724660665566","result":"LOSER"}],"runnersName":{"3724660995566":"DRAGON ODD","3724660665566":"DRAGON EVEN"}},{"marketId":"9181610062331","marketName":"TIGER ODD/EVEN","index":2,"runners":[{"selectionId":"844370995566","result":"WINNER"},{"selectionId":"844370665566","result":"LOSER"}],"runnersName":{"844370995566":"TIGER ODD","844370665566":"TIGER EVEN"}},{"marketId":"9181610062332","marketName":"DRAGON CARD COLOR","index":3,"runners":[{"selectionId":"58259733","result":"LOSER"},{"selectionId":"5825925225","result":"WINNER"}],"runnersName":{"58259733":"RED","5825925225":"BLACK"}},{"marketId":"9181610062333","marketName":"TIGER CARD COLOR","index":4,"runners":[{"selectionId":"58259733","result":"WINNER"},{"selectionId":"5825925225","result":"LOSER"}],"runnersName":{"58259733":"RED","5825925225":"BLACK"}},{"marketId":"9181610062334","marketName":"DRAGON CARD","index":5,"runners":[{"selectionId":"5825901","result":"LOSER"},{"selectionId":"5825902","result":"LOSER"},{"selectionId":"5825903","result":"LOSER"},{"selectionId":"5825904","result":"LOSER"},{"selectionId":"5825905","result":"LOSER"},{"selectionId":"5825906","result":"LOSER"},{"selectionId":"5825907","result":"LOSER"},{"selectionId":"5825908","result":"LOSER"},{"selectionId":"5825909","result":"LOSER"},{"selectionId":"58259010","result":"LOSER"},{"selectionId":"58259011","result":"LOSER"},{"selectionId":"58259012","result":"LOSER"},{"selectionId":"58259013","result":"WINNER"}],"runnersName":{"5825901":"A","5825902":"2","5825903":"3","5825904":"4","5825905":"5","5825906":"6","5825907":"7","5825908":"8","5825909":"9","58259010":"10","58259011":"J","58259012":"Q","58259013":"K"}},{"marketId":"9181610062335","marketName":"TIGER CARD","index":6,"runners":[{"selectionId":"5825901","result":"LOSER"},{"selectionId":"5825902","result":"LOSER"},{"selectionId":"5825903","result":"LOSER"},{"selectionId":"5825904","result":"LOSER"},{"selectionId":"5825905","result":"WINNER"},{"selectionId":"5825906","result":"LOSER"},{"selectionId":"5825907","result":"LOSER"},{"selectionId":"5825908","result":"LOSER"},{"selectionId":"5825909","result":"LOSER"},{"selectionId":"58259010","result":"LOSER"},{"selectionId":"58259011","result":"LOSER"},{"selectionId":"58259012","result":"LOSER"},{"selectionId":"58259013","result":"LOSER"}],"runnersName":{"5825901":"A","5825902":"2","5825903":"3","5825904":"4","5825905":"5","5825906":"6","5825907":"7","5825908":"8","5825909":"9","58259010":"10","58259011":"J","58259012":"Q","58259013":"K"}}],"winner":"DRAGON"},
+    {"roundId":"9181610062253","eventId":"99.0018","eventName":"DRAGON TIGER","cards":{"DRAGON":{"card_1":"SJ_"},"TIGER":{"card_1":"CK_"}},"results":[{"marketId":"9181610062254","marketName":"WINNER","index":0,"runners":[{"selectionId":"3884437","result":"WINNER"},{"selectionId":"3954374","result":"LOSER"},{"selectionId":"38372466","result":"LOSER"}],"runnersName":{"3884437":"TIGER","3954374":"TIE","38372466":"DRAGON"}},{"marketId":"9181610062255","marketName":"DRAGON ODD/EVEN","index":1,"runners":[{"selectionId":"3724660995566","result":"WINNER"},{"selectionId":"3724660665566","result":"LOSER"}],"runnersName":{"3724660995566":"DRAGON ODD","3724660665566":"DRAGON EVEN"}},{"marketId":"9181610062256","marketName":"TIGER ODD/EVEN","index":2,"runners":[{"selectionId":"844370995566","result":"WINNER"},{"selectionId":"844370665566","result":"LOSER"}],"runnersName":{"844370995566":"TIGER ODD","844370665566":"TIGER EVEN"}},{"marketId":"9181610062257","marketName":"DRAGON CARD COLOR","index":3,"runners":[{"selectionId":"58259733","result":"LOSER"},{"selectionId":"5825925225","result":"WINNER"}],"runnersName":{"58259733":"RED","5825925225":"BLACK"}},{"marketId":"9181610062258","marketName":"TIGER CARD COLOR","index":4,"runners":[{"selectionId":"58259733","result":"LOSER"},{"selectionId":"5825925225","result":"WINNER"}],"runnersName":{"58259733":"RED","5825925225":"BLACK"}},{"marketId":"9181610062259","marketName":"DRAGON CARD","index":5,"runners":[{"selectionId":"5825901","result":"LOSER"},{"selectionId":"5825902","result":"LOSER"},{"selectionId":"5825903","result":"LOSER"},{"selectionId":"5825904","result":"LOSER"},{"selectionId":"5825905","result":"LOSER"},{"selectionId":"5825906","result":"LOSER"},{"selectionId":"5825907","result":"LOSER"},{"selectionId":"5825908","result":"LOSER"},{"selectionId":"5825909","result":"LOSER"},{"selectionId":"58259010","result":"LOSER"},{"selectionId":"58259011","result":"WINNER"},{"selectionId":"58259012","result":"LOSER"},{"selectionId":"58259013","result":"LOSER"}],"runnersName":{"5825901":"A","5825902":"2","5825903":"3","5825904":"4","5825905":"5","5825906":"6","5825907":"7","5825908":"8","5825909":"9","58259010":"10","58259011":"J","58259012":"Q","58259013":"K"}},{"marketId":"9181610062260","marketName":"TIGER CARD","index":6,"runners":[{"selectionId":"5825901","result":"LOSER"},{"selectionId":"5825902","result":"LOSER"},{"selectionId":"5825903","result":"LOSER"},{"selectionId":"5825904","result":"LOSER"},{"selectionId":"5825905","result":"LOSER"},{"selectionId":"5825906","result":"LOSER"},{"selectionId":"5825907","result":"LOSER"},{"selectionId":"5825908","result":"LOSER"},{"selectionId":"5825909","result":"LOSER"},{"selectionId":"58259010","result":"LOSER"},{"selectionId":"58259011","result":"LOSER"},{"selectionId":"58259012","result":"LOSER"},{"selectionId":"58259013","result":"WINNER"}],"runnersName":{"5825901":"A","5825902":"2","5825903":"3","5825904":"4","5825905":"5","5825906":"6","5825907":"7","5825908":"8","5825909":"9","58259010":"10","58259011":"J","58259012":"Q","58259013":"K"}}],"winner":"TIGER"},
+  ],
+};

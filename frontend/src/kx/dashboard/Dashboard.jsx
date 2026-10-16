@@ -9,6 +9,7 @@ import useSportData from '../../hooks/useSportData';
 import { mapGame } from '../../utils/betTableData';
 import OwlCarousel from './OwlCarousel';
 import OldCasino from './OldCasino';
+import { gotoAviator } from '../casino/launch';
 import HorseRacing from '../racing/HorseRacing';
 import Lottery from '../lottery/Lottery';
 import TipsAndPreviews from '../tips/TipsAndPreviews';
@@ -128,7 +129,7 @@ export default function Dashboard() {
               <SearchIcon C={C} />
             </a>
             <ul {...C} id="menuListId" className="menu-list">
-              <li {...C} id="exchBar10122022" className="menu-item aviator" onClick={() => navigate('/casino/AVIATOR')}>
+              <li {...C} id="exchBar10122022" className="menu-item aviator" onClick={() => gotoAviator(isAuth, navigate)}>
                 <div {...C} className="exch heartBeat">
                   <img {...C} src={kx('assets/casinoslpot/aviator.png')} className="aviatorImg" alt="" />
                   <span {...C} className="menutext orange-nav-ic-txt"> Vimaan </span>

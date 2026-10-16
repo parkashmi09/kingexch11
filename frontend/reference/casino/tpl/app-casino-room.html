@@ -1,0 +1,63 @@
+<div class="top" _ngcontent-ysg-c0 id="playerInfo">
+  <div class="left_list" _ngcontent-ysg-c0></div>
+  <ng-if fn="Ihe">
+    <div class="right_list none-lobby-page" _ngcontent-ysg-c0 [ngClass]>
+      <ol _ngcontent-ysg-c0>
+        <li style="cursor: pointer" [click] (click)>
+          <i class="fa fa-cog fa-lg" _ngcontent-cuc-c0></i>
+        </li>
+      </ol>
+    </div>
+  </ng-if>
+  <ng-if fn="whe">
+    <div class="right_list lobby-page" _ngcontent-ysg-c0>
+      <ol _ngcontent-ysg-c0>
+        <li style="cursor: pointer" [click] (click)>
+          <i class="fa fa-cog fa-lg" _ngcontent-cuc-c0></i>
+        </li>
+      </ol>
+    </div>
+  </ng-if>
+</div>
+<div class="modal fade" id="stackbetsModal" aria-labelledby="stackbetsModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="mb-0 bold">
+          Stake
+        </h3>
+      </div>
+      <div class="stack-modal-body">
+        <div class="card-body container-fluid container-fluid-5 button-value quick-stake-container">
+          <div class="row row5 mb-1 desktop-pl">
+            <div class="col-3">
+              <div class="button-title" style="font-size: 14px; margin-left: -2px">
+                <span>
+                  <b class="stake-amount">
+                    Quick Stakes
+                  </b>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="row row5 mb-1 col-md-12 desktop-pl quick-stake-boxes">
+            <ng-for fn="Phe">
+              <div class="col-4 col-sm-3 col-md-3 mt-2 quick-box-con">
+                <div class="form-group mb-0 quick-stake-box">
+                  <input class="form-control" type="text" min="1" max="99999999" maxlength="9" [id] [ngModel] [ngModelChange] [keypress] (ngModelChange) (keypress)>
+                  </input>
+                </div>
+              </div>
+            </ng-for>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="updatebtn" [click] (click)>
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

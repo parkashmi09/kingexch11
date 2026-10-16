@@ -1,0 +1,206 @@
+<div style="width: 26.15vw; position: fixed">
+  <div class="card">
+    <div class="card-header">
+      <strong style="position: relative; top: 0.5px">
+        Open Bets
+      </strong>
+    </div>
+    <div>
+      <ng-if fn="Zme">
+        <div class="card-body open-bet-btns">
+          <ng-if fn="Qme">
+            <div class="col-sm-12 p-0 mlist-openbets">
+              <select class="desktop-bets" id="selectss" [change] (change)>
+                <ng-for fn="Mme">
+                  <option [value]>
+                    {{ }}
+                  </option>
+                </ng-for>
+              </select>
+              <ng-if fn="qme">
+                <nav class="all-sports-list">
+                  <div class="content-534" [ngClass]>
+                    <div class="act-16a tab-ltq">
+                      <div class="list-5fh" id="dplql" name="txn">
+                        <ul class="nav nav-tabs">
+                          <li class="nav-item text-center">
+                            <a class="nav-link active fw-bold">
+                              <span>
+                                Matched
+                              </span>
+                            </a>
+                          </li>
+                        </ul>
+                        <ul class="matched-826 unity-ul-d78" id="bac-xxb">
+                          <li class="col-fpg">
+                            Back (Bet For)
+                          </li>
+                          <li class="col-1ie">
+                            Odds
+                          </li>
+                          <li class="col-mlt">
+                            Stake
+                          </li>
+                          <li class="col-wcg">
+                            Profit
+                          </li>
+                        </ul>
+                        <div class="right-betslip-data">
+                          <ng-for fn="$me">
+                            <ng-container>
+                              <ng-if fn="Vme">
+                                <dl class="slip-3ga" id="txn-ley" [ngClass]>
+                                  <ng-if fn="Tme">
+                                    <ng-container>
+                                      <ng-if fn="Sme">
+                                        <dd class="ref-epq" id="bet-yq1">
+                                          <span id="bet-bjr">
+                                            {{ }}
+                                          </span>
+                                          <span id="pla-fpm">
+                                            {{ }}
+                                          </span>
+                                        </dd>
+                                      </ng-if>
+                                    </ng-container>
+                                  </ng-if>
+                                  <dt>
+                                    <ng-if fn="Ome">
+                                      <span class="slip-ys5">
+                                        Back
+                                      </span>
+                                    </ng-if>
+                                    <ng-if fn="Eme">
+                                      <span class="short-nbw">
+                                        {{ }}
+                                      </span>
+                                    </ng-if>
+                                    <ng-if fn="Dme">
+                                      <span id="mar-l2h">
+                                        {{ }}
+                                      </span>
+                                    </ng-if>
+                                  </dt>
+                                  <ng-if fn="Rme">
+                                    <dd class="col-1ie" id="pri-a35">
+                                      {{ }}
+                                      <ng-if fn="Bme">
+                                        <span>
+                                          {{ }}
+                                        </span>
+                                      </ng-if>
+                                    </dd>
+                                  </ng-if>
+                                  <ng-if fn="Nme">
+                                    <dd class="col-mlt" id="siz-lp2" title="$10">
+                                      {{ }}
+                                    </dd>
+                                  </ng-if>
+                                  <ng-if fn="Lme">
+                                    <dd class="col-wcg" id="pro-l8k">
+                                      <span>
+                                        {{ }}
+                                      </span>
+                                    </dd>
+                                  </ng-if>
+                                </dl>
+                              </ng-if>
+                            </ng-container>
+                          </ng-for>
+                          <ul class="matched-826 unity-ul-d78" id="lay-zc9">
+                            <li class="col-fpg">
+                              Lay (Bet Against)
+                            </li>
+                            <li class="col-1ie">
+                              Odds
+                            </li>
+                            <li class="col-mlt">
+                              Stake
+                            </li>
+                            <li class="col-wcg">
+                              Liability
+                            </li>
+                          </ul>
+                          <ng-for fn="Xme">
+                            <ng-container>
+                              <ng-if fn="Yme">
+                                <ng-container>
+                                  <dl class="slip-y8o" id="txn-ley" [ngClass]>
+                                    <ng-if fn="Hme">
+                                      <ng-container>
+                                        <ng-if fn="Ume">
+                                          <dd class="ref-epq" id="bet-yq1">
+                                            <span id="bet-bjr">
+                                              {{ }}
+                                            </span>
+                                            <span id="pla-fpm">
+                                              {{ }}
+                                            </span>
+                                          </dd>
+                                        </ng-if>
+                                      </ng-container>
+                                    </ng-if>
+                                    <dt>
+                                      <ng-if fn="zme">
+                                        <span class="slip-ys5">
+                                          Back
+                                        </span>
+                                      </ng-if>
+                                      <ng-if fn="Gme">
+                                        <span class="slip-ys5">
+                                          Lay
+                                        </span>
+                                      </ng-if>
+                                      <span class="short-nbw">
+                                        {{ }}
+                                      </span>
+                                      <span id="mar-l2h">
+                                        {{ }}
+                                      </span>
+                                    </dt>
+                                    <dd class="col-1ie" id="pri-a35">
+                                      {{ }}
+                                      <ng-if fn="Wme">
+                                        <span>
+                                          {{ }}
+                                        </span>
+                                      </ng-if>
+                                    </dd>
+                                    <dd class="col-mlt" id="siz-lp2" title="$10">
+                                      {{ }}
+                                    </dd>
+                                    <dd class="col-wcg" id="pro-l8k">
+                                      <span>
+                                        {{ }}
+                                      </span>
+                                    </dd>
+                                  </dl>
+                                </ng-container>
+                              </ng-if>
+                            </ng-container>
+                          </ng-for>
+                          <div class="btn-gad">
+                            <ul class="option-g3c unity-ul-d78">
+                              <li>
+                                <input id="ope-23t" name="openOption" type="checkbox" [click] (click)>
+                                </input>
+                                <label for="showBetInfo">
+                                  Bet Info
+                                </label>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </nav>
+              </ng-if>
+            </div>
+          </ng-if>
+        </div>
+      </ng-if>
+    </div>
+  </div>
+</div>
+

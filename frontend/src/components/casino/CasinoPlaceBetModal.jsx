@@ -2,8 +2,8 @@ import { memo, useCallback, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useSelector } from 'react-redux';
 
-
-
+// Used while the stake buttons haven't loaded (same as CasinoRightSidebar's).
+const DEFAULT_BUTTONS = [25, 50, 100, 200, 500, 1000];
 
 function formatRange(val) {
   if (!val || val <= 0) return '0';

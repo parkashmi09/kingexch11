@@ -1,6 +1,7 @@
 import { Suspense, useEffect } from 'react';
 import { Routes, Route, Navigate, useLocation, useParams, useNavigationType } from 'react-router-dom';
 import BToastContainer from './components/BToast';
+import KxToastr from './kx/toastr';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchStakeButtonsThunk } from './redux/stakeButtonSlice';
 import { fetchBalanceThunk, subscribeToRealTimeUpdates } from './redux/userSlice';
@@ -28,6 +29,9 @@ import ProfitLoss from './kx/account/ProfitLoss';
 import PasswordHistory from './kx/account/PasswordHistory';
 import ActivityLog from './kx/account/ActivityLog';
 import LotteryDetails from './kx/lottery/LotteryDetails';
+import CasinoLayout from './kx/csite/CasinoLayout';
+import { GAMES, gamePath } from './kx/csite/games';
+import { PAGES } from './kx/csite/games/index';
 import InplayHorseGames from './kx/racing/InplayHorseGames';
 import { raceRoute } from './kx/racing';
 import CbUnsettledBet from './cb/report/UnsettledBet';
@@ -430,6 +434,8 @@ function App() {
         screens toasted through that instead, producing a second, differently
         styled toast for the same kind of event. */}
     <BToastContainer />
+    {/* The kingexch pages' toasts: the reference's ngx-toastr. */}
+    <KxToastr />
     {/* First login: the mandatory password change follows the user across
         routes and survives a refresh — the token is already stored by then, so
         a reload used to drop them into the app with the default password. */}
@@ -482,6 +488,14 @@ function App() {
       <Route path="/casino/INTERNATIONALCASINO" element={<CbLayout><CbCasinoLobby lobbyId="INTERNATIONALCASINO" /></CbLayout>} />
       <Route path="/casino/SLOT" element={<CbLayout><CbCasinoLobby lobbyId="SLOT" /></CbLayout>} />
       <Route path="/gamedetails/:sid/:gmid" element={<DetailRoute />} />
+
+      {/* The Universe tables, at the casino site's own paths
+          (casino.kingexch111.com/casino3Patti/99.0010 …), one route each so
+          /casino/99.0016 never shadows this app's older /casino/<game> pages. */}
+      {Object.entries(GAMES).map(([id, g]) => {
+        const Page = PAGES[g.route];
+        return <Route key={id} path={gamePath(id)} element={<CasinoLayout><Suspense fallback={null}><Page eventId={id} /></Suspense></CasinoLayout>} />;
+      })}
 
       {/* Everything else still renders in the old chrome. */}
       <Route path="/*" element={<MainLayout />} />

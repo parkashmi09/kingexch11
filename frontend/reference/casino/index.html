@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en" data-critters-container>
+
+<head>
+  <meta charset="utf-8">
+  <title>Exchange</title>
+  <base href="/">
+
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height">
+
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico" id="appIcon">
+
+  <style>@charset "UTF-8";:root{--bs-blue:#0d6efd;--bs-indigo:#6610f2;--bs-purple:#6f42c1;--bs-pink:#d63384;--bs-red:#dc3545;--bs-orange:#fd7e14;--bs-yellow:#ffc107;--bs-green:#198754;--bs-teal:#20c997;--bs-cyan:#0dcaf0;--bs-black:#000;--bs-white:#fff;--bs-gray:#6c757d;--bs-gray-dark:#343a40;--bs-gray-100:#f8f9fa;--bs-gray-200:#e9ecef;--bs-gray-300:#dee2e6;--bs-gray-400:#ced4da;--bs-gray-500:#adb5bd;--bs-gray-600:#6c757d;--bs-gray-700:#495057;--bs-gray-800:#343a40;--bs-gray-900:#212529;--bs-primary:#0d6efd;--bs-secondary:#6c757d;--bs-success:#198754;--bs-info:#0dcaf0;--bs-warning:#ffc107;--bs-danger:#dc3545;--bs-light:#f8f9fa;--bs-dark:#212529;--bs-primary-rgb:13,110,253;--bs-secondary-rgb:108,117,125;--bs-success-rgb:25,135,84;--bs-info-rgb:13,202,240;--bs-warning-rgb:255,193,7;--bs-danger-rgb:220,53,69;--bs-light-rgb:248,249,250;--bs-dark-rgb:33,37,41;--bs-white-rgb:255,255,255;--bs-black-rgb:0,0,0;--bs-body-color-rgb:33,37,41;--bs-body-bg-rgb:255,255,255;--bs-font-sans-serif:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";--bs-font-monospace:SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;--bs-gradient:linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));--bs-body-font-family:var(--bs-font-sans-serif);--bs-body-font-size:1rem;--bs-body-font-weight:400;--bs-body-line-height:1.5;--bs-body-color:#212529;--bs-body-bg:#fff;--bs-border-width:1px;--bs-border-style:solid;--bs-border-color:#dee2e6;--bs-border-color-translucent:rgba(0, 0, 0, 0.175);--bs-border-radius:0.375rem;--bs-border-radius-sm:0.25rem;--bs-border-radius-lg:0.5rem;--bs-border-radius-xl:1rem;--bs-border-radius-2xl:2rem;--bs-border-radius-pill:50rem;--bs-link-color:#0d6efd;--bs-link-hover-color:#0a58ca;--bs-code-color:#d63384;--bs-highlight-bg:#fff3cd}*,::after,::before{box-sizing:border-box}@media (prefers-reduced-motion:no-preference){:root{scroll-behavior:smooth}}body{margin:0;font-family:var(--bs-body-font-family);font-size:var(--bs-body-font-size);font-weight:var(--bs-body-font-weight);line-height:var(--bs-body-line-height);color:var(--bs-body-color);text-align:var(--bs-body-text-align);background-color:var(--bs-body-bg);-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}img{vertical-align:middle}</style><link href="assets/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="assets/dist/css/bootstrap.min.css"></noscript>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.0/css/all.min.css" integrity="sha512-3PN6gfRNZEX4YFyz+sIyTF6pGlQiryJu9NlGhu9LrLMQ7eDjNgudQoFDK3WSNAayeIKc6B8WXXpo4a7HqxjKwg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com/icon?family=Material+Icons&amp;display=swap">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.0/css/fontawesome.min.css" integrity="sha512-A4YgsmlA3WJ44ahx3x6XoZWzyrhjIJRze0z6MpSIIWoF3MTvebHass8CkrFX66KhIkuuFIhHQyqi5PAH2xDIGQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <meta name="version" content="2.2.4">
+
+  <script src="assets/js/pixi.min.js"></script>
+  <script>window.require = function (n) { if (n === 'pixi.js') return PIXI; throw new Error(n); };</script>
+  <script src="assets/js/spine-pixi-v8.js"></script>
+
+<style>:root{--mainBodyBG:#ededed;--side-bar-cmp-sidebar-color:#fff;--side-bar-cmp-sidebar-nav-bg:#fff;--side-bar-cmp-top-head-sport-bg:#000;--side-bar-cmp-sidebar-nav-item-nav-link-border:#d2d6e2;--side-bar-cmp-sidebar-nav-link-color:#223869;--side-bar-cmp-nav-dropdown-open-nav-link-color:#1b2d52;--side-bar-cmp-sidebar-nav-link-hover-bg:#e6efd1;--side-bar-cmp-sidebar-nav-link-hover-color:#1b2d52;--markets-cmp--keyframes-newlaunchinplay-zero-color:#ff0000;--markets-cmp--keyframes-newlaunchinplay-fifty-color:#ff0;--markets-cmp--keyframes-newlaunchinplay-hundred-color:#00f;--right-nav-cmp-card-header-bg:linear-gradient(-180deg, #000000 0%, #000000 100%);--right-nav-cmp-card-header-color:#fff;--right-nav-cmp-card-accrdn-border:#c8ced3;--right-nav-cmp-nav-tabs-bg:#CED5DA;--right-nav-cmp-nav-tabs-nav-item-bg:#fff;--right-nav-cmp-all-sports-list-bg:#fff;--right-nav-cmp-sport-nav-nav-item-border:#e0e6e6;--right-nav-cmp-aside-menu-color:#2f353a;--right-nav-cmp-aside-menu-bg:#fff;--right-nav-cmp-aside-menu-border:#c8ced3;--right-nav-cmp-webkit-scrollbar-thumb-bg:#e6e5e5;--right-nav-cmp-webkit-scrollbar-track-bg:#fff;--right-nav-cmp-webkit-scrollbar-track-border:#f2f2f2;--right-nav-cmp-btn-gad-border:#e0e6e6;--right-nav-cmp-matched-826-bg:#fff;--right-nav-cmp-slip-3ga-bg:#beddf4;--right-nav-cmp-slip-3ga-border:#67afe5;--right-nav-cmp-slip-y8o-bg:#f3dce2;--right-nav-cmp-slip-y8o-border:#dfa3b3;--right-nav-cmp-option-g3c-border:#e0e6e6;--right-nav-cmp-slip-3ga-ref-epq-bg:#d4e8f8;--right-nav-cmp-slip-3ga-ref-epq-color:#3b5160;--right-nav-cmp-slip-y8o-dd-color:#243a48;--right-nav-cmp-slip-slip-y8o-ref-epq-bg:#f7e7eb;--right-nav-cmp-slip-3ga-slip-ys5-bg:#7dbbe9;--right-nav-cmp-slip-y8o-slip-ys5-bg:#dfa3b3;--right-nav-cmp-slip-y8o-dt-span:#222;--right-nav-cmp-Linemarket-slip-3ga-bg:#5baca7;--right-nav-cmp-Linemarket-slip-3ga-border:#50d0ae;--right-nav-cmp-Linemarket-slip-3ga-slip-ys5-bg:#1C282D;--right-nav-cmp-Linemarket-slip-3ga-slip-ys5-color:#fff;--right-nav-cmp-Linemarket-slip-y8o-bg:#50d0ae;--right-nav-cmp-Linemarket-slip-y8o-border:#5baca7;--right-nav-cmp-Linemarket-slip-y8o-slip-ys5-bg:#1C282D;--right-nav-cmp-Linemarket-slip-y8o-slip-ys5-color:#fff;--right-nav-cmp-SPORTSBOOK_BG-bg:#d3edd0;--right-nav-cmp-SPORTSBOOK_BG-border:#16a660;--right-nav-cmp-SPORTSBOOK_BG-slip-ys5-bg:#16a660;--betslip-cmp-ui-link-bg:rgba(0, 0, 0, .7);--betslip-cmp-modal-body-bg:#000;--betslip-cmp-modal-body-color:#fff;--betslip-cmp-btn-verification-bg:rgba(0, 0, 0, 0);--betslip-cmp-btn-verification-border:#fff;--betslip-cmp-btn-verification-color:#fff;--betslip-cmp-btn-confirm-bg:#000;--betslip-cmp-btn-confirm-color:#fff;--betslip-cmp-stakeinput-disable-bg:#b2bcc5;--betslip-cmp-stakeinput-disable-border:#b2bcc5;--betslip-cmp-stakeactionplus-disable-bg:#b2bcc5;--betslip-cmp-stakeactionminus-disable-bg:#b2bcc5;--betslip-cmp-slip-lay-br-border-t:#dfa3b3;--betslip-cmp-slip-lay-bg:#faeff2;--betslip-cmp-slip-back-br-border-t:#7dbbe9;--betslip-cmp-slip-back-bg:#d4e8f8;--betslip-cmp-input-Betslip-bg:#eee;--betslip-cmp-input-Betslip-border:#3333337a;--betslip-cmp-input-Betslip-color:#1e1e1e;--betslip-cmp-quick-bet-confirm-bg:rgba(255, 255, 255, .5);--betslip-cmp-quick-bet-confirm-color:rgb(33, 33, 33);--betslip-cmp-btn-cancel-bg:#eee;--betslip-cmp-btn-cancel-color:#1e1e1e;--betslip-cmp-btn-cancel-border:#333;--betslip-cmp-btn-send-active-bg:linear-gradient(-180deg, #315195 0, #14213d 100%);--betslip-cmp-btn-send-active-color:#fff;--betslip-cmp-btn-send-active-border:#000;--betslip-cmp-btn-send-bg:#a4a4a4;--betslip-cmp-btn-send-color:#e6dfcd;--betslip-cmp-btn-send-border:#333;--betslip-cmp-stakeactionminus-bg:linear-gradient(-180deg, #fff 0, #eee 89%);--betslip-cmp-stakeactionminus-color:#0000ff;--betslip-cmp-stakeactionminus-border:#aaa;--betslip-cmp-back-bg:#a7d8fd;--header-bg:#000;--header-border-bottom-color:#c8ced3;--header-navbar-brand-backgound-color:transparent;--header-a-hover-color:unset;--header-searchbar-border-color:#ffffff;--header-searchbar-focus-box-shadow:unset;--header-btn-background-color:linear-gradient(-180deg, #f72424 0%, #bb1c00 100%);--header-btn-color:#ffffff;--header-signup-btn-background:linear-gradient(-180deg, #fd8f3b 0%, #fd3523 100%);--header-signup-text-color:#ffffff;--header-login-signup-color:#ffffff;--header-login-signup-button-background-disabled:linear-gradient(-180deg, #f72424 0%, #bb1c00 100%);--header-open-bets-color:#ffffff;--header-open-bets-border:#0b1933;--header-open-bets-box-shadow:inset 0 1px 0 0 rgba(255, 255, 255, .4);--header-bet-refresh-color:#ffffff;--header-bet-refresh-border:#0b1933;--header-bet-refresh-shadow:inset 0 1px 0 0 rgba(255, 255, 255, .4);--header-bet-setting-color:#ffffff;--header-bet-setting-shadow:inset 0 1px 0 0 rgba(255, 255, 255, .4);--header-bet-setting-border:#0b1933;--header-exp-red-color:#d0021b;--header-bet-setting-a-color:#ffffff;--header-user-blnc-color:#ffffff;--header-head-refresh-a-color:#ffb80c;--header-dropdown-item-border-bottom-color:#c8ced3;--header-drp-logout-background-active:transparent;--header-loginBtn-background:linear-gradient(-180deg, #fd8f3b 0%, #fd3523 100%);--header-loginBtn-color:#ffffff;--header-my-input-placeholder-color:#73818f;--header-modal-content-border:unset;--header-modal-content-background:#000000;--header-login-popup-content-shadow:5px 5px 5px #666;--header-form-login-input-border:#3e8142;--header-close-color:#ffffff;--header-input-placeholder-color:#ff0000;--header-span-defaultval-color:#73818f;--header-close-signup-color:#000000;--header-exposure-modal-header-border-bootom:#c8ced3;--header-exposure-button-close-color:#fff;--header-exposure-button-text-shadow:#fff;--header-exposure-modal-body-background:#ffffff;--header-exposure-modal-body-color:#ffffff;--header-exposure-modal-body-table-border:#333;--header-exposure-modal-body-table-thead-background:#c8ced3;--header-exposure-details:#ffff;--header-exposure-modal-body-a-color:#2789ce;--header-dropdown-menu-background:#fff;--header-dropdown-menu-border:#c8ced3;--header-logout-btn-hover-background:linear-gradient(180deg, #2A3A43 27%, #1C282D 83%);--header-dropdown-header-border-bottom:#333;--header-dropdown-item-i-color:#c8ced3;--header-myaccnt-my-acc-font-color:#ffffff;--header-search-icon-div-background:#ffffff;--header-search-icon-div-border:#ccc;--header-search-icon:#555555c2;--header-search-icon-cross-color:#5555558f;--header-username-color:#5c6873;--header-login-popup-content-background:linear-gradient(-180deg, #000000 0%, #000000 100%);--header-btn-confirm-background:#fff;--header-btn-verification-background:rgba(0, 0, 0, 0);--header-btn-verification-border:#fff;--header-btn-verification-color:#fff;--header-modal-body-background:#000000;--header-modal-body-color:#ffffff;--header-dropdown-item-active-background:#f0f3f5;--header-header-popup-close-background:#000000;--header-confirm-line-border-top:#fff;--header-username-placeholder-color:#5c6873;--header-err-invalid-color:#ffffff;--header-searchbox:#ffffff;--header-searchlist-hover-background:#f5faff;--header-Fancy-marketCategoryList-color:#fff;--header-Fancy-marketCategoryList-bg:linear-gradient(180deg, #030a12, #444647 42%, #58595a);--header-selectedMarket-color:#000;--header-selectedMarket-bg:linear-gradient(-180deg, #fd8f3b 0%, #fd3523 100%);--header-nav-cmp-navbar-item-color:#000;--header-nav-cmp-navbar-item-active-color:rgb(255, 255, 255);--header-nav-cmp-menu-wrap-bg:linear-gradient(-180deg, #fd8f3b 0%, #fd3523 100%);--header-nav-cmp-ver-menu-color:#000;--header-nav-cmp-ver-menu-border:#797777;--header-nav-cmp-anchorColorWhite-color:#fff;--header-nav-cmp-ver-menu-active-color:#fff;--header-nav-cmp-a-clicked-color:#fff;--header-nav-cmp-settings-color:#000;--header-nav-cmp-settings-border:#797777;--header-nav-cmp-a-color:#000;--topHeaderColor:linear-gradient(-180deg, #fd8f3b 0%, #fd3523 100%);--headerDropdwonHead:#e4e7ea;--headerDropdwonColor:#23282c;--headerBoxcellBG:#c8ced2;--PlayText:"#ffffff";--eventText:"#ffffff";--eventBg:"#000";--timerValue:20s;--heightTop:188px;--active-button:linear-gradient(-180deg, #32617f 20%, #1f4258 91%);--theme-color:linear-gradient(-180deg, #243a48 20%, #172732 91%);--text-color-white:#fff;--event-bgcolor-SideNav:linear-gradient(180deg, #2A3A43 27%, #1C282D 83%);--event-bgcolor-BottomNav:linear-gradient(-180deg, #243a48 20%, #172732 91%);--event-bgcolor-BottomNav-active:linear-gradient(-180deg, #32617f 20%, #1f4258 91%);--app-backgroudColor:rgb(0, 0, 0);--bg-table:#2E3439;--text-table:#AAAFB5;--text-white:#ffffff;--back-color:rgba(114, 187, 239, .75);--lay-color:rgba(250, 169, 186, .75);--marque-color:#d7d7d7;--bg-table-header:#3c444b;--text-table-header:#AAAFB5;--theme2-bg85:#2c3e50;--primary-color:#ffffff;--secondary-color:#ffffff;--font-v-small:10px;--font-small:12px;--font-caption:15px;--blue:#20a8d8;--indigo:#6610f2;--purple:#6f42c1;--pink:#e83e8c;--red:#f86c6b;--orange:#f8cb00;--yellow:#ffc107;--green:#4dbd74;--teal:#20c997;--cyan:#17a2b8;--white:#fff;--gray:#73818f;--gray-dark:#2f353a;--light-blue:#63c2de;--primary:#20a8d8;--secondary:#c8ced3;--success:#4dbd74;--info:#63c2de;--warning:#ffc107;--danger:#f86c6b;--light:#f0f3f5;--dark:#2f353a;--breakpoint-xs:0;--breakpoint-sm:576px;--breakpoint-md:768px;--breakpoint-lg:992px;--breakpoint-xl:1200px;--loginButtonColor:linear-gradient(-180deg, #f72424 0%, #bb1c00 100%);--menuColor:linear-gradient(#A4DC60 0%, #4F9F21 100%);--sportMenuHead:linear-gradient(-180deg, #315195 0%, #14213D 100%);--sportHeadColor:#A4DC60;--highlistFirstBG:linear-gradient(#4f9f21 0, #a4dc60 80%);--highlistSecondBG:linear-gradient(#a4dc60 0, #4f9f21 100%);--highlistTextColor:#000000;--tabColor:linear-gradient(180deg, #2A3A43 27%, #1C282D 83%);--openBetBG:linear-gradient(-180deg, #2E4B5E 0%, #243A48 82%);--highlightMobileBG:linear-gradient(-180deg, #2E4B5E 0%, #243A48 82%);--btnColor:linear-gradient(-180deg, #315195 0%, #14213D 100%);--loginBGColor:linear-gradient(#A4DC60 0%, #4F9F21 100%);--outerMenuColor:#000000;--outerMenuActiveColor:#ffffff;--newsColor:linear-gradient(180deg, #2A3A43 27%, #1C282D 83%);--headRefreshPS:-80px -1825px;--headAccountPS:0 -825px;--openBetTextColor:#003b03;--warning:#2f353a;--primary:#315195;--side-nav-cmp-user-menus-matched-826-li-a-color:#ffffff;--side-nav-cmp-user-menus-matched-826-li-a-border:#dcdcdc;--side-nav-cmp-user-menus-border:#c8ced3;--side-nav-cmp-left-bar-bg:#fff;--side-nav-cmp-openBetHeader-bg:#222;--side-nav-cmp-openBetHeader-bg-image:linear-gradient(-180deg, #fd8f3b 0%, #fd3523 100%);--side-nav-cmp-openBetHeader-btm-border:#c8ced3;--side-nav-cmp-openBetHeader-color:#020302;--side-nav-cmp-close-color:black;--side-nav-cmp-matched-head-bg:#fff;--side-nav-cmp-slip-back-bg:#beddf4;--side-nav-cmp-slip-back-btm-border:#67afe5;--side-nav-cmp-slip-lay-bg:#f3dce2;--side-nav-cmp-slip-lay-btm-border:#dfa3b3;--side-nav-cmp-slip-lay-slip-type-bg:#dfa3b3;--side-nav-cmp-scrollSlip-slip-back-bg:#beddf4;--side-nav-cmp-slip-back-slip-lay-refer-color:#3b5160;--side-nav-cmp-slip-back-keep-option-bg:#d4e8f8;--side-nav-cmp-slip-back-dt-slip-type-color:#1e1e1e;--side-nav-cmp-slip-back-slip-type-bg:#7dbbe9;--side-nav-cmp-slip-back-dt-span-color:#222;--side-nav-cmp-slip-back-dd-color:#243a48;--side-nav-cmp-slip-back-refer-color:#3b5160;--side-nav-cmp-slip-lay-keep-option-bg:#d4e8f8;--side-nav-cmp-content-534-bg:#fff;--side-nav-cmp-content-534-border:#c8ced3;--side-nav-cmp-content-534-border-top:#c8ced3;--side-nav-cmp-aside-menu-content-534-webkit-scrollbar-thumb-bg:#e6e5e5;--side-nav-cmp-aside-menu-content-534-webkit-scrollbar-track-bg:#fff;--side-nav-cmp-aside-menu-content-534-webkit-scrollbar-track-border-left:#f2f2f2;--side-nav-cmp-aside-menu-content-534-webkit-scrollbar-track-border-right:#f2f2f2;--side-nav-cmp-btn-gad-border-top:#e0e6e6;--side-nav-cmp-matched-826-bg:#fff;--side-nav-cmp-slip-3ga-bg:#beddf4;--side-nav-cmp-slip-3ga-btm-border:#67afe5;--side-nav-cmp-slip-y8o-bg:#f3dce2;--side-nav-cmp-slip-y8o-btm-border:#dfa3b3;--side-nav-cmp-option-g3c-border-top:#e0e6e6;--side-nav-cmp-slip-3ga-dd-color:#243a48;--side-nav-cmp-slip-3ga-ref-epq-bg:#d4e8f8;--side-nav-cmp-slip-3ga-ref-epq-color:#3b5160;--side-nav-cmp-slip-y8o-dd-color:#243a48;--side-nav-cmp-slip-slip-y8o-ref-epq-color:#3b5160;--side-nav-cmp-slip-slip-y8o-ref-epq-bg:#f7e7eb;--side-nav-cmp-slip-3ga-dt-span-color:#222;--side-nav-cmp-slip-3ga-slip-ys5-bg:#7dbbe9;--side-nav-cmp-slip-3ga-dt-slip-ys5-color:#1e1e1e;--side-nav-cmp-slip-y8o-slip-ys5-bg:#dfa3b3;--side-nav-cmp-slip-y8o-dt-span-color:#222;--side-nav-cmp-slip-y8o-dt-slip-ys5-color:#1e1e1e;--side-nav-cmp-option-g3c-label-color:#1e1e1e;--side-nav-cmp-nav-link-color:#223869;--side-nav-cmp-nav-link-btm-border:#d2d6e2;--side-nav-cmp-nav-link-before-border:#e0e6e6;--side-nav-cmp-nav-link-color:#2789ce;--side-nav-cmp-nav-link-webkit-highlight-color:rgba(182, 223, 253, .5);--side-nav-cmp-all-sports-list-ul-li-nav-link-webkit-highlight-color:rgba(182, 223, 253, .5);--side-nav-cmp-all-sports-list-ul-li-nav-link-color:#2789ce;--side-nav-cmp-sport-nav-nav-item-btm-border:#e0e6e6;--side-nav-cmp-all-sports-list-bg:#fff;--side-nav-cmp-card-bg:#fff;--side-nav-cmp-card-border:#c8ced3;--side-nav-cmp-aside-menu-bg:#fff;--side-nav-cmp-aside-menu-color:#2f353a;--side-nav-cmp-aside-menu-border-left:#c8ced3;--side-nav-cmp-matched-nav-bg:#CED5DA;--side-nav-cmp-matched-nav-nav-item-match-bg:#fff;--side-nav-cmp-matched-nav-nav-item-match-match-nav-link-color:#020302;--bottom-nav-cmp-support-wrap-color:rgba(0, 0, 0, .6);--bottom-nav-cmp-mobile-footer-menu-bg:linear-gradient(-180deg, #243a48 20%, #172732 91%);--bottom-nav-cmp-mobile-footer-menu-color:#fff;--bottom-nav-cmp-mobile-footer-menu-a-color:#fff;--bottom-nav-cmp-active-link-bg:linear-gradient(-180deg, #32617f 20%, #1f4258 91%);--market-details-cmp-odd-row-back-1-active-background:#1a8ee1;--market-details-cmp-odd-row-back-1-active-color:#fff;--market-details-cmp-odd-row-lay-1-active-background:#f4496d;--market-details-cmp-odd-row-lay-1-active-color:#fff}html,body{background:var(--mainBodyBG);-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-family:Tahoma,Helvetica,sans-serif;top:0!important;touch-action:manipulation}@media only screen and (min-width: 320px) and (max-width: 1279px){body{font-size:var(--font-small)}}.loaderMain{position:fixed;left:0;top:0;width:100%;height:100vh;display:flex;justify-content:center;align-items:center;background:#000000;z-index:10000}.loaderMain img{width:100%;height:100%;background-repeat:no-repeat;background-attachment:fixed;background-position:center}@media only screen and (max-width:768px){body{overflow:hidden}}.loader-bg{background-image:url(loader.6bd6582ec639aedc.gif)}</style><link rel="stylesheet" href="styles.6d92ea6c5a35f97d.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.6d92ea6c5a35f97d.css"></noscript></head>
+
+<body>
+  <div id="boot-overlay" class="loaderMain">
+    <img class="loader-bg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background-repeat:no-repeat;background-position:center;">
+    <div id="spine-boot-host" style="position:absolute;inset:0;width:100%;height:100%;"></div>
+  </div>
+
+  <script>
+    (function () {
+      var host = document.getElementById('spine-boot-host');
+      if (!host || typeof PIXI === 'undefined' || typeof spine === 'undefined') return;
+
+      var dpr = Math.max(1, window.devicePixelRatio || 1);
+
+      var app = new PIXI.Application();
+      app.init({
+        resizeTo: host,
+        backgroundColor: 0x000000,
+        backgroundAlpha: 1,
+        antialias: true,
+
+        // ✅ CRISP ON MOBILE/RETINA
+        resolution: dpr,
+        autoDensity: true
+      }).then(function () {
+        host.appendChild(app.canvas);
+
+        // ✅ make sure canvas matches host CSS size exactly
+        app.canvas.style.width = '100%';
+        app.canvas.style.height = '100%';
+        app.canvas.style.display = 'block';
+
+        PIXI.Assets.add({ alias: 'boot-atlas', src: 'assets/Universe Gif/Universe.atlas' });
+        PIXI.Assets.add({ alias: 'boot-skel', src: 'assets/Universe Gif/Universe.json' });
+
+        return PIXI.Assets.load(['boot-atlas', 'boot-skel']);
+      }).then(function () {
+        var spineObj = spine.Spine.from({ skeleton: 'boot-skel', atlas: 'boot-atlas' });
+        app.stage.addChild(spineObj);
+
+        var firstAnim = spineObj.skeleton.data.animations && spineObj.skeleton.data.animations[0];
+        if (firstAnim) spineObj.state.setAnimation(0, firstAnim.name, true);
+
+        function applyDprAndResize() {
+          // ✅ handle orientation change / DPR changes
+          var nextDpr = Math.max(1, window.devicePixelRatio || 1);
+          app.renderer.resolution = nextDpr;
+
+          // force correct internal buffer size
+          var w = Math.max(1, Math.floor(host.clientWidth));
+          var h = Math.max(1, Math.floor(host.clientHeight));
+          app.renderer.resize(w, h);
+        }
+
+        function applyLayout() {
+          applyDprAndResize();
+
+          var w = window.innerWidth;
+          var h = window.innerHeight;
+
+          var scale = w <= 480 ? 0.5 : (w <= 768 ? 1.0 : (w <= 1024 && w > h ? 0.75 : 1.0));
+
+          spineObj.scale.set(scale);
+          spineObj.pivot.set(0, 0);
+          spineObj.position.set(0, 0);
+
+          var lb = spineObj.getLocalBounds();
+          spineObj.pivot.set(lb.x + lb.width / 2, lb.y + lb.height / 2);
+          spineObj.position.set(app.screen.width / 2, app.screen.height / 2);
+        }
+
+        applyLayout();
+        window.addEventListener('resize', applyLayout, { passive: true });
+
+        window.__bootLoaderCleanup = function () {
+          window.removeEventListener('resize', applyLayout);
+          spineObj.destroy({ children: true });
+          app.destroy(true);
+        };
+      }).catch(function (err) {
+        console.error('[boot-loader]', err);
+      });
+    })();
+  </script>
+
+
+  <app-root></app-root>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script> -->
+
+  <script defer>
+    document.addEventListener('gesturestart', function (e) {
+      e.preventDefault();
+    });
+
+    document.addEventListener('touchmove', function (event) {
+
+      event.preventDefault();
+    }, false);
+
+    // window.onscroll = function () {
+    //   window.scrollLeft = 0;
+    // }
+
+  </script>
+  <script defer>
+    document.addEventListener('gesturestart', function (e) {
+      e.preventDefault();
+    });
+    document.addEventListener('touchmove', function (event) {
+      event.preventDefault();
+    }, false);
+    document.addEventListener('dblclick', function (event) {
+      event.preventDefault();
+    }, { passive: false });
+  </script>
+
+  <script src="https://rawcdn.githack.com/zarocknz/javascript-winwheel/229a47acc3d7fd941d72a3ba9e1649751fd10ed5/Winwheel.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+
+<script src="runtime.a115c4ebac8043d7.js" type="module"></script><script src="polyfills.ffa2b280fa32d3b4.js" type="module"></script><script src="scripts.484e10448d827bf7.js" defer></script><script src="main.d572128458d43bb8.js" type="module"></script></body>
+
+</html>

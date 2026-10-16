@@ -1,5 +1,6 @@
 import { useSyncExternalStore } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { gotoAviator } from '../casino/launch';
 import { useSelector } from 'react-redux';
 import { ng } from '../ng';
 import { kx } from '../assets';
@@ -14,7 +15,7 @@ const C = ng('khn');
 // pointing at the page this app already has for it.
 const NAV_SPORTS = [
   { name: 'Cricket', etid: 4, route: '/allsport-highlight/4' },
-  { name: 'Vimaan', route: '/casino/AVIATOR', aviator: true },
+  { name: 'Vimaan', aviator: true },
   { name: 'Tennis', etid: 2, route: '/allsport-highlight/2' },
   { name: 'Soccer', etid: 1, route: '/allsport-highlight/1' },
   { name: 'Horse Racing', etid: 10, racing: true, route: '/allsport-highlight/7' },
@@ -91,7 +92,7 @@ export default function HeaderNav({ onAgeConfirm }) {
                 <a
                   {...C}
                   className={`Virtual navbar-item${active === s.name ? ' active' : ''}${s.aviator ? ' heartBeat' : ''}`}
-                  onClick={() => (s.aviator && !isAuth ? navigate('/login') : go(s.name, s.route))}
+                  onClick={() => { if (s.aviator && isAuth) activate(s.name); if (s.aviator) gotoAviator(isAuth, navigate); else go(s.name, s.route); }}
                 >
                   {s.aviator && <img {...C} src={kx('assets/casinoslpot/aviator.png')} className="aviatorImg" />}
                   {' '}{s.name}

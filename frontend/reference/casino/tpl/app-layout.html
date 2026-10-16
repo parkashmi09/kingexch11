@@ -1,0 +1,27 @@
+<div class="prevent-select" [ngClass]>
+  <ng-if fn="Efe">
+    <app-top-header class="headerDesktop hideDekstop"></app-top-header>
+  </ng-if>
+  <ng-if fn="Dfe">
+    <app-t20-exchange-header class="hideMobileHeader"></app-t20-exchange-header>
+  </ng-if>
+  <div class="d-flex app-body" [ngClass]>
+    <div class="sidebar showDesktop hideDekstop" [ngClass]>
+      <app-side-bar></app-side-bar>
+      <ng-if fn="Bfe">
+        <app-casino-menu></app-casino-menu>
+      </ng-if>
+    </div>
+    <div class="content responsiveMobile" id="marketScroll1" [ngClass]>
+      <app-casino-room></app-casino-room>
+      <router-outlet></router-outlet>
+    </div>
+    <div class="sidebarright hideDekstop" style="width: 27vw" [ngClass]>
+      <ng-if fn="Rfe">
+        <app-right-nav></app-right-nav>
+      </ng-if>
+    </div>
+  </div>
+  <app-bottom-navigation></app-bottom-navigation>
+</div>
+

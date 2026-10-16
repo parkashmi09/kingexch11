@@ -1,0 +1,309 @@
+<app-video-simple [resultDeclared]></app-video-simple>
+<div id="marketScroll" [ngClass]>
+  <ng-for fn="Rie">
+    <ng-container>
+      <ng-if fn="kie">
+        <div class="card">
+          <span class="btn btn-primary card-header inner-sportbook">
+            <span class="minmax" data-bs-toggle="collapse" role="button" aria-expanded="true" aria-controls="multiCollapseExample1">
+              <strong>
+                {{ }}
+              </strong>
+            </span>
+            <div class="minMaxDesktop">
+              <span>
+                {{ }}
+              </span>
+            </div>
+            <span class="minMaxMobile">
+              <i class="fa fa-info-circle ml-2" data-bs-toggle="collapse" data-bs-toggle="collapse" data-bs-toggle="dropdown" aria-expanded="false"></i>
+              <ul class="dropdown-menu icon-range min-max-info text-end tooltip-betlimit">
+                <span>
+                  {{ }}
+                </span>
+              </ul>
+            </span>
+          </span>
+          <div class="col">
+            <div class="collapse multi-collapse show" id="multiCollapseExample1">
+              <table class="table table-hover tbl-bets p-rltv sportbook-market-tbl">
+                <tbody>
+                  <ng-if fn="nie">
+                    <div class="suspended-casino">
+                      <span class="stats-text">
+                        Suspended
+                      </span>
+                    </div>
+                  </ng-if>
+                  <ng-for fn="vie">
+                    <ng-container>
+                      <tr class="odd-row">
+                        <td class="team-name sportbook-name">
+                          <span class="title">
+                            {{ }}
+                          </span>
+                          <span class="d-flex align-items-center">
+                            <ng-if fn="uie">
+                              <span class="p-0" style="display: flex; font-size: 15px; font-weight: 400">
+                                <ng-if fn="rie">
+                                  <span style="font-weight: bold !important">
+                                     L : 
+                                  </span>
+                                </ng-if>
+                                <ng-if fn="iie">
+                                  <span style="font-weight: bold !important">
+                                     P :
+                                  </span>
+                                </ng-if>
+                                <ng-if fn="cie">
+                                  <span class="d-flex" [ngClass]>
+                                    {{ }}
+                                    <ng-if fn="sie">
+                                      <span [ngClass]>
+                                        {{ }}
+                                      </span>
+                                    </ng-if>
+                                    <ng-if fn="aie">
+                                      <span [ngClass]>
+                                        {{ }}
+                                      </span>
+                                    </ng-if>
+                                    <ng-if fn="oie">
+                                      <span [ngClass]>
+                                        {{ }}
+                                      </span>
+                                    </ng-if>
+                                    <ng-if fn="lie">
+                                      <span [ngClass]>
+                                        {{ }}
+                                      </span>
+                                    </ng-if>
+                                  </span>
+                                </ng-if>
+                              </span>
+                            </ng-if>
+                            <ng-if fn="hie">
+                              <span style="display: flex; padding: 0">
+                                <ng-if fn="die">
+                                  <span class="plus-book d-flex" style="margin-right: 5px">
+                                    <span style="color: black; margin-right: 2px; font-weight: bold">
+                                      P :
+                                    </span>
+                                    <span class="plus-book">
+                                      {{ }}
+                                    </span>
+                                  </span>
+                                </ng-if>
+                                <ng-if fn="pie">
+                                  <span class="minus-book d-flex">
+                                    <span style="color: black; margin-right: 2px; font-weight: bold">
+                                      L :
+                                    </span>
+                                    <span class="minus-book">
+                                      {{ }}
+                                    </span>
+                                  </span>
+                                </ng-if>
+                              </span>
+                            </ng-if>
+                            <ng-if fn="gie">
+                              <span style="display: flex; padding: 0">
+                                <ng-if fn="mie">
+                                  <span class="minus-book d-flex" style="margin-right: 5px">
+                                    <span style="color: black; margin-right: 2px; font-weight: bold">
+                                      L :
+                                    </span>
+                                    <span class="minus-book">
+                                      {{ }}
+                                    </span>
+                                  </span>
+                                </ng-if>
+                                <ng-if fn="fie">
+                                  <span class="plus-book d-flex">
+                                    <span style="color: black; margin-right: 2px; font-weight: bold">
+                                      P :
+                                    </span>
+                                    <span class="plus-book">
+                                      {{ }}
+                                    </span>
+                                  </span>
+                                </ng-if>
+                              </span>
+                            </ng-if>
+                          </span>
+                        </td>
+                        <td class="back-1 count sportbook-minwidth p-rltv" colspan appRateHighlight [click] (click)>
+                          <ng-if fn="_ie">
+                            <div class="spnd-casinouniqueLay">
+                              <span class="stats-text">
+                                Suspendeds
+                              </span>
+                            </div>
+                          </ng-if>
+                          <a class="d-flex flex-column p-0" style="text-decoration: none; color: black">
+                            {{ }}
+                            <span class="d-flex justify-content-center">
+                              {{ }}
+                            </span>
+                          </a>
+                        </td>
+                        <td class="lay count sportbook-minwidth p-rltv" colspan appRateHighlight [click] (click)>
+                          <a class="d-flex flex-column p-0" style="text-decoration: none; color: black">
+                            {{ }}
+                            <span class="d-flex justify-content-center">
+                              {{ }}
+                            </span>
+                          </a>
+                        </td>
+                        <td class="hidden-xs" style="width: 15%"></td>
+                      </tr>
+                      <ng-if fn="yie">
+                        <tr>
+                          <td class="p-0" colspan="4">
+                            <app-betslips id="betslip" style="padding: 0" [item] [newItemEvent] [newItemEventPlaceBet] [valueEventPlaceBet] (newItemEvent) (newItemEventPlaceBet) (valueEventPlaceBet)>
+                            </app-betslips>
+                          </td>
+                        </tr>
+                      </ng-if>
+                    </ng-container>
+                  </ng-for>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </ng-if>
+      <ng-if fn="Bie">
+        <div class="card">
+          <span class="btn btn-primary card-header inner-sportbook">
+            <span class="minmax" data-bs-toggle="collapse" role="button" aria-expanded="true" aria-controls="multiCollapseExample1">
+              <strong>
+                {{ }}
+              </strong>
+            </span>
+            <div class="minMaxDesktop">
+              <span>
+                {{ }}
+              </span>
+            </div>
+            <span class="minMaxMobile">
+              <i class="fa fa-info-circle ml-2" data-bs-toggle="collapse" data-bs-toggle="collapse" data-bs-toggle="dropdown" aria-expanded="false"></i>
+              <ul class="dropdown-menu icon-range min-max-info text-end tooltip-betlimit">
+                <span>
+                  {{ }}
+                </span>
+              </ul>
+            </span>
+          </span>
+          <div class="col">
+            <div class="collapse multi-collapse show" id="multiCollapseExample2">
+              <table class="table table-hover tbl-bets p-rltv sportbook-market-tbl">
+                <tbody>
+                  <ng-if fn="bie">
+                    <div class="suspended-casino">
+                      <span class="stats-text">
+                        Suspended
+                      </span>
+                    </div>
+                  </ng-if>
+                  <ng-for fn="Die">
+                    <ng-container>
+                      <tr class="odd-row">
+                        <td class="team-name sportbook-name" style="width: 70%">
+                          <span class="title">
+                            {{ }}
+                          </span>
+                          <span class="d-flex align-items-center">
+                            <ng-if fn="Pie">
+                              <span class="p-0" style="display: flex; font-size: 15px; font-weight: 400">
+                                <ng-if fn="xie">
+                                  <span style="font-weight: bold !important">
+                                     L : 
+                                  </span>
+                                </ng-if>
+                                <ng-if fn="Cie">
+                                  <span style="font-weight: bold !important">
+                                     P :
+                                  </span>
+                                </ng-if>
+                                <ng-if fn="wie">
+                                  <span class="d-flex" [ngClass]>
+                                    {{ }}
+                                    <ng-if fn="Aie">
+                                      <span [ngClass]>
+                                        {{ }}
+                                      </span>
+                                    </ng-if>
+                                    <ng-if fn="Iie">
+                                      <span [ngClass]>
+                                        {{ }}
+                                      </span>
+                                    </ng-if>
+                                  </span>
+                                </ng-if>
+                              </span>
+                            </ng-if>
+                            <ng-if fn="Tie">
+                              <span style="display: flex; padding: 0">
+                                <ng-if fn="Mie">
+                                  <span class="plus-book d-flex" style="margin-right: 5px">
+                                    <span style="color: black; margin-right: 2px; font-weight: bold">
+                                      P :
+                                    </span>
+                                    <span class="plus-book">
+                                      {{ }}
+                                    </span>
+                                  </span>
+                                </ng-if>
+                                <ng-if fn="Sie">
+                                  <span class="minus-book d-flex">
+                                    <span style="color: black; margin-right: 2px; font-weight: bold">
+                                      L :
+                                    </span>
+                                    <span class="minus-book">
+                                      {{ }}
+                                    </span>
+                                  </span>
+                                </ng-if>
+                              </span>
+                            </ng-if>
+                          </span>
+                        </td>
+                        <td class="back-1 count sportbook-minwidth p-rltv" appRateHighlight colspan="2" [click] (click)>
+                          <ng-if fn="Oie">
+                            <div class="onebox spnd-casinouniqueLay">
+                              <span class="stats-text">
+                                Suspended
+                              </span>
+                            </div>
+                          </ng-if>
+                          <a class="d-flex flex-column p-0" style="text-decoration: none; color: black">
+                            {{ }}
+                            <span class="d-flex justify-content-center">
+                              {{ }}
+                            </span>
+                          </a>
+                        </td>
+                        <td class="hidden-xs" style="width: 15%"></td>
+                      </tr>
+                      <ng-if fn="Eie">
+                        <tr>
+                          <td class="p-0" colspan="4">
+                            <app-betslips id="betslip" style="padding: 0" [item] [newItemEvent] [newItemEventPlaceBet] [valueEventPlaceBet] (newItemEvent) (newItemEventPlaceBet) (valueEventPlaceBet)>
+                            </app-betslips>
+                          </td>
+                        </tr>
+                      </ng-if>
+                    </ng-container>
+                  </ng-for>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </ng-if>
+    </ng-container>
+  </ng-for>
+  <app-results></app-results>
+</div>
+

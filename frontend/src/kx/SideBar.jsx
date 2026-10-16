@@ -19,6 +19,9 @@ const SPORTS = [
   { name: 'Greyhound Racing', etid: 65, route: '/allsport-highlight/4339', racing: true },
   { name: 'Lottery', route: '/allsport-highlight/66104' },
 ];
+// The casino site's rail (its game pages): the same, without Casino and
+// Greyhound Racing.
+const CASINO_SPORTS = SPORTS.filter((s) => s.name !== 'Casino' && s.name !== 'Greyhound Racing');
 
 // The open sport and tournaments outlive the rail: pages that remount it (a
 // match page) find it as it was, like the reference's single sidebar.
@@ -53,11 +56,11 @@ function tournaments(sport, sports, racing) {
  * expanding to its events, and it stays that way while browsing its matches.
  * "Sports" (or the ⋮) goes back to the list; so does going home.
  */
-export default function SideBar() {
+export default function SideBar({ casino = false }) {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const { sports, racing } = useSportsTree();
-  const listed = useListedSports(SPORTS);
+  const listed = useListedSports(casino ? CASINO_SPORTS : SPORTS);
   const home = pathname === '/' || pathname === '/home';
   const [sport, setSport] = useState(home ? null : saved.sport);
   const [open, setOpen] = useState(home ? {} : saved.open);

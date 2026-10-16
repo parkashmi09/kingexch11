@@ -1,0 +1,700 @@
+<div class="videoPlayer">
+  <ng-if fn="ute">
+    <ng-container>
+      <ng-if fn="lte">
+        <div class="player-container">
+          <iframe width="100%" style="aspect-ratio: 16 / 9; height: auto" [src]></iframe>
+        </div>
+      </ng-if>
+      <ng-if fn="cte">
+        <div class="player-container d-flex justify-content-center">
+          <img src="assets/loader.gif" width="75%" style="aspect-ratio: 16 / 9; height: auto" />
+        </div>
+      </ng-if>
+    </ng-container>
+  </ng-if>
+  <ng-template fn="hte">
+    <ng-if fn="dte">
+      <video class="isDesktop" id="videoBallByball" width="100%" autoplay playsinline muted style="background-color: black; background-size: contain">
+        <source type="video/mp4" [src] />
+         Your browser does not support the video tag. 
+      </video>
+    </ng-if>
+    <ng-if fn="pte">
+      <img class="isDesktop ballbyballPoster" src="../../../../assets/ballbyball.gif" alt="Ball by Ball" />
+    </ng-if>
+  </ng-template>
+  <ng-if fn="fte">
+    <div class="ballbyballResult">
+      <img src="./../../../../assets/emptyBall.png" />
+      <span>
+        {{ }}
+      </span>
+      <ng-if fn="mte">
+        <span style="position: absolute">
+          <canvas width="100vw" height="100vh"></canvas>
+        </span>
+      </ng-if>
+    </div>
+  </ng-if>
+  <ng-if fn="kte">
+    <ng-container>
+      <div class="andar-bahir-container">
+        <div class="video-overlay" [ngClass]>
+          <div class="round-id mb-1">
+            {{ }}
+          </div>
+          <div class="row align-items-center" [ngClass]>
+            <div class="col-1">
+              <div class="row">
+                <div class="col-12">
+                  <p class="mb-0 text-white">
+                    <b class="text-a">
+                       A 
+                    </b>
+                  </p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <p class="mb-0 text-white">
+                    <b class="text-b">
+                       B 
+                    </b>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-2 ps-1">
+              <img class="card-right" style="width: 23px !important" [src] />
+            </div>
+            <div class="col-7 custom-css-x">
+              <div class="row">
+                <div class="col-12">
+                  <div class="crousel">
+                    <owl-carousel-o [options]>
+                      <ng-for fn="_te">
+                        <ng-container>
+                          <ng-template fn="gte">
+                            <img class="img img-responsive andrimg" style="width: 23px !important" [src] />
+                          </ng-template>
+                        </ng-container>
+                      </ng-for>
+                    </owl-carousel-o>
+                  </div>
+                  <div class="crousel mt-2">
+                    <owl-carousel-o [options]>
+                      <ng-for fn="vte">
+                        <ng-container>
+                          <ng-template fn="yte">
+                            <img class="img img-responsive andrimg" style="width: 23px !important" [src] />
+                          </ng-template>
+                        </ng-container>
+                      </ng-for>
+                    </owl-carousel-o>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </ng-if>
+  <ng-if fn="yne">
+    <ng-container>
+      <ng-if fn="fne">
+        <div class="video-overlay">
+          <div>
+            <div class="round-id">
+              {{ }}
+            </div>
+            <ng-if fn="Ate">
+              <ng-container>
+                <ng-if fn="bte">
+                  <div>
+                    <h3 class="text-white">
+                      JOKER
+                    </h3>
+                    <div>
+                      <img [src] />
+                    </div>
+                  </div>
+                </ng-if>
+                <ng-if fn="xte">
+                  <div>
+                    <h3 class="text-white">
+                      PLAYER A
+                    </h3>
+                    <div>
+                      <img [src] />
+                      <img [src] />
+                      <img [src] />
+                    </div>
+                  </div>
+                </ng-if>
+                <ng-if fn="Cte">
+                  <div>
+                    <h3 class="text-white" style="margin-top: 0.15rem!important">
+                      PLAYER B
+                    </h3>
+                    <div>
+                      <img [src] />
+                      <img [src] />
+                      <img [src] />
+                    </div>
+                  </div>
+                </ng-if>
+              </ng-container>
+            </ng-if>
+            <ng-if fn="Lte">
+              <ng-container>
+                <div>
+                  <h3 class="text-warning playerClass" [ngClass]>
+                    {{ }}
+                  </h3>
+                  <ng-if fn="Ite">
+                    <span>
+                      <img class="card-img imgClass" style="width: 20px !important" [src] />
+                    </span>
+                  </ng-if>
+                  <ng-if fn="Pte">
+                    <div>
+                      <ng-for fn="wte">
+                        <span>
+                          <img class="card-img imgClass" style="width: 20px !important" [src] />
+                        </span>
+                      </ng-for>
+                    </div>
+                  </ng-if>
+                </div>
+                <div>
+                  <h3 class="text-warning playerClass activeCard" style="margin-top: 0.15rem!important" [ngClass]>
+                    {{ }}
+                  </h3>
+                  <ng-if fn="Mte">
+                    <span>
+                      <img class="card-img imgClass" style="width: 20px !important" [src] />
+                    </span>
+                  </ng-if>
+                  <ng-if fn="Tte">
+                    <div>
+                      <ng-for fn="Ste">
+                        <span>
+                          <img class="card-img imgClass" style="width: 20px !important" [src] />
+                        </span>
+                      </ng-for>
+                    </div>
+                  </ng-if>
+                </div>
+                <div>
+                  <h3 class="text-warning playerClass" style="margin-top: 0.15rem!important" [ngClass]>
+                    {{ }}
+                  </h3>
+                  <ng-if fn="Ote">
+                    <span>
+                      <img class="card-img imgClass" style="width: 20px !important" [src] />
+                    </span>
+                  </ng-if>
+                  <ng-if fn="Dte">
+                    <div>
+                      <ng-for fn="Ete">
+                        <span>
+                          <img class="card-img imgClass" style="width: 20px !important" [src] />
+                        </span>
+                      </ng-for>
+                    </div>
+                  </ng-if>
+                </div>
+                <div>
+                  <h3 class="text-warning playerClass" style="margin-top: 0.15rem!important" [ngClass]>
+                    {{ }}
+                  </h3>
+                  <ng-if fn="Bte">
+                    <span>
+                      <img class="card-img imgClass" style="width: 20px !important" [src] />
+                    </span>
+                  </ng-if>
+                  <ng-if fn="Nte">
+                    <div>
+                      <ng-for fn="Rte">
+                        <span>
+                          <img class="card-img imgClass" style="width: 20px !important" [src] />
+                        </span>
+                      </ng-for>
+                    </div>
+                  </ng-if>
+                </div>
+              </ng-container>
+            </ng-if>
+            <ng-if fn="Vte">
+              <ng-container>
+                <ng-if fn="Fte">
+                  <div>
+                    <h3 class="text-white" style="margin-top: 0.15rem!important"></h3>
+                    <div>
+                      <img [src] />
+                    </div>
+                  </div>
+                </ng-if>
+              </ng-container>
+            </ng-if>
+            <ng-if fn="Ute">
+              <ng-container>
+                <div class="video-overlay">
+                  <ng-for fn="$te">
+                    <ng-container>
+                      <img class="mt-1 img img-responsive card-img" style="width: 23px !important" [src] />
+                    </ng-container>
+                  </ng-for>
+                </div>
+              </ng-container>
+            </ng-if>
+            <ng-if fn="Hte">
+              <div class="video-overlay aa">
+                <div>
+                  <div>
+                    <h3 class="text-white" style="font-size: 9px !important">
+                      Cards
+                    </h3>
+                    <div class="d-flex align-items-center">
+                      <img class="card-img" [src] />
+                      <img class="card-img" [src] />
+                      <img class="card-img" [src] />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-if>
+            <ng-if fn="zte">
+              <ng-container>
+                <div>
+                  <h3 class="text-white" style="margin-top: 0.15rem!important"></h3>
+                  <div>
+                    <img [src] />
+                    <img [src] />
+                    <img [src] />
+                  </div>
+                </div>
+              </ng-container>
+            </ng-if>
+            <ng-if fn="Zte">
+              <ng-container>
+                <ng-if fn="jte">
+                  <div>
+                    <h3 class="text-white" style="margin-top: 0.15rem!important">
+                      Dragon
+                    </h3>
+                    <div>
+                      <img [src] />
+                      <ng-if fn="Gte">
+                        <img [src] />
+                      </ng-if>
+                      <ng-if fn="Wte">
+                        <img [src] />
+                      </ng-if>
+                    </div>
+                  </div>
+                </ng-if>
+                <div>
+                  <h3 class="text-white">
+                    Tiger
+                  </h3>
+                  <div>
+                    <img [src] />
+                    <ng-if fn="Yte">
+                      <img [src] />
+                    </ng-if>
+                    <ng-if fn="Xte">
+                      <img [src] />
+                    </ng-if>
+                  </div>
+                </div>
+                <ng-if fn="Qte">
+                  <div>
+                    <h3 class="text-white" style="margin-top: 0.15rem!important">
+                      Lion
+                    </h3>
+                    <div>
+                      <img [src] />
+                      <ng-if fn="Kte">
+                        <img [src] />
+                      </ng-if>
+                      <ng-if fn="qte">
+                        <img [src] />
+                      </ng-if>
+                    </div>
+                  </div>
+                </ng-if>
+              </ng-container>
+            </ng-if>
+            <ng-if fn="Jte">
+              <ng-container>
+                <div>
+                  <h3 class="text-white" style="margin-top: 0.15rem!important">
+                    Dragon
+                  </h3>
+                  <div>
+                    <img [src] />
+                  </div>
+                </div>
+                <div>
+                  <h3 class="text-white" style="margin-top: 0.15rem!important">
+                    Tiger
+                  </h3>
+                  <div>
+                    <img [src] />
+                  </div>
+                </div>
+              </ng-container>
+            </ng-if>
+            <ng-if fn="nne">
+              <div class="video-overlay">
+                <div class="d-flex flex-wrap justify-content-between" [ngStyle]>
+                  <div>
+                    <h3 class="text-white" style="margin-top: 3px">
+                      Q1:
+                    </h3>
+                    <div>
+                      <img class="card-img" [src] [ngClass] />
+                    </div>
+                  </div>
+                  <div>
+                    <h3 class="text-white" style="margin-top: 3px">
+                      Q2:
+                    </h3>
+                    <div>
+                      <img class="card-img" [src] [ngClass] />
+                    </div>
+                  </div>
+                  <div>
+                    <h3 class="text-white" style="margin-top: 3px">
+                      Q3:
+                    </h3>
+                    <div>
+                      <img class="card-img" [src] [ngClass] />
+                    </div>
+                  </div>
+                  <div>
+                    <h3 class="text-white" style="margin-top: 3px">
+                      Q4:
+                    </h3>
+                    <div>
+                      <img class="card-img" [src] [ngClass] />
+                    </div>
+                  </div>
+                  <div>
+                    <h3 class="text-white" style="margin-top: 3px">
+                      Q5:
+                    </h3>
+                    <div>
+                      <img class="card-img" [src] [ngClass] />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-if>
+            <ng-if fn="rne">
+              <ng-container>
+                <div>
+                  <h3 class="text-white" style="margin-top: 0.15rem!important">
+                    FIGHTER A
+                  </h3>
+                  <div>
+                    <img [src] />
+                  </div>
+                </div>
+                <div>
+                  <h3 class="text-white" style="margin-top: 0.15rem!important">
+                    FIGHTER B
+                  </h3>
+                  <div>
+                    <img [src] />
+                  </div>
+                </div>
+              </ng-container>
+            </ng-if>
+            <ng-if fn="sne">
+              <ng-container>
+                <div>
+                  <h3 class="text-white">
+                    Card
+                  </h3>
+                  <div>
+                    <ng-if fn="ine">
+                      <img [src] />
+                    </ng-if>
+                  </div>
+                </div>
+              </ng-container>
+            </ng-if>
+            <ng-if fn="mne">
+              <ng-container>
+                <ng-if fn="cne">
+                  <div>
+                    <h3 class="text-white">
+                      PLAYER
+                    </h3>
+                    <div>
+                      <img [src] />
+                      <ng-if fn="ane">
+                        <img [src] />
+                      </ng-if>
+                      <ng-if fn="lne">
+                        <ng-container>
+                          <ng-if fn="one">
+                            <img style="transform: rotate(90deg); margin-left: 4px" [src] />
+                          </ng-if>
+                        </ng-container>
+                      </ng-if>
+                    </div>
+                  </div>
+                </ng-if>
+                <ng-if fn="pne">
+                  <div>
+                    <h3 class="text-white" style="margin-top: 0.15rem!important">
+                      BANKER
+                    </h3>
+                    <div>
+                      <img [src] />
+                      <img [src] />
+                      <ng-if fn="dne">
+                        <ng-container>
+                          <ng-if fn="une">
+                            <img style="transform: rotate(90deg); margin-left: 4px" [src] />
+                          </ng-if>
+                        </ng-container>
+                      </ng-if>
+                    </div>
+                  </div>
+                </ng-if>
+                <ng-if fn="hne">
+                  <div>
+                    <h3 class="text-white">
+                      DEALER
+                    </h3>
+                    <div>
+                      <img class="card-img" [src] />
+                    </div>
+                  </div>
+                </ng-if>
+              </ng-container>
+            </ng-if>
+          </div>
+        </div>
+      </ng-if>
+      <ng-if fn="_ne">
+        <div class="video-overlay">
+          <div id="game-cards">
+            <div class="card-inner">
+              <div class="row">
+                <div class="col-6">
+                  <h3 class="text-white">
+                    Player A
+                  </h3>
+                  <div>
+                    <img [src] />
+                    <img [src] />
+                  </div>
+                </div>
+                <ng-if fn="gne">
+                  <div class="col-6 text-right">
+                    <h3 class="text-white text-start ms-1">
+                      Player B
+                    </h3>
+                    <img [src] />
+                    <img [src] />
+                  </div>
+                </ng-if>
+              </div>
+              <div class="card-inner">
+                <h3 class="text-white mt-1">
+                  Board
+                </h3>
+                <div>
+                  <img [src] />
+                  <img [src] />
+                  <img [src] />
+                  <img [src] />
+                  <img [src] />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-if>
+    </ng-container>
+  </ng-if>
+  <ng-if fn="bne">
+    <div class="winnerOverlay">
+      <div class="mini-result-new" [ngClass]>
+        <ng-if fn="vne">
+          <span>
+            {{ }}
+          </span>
+        </ng-if>
+      </div>
+      <ng-if fn="kne">
+        <span style="position: absolute">
+          <canvas width="100vw" height="100vh"></canvas>
+        </span>
+      </ng-if>
+    </div>
+  </ng-if>
+  <div class="userCountOverlay">
+    <ng-if fn="xne">
+      <span class="userCount">
+        <i class="fa fa-user" aria-hidden="true"></i>
+        {{ }}
+      </span>
+    </ng-if>
+  </div>
+  <ng-if fn="Sne">
+    <ng-container>
+      <div class="andar-bahir-container mt-2">
+        <div class="video-overlay" style="width: 143px" [ngClass]>
+          <div class="row align-items-center" [ngClass]>
+            <div class="col-7 custom-css-x">
+              <div class="row">
+                <div class="col-12">
+                  <h3 class="text-warning hi-low-txt" [ngClass]>
+                    {{ }}
+                  </h3>
+                  <div class="crousel mt-1">
+                    <owl-carousel-o [options]>
+                      <ng-for fn="Ane">
+                        <ng-container>
+                          <ng-template fn="Cne">
+                            <img class="img img-responsive andrimg hi-low-img" [src] />
+                          </ng-template>
+                        </ng-container>
+                      </ng-for>
+                    </owl-carousel-o>
+                  </div>
+                  <h3 class="text-warning hi-low-txt" [ngClass]>
+                    {{ }}
+                  </h3>
+                  <div class="crousel mt-0">
+                    <owl-carousel-o [options]>
+                      <ng-for fn="wne">
+                        <ng-container>
+                          <ng-template fn="Ine">
+                            <img class="img img-responsive andrimg hi-low-img" [src] />
+                          </ng-template>
+                        </ng-container>
+                      </ng-for>
+                    </owl-carousel-o>
+                  </div>
+                  <ng-if fn="Mne">
+                    <div>
+                      <h3 class="text-warning hi-low-tx">
+                        SPREAD: 
+                      </h3>
+                      <div class="d-flex align-items-center">
+                        <ng-for fn="Pne">
+                          <span>
+                            <img class="card-img" [src] />
+                          </span>
+                        </ng-for>
+                      </div>
+                    </div>
+                  </ng-if>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </ng-if>
+  <div class="timer-overlay">
+    <ng-if fn="One">
+      <div class="timer-group">
+        <div class="timer minute">
+          <div class="hand">
+            <span [ngClass]></span>
+          </div>
+          <div class="hand">
+            <span [ngClass]></span>
+          </div>
+        </div>
+        <div class="face">
+          <span [ngClass]>
+            <p id="lazy" [ngClass]>
+              {{ }}
+            </p>
+          </span>
+        </div>
+      </div>
+    </ng-if>
+  </div>
+</div>
+<ng-if fn="Nne">
+  <ng-container>
+    <div class="text-center carusal ab-content ralitive" data-bs-toggle style="position: absolute; left: 17px; top: 70px; width: 135px">
+      <span style="position: absolute; top: -14px; left: 5px; color: white">
+        ANDAR
+      </span>
+      <owl-carousel-o [options]>
+        <ng-for fn="Dne">
+          <ng-template fn="Ene">
+            <div class="slide pt-1">
+              <div class="owl-item">
+                <div class="d-inline-block mr-1" data-bs-toggle>
+                  <img data-bs-toggle style="margin-left: 3px; width: 32px; height: 44px" [src] />
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </ng-for>
+      </owl-carousel-o>
+    </div>
+    <div class="text-center carusal ab-content ralitive" data-bs-toggle style="position: absolute; left: 17px; top: 135px; width: 135px">
+      <span style="position: absolute; top: -14px; left: 5px; color: white">
+        BAHAR
+      </span>
+      <owl-carousel-o [options]>
+        <ng-for fn="Rne">
+          <ng-template fn="Bne">
+            <div class="slide pt-1">
+              <div class="owl-item">
+                <div class="d-inline-block mr-1" data-bs-toggle>
+                  <img data-bs-toggle style="margin-left: 3px; width: 32px; height: 44px" [src] />
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </ng-for>
+      </owl-carousel-o>
+    </div>
+  </ng-container>
+</ng-if>
+<div class="modal fade" id="rulesModal" tabindex="-1" aria-labelledby="exampleModalLabelaexampleModalLabela" aria-hidden="true">
+  <div class="modal-dialog rules-wrap">
+    <div class="modal-content rules-content" role="document" id="rulesList___BV_modal_content_" tabindex="-1">
+      <header class="rules-wrap" id="rulesList___BV_modal_header_">
+        <a [click] (click)>
+          <h3 class="modal-title" id="rulesList___BV_modal_title_" data-bs-toggle="modal" data-bs-target="#rulesModal">
+             Rules
+          </h3>
+        </a>
+        <button class="close" type="button" data-bs-dismiss="modal" aria-label="Close">
+          ×
+        </button>
+      </header>
+      <div class="modal-body" id="rulesList___BV_modal_body_">
+        <div id="rulesBoxContainer"></div>
+      </div>
+      <div>
+        <ul class="btn-wrap break">
+          <li>
+            <a class="btnok" data-bs-dismiss="modal" aria-label="Close">
+              OK
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+

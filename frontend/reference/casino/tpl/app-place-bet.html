@@ -1,0 +1,43 @@
+<div class="fancy-quick-tr placebet marginClass">
+  <div class="pb-1 place-bet slip-back">
+    <div class="container">
+      <div class="row p-2 pb-0">
+        <div class="col-6 text-right p-1">
+          <input class="stakeinput quick-bet-confirm disabled text-center" disabled type="text" [value] />
+        </div>
+        <div class="col-6 text-bold p-1">
+          <button class="stakeactionminus btn" [click] (click)>
+            <span class="fa fa-minus"></span>
+          </button>
+          <input class="stakeinput input-Betslip text-center" id="betAmount" type="number" placeholder="0" [ngModel] [ngModelChange] (ngModelChange)>
+          </input>
+          <button class="stakeactionplus btn float-end" [click] (click)>
+            <span class="fa fa-plus"></span>
+          </button>
+        </div>
+      </div>
+      <div class="row stackbutton p-2">
+        <ng-for fn="Mce">
+          <div class="col-3 p-1" [click] (click)>
+            <a class="btn btn-block fancy-quick-btn">
+              {{ }}
+            </a>
+          </div>
+        </ng-for>
+      </div>
+      <div class="row mt-0 p-2 pb-0 pt-0 stackbutton">
+        <div class="col-6 p-1 pb-0" [click] (click)>
+          <a class="btn btn-secondary btn-block btn-cancel">
+             Cancel 
+          </a>
+        </div>
+        <div class="col-6 p-1 pb-0">
+          <button class="btn btn-send btn-block btn-placebet" [disabled] [click] (click)>
+             Place Bet 
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

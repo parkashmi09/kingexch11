@@ -8,6 +8,9 @@
 // Reads reference/kingexch/main.min.js (the untouched production bundle; the
 // pretty-printed main.js beside it is for grepping and does not parse). The
 // lazy routes' chunks are in reference/kingexch/chunks/: add --src=chunks/<n>.js.
+// The casino site (casino.kingexch111.com, the Universe game pages) is in
+// reference/casino: --src=../casino/main.d572128458d43bb8.js plus
+// --aliases=l:j41,b:DNE,I:nrm,c:k0s,m:EFF,Q:bIt,Be:qex,Re:bVm
 //
 // Output conventions: <ng-if fn="x3"> / <ng-for fn=".."> wrap structural
 // templates, {{ }} marks a text node filled at runtime, (click) etc. list the
@@ -85,9 +88,10 @@ if (cssArg) {
   // confines them through :where(), so they keep the reference's specificity
   // (needed where global styles.css rules compete with them); --where=host
   // confines them to the component's own host, for a lazy page's rules, which
-  // the reference only has loaded while that page is shown.
+  // the reference only has loaded while that page is shown; --where=kc confines
+  // them to the casino site's pages (its components are all in its main bundle).
   const whereArg = process.argv.find((a) => a.startsWith('--where'));
-  const confine = !whereArg ? '[data-kx]' : whereArg === '--where=host' ? `:where([data-${scope}-host])` : ':where([data-kx])';
+  const confine = !whereArg ? '[data-kx]' : whereArg === '--where=host' ? `:where([data-${scope}-host])` : whereArg === '--where=kc' ? ':where([data-kc])' : ':where([data-kx])';
   root.walkRules((rule) => {
     if (rule.parent.type === 'atrule' && /keyframes$/i.test(rule.parent.name)) return;
     rule.selectors = rule.selectors.map((s) => (s.includes('[data-') ? s : `${confine} ${s.trim()}`));
@@ -153,6 +157,9 @@ function openTag(tag, idx, extra = []) {
 
 // ── instruction stream ───────────────────────────────────────────────────────
 // Flatten `e.a(..)(..)(..), e.b(..)` into [{name, args}] in evaluation order.
+const aliasArg = process.argv.find((a) => a.startsWith('--aliases='));
+const ALIASES = Object.fromEntries((aliasArg ? aliasArg.slice(10).split(',') : []).map((p) => p.split(':')));
+
 function flattenCalls(node, out) {
   if (!node) return;
   if (node.type === 'SequenceExpression') return node.expressions.forEach((x) => flattenCalls(x, out));
@@ -164,8 +171,11 @@ function flattenCalls(node, out) {
   const chain = [];
   let c = node;
   while (c.type === 'CallExpression') { chain.unshift(c); c = c.callee; }
-  if (c.type !== 'MemberExpression') return;
-  const name = c.property.name;
+  // Bundles built by an older Angular CLI call the instructions through bare
+  // one-letter aliases instead of a namespace (the casino site: l(0, 'div')…);
+  // --aliases=l:j41,b:DNE,… maps them back onto the names handled below.
+  const name = c.type === 'MemberExpression' ? c.property.name : c.type === 'Identifier' ? ALIASES[c.name] : null;
+  if (!name) return;
   for (const call of chain) out.push({ name, args: call.arguments });
 }
 

@@ -1,0 +1,231 @@
+<div style="overflow-y: hidden">
+  <div>
+    <app-video-simple [resultDeclared]></app-video-simple>
+  </div>
+  <div id="marketScroll" style="overflow-y: auto" [ngClass]>
+    <div class="main-container">
+      <div class="tab-con">
+        <ul class="nav nav-tabs">
+          <li class="nav-item" [click] (click)>
+            <a class="nav-link" [ngClass]>
+              Dragon
+            </a>
+          </li>
+          <li class="nav-item" [click] (click)>
+            <a class="nav-link" [ngClass]>
+              Tiger
+            </a>
+          </li>
+          <li class="nav-item" [click] (click)>
+            <a class="nav-link" [ngClass]>
+              Lion
+            </a>
+          </li>
+        </ul>
+      </div>
+      <table>
+        <ng-for fn="e_e">
+          <ng-container>
+            <ng-for fn="Jge">
+              <ng-container>
+                <ng-if fn="Zge">
+                  <ng-container>
+                    <ng-if fn="Kge">
+                      <tr class="table-row">
+                        <td class="col">
+                          <div class="value-col">
+                            <ng-if fn="Nge">
+                              <div>
+                                <b>
+                                  Winner
+                                </b>
+                              </div>
+                            </ng-if>
+                            <ng-if fn="Lge">
+                              <div>
+                                <b>
+                                  {{ }}
+                                </b>
+                              </div>
+                            </ng-if>
+                            <ng-if fn="Fge">
+                              <div class="img-con">
+                                <img src="/assets/andarBahar/CLUBS.png" alt="cards-red" />
+                                <img src="/assets/andarBahar/SPADES.png" alt="cards-balck" />
+                              </div>
+                            </ng-if>
+                            <ng-if fn="Vge">
+                              <div class="img-con">
+                                <img src="/assets/andarBahar/HEARTS.png" alt="cards-red" />
+                                <img src="/assets/andarBahar/DIAMONDS.png" alt="cards-balck" />
+                              </div>
+                            </ng-if>
+                            <div>
+                              <span>
+                                <ng-if fn="Wge">
+                                  <span class="p-0" style="display: flex; font-size: 15px; font-weight: 400">
+                                    <ng-if fn="$ge">
+                                      <span style="font-weight: bold !important">
+                                         L : 
+                                      </span>
+                                    </ng-if>
+                                    <ng-if fn="Uge">
+                                      <span style="font-weight: bold !important">
+                                         P :
+                                      </span>
+                                    </ng-if>
+                                    <ng-if fn="Gge">
+                                      <span class="d-flex" [ngClass]>
+                                        {{ }}
+                                        <ng-if fn="Hge">
+                                          <span [ngClass]>
+                                            {{ }}
+                                          </span>
+                                        </ng-if>
+                                        <ng-if fn="zge">
+                                          <span [ngClass]>
+                                            {{ }}
+                                          </span>
+                                        </ng-if>
+                                      </span>
+                                    </ng-if>
+                                  </span>
+                                </ng-if>
+                                <ng-if fn="Xge">
+                                  <span style="display: flex; padding: 0">
+                                    <ng-if fn="jge">
+                                      <span class="plus-book d-flex" style="margin-right: 5px">
+                                        <span style="color: #aaafb5; margin-right: 2px; font-weight: bold">
+                                          P :
+                                        </span>
+                                        <span class="plus-book">
+                                          {{ }}
+                                        </span>
+                                      </span>
+                                    </ng-if>
+                                    <ng-if fn="Yge">
+                                      <span class="minus-book d-flex">
+                                        <span style="color: #aaafb5; margin-right: 2px; font-weight: bold">
+                                          L :
+                                        </span>
+                                        <span class="minus-book">
+                                          {{ }}
+                                        </span>
+                                      </span>
+                                    </ng-if>
+                                  </span>
+                                </ng-if>
+                              </span>
+                            </div>
+                          </div>
+                        </td>
+                        <td [click] (click)>
+                          <div class="value" [ngClass]>
+                            <b>
+                              {{ }}
+                            </b>
+                          </div>
+                        </td>
+                        <td class="desk-value d-none-mbl">
+                          <div class="emptyvalue"></div>
+                        </td>
+                      </tr>
+                    </ng-if>
+                    <ng-if fn="Qge">
+                      <ng-container>
+                        <ng-if fn="qge">
+                          <tr>
+                            <td class="p-0" colspan="4" id="betslip">
+                              <app-betslips style="padding: 0" [item] [newItemEvent] [newItemEventPlaceBet] [valueEventPlaceBet] (newItemEvent) (newItemEventPlaceBet) (valueEventPlaceBet)>
+                              </app-betslips>
+                            </td>
+                          </tr>
+                        </ng-if>
+                      </ng-container>
+                    </ng-if>
+                  </ng-container>
+                </ng-if>
+              </ng-container>
+            </ng-for>
+          </ng-container>
+        </ng-for>
+      </table>
+      <ng-for fn="p_e">
+        <ng-container>
+          <ng-if fn="d_e">
+            <ng-container>
+              <ng-if fn="u_e">
+                <ng-container>
+                  <div class="second-sec-container">
+                    <div class="txt-con">
+                      <div class="txt">
+                        <b>
+                          {{ }}
+                        </b>
+                      </div>
+                    </div>
+                    <div class="card-container">
+                      <ng-for fn="l_e">
+                        <ng-container>
+                          <div class="card-image" [click] (click)>
+                            <div [ngClass]>
+                              <ng-if fn="t_e">
+                                <ng-container>
+                                  <img [src] />
+                                </ng-container>
+                              </ng-if>
+                              <ng-template fn="n_e">
+                                <img [src] />
+                              </ng-template>
+                            </div>
+                            <div class="ubook text-center m-t-5 text-success h-18" style="width: 35px !important">
+                              <ng-if fn="i_e">
+                                <span class="p-0" style="display: flex; font-size: 12px; font-weight: 400">
+                                  <ng-if fn="r_e">
+                                    <span class="d-flex" [ngClass]>
+                                      {{ }}
+                                    </span>
+                                  </ng-if>
+                                </span>
+                              </ng-if>
+                              <ng-if fn="o_e">
+                                <span style="display: flex; padding: 0">
+                                  <ng-if fn="s_e">
+                                    <span class="plus-book d-flex" style="margin-right: 5px">
+                                      <span class="plus-book">
+                                        {{ }}
+                                      </span>
+                                    </span>
+                                  </ng-if>
+                                  <ng-if fn="a_e">
+                                    <span class="minus-book d-flex">
+                                      <span class="minus-book">
+                                        {{ }}
+                                      </span>
+                                    </span>
+                                  </ng-if>
+                                </span>
+                              </ng-if>
+                            </div>
+                          </div>
+                        </ng-container>
+                      </ng-for>
+                    </div>
+                  </div>
+                  <ng-if fn="c_e">
+                    <div class="mt-3" id="betslip" style="padding: 0 !important">
+                      <app-betslips [item] [newItemEvent] [newItemEventPlaceBet] [valueEventPlaceBet] (newItemEvent) (newItemEventPlaceBet) (valueEventPlaceBet)>
+                      </app-betslips>
+                    </div>
+                  </ng-if>
+                </ng-container>
+              </ng-if>
+            </ng-container>
+          </ng-if>
+        </ng-container>
+      </ng-for>
+      <app-results></app-results>
+    </div>
+  </div>
+</div>
+

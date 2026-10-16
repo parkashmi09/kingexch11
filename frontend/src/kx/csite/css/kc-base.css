@@ -1,0 +1,25 @@
+/* What the casino site's pages get from OUTSIDE their own stylesheets — the
+ * casino site's <body> (casino.kingexch111.com): Bootstrap 5.2's body rule with
+ * its styles.css `html, body` overrides (Tahoma, grayscale smoothing, the page
+ * background) and its 12px body below 1280px. Our <body> still belongs to the
+ * old UI, so the casino root re-establishes it; it is also a [data-kx] root, and
+ * this comes after kx-base.css, so these win there. */
+[data-kc]:not(:where([data-kc] *)) {
+  display: block;
+  min-height: 100vh;
+  font-family: Tahoma, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: start;
+  background: var(--mainBodyBG);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  touch-action: manipulation;
+}
+@media only screen and (min-width: 320px) and (max-width: 1279px) {
+  [data-kc]:not(:where([data-kc] *)) {
+    font-size: var(--font-small);
+  }
+}

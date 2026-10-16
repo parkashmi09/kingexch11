@@ -1,0 +1,193 @@
+<div style="overflow-y: hidden">
+  <app-video-simple [resultDeclared]></app-video-simple>
+  <div class="poker-con">
+    <div class="row">
+      <div class="col-6 playerA">
+        <span>
+          player A
+        </span>
+      </div>
+      <div class="col-6 playerB">
+        <span>
+          Player B
+        </span>
+      </div>
+    </div>
+  </div>
+  <div id="marketScroll" style="overflow-y: auto" [ngClass]>
+    <div>
+      <ng-for fn="Zke">
+        <div>
+          <div class="row">
+            <div>
+              <div class="win-mark-con col-12">
+                <span class="market-name-section" style="position: absolute; text-align: center; padding-top: 3.5px">
+                  <b>
+                    {{ }}
+                  </b>
+                  <span class="minMaxMbl-desk">
+                    <i class="fa fa-info-circle ml-2" data-bs-toggle="collapse" data-bs-toggle="collapse" data-bs-toggle="dropdown" aria-expanded="false"></i>
+                    <ul class="dropdown-menu icon-range min-max-info text-end tooltip-betlimit">
+                      <span>
+                        {{ }}
+                      </span>
+                    </ul>
+                  </span>
+                </span>
+                <ng-for fn="qke">
+                  <ng-container>
+                    <ng-if fn="Ske">
+                      <div class="suspended-casino poker-suspnd">
+                        <span class="stats-text">
+                          Suspended
+                        </span>
+                      </div>
+                    </ng-if>
+                    <div class="d-flex justify-content-between dyna-pos">
+                      <div class="back-1 count sportbook-minwidth p-rltv" appRateHighlight [ngClass] [click] (click)>
+                        <div class="inside-back">
+                          <a class="d-flex flex-column p-0" style="text-decoration: none">
+                            <b class="inside-back-price" style="font-size: 16px; position: relative; top: 2px">
+                              {{ }}
+                            </b>
+                            <span class="d-flex justify-content-center inside-back-size" style="position: relative; bottom: 2px">
+                              {{ }}
+                            </span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <ng-if fn="Vke">
+                      <div class="profitloss">
+                        <ng-if fn="Rke">
+                          <span class="p-0" style="display: flex; font-weight: 400">
+                            <ng-if fn="Tke">
+                              <span style="font-weight: bold !important">
+                                 L : 
+                              </span>
+                            </ng-if>
+                            <ng-if fn="Oke">
+                              <span style="font-weight: bold !important">
+                                 P :
+                              </span>
+                            </ng-if>
+                            <ng-if fn="Bke">
+                              <span class="d-flex" [ngClass]>
+                                {{ }}
+                                <ng-if fn="Eke">
+                                  <span [ngClass]>
+                                    {{ }}
+                                  </span>
+                                </ng-if>
+                                <ng-if fn="Dke">
+                                  <span [ngClass]>
+                                    {{ }}
+                                  </span>
+                                </ng-if>
+                              </span>
+                            </ng-if>
+                          </span>
+                        </ng-if>
+                        <ng-if fn="Fke">
+                          <span style="display: flex; padding: 0">
+                            <ng-if fn="Nke">
+                              <span class="plus-book d-flex" style="margin-right: 5px">
+                                <span style="color: black; margin-right: 2px; font-weight: bold">
+                                  P :
+                                </span>
+                                <span class="plus-book">
+                                  {{ }}
+                                </span>
+                              </span>
+                            </ng-if>
+                            <ng-if fn="Lke">
+                              <span class="minus-book d-flex">
+                                <span style="color: black; margin-right: 2px; font-weight: bold">
+                                  L :
+                                </span>
+                                <span class="minus-book">
+                                  {{ }}
+                                </span>
+                              </span>
+                            </ng-if>
+                          </span>
+                        </ng-if>
+                      </div>
+                    </ng-if>
+                    <ng-if fn="Kke">
+                      <div class="profitloss2">
+                        <ng-if fn="Wke">
+                          <span class="p-0" style="display: flex; font-weight: 400">
+                            <ng-if fn="$ke">
+                              <span style="font-weight: bold !important">
+                                 L : 
+                              </span>
+                            </ng-if>
+                            <ng-if fn="Uke">
+                              <span style="font-weight: bold !important">
+                                 P :
+                              </span>
+                            </ng-if>
+                            <ng-if fn="Gke">
+                              <span class="d-flex" [ngClass]>
+                                {{ }}
+                                <ng-if fn="Hke">
+                                  <span [ngClass]>
+                                    {{ }}
+                                  </span>
+                                </ng-if>
+                                <ng-if fn="zke">
+                                  <span [ngClass]>
+                                    {{ }}
+                                  </span>
+                                </ng-if>
+                              </span>
+                            </ng-if>
+                          </span>
+                        </ng-if>
+                        <ng-if fn="Xke">
+                          <span style="display: flex; padding: 0">
+                            <ng-if fn="jke">
+                              <span class="plus-book d-flex" style="margin-right: 5px">
+                                <span style="color: black; margin-right: 2px; font-weight: bold">
+                                  P :
+                                </span>
+                                <span class="plus-book">
+                                  {{ }}
+                                </span>
+                              </span>
+                            </ng-if>
+                            <ng-if fn="Yke">
+                              <span class="minus-book d-flex">
+                                <span style="color: black; margin-right: 2px; font-weight: bold">
+                                  L :
+                                </span>
+                                <span class="minus-book">
+                                  {{ }}
+                                </span>
+                              </span>
+                            </ng-if>
+                          </span>
+                        </ng-if>
+                      </div>
+                    </ng-if>
+                  </ng-container>
+                </ng-for>
+              </div>
+              <ng-if fn="Qke">
+                <div>
+                  <div class="p-0" id="betslip">
+                    <app-betslips style="padding: 0" [item] [newItemEvent] [newItemEventPlaceBet] [valueEventPlaceBet] (newItemEvent) (newItemEventPlaceBet) (valueEventPlaceBet)>
+                    </app-betslips>
+                  </div>
+                </div>
+              </ng-if>
+            </div>
+          </div>
+        </div>
+      </ng-for>
+    </div>
+    <app-results></app-results>
+  </div>
+</div>
+

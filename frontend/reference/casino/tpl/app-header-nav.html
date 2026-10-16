@@ -1,0 +1,41 @@
+<div class="menu-wrap">
+  <div class="full-wrap">
+    <ul class="tab-menu pull-left">
+      <li class="ver-menu">
+        <a class="navbar-item" routerLinkActive="active" [ngClass] [click] (click)>
+          Home
+        </a>
+      </li>
+      <li class="ver-menu">
+        <a class="navbar-item" [ngClass] [click] (click)>
+          In-Play
+        </a>
+      </li>
+      <li class="ver-menu">
+        <a class="navbar-item" [ngClass] [click] (click) (click)>
+          Multi Markets
+        </a>
+      </li>
+      <ng-for fn="nme">
+        <li class="ver-menu" [ngClass]>
+          <a class="Virtual navbar-item" [ngClass] [click] (click)>
+            <ng-if fn="Jhe">
+              <img class="aviatorImg" src="./../../../assets/vimaan.png" />
+            </ng-if>
+            {{ }}
+          </a>
+        </li>
+      </ng-for>
+    </ul>
+    <ul class="tab-menu pull-right"></ul>
+    <div class="settings">
+      <a routerLink="settings" [click] (click) (click)>
+        Setting
+      </a>
+      <i class="fa fa-cog ms-1"></i>
+    </div>
+  </div>
+</div>
+<br />
+<br />
+

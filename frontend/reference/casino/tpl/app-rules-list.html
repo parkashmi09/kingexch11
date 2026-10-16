@@ -1,0 +1,45 @@
+<div class="left-bar-container">
+  <div class="left-bar">
+    <div class="h-100" data-simplebar>
+      <div class="tab-content pt-0">
+        <div class="tab-pane active" id="up-tab" role="tabpanel">
+          <div class="user-menus" style="background: black">
+            <div class="openBetHeader">
+              <strong>
+                Rules List
+              </strong>
+              <button class="close show-xs cls-openbet" type="button">
+                <span aria-hidden="true" [click] (click)>
+                  ×
+                </span>
+              </button>
+            </div>
+            <ul class="ulScrollRule">
+              <ng-for fn="cfe">
+                <ng-container>
+                  <li class="m-2" [click] (click)>
+                    <a class="waves-effect waves-light sideNavCheck d-flex align-items-center justify-content-between" routerLink="/client">
+                      {{ }}
+                      <i class="fa" style="margin-right: 12px"></i>
+                    </a>
+                  </li>
+                  <ng-if fn="lfe">
+                    <div style="background-color: white">
+                      <div class="card card-body">
+                        <div class="modal-body" id="rulesList___BV_modal_body_">
+                          <div id="rulesBoxContainer"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </ng-if>
+                </ng-container>
+              </ng-for>
+              <div style="height: 100px"></div>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

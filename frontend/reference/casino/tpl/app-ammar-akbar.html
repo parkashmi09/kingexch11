@@ -1,0 +1,531 @@
+<div>
+  <div>
+    <app-video-simple [resultDeclared]></app-video-simple>
+  </div>
+  <div id="marketScroll" style="overflow-y: auto" [ngClass]>
+    <ng-if fn="Qoe">
+      <div class="card">
+        <span class="btn btn-primary card-header inner-sportbook" data-bs-toggle="collapse" role="button" aria-expanded="true" aria-controls="multiCollapseExample1">
+          <span>
+            <strong>
+              {{ }}
+            </strong>
+          </span>
+          <span></span>
+        </span>
+        <div class="col">
+          <div class="collapse multi-collapse show">
+            <table class="table table-hover tbl-bets p-rltv sportbook-market-tbl">
+              <colgroup>
+                <col span="1" width="60%" />
+                <col class="back-1 count" span="1" width="20%" />
+                <col class="back-1 count" span="1" width="20%" />
+              </colgroup>
+              <tr>
+                <th class="min-max-mobile" colspan>
+                  <dl class="fancy-info" id="minMaxBox">
+                    <dt>
+                      Min/Max  
+                    </dt>
+                    <dd id="minMaxInfo">
+                      {{ }}
+                    </dd>
+                  </dl>
+                </th>
+                <th class="back-1" style="align-items: center; justify-content: center">
+                  Back
+                </th>
+                <th class="lay" style="align-items: center; justify-content: center">
+                  Lay
+                </th>
+              </tr>
+              <ng-for fn="qoe">
+                <ng-container>
+                  <ng-if fn="Eoe">
+                    <div class="suspended-casino">
+                      <span class="stats-text">
+                        Suspended
+                      </span>
+                    </div>
+                  </ng-if>
+                  <tr class="odd-row">
+                    <td class="team-name sportbook-name" colspan>
+                      <span class="title">
+                        {{ }}
+                      </span>
+                      <ng-if fn="$oe">
+                        <span class="p-0" style="display: flex; font-size: 15px; font-weight: 400">
+                          <ng-if fn="Doe">
+                            <span style="font-weight: bold !important">
+                               L : 
+                            </span>
+                          </ng-if>
+                          <ng-if fn="Boe">
+                            <span style="font-weight: bold !important">
+                               P :
+                            </span>
+                          </ng-if>
+                          <ng-if fn="Voe">
+                            <span class="d-flex" [ngClass]>
+                              {{ }}
+                              <ng-if fn="Roe">
+                                <span [ngClass]>
+                                  {{ }}
+                                </span>
+                              </ng-if>
+                              <ng-if fn="Noe">
+                                <span [ngClass]>
+                                  {{ }}
+                                </span>
+                              </ng-if>
+                              <ng-if fn="Loe">
+                                <span [ngClass]>
+                                  {{ }}
+                                </span>
+                              </ng-if>
+                              <ng-if fn="Foe">
+                                <span [ngClass]>
+                                  {{ }}
+                                </span>
+                              </ng-if>
+                            </span>
+                          </ng-if>
+                        </span>
+                      </ng-if>
+                      <ng-if fn="zoe">
+                        <span style="display: flex; padding: 0">
+                          <ng-if fn="Uoe">
+                            <span class="plus-book d-flex" style="margin-right: 5px">
+                              <span style="color: black; margin-right: 2px; font-weight: bold">
+                                P :
+                              </span>
+                              <span class="plus-book">
+                                {{ }}
+                              </span>
+                            </span>
+                          </ng-if>
+                          <ng-if fn="Hoe">
+                            <span class="minus-book d-flex">
+                              <span style="color: black; margin-right: 2px; font-weight: bold">
+                                L :
+                              </span>
+                              <span class="minus-book">
+                                {{ }}
+                              </span>
+                            </span>
+                          </ng-if>
+                        </span>
+                      </ng-if>
+                      <ng-if fn="joe">
+                        <span style="display: flex; padding: 0">
+                          <ng-if fn="Goe">
+                            <span class="minus-book d-flex" style="margin-right: 5px">
+                              <span style="color: black; margin-right: 2px; font-weight: bold">
+                                L :
+                              </span>
+                              <span class="minus-book">
+                                {{ }}
+                              </span>
+                            </span>
+                          </ng-if>
+                          <ng-if fn="Woe">
+                            <span class="plus-book d-flex">
+                              <span style="color: black; margin-right: 2px; font-weight: bold">
+                                P :
+                              </span>
+                              <span class="plus-book">
+                                {{ }}
+                              </span>
+                            </span>
+                          </ng-if>
+                        </span>
+                      </ng-if>
+                    </td>
+                    <td class="back-1 count sportbook-minwidth p-rltv" colspan appRateHighlight [ngClass] [click] (click)>
+                      <ng-if fn="Yoe">
+                        <div class="spnd-casinouniqueLay">
+                          <span class="stats-text">
+                            Suspended
+                          </span>
+                        </div>
+                      </ng-if>
+                      <a class="d-flex flex-column p-0" style="text-decoration: none; color: black">
+                        {{ }}
+                        <span class="d-flex justify-content-center">
+                          {{ }}
+                        </span>
+                      </a>
+                    </td>
+                    <td class="lay count sportbook-minwidth p-rltv" colspan appRateHighlight [ngClass] [click] (click)>
+                      <ng-if fn="Xoe">
+                        <div class="spnd-casinouniqueLay">
+                          <span class="stats-text">
+                            Suspended
+                          </span>
+                        </div>
+                      </ng-if>
+                      <a class="d-flex flex-column p-0" style="text-decoration: none; color: black">
+                        {{ }}
+                        <span class="d-flex justify-content-center">
+                          {{ }}
+                        </span>
+                      </a>
+                    </td>
+                  </tr>
+                  <ng-if fn="Koe">
+                    <tr>
+                      <td class="p-0" colspan="3" id="betslip">
+                        <app-betslips [item] [newItemEvent] [newItemEventPlaceBet] [valueEventPlaceBet] (newItemEvent) (newItemEventPlaceBet) (valueEventPlaceBet)>
+                        </app-betslips>
+                      </td>
+                    </tr>
+                  </ng-if>
+                </ng-container>
+              </ng-for>
+            </table>
+          </div>
+        </div>
+      </div>
+    </ng-if>
+    <ng-if fn="gle">
+      <div class="container-fluid">
+        <div class="row row5">
+          <ng-for fn="mle">
+            <ng-container>
+              <ng-if fn="hle">
+                <div class="col-4 p-0">
+                  <div class="light-bg pl-1 pr-1">
+                    <div class="card">
+                      <span class="btn btn-primary card-header inner-sportbook" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" role="button" aria-expanded="true" aria-controls="multiCollapseExample2">
+                        <span>
+                          <strong>
+                            {{ }}
+                          </strong>
+                        </span>
+                        <span></span>
+                      </span>
+                      <div class="col">
+                        <div class="collapse multi-collapse show" id="multiCollapseExample2">
+                          <table class="table table-hover tbl-bets p-rltv sportbook-market-tbl">
+                            <tr>
+                              <th class="min-max-mobile" colspan>
+                                <dl class="fancy-info" id="minMaxBox">
+                                  <dt>
+                                    Min/Max 
+                                  </dt>
+                                  <dd id="minMaxInfo">
+                                    {{ }}
+                                  </dd>
+                                </dl>
+                              </th>
+                            </tr>
+                            <ng-for fn="ple">
+                              <ng-container>
+                                <ng-if fn="Zoe">
+                                  <div class="suspended-casino">
+                                    <span class="stats-text">
+                                      Suspended
+                                    </span>
+                                  </div>
+                                </ng-if>
+                                <tr [click] (click)>
+                                  <td class="d-flex flex-column" colspan [ngClass]>
+                                    <ng-if fn="Joe">
+                                      <ng-container>
+                                        {{ }}
+                                      </ng-container>
+                                    </ng-if>
+                                    <ng-if fn="ele">
+                                      <ng-container>
+                                        <span class="red p-0">
+                                           ♥ ♦ 
+                                        </span>
+                                      </ng-container>
+                                    </ng-if>
+                                    <ng-if fn="tle">
+                                      <ng-container>
+                                        <span class="text-dark p-0">
+                                          ♠ ♣
+                                        </span>
+                                      </ng-container>
+                                    </ng-if>
+                                    <span class="p-0">
+                                      {{ }}
+                                    </span>
+                                    <span class="p-0 span-size">
+                                      {{ }}
+                                    </span>
+                                    <ng-if fn="ole">
+                                      <span class="p-0" style="display: flex; font-size: 11.5px; font-weight: 400; justify-content: center">
+                                        <ng-if fn="nle">
+                                          <span style="font-weight: bold !important">
+                                             L : 
+                                          </span>
+                                        </ng-if>
+                                        <ng-if fn="rle">
+                                          <span style="font-weight: bold !important">
+                                             P :
+                                          </span>
+                                        </ng-if>
+                                        <ng-if fn="ale">
+                                          <span class="d-flex" style="color: white" [ngClass]>
+                                            {{ }}
+                                            <ng-if fn="ile">
+                                              <span style="color: white" [ngClass]>
+                                                {{ }}
+                                              </span>
+                                            </ng-if>
+                                            <ng-if fn="sle">
+                                              <span style="color: white" [ngClass]>
+                                                {{ }}
+                                              </span>
+                                            </ng-if>
+                                          </span>
+                                        </ng-if>
+                                      </span>
+                                    </ng-if>
+                                    <ng-if fn="ule">
+                                      <span style="display: flex; padding: 0">
+                                        <ng-if fn="lle">
+                                          <span class="plus-book d-flex" style="margin-right: 5px">
+                                            <span style="color: white; margin-right: 2px; font-weight: bold">
+                                              P :
+                                            </span>
+                                            <span class="plus-book" style="color: white">
+                                              {{ }}
+                                            </span>
+                                          </span>
+                                        </ng-if>
+                                        <ng-if fn="cle">
+                                          <span class="minus-book d-flex">
+                                            <span style="color: white; margin-right: 2px; font-weight: bold">
+                                              L :
+                                            </span>
+                                            <span class="minus-book" style="color: white">
+                                              {{ }}
+                                            </span>
+                                          </span>
+                                        </ng-if>
+                                      </span>
+                                    </ng-if>
+                                  </td>
+                                </tr>
+                              </ng-container>
+                            </ng-for>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-if>
+            </ng-container>
+          </ng-for>
+        </div>
+        <div class="row row5 p-0">
+          <ng-if fn="fle">
+            <div class="p-0">
+              <app-betslips class="amarAkbarAnthony" id="betslip" [item] [newItemEvent] [newItemEventPlaceBet] [valueEventPlaceBet] (newItemEvent) (newItemEventPlaceBet) (valueEventPlaceBet)>
+              </app-betslips>
+            </div>
+          </ng-if>
+        </div>
+      </div>
+    </ng-if>
+    <ng-if fn="zle">
+      <div class="card">
+        <span class="btn btn-primary card-header inner-sportbook" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample5" role="button" aria-expanded="true" aria-controls="multiCollapseExample5">
+          <span>
+            <strong>
+              {{ }}
+            </strong>
+          </span>
+          <span></span>
+        </span>
+        <div class="col">
+          <div class="collapse multi-collapse show" id="multiCollapseExample5">
+            <table class="table table-hover tbl-bets p-rltv sportbook-market-tbl">
+              <colgroup>
+                <col span="1" width="60%" />
+                <col span="1" width="40%" />
+              </colgroup>
+              <tr>
+                <th class="min-max-mobile" colspan>
+                  <dl class="fancy-info" id="minMaxBox">
+                    <dt>
+                      Min/Max  
+                    </dt>
+                    <dd id="minMaxInfo">
+                      {{ }}
+                    </dd>
+                  </dl>
+                </th>
+                <th class="back-1" style="align-items: center; justify-content: center">
+                  Back
+                </th>
+              </tr>
+              <ng-for fn="Hle">
+                <ng-container>
+                  <ng-if fn="_le">
+                    <div class="suspended-casino" style="background: #ffffff3d">
+                      <span class="stats-text">
+                        Suspended
+                      </span>
+                    </div>
+                  </ng-if>
+                  <tr class="odd-row">
+                    <td class="team-name sportbook-name" colspan>
+                      <ng-if fn="yle">
+                        <span class="title">
+                          <img style="width: 30px" [src] />
+                        </span>
+                      </ng-if>
+                      <ng-if fn="vle">
+                        <span class="title">
+                          <img style="width: 30px" [src] />
+                        </span>
+                      </ng-if>
+                      <ng-if fn="kle">
+                        <span class="title">
+                          <img style="width: 30px" [src] />
+                        </span>
+                      </ng-if>
+                      <ng-if fn="ble">
+                        <span class="title">
+                          <img style="width: 30px" [src] />
+                        </span>
+                      </ng-if>
+                      <ng-if fn="xle">
+                        <span class="title">
+                          <img style="width: 30px" [src] />
+                        </span>
+                      </ng-if>
+                      <ng-if fn="Cle">
+                        <span class="title">
+                          <img style="width: 30px" [src] />
+                        </span>
+                      </ng-if>
+                      <ng-if fn="Ale">
+                        <span class="title">
+                          <img style="width: 30px" [src] />
+                        </span>
+                      </ng-if>
+                      <ng-if fn="Ile">
+                        <span class="title">
+                          <img style="width: 30px" [src] />
+                        </span>
+                      </ng-if>
+                      <ng-if fn="wle">
+                        <span class="title">
+                          <img style="width: 30px" [src] />
+                        </span>
+                      </ng-if>
+                      <ng-if fn="Ple">
+                        <span class="title">
+                          <img style="width: 30px" [src] />
+                        </span>
+                      </ng-if>
+                      <ng-if fn="Mle">
+                        <span class="title">
+                          <img style="width: 30px" [src] />
+                        </span>
+                      </ng-if>
+                      <ng-if fn="Sle">
+                        <span class="title">
+                          <img style="width: 30px" [src] />
+                        </span>
+                      </ng-if>
+                      <ng-if fn="Tle">
+                        <span class="title">
+                          <img style="width: 30px" [src] />
+                        </span>
+                      </ng-if>
+                      <ng-if fn="Nle">
+                        <span class="p-0" style="display: flex; font-size: 15px; font-weight: 400">
+                          <ng-if fn="Ole">
+                            <span style="font-weight: bold !important">
+                               L : 
+                            </span>
+                          </ng-if>
+                          <ng-if fn="Ele">
+                            <span style="font-weight: bold !important">
+                               P :
+                            </span>
+                          </ng-if>
+                          <ng-if fn="Rle">
+                            <span class="d-flex" [ngClass]>
+                              {{ }}
+                              <ng-if fn="Dle">
+                                <span [ngClass]>
+                                  {{ }}
+                                </span>
+                              </ng-if>
+                              <ng-if fn="Ble">
+                                <span [ngClass]>
+                                  {{ }}
+                                </span>
+                              </ng-if>
+                            </span>
+                          </ng-if>
+                        </span>
+                      </ng-if>
+                      <ng-if fn="Vle">
+                        <span style="display: flex; padding: 0">
+                          <ng-if fn="Lle">
+                            <span class="plus-book d-flex" style="margin-right: 5px">
+                              <span style="color: black; margin-right: 2px; font-weight: bold">
+                                P :
+                              </span>
+                              <span class="plus-book">
+                                {{ }}
+                              </span>
+                            </span>
+                          </ng-if>
+                          <ng-if fn="Fle">
+                            <span class="minus-book d-flex">
+                              <span style="color: black; margin-right: 2px; font-weight: bold">
+                                L :
+                              </span>
+                              <span class="minus-book">
+                                {{ }}
+                              </span>
+                            </span>
+                          </ng-if>
+                        </span>
+                      </ng-if>
+                    </td>
+                    <td class="back-1 count sportbook-minwidth p-rltv" colspan appRateHighlight [ngClass] [click] (click)>
+                      <ng-if fn="$le">
+                        <div class="spnd-casinouniqueLay">
+                          <span class="stats-text">
+                            Suspended
+                          </span>
+                        </div>
+                      </ng-if>
+                      <a class="d-flex flex-column p-0" style="text-decoration: none; color: black">
+                        {{ }}
+                        <span class="d-flex justify-content-center">
+                          {{ }}
+                        </span>
+                      </a>
+                    </td>
+                  </tr>
+                  <ng-if fn="Ule">
+                    <tr>
+                      <td colspan="3" id="betslip">
+                        <app-betslips [item] [newItemEvent] [newItemEventPlaceBet] [valueEventPlaceBet] (newItemEvent) (newItemEventPlaceBet) (valueEventPlaceBet)>
+                        </app-betslips>
+                      </td>
+                    </tr>
+                  </ng-if>
+                </ng-container>
+              </ng-for>
+            </table>
+          </div>
+        </div>
+      </div>
+    </ng-if>
+    <app-results></app-results>
+  </div>
+</div>
+
