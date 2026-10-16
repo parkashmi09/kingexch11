@@ -62,6 +62,7 @@ import './kx/css/app-bottom-nav.css';
 import './kx/css/app-market-details.css';
 import './kx/css/app-market-tabs.css';
 import './kx/css/app-betslip.css';
+import './kx/css/app-inplay-horse-games.css';
 import './kx/css/owl-carousel-o.css';
 import './kx/css/app-old-casino.css';
 import './kx/css/app-footer-desktop.css';

@@ -4,6 +4,7 @@ import { ng, host, KX } from '../ng';
 import { openAgeModal } from '../ageModal';
 import useSportData from '../../hooks/useSportData';
 import OldCasino from '../dashboard/OldCasino';
+import { raceRoute } from '../racing';
 
 const C = ng('kip');
 
@@ -45,7 +46,7 @@ function price(game, sno, side, missing) {
 function toEvents(sport, data) {
   if (sport.racing) {
     return data.flatMap((country) => (country.children || []).flatMap((venue) => (venue.children || []).map((r) => ({
-      id: r.gmid, name: venue.ename, inPlay: !!r.iplay, start: startDate(r.stime), route: `/gamedetails/${sport.sid}/${r.gmid}`, odds: ['0', '0', '0', '0', '0', '0'],
+      id: r.gmid, name: venue.ename, inPlay: !!r.iplay, start: startDate(r.stime), route: raceRoute(sport.sid, r.gmid), odds: ['0', '0', '0', '0', '0', '0'],
     }))));
   }
   return data.map((g) => ({

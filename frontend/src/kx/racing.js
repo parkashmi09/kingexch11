@@ -6,7 +6,12 @@ export const RACING = {
   4339: { sid: 65, title: 'Greyhound Racing Schedule' },
 };
 
-export const COUNTRY = { AU: 'AUS', FR: 'FRA', ZA: 'RSA', IE: 'IRE', US: 'USA', NZ: 'NZL', AE: 'UAE' };
+// Our feed's racing sid → the reference's sport id, and a race's page at the
+// reference's own address.
+export const REF_SPORT = { 10: 7, 65: 4339 };
+export const raceRoute = (sid, gmid) => `/horse-racing/inplayHorseGame/${gmid}/${REF_SPORT[sid]}`;
+
+export const COUNTRY ={ AU: 'AUS', FR: 'FRA', ZA: 'RSA', IE: 'IRE', US: 'USA', NZ: 'NZL', AE: 'UAE' };
 export const countryName = (code) => COUNTRY[code] || code;
 
 // "10/14/2026 5:35:00 PM" — the exchange's clock, read as local time.
@@ -34,7 +39,7 @@ export function racingModel(t1, sid) {
           name: venue.ename,
           inPlay: !!r.iplay,
           start: startDate(r.stime),
-          route: `/gamedetails/${sid}/${r.gmid}`,
+          route: raceRoute(sid, r.gmid),
         })),
       });
     }

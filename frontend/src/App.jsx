@@ -28,7 +28,8 @@ import ProfitLoss from './kx/account/ProfitLoss';
 import PasswordHistory from './kx/account/PasswordHistory';
 import ActivityLog from './kx/account/ActivityLog';
 import LotteryDetails from './kx/lottery/LotteryDetails';
-import CbRaceDetails from './cb/pages/RaceDetails';
+import InplayHorseGames from './kx/racing/InplayHorseGames';
+import { raceRoute } from './kx/racing';
 import CbUnsettledBet from './cb/report/UnsettledBet';
 import CbSetStake from './cb/report/SetStake';
 import CbCasinoLobby from './cb/pages/CasinoLobby';
@@ -74,15 +75,12 @@ function CasinoGameEntranceGlide() {
 
 const RACING_SIDS = ['10', '65'];
 
-// Match details, split by what the sport's card actually looks like.
-//
-// Racing gets its own view — cloth numbers, silks and the form panel, over one
-// win market — because a race card shares nothing with a match beyond the
-// price ladder. Everything else goes to the event view the CPL board uses:
-// ladder markets as cards, the fancy family as its own grouped list.
+// Match details. A race lives at the reference's own race address
+// (/horse-racing/inplayHorseGame/:eventId/:sportId); links still built the
+// generic way are sent there.
 function DetailRoute() {
-  const { sid } = useParams();
-  if (RACING_SIDS.includes(String(sid))) return <CbLayout><CbRaceDetails /></CbLayout>;
+  const { sid, gmid } = useParams();
+  if (RACING_SIDS.includes(String(sid))) return <Navigate to={raceRoute(Number(sid), gmid)} replace />;
   return <CbLayout kx><MarketDetails /></CbLayout>;
 }
 
@@ -456,6 +454,7 @@ function App() {
       <Route path="/sports" element={<CbLayout kx><Sports /></CbLayout>} />
       <Route path="/account" element={<CbLayout kx><Account /></CbLayout>} />
       <Route path="/livecasino" element={<CbLayout kx><LiveCasino /></CbLayout>} />
+      <Route path="/horse-racing/inplayHorseGame/:eventId/:sportId" element={<CbLayout kx><InplayHorseGames /></CbLayout>} />
       <Route path="/race/:sportId" element={<RaceRedirect />} />
       {/* The My Account menu, at the reference's own paths (it requires a
           login there); the app's older addresses for them redirect. */}
