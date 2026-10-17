@@ -20,8 +20,7 @@ const PinIcon = (B) => (
 /**
  * app-bottom-navigation of the casino site: the phone's bottom bar — Home,
  * In-Play, Sports, Multi Markets, Account. Each entry leaves the casino for
- * that page of the exchange (the reference's goToMainSite); Multi Markets'
- * /multimarket page doesn't exist here, so it stays put. `routerlinkactive` is a plain attribute in
+ * that page of the exchange (the reference's goToMainSite). `routerlinkactive` is a plain attribute in
  * the reference, so no entry is ever highlighted.
  */
 export default function BottomNav({ attrs }) {
@@ -58,7 +57,7 @@ export default function BottomNav({ attrs }) {
             </a>
           </li>
           <li {...N}>
-            <a {...N} routerlinkactive="active" className="ui-link">
+            <a {...N} routerlinkactive="active" className="ui-link" onClick={go('/multimarket')}>
               <div {...N} className="icon-pin">{PinIcon(N)}</div>
               {' Multi Markets '}
             </a>

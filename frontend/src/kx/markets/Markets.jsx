@@ -1,5 +1,4 @@
 import { useNavigate, useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import { ng, host, KX } from '../ng';
 import { kx } from '../assets';
 import useSportData from '../../hooks/useSportData';
@@ -7,6 +6,7 @@ import OwlCarousel from '../dashboard/OwlCarousel';
 import FooterDesktop from '../dashboard/FooterDesktop';
 import { matchTime } from '../dashboard/Dashboard';
 import { PinIcon } from '../dashboard/icons';
+import { useMultiMarketPin } from '../multiMarket';
 import { RACING } from '../racing';
 import HorseRacing from '../racing/HorseRacing';
 import Lottery from '../lottery/Lottery';
@@ -39,7 +39,6 @@ function price(game, sno, side) {
 export default function Markets() {
   const navigate = useNavigate();
   const { sportId } = useParams();
-  const isAuth = useSelector((s) => s.user.isAuthenticated);
   // Racing (the reference's 7 / 4339) shows its schedule instead of the table.
   const racing = RACING[sportId];
   // Lottery (66104) shows its markets in place of the highlights.
@@ -50,7 +49,7 @@ export default function Markets() {
   const events = [...data].sort((a, b) => startsAt(a.stime) - startsAt(b.stime));
 
   const open = (g) => navigate(`/gamedetails/${sid}/${g.gmid}`, { state: { game: g } });
-  const pin = () => !isAuth && navigate('/login');
+  const pins = useMultiMarketPin();
 
   return (
     <app-markets {...host('kmk')} {...KX}>
@@ -108,7 +107,7 @@ export default function Markets() {
                                 <span {...C} className="lay">{price(g, 3, 'lay')} </span>
                               </td>
                               <td {...C} className="pe-1">
-                                <a {...C} id="multiMarketPin" title="Add to Multi Markets" style={{ cursor: 'pointer' }} className={`add-pin ${g.gmid}`} onClick={pin}>
+                                <a {...C} id="multiMarketPin" title="Add to Multi Markets" style={{ cursor: 'pointer' }} className={`add-pin ${g.gmid}${pins.on(g.gmid) ? ' pin-on' : ''}`} onClick={() => pins.toggle(g.gmid, sid)}>
                                   <PinIcon C={C} />
                                 </a>
                               </td>

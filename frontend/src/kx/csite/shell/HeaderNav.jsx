@@ -40,7 +40,6 @@ const useActiveItem = () => useSyncExternalStore((fn) => (subs.add(fn), () => su
  * Multi Markets, the sports, Vimaan and Setting. Each leaves for the matching
  * page of the exchange (the reference's goToMainSite reloads the main site, so
  * its header lands back on Home); Vimaan opens the Vimaan table on this site.
- * The main site has no Multi Markets page, so that entry stays put.
  */
 export default function HeaderNav({ attrs }) {
   const navigate = useNavigate();
@@ -78,7 +77,7 @@ export default function HeaderNav({ attrs }) {
               </a>
             </li>
             <li {...N} className="ver-menu">
-              <a {...N} className="navbar-item">
+              <a {...N} className="navbar-item" onClick={() => toMainSite('/multimarket')}>
                 Multi Markets
               </a>
             </li>

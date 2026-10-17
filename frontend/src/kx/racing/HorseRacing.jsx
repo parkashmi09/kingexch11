@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import { ng, host } from '../ng';
 import { kx } from '../assets';
 import { isDesktop } from '../exchange';
@@ -9,6 +8,7 @@ import useSportData from '../../hooks/useSportData';
 import Loader from '../Loader';
 import OwlCarousel from '../dashboard/OwlCarousel';
 import { PinIcon } from '../dashboard/icons';
+import { useMultiMarketPin } from '../multiMarket';
 
 const H = ng('khr');
 
@@ -29,7 +29,6 @@ const transparent = (el) => el?.style.setProperty('background', 'transparent', '
  */
 export default function HorseRacing({ C, sportId }) {
   const navigate = useNavigate();
-  const isAuth = useSelector((s) => s.user.isAuthenticated);
   const { sid, title } = RACING[sportId];
   const { data, loading } = useSportData(sid);
   const { tournaments, events } = racingModel(data, sid);
@@ -37,7 +36,7 @@ export default function HorseRacing({ C, sportId }) {
 
   const all = events.flatMap((e) => e.races).sort((a, b) => (a.start?.getTime() ?? 0) - (b.start?.getTime() ?? 0));
   const meetings = events.filter((e) => e.tournamentId === country);
-  const pin = () => !isAuth && navigate('/login');
+  const pins = useMultiMarketPin();
   const go = (e, route) => { e.preventDefault(); navigate(route); };
 
   return (
@@ -131,7 +130,7 @@ export default function HorseRacing({ C, sportId }) {
                                 {!r.inPlay && <p {...H} className="match-time hidedate"> {fullTime(r.start)} </p>}
                               </td>
                               <td {...H} className="ps-0" style={{ width: 25 }}>
-                                <a {...H} id="multiMarketPin" title="Add to Multi Markets" style={{ cursor: 'pointer' }} className={`add-pin ${r.id}`} onClick={pin}>
+                                <a {...H} id="multiMarketPin" title="Add to Multi Markets" style={{ cursor: 'pointer' }} className={`add-pin ${r.id}${pins.on(r.id) ? ' pin-on' : ''}`} onClick={() => pins.toggle(r.id, sportId)}>
                                   <PinIcon C={H} />
                                 </a>
                               </td>

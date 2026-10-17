@@ -33,6 +33,7 @@ import CasinoLayout from './kx/csite/CasinoLayout';
 import { GAMES, gamePath } from './kx/csite/games';
 import { PAGES } from './kx/csite/games/index';
 import InplayHorseGames from './kx/racing/InplayHorseGames';
+import MultiMarket from './kx/multimarket/MultiMarket';
 import { raceRoute } from './kx/racing';
 import CbUnsettledBet from './cb/report/UnsettledBet';
 import CbSetStake from './cb/report/SetStake';
@@ -471,6 +472,7 @@ function App() {
       <Route path="/profit-loss" element={<Authed><ProfitLoss /></Authed>} />
       <Route path="/password-history" element={<Authed><PasswordHistory /></Authed>} />
       <Route path="/activity-log" element={<Authed><ActivityLog /></Authed>} />
+      <Route path="/multimarket" element={<Authed><MultiMarket /></Authed>} />
       {[['/accountstatement', '/account-statement'], ['/report/accountstatement', '/account-statement'], ['/bethistory', '/bet-history'],
         ['/profitloss', '/profit-loss'], ['/changepassword', '/myprofile'], ['/report/activity', '/activity-log']].map(([from, to]) => (
         <Route key={from} path={from} element={<Navigate to={to} replace />} />

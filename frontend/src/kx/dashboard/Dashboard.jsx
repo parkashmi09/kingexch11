@@ -17,6 +17,7 @@ import useListedSports from '../listedSports';
 import FooterDesktop from './FooterDesktop';
 import SearchModal from './SearchModal';
 import { SPORT_ICONS, PinIcon, SearchIcon } from './icons';
+import { useMultiMarketPin } from '../multiMarket';
 
 const C = ng('kd');
 
@@ -45,7 +46,7 @@ export function matchTime(stime) {
   return `${m[2].padStart(2, '0')}-${m[1].padStart(2, '0')}-${m[3]} ${m[6] ? h : +m[4]}:${m[5]}`;
 }
 
-function EventRow({ ev, onOpen, onPin }) {
+function EventRow({ ev, onOpen, pinned, onPin }) {
   const long = ev.teams.length > 30;
   const price = (cell, empty) => cell.odds || empty;
   return (
@@ -78,7 +79,7 @@ function EventRow({ ev, onOpen, onPin }) {
         <span {...C} className="lay">{price(ev.o2.lay, '0')} </span>
       </td>
       <td {...C} style={{ width: 25 }}>
-        <a {...C} id="multiMarketPin" title="Add to Multi Markets" style={{ cursor: 'pointer' }} className={`add-pin ${ev.id}`} onClick={onPin}>
+        <a {...C} id="multiMarketPin" title="Add to Multi Markets" style={{ cursor: 'pointer' }} className={`add-pin ${ev.id}${pinned ? ' pin-on' : ''}`} onClick={onPin}>
           <PinIcon C={C} />
         </a>
       </td>
@@ -113,7 +114,7 @@ export default function Dashboard() {
     else if (item.racing) { setRacing(item.racing); setExchange('11'); }
     else if (item.exch) setExchange(item.exch);
   };
-  const pin = () => !isAuth && navigate('/login');
+  const pins = useMultiMarketPin();
 
   return (
     <app-dashboard {...host('kd')} {...KX}>
@@ -188,7 +189,7 @@ export default function Dashboard() {
                             {events.length ? (
                               <tbody {...C} className="tbody-custom">
                                 {events.map((ev) => (
-                                  <EventRow key={ev.id} ev={ev} onOpen={() => navigate(ev.href, { state: { game: ev._raw } })} onPin={pin} />
+                                  <EventRow key={ev.id} ev={ev} onOpen={() => navigate(ev.href, { state: { game: ev._raw } })} pinned={pins.on(ev.id)} onPin={() => pins.toggle(ev.id, sid)} />
                                 ))}
                               </tbody>
                             ) : !loading && (

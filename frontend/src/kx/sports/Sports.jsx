@@ -92,7 +92,7 @@ export default function Sports() {
             </a>
           </li>
           <li {...S}>
-            <a {...S} onClick={isAuth ? undefined : openAgeModal}>
+            <a {...S} href={isAuth ? '/multimarket' : undefined} onClick={(e) => { e.preventDefault(); if (isAuth) navigate('/multimarket'); else openAgeModal(); }}>
               {MultiMarketsIcon(S)}
               <span {...S} className="bold">Multi Markets</span>
             </a>

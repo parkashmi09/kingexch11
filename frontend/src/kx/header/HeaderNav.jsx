@@ -80,7 +80,7 @@ export default function HeaderNav({ onAgeConfirm }) {
             </li>
             {isAuth ? (
               <li {...C} className="ver-menu">
-                <a {...C} className="navbar-item">Multi Markets</a>
+                <a {...C} href="/multimarket" className={`navbar-item${active === 'Multi Markets' ? ' active' : ''}`} onClick={(e) => { e.preventDefault(); go('Multi Markets', '/multimarket'); }}>Multi Markets</a>
               </li>
             ) : (
               <li {...C} className="ver-menu">

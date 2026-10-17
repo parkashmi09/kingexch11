@@ -6,8 +6,7 @@ import { ACCOUNT_MENU, useAccountActions } from '../header/accountMenu';
 const A = ng('kac');
 
 // The reference's list: the My Account menu with Multi Markets second.
-// `route` is this app's page for the entry; null where none exists yet.
-const ITEMS = [ACCOUNT_MENU[0], { label: 'Multi Markets', route: null }, ...ACCOUNT_MENU.slice(1)];
+const ITEMS = [ACCOUNT_MENU[0], { label: 'Multi Markets', route: '/multimarket' }, ...ACCOUNT_MENU.slice(1)];
 
 /** app-account — the phone's account page (the bottom bar's Account, logged in). */
 export default function Account() {
